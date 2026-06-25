@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Creative Portfolio Portfolio</title>
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/space.css">
+  <link rel="stylesheet" href="css/panel.css">
+</head>
+<body>
+
+  <nav class="filter-menu">
+    <button class="filter-btn active" data-filter="all">All</button>
+    <button class="filter-btn" data-filter="multimedia">Multimedia</button>
+    <button class="filter-btn" data-filter="tech">Tech</button>
+    <button class="filter-btn" data-filter="achievement">Achievements</button>
+  </nav>
+
+  <main class="viewport3d" id="viewport">
+    <div class="space-container" id="space-container">
+      </div>
+  </main>
+
+  <aside id="detail-panel" class="detail-panel">
+    <button class="close-btn" id="close-panel" aria-label="Close panel">&times;</button>
+    <div class="panel-content">
+      <h2 id="panel-title">Project Title</h2>
+      <div id="panel-body">Project description will inject here.</div>
+    </div>
+  </aside>
+
+  <script src="js/data.js" defer></script>
+  <script src="js/panel.js"></script>
+  <script src="js/space.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+/* The wrapper that covers the full screen */
+.viewport3d {
+  width: 100vw;
+  height: 100vh;
+  perspective: 800px; /* Dictates the camera depth */
+  overflow: hidden;
+  background: #111;
+  position: relative;
+}
+
+/* The master container holding all floating pieces */
+.space-container {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  transform-style: preserve-3d;
+  transition: transform 0.5s ease-out; /* Smooth movement when filtering */
+}
+
+/* Individual floating elements */
+.floating-item {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform-style: preserve-3d;
+  cursor: pointer;
+  transition: opacity 0.3s, filter 0.3s;
+}
+
+/* Dim items that are filtered out */
+.floating-item.dimmed {
+  opacity: 0.15;
+  filter: blur(4px);
+  pointer-events: none;
+}
+
+/* Container holding the floating text art */
+.ascii-flyer {
+  position: fixed;
+  pointer-events: none;
+  color: rgba(255, 255, 255, 0.4); /* Direct color control of the silhouette mask */
+  z-index: 10;
+  user-select: none;
+  will-change: transform;
+  /* Adds a premium retro glow effect around the edges */
+  filter: drop-shadow(0 0 12px var(--accent-color));
+}
