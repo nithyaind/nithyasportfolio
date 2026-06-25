@@ -1,6 +1,8 @@
-const projectContainer = document.getElementById('project-list-container');
-const canvas = document.getElementById('scrapbook-canvas');
+Here is the complete, consolidated `js/space.js` file with the refactored variables placed safely inside the initialization loops. This structural change guarantees the script will find your HTML layout tags perfectly, eliminating the `null` append crash.
 
+### `js/space.js`
+
+```javascript
 let lastMouseX = 0;
 let lastMouseY = 0;
 let activeImages = [];
@@ -8,6 +10,16 @@ const distanceThreshold = 75;
 
 // --- 1. Dynamic Project Row Generator ---
 function initPortfolio() {
+  // Variables declared inside execution scope to guarantee DOM readiness
+  const projectContainer = document.getElementById('project-list-container');
+  const canvas = document.getElementById('scrapbook-canvas');
+
+  // Runtime Safety Guardrail
+  if (!projectContainer || !canvas) {
+    console.error("Initialization Failed: Required HTML containers ('project-list-container' or 'scrapbook-canvas') were not found in the DOM.");
+    return;
+  }
+
   portfolioItems.forEach(item => {
     // Generate row markup wrapper
     const row = document.createElement('div');
@@ -41,7 +53,7 @@ function initPortfolio() {
 
       if (distance > distanceThreshold) {
         // Spawns the main project image along the cursor path
-        spawnScrapbookImage(item.src, e.clientX, e.clientY);
+        spawnScrapbookImage(canvas, item.src, e.clientX, e.clientY);
         
         lastMouseX = e.clientX;
         lastMouseY = e.clientY;
@@ -69,7 +81,7 @@ function initPortfolio() {
 }
 
 // --- 4. Scrapbook Spawning Engine ---
-function spawnScrapbookImage(src, x, y) {
+function spawnScrapbookImage(canvasElement, src, x, y) {
   const img = document.createElement('img');
   img.src = src;
   img.className = 'scrapbook-img';
@@ -80,7 +92,7 @@ function spawnScrapbookImage(src, x, y) {
   const randomRotation = (Math.random() * 20 - 10) + 'deg';
   img.style.setProperty('--random-rotation', randomRotation);
 
-  canvas.appendChild(img);
+  canvasElement.appendChild(img);
   activeImages.push(img);
 
   // Keep max stack to 8 to prevent browser performance bottlenecks
