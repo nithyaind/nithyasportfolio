@@ -1,112 +1,149 @@
-let lastMouseX = 0;
-let lastMouseY = 0;
-let activeImages = [];
-const distanceThreshold = 75; 
+let targetRotationX = 0, targetRotationY = 0;
+let currentRotationX = 0, currentRotationY = 0;
 
-// --- 1. Dynamic Project Row Generator ---
+let targetPanX = 0, targetPanY = 0;
+let currentPanX = 0, currentPanY = 0;
+
+let targetZoom = 0; 
+let currentZoom = 0;
+
+let isDragging = false;
+let previousMouseX = 0, previousMouseY = 0;
+
+// --- 1. Dynamic Element Renderer ---
 function initPortfolio() {
-  // Variables declared inside execution scope to guarantee DOM readiness
-  const projectContainer = document.getElementById('project-list-container');
-  const canvas = document.getElementById('scrapbook-canvas');
-
-  // Runtime Safety Guardrail
-  if (!projectContainer || !canvas) {
-    console.error("Initialization Failed: Required HTML containers ('project-list-container' or 'scrapbook-canvas') were not found in the DOM.");
-    return;
-  }
+  const spaceContainer = document.getElementById('space-container');
+  if (!spaceContainer) return;
 
   portfolioItems.forEach(item => {
-    // Generate row markup wrapper
     const row = document.createElement('div');
     row.className = 'project-item';
     row.dataset.category = item.category;
     
-    // Flag navigational portals distinctly
     if (item.id === "project-archive" || item.id === "about-me") {
       row.classList.add('navigation-node');
     }
 
-    // Build internal layout components
+    // Set variable transformation variables safely
+    row.style.setProperty('--tx', `${item.x}vw`);
+    row.style.setProperty('--ty', `${item.y}vh`);
+    row.style.setProperty('--tz', `${item.z}px`);
+    row.style.transform = `translate3d(${item.x}vw, ${item.y}vh, ${item.z}px)`;
+
+    // Asset image node injection
+    const img = document.createElement('img');
+    img.src = item.src;
+    img.alt = item.title;
+    
+    // Title label node injection
     const title = document.createElement('h2');
     title.className = 'project-title';
     title.innerText = item.title;
 
-    const meta = document.createElement('span');
-    meta.className = 'project-category';
-    
-    // Assign clean text tags
-    const labelPrefix = (item.id === "project-archive" || item.id === "about-me") ? "Index" : item.category;
-    meta.innerText = `${labelPrefix} // ${item.id.toUpperCase()}`;
-
+    row.appendChild(img);
     row.appendChild(title);
-    row.appendChild(meta);
-    projectContainer.appendChild(row);
+    spaceContainer.appendChild(row);
 
-    // --- 2. Interactive Scrapbook Loop (Using item.src) ---
-    row.addEventListener('mousemove', (e) => {
-      const distance = Math.hypot(e.clientX - lastMouseX, e.clientY - lastMouseY);
-
-      if (distance > distanceThreshold) {
-        // Spawns the main project image along the cursor path
-        spawnScrapbookImage(canvas, item.src, e.clientX, e.clientY);
-        
-        lastMouseX = e.clientX;
-        lastMouseY = e.clientY;
-      }
-    });
-
-    row.addEventListener('mouseleave', () => {
-      clearScrapbookCanvas();
-    });
-
-    // --- 3. Dynamic Router Configuration ---
-    row.addEventListener('click', () => {
+    // Direct redirection execution setup
+    row.addEventListener('click', (e) => {
+      e.stopPropagation();
       document.body.style.opacity = 0;
-      
       setTimeout(() => {
-        if (item.actionType === "page" || item.id === "project-archive" || item.id === "about-me") {
-          window.location.href = item.redirectUrl;
-        } else {
-          // Fallback if you add panel templates later
-          window.location.href = item.redirectUrl || '#';
-        }
+        window.location.href = item.redirectUrl;
       }, 400);
     });
   });
+
+  // Start smooth LERP engine rendering frame loops
+  animate();
 }
 
-// --- 4. Scrapbook Spawning Engine ---
-function spawnScrapbookImage(canvasElement, src, x, y) {
-  const img = document.createElement('img');
-  img.src = src;
-  img.className = 'scrapbook-img';
-  img.style.left = `${x}px`;
-  img.style.top = `${y}px`;
+// --- 2. Zoom Tracking Matrix (Mouse Wheel Scroll) ---
+window.addEventListener('wheel', (e) => {
+  targetZoom += e.deltaY * -0.85;
+  // Boundary guardrails to lock flight lines safely
+  targetZoom = Math.min(Math.max(targetZoom, -1800), 600); 
+}, { passive: true });
 
-  // Randomize rotation to create that beautiful hand-tossed look
-  const randomRotation = (Math.random() * 20 - 10) + 'deg';
-  img.style.setProperty('--random-rotation', randomRotation);
+// --- 3. Drag, Tilt & Pan Camera Controls ---
+function startDrag(clientX, clientY) {
+  isDragging = true;
+  previousMouseX = clientX;
+  previousMouseY = clientY;
+}
 
-  canvasElement.appendChild(img);
-  activeImages.push(img);
+function updateDrag(clientX, clientY) {
+  if (!isDragging) return;
+  const deltaX = clientX - previousMouseX;
+  const deltaY = clientY - previousMouseY;
 
-  // Keep max stack to 8 to prevent browser performance bottlenecks
-  if (activeImages.length > 8) {
-    const oldestImg = activeImages.shift();
-    oldestImg.classList.add('fade-out');
-    setTimeout(() => oldestImg.remove(), 400);
+  targetPanX += deltaX * 0.6;
+  targetPanY += deltaY * 0.6;
+
+  previousMouseX = clientX;
+  previousMouseY = clientY;
+}
+
+window.addEventListener('mousedown', (e) => {
+  if(e.target.closest('.filter-menu')) return;
+  startDrag(e.clientX, e.clientY);
+});
+
+window.addEventListener('mousemove', (e) => {
+  if (isDragging) {
+    updateDrag(e.clientX, e.clientY);
+  } else {
+    // Soft subtle vector orientation tracking tilt when passive
+    targetRotationX = (e.clientX / window.innerWidth - 0.5) * 12;
+    targetRotationY = (e.clientY / window.innerHeight - 0.5) * -12;
   }
+});
+
+window.addEventListener('mouseup', () => isDragging = false);
+
+// Mobile Touch Architecture Wireups
+let initialTouchDist = 0;
+window.addEventListener('touchstart', (e) => {
+  if (e.touches.length === 1) {
+    startDrag(e.touches[0].clientX, e.touches[0].clientY);
+  } else if (e.touches.length === 2) {
+    initialTouchDist = Math.hypot(e.touches[0].clientX - e.touches[1].clientX, e.touches[0].clientY - e.touches[1].clientY);
+  }
+}, { passive: true });
+
+window.addEventListener('touchmove', (e) => {
+  if (e.touches.length === 1) {
+    updateDrag(e.touches[0].clientX, e.touches[0].clientY);
+  } else if (e.touches.length === 2 && initialTouchDist > 0) {
+    const currentDist = Math.hypot(e.touches[0].clientX - e.touches[1].clientX, e.touches[0].clientY - e.touches[1].clientY);
+    targetZoom += (currentDist - initialTouchDist) * 2.5;
+    initialTouchDist = currentDist;
+  }
+}, { passive: true });
+
+window.addEventListener('touchend', () => isDragging = false);
+
+// --- 4. Animation Matrix Engine ---
+function animate() {
+  const spaceContainer = document.getElementById('space-container');
+  
+  currentRotationX += (targetRotationX - currentRotationX) * 0.08;
+  currentRotationY += (targetRotationY - currentRotationY) * 0.08;
+  currentPanX += (targetPanX - currentPanX) * 0.08;
+  currentPanY += (targetPanY - currentPanY) * 0.08;
+  currentZoom += (targetZoom - currentZoom) * 0.08;
+
+  if (spaceContainer) {
+    spaceContainer.style.transform = `
+      translate3d(${currentPanX}px, ${currentPanY}px, ${currentZoom}px) 
+      rotateX(${currentRotationY}deg) 
+      rotateY(${currentRotationX}deg)
+    `;
+  }
+  requestAnimationFrame(animate);
 }
 
-function clearScrapbookCanvas() {
-  activeImages.forEach(img => {
-    img.classList.add('fade-out');
-    setTimeout(() => img.remove(), 400);
-  });
-  activeImages = [];
-}
-
-// --- 5. Categorical Filtering Framework ---
+// --- 5. Filtering Matrix System ---
 document.querySelectorAll('.filter-btn').forEach(btn => {
   btn.addEventListener('click', (e) => {
     e.stopPropagation();
@@ -128,22 +165,20 @@ document.querySelectorAll('.filter-btn').forEach(btn => {
   });
 });
 
-// --- 6. Sparkle Particle Cursor Engine ---
+// --- 6. Particle Sparkle Trail Engine ---
 window.addEventListener('mousemove', (e) => {
   if (Math.random() > 0.35) {
     const sparkle = document.createElement('div');
     sparkle.className = 'sparkle';
     sparkle.style.left = `${e.clientX}px`;
     sparkle.style.top = `${e.clientY}px`;
-    
     const size = Math.random() * 5 + 3;
     sparkle.style.width = `${size}px`;
     sparkle.style.height = `${size}px`;
-
     document.body.appendChild(sparkle);
     setTimeout(() => sparkle.remove(), 600);
   }
 });
 
-// Initialize Ecosystem
+// Launch initialization lifecycle
 initPortfolio();

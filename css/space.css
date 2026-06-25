@@ -1,47 +1,74 @@
-/* The wrapper that covers the full screen */
+/* Full screen fixed 3D viewport */
 .viewport3d {
   width: 100vw;
   height: 100vh;
-  perspective: 800px; /* Dictates the camera depth */
+  perspective: 1000px;
+  perspective-origin: 50% 50%;
   overflow: hidden;
-  background: #111;
   position: relative;
 }
 
-/* The master container holding all floating pieces */
+/* Container hosting all overlapping projects */
 .space-container {
   width: 100%;
   height: 100%;
   position: absolute;
   transform-style: preserve-3d;
-  transition: transform 0.5s ease-out; /* Smooth movement when filtering */
+  will-change: transform;
 }
 
-/* Individual floating elements */
-.floating-item {
+/* Individual floating items */
+.project-item {
   position: absolute;
   left: 50%;
   top: 50%;
   transform-style: preserve-3d;
   cursor: pointer;
-  transition: opacity 0.3s, filter 0.3s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: opacity 0.4s ease, filter 0.4s ease, transform 0.2s ease;
 }
 
-/* Dim items that are filtered out */
-.floating-item.dimmed {
-  opacity: 0.15;
-  filter: blur(4px);
-  pointer-events: none;
-}
-
-/* Container holding the floating text art */
-.ascii-flyer {
-  position: fixed;
-  pointer-events: none;
-  color: rgba(255, 255, 255, 0.4); /* Direct color control of the silhouette mask */
-  z-index: 10;
+.project-item img {
+  width: clamp(140px, 18vw, 260px);
+  height: auto;
+  object-fit: cover;
+  border-radius: 4px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.6);
   user-select: none;
-  will-change: transform;
-  /* Adds a premium retro glow effect around the edges */
-  filter: drop-shadow(0 0 12px var(--accent-color));
+  -webkit-user-drag: none;
+}
+
+/* Card titles text styling layered below the image asset */
+.project-title {
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-top: 12px;
+  text-align: center;
+  background: rgba(5, 5, 6, 0.75);
+  padding: 4px 8px;
+  border-radius: 4px;
+  backdrop-filter: blur(4px);
+  white-space: nowrap;
+}
+
+/* Hover popup offset scaling */
+.project-item:hover {
+  transform: translate3d(var(--tx), var(--ty), calc(var(--tz) + 40px)) !important;
+}
+
+/* Navigational portal styling overrides */
+.navigation-node .project-title {
+  color: var(--accent-color);
+  border: 1px dashed rgba(255, 62, 62, 0.4);
+}
+
+/* Filter Dimming */
+.project-item.dimmed {
+  opacity: 0.05;
+  filter: blur(8px) grayscale(100%);
+  pointer-events: none;
 }
