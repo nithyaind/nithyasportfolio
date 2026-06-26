@@ -4,7 +4,7 @@ const portfolioItems = [
     id: "about-me",
     title: "All About Me // Shades of Blue",
     category: "info",
-    src: "assets/images/kitchen-lab.jpg", 
+    src: "assets/images/.jpg", 
     redirectUrl: "/about.html",
     description: "Discover the layers of data, storytelling, and code framing my creative background."
   },
@@ -14,7 +14,7 @@ const portfolioItems = [
     id: "tonys-kitchen",
     title: "Tony's Kitchen Lab",
     category: "multimedia",
-    src: "assets/images/kitchen-lab.jpg",
+    src: "assets/images/tonys-lab.gif",
     redirectUrl: "/projects/kitchen-lab.html",
     description: "An immersive, responsive storytelling experience combining text, film, and interactive elements."
   },
@@ -22,7 +22,7 @@ const portfolioItems = [
     id: "sso-fidelity",
     title: "SSO Security Module",
     category: "tech",
-    src: "assets/images/sso-security.png",
+    src: "assets/images/fidelity.png",
     redirectUrl: "/projects/sso-security.html",
     description: "Architected scalable authentication patterns within a customer protection center of excellence."
   },
@@ -51,10 +51,10 @@ const portfolioItems = [
     description: "Platform infrastructure hosting community digital literacy development summits."
   },
   {
-    id: "eye-tracking",
-    title: "Eye-Tracking Simulation",
+    id: "since-2020",
+    title: "Since 20/20",
     category: "multimedia",
-    src: "assets/images/kitchen-lab.jpg", 
+    src: "assets/images/since-2020.jpg", 
     redirectUrl: "/projects/eye-tracking.html",
     description: "Interactive web experience using WebGazer.js to trace and simulate cognitive focus patterns."
   },
@@ -72,7 +72,7 @@ const portfolioItems = [
   // --- PORTAL 9: THE CREATIVE WRITING & LOG PORTALS ---
   {
     id: "blog-terminal",
-    title: "Food For Thought // Blog",
+    title: "Nithya's Noteworthy Notes",
     category: "writing",
     src: "assets/images/photo-journalism.png",
     redirectUrl: "/blog/index.html",
