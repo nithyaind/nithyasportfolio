@@ -7,19 +7,19 @@ const portfolioItems = [
     title: "Tony's Kitchen Lab",
     category: "multimedia",
     type: "image",
-    src: "assets/images/kitchen-lab.jpg",
+    src: "assets/img/tonys-lab.gif",
     // Foreground, left-aligned, close-up depth layer
     x: -28, y: -15, z: -150,
     actionType: "page",
-    redirectUrl: "/projects/kitchen-lab.html",
+    redirectUrl: "https://food-for-thought-six.vercel.app/",
     description: "<p>An immersive, responsive storytelling experience combining text, film, and interactive game elements.</p><p>Built entirely with vanilla architecture and hosted on Vercel.</p>"
   },
   {
     id: "sso-fidelity",
-    title: "SSO Customer Protection Module",
+    title: "Security and SWE Internship @ Fidelity Investments",
     category: "tech",
     type: "image",
-    src: "assets/images/sso-security.png",
+    src: "assets/img/fidelity.png",
     // Mid-ground, deep left side, mid-depth layer
     x: -35, y: 5, z: -250,
     actionType: "panel",
@@ -52,23 +52,23 @@ const portfolioItems = [
     title: "ConvergeCon 2026",
     category: "tech",
     type: "image",
-    src: "assets/images/photo-journalism.png",
+    src: "assets/img/photo-journalism.png",
     // Background tunnel layer, left-center position
     x: -12, y: -22, z: -380,
     actionType: "panel",
     description: "<p>Assisted in hosting and developing platform modules for ConvergeCon to raise technological and media literacy across the community.</p>"
   },
   {
-    id: "eye-tracking",
-    title: "Eye-Tracking Simulation",
+    id: "since-2020",
+    title: "Since 20/20",
     category: "multimedia",
     type: "image",
-    src: "assets/images/kitchen-lab.jpg", 
+    src: "assets/img/since-2020.jpg", 
     // Mid-ground, central-right position, mid-depth layer
     x: 12, y: 10, z: -200,
     actionType: "page",
-    redirectUrl: "/projects/eye-tracking.html",
-    description: "<p>An interactive web game utilizing WebGazer.js and Cloudinary assets to simulate cognitive focus patterns.</p>"
+    redirectUrl: "https://light-drab-psi.vercel.app/",
+    description: "<p></p>"
   },
 
   // ==========================================
