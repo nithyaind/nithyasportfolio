@@ -5,7 +5,7 @@ const portfolioItems = [
     title: "All About Me // Shades of Blue",
     category: "info",
     src: "assets/images/.jpg", 
-    redirectUrl: "/aboutme.html",
+    redirectUrl: "aboutme.html",
     description: "Discover the layers of data, storytelling, and code framing my creative background."
   },
 
@@ -15,7 +15,7 @@ const portfolioItems = [
     title: "Tony's Kitchen Lab",
     category: "multimedia",
     src: "assets/images/tonys-lab.gif",
-    redirectUrl: "/projects/kitchen-lab.html",
+    redirectUrl: "https://food-for-thought-six.vercel.app/",
     description: "An immersive, responsive storytelling experience combining text, film, and interactive elements."
   },
   {
@@ -55,7 +55,7 @@ const portfolioItems = [
     title: "Since 20/20",
     category: "multimedia",
     src: "assets/images/since-2020.jpg", 
-    redirectUrl: "/projects/eye-tracking.html",
+    redirectUrl: "https://light-drab-psi.vercel.app/",
     description: "Interactive web experience using WebGazer.js to trace and simulate cognitive focus patterns."
   },
 
