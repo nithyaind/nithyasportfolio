@@ -63,11 +63,38 @@
   margin-bottom: 24px;
 }
 
+/* Update these specific blocks inside css/blog.css */
+
 .post-body {
-  font-size: 1.2rem;
-  line-height: 1.6;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 1.1rem;
+  line-height: 1.65;
   color: #d4d4d8;
   max-width: 440px;
+  letter-spacing: -0.01em;
+}
+
+.polaroid-caption {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-weight: 500;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #52525b;
+  text-align: center;
+  margin-top: 14px;
+}
+
+.piece-note {
+  background: #f4f4f5; /* Shifted from yellow to a chic minimalist light gray note */
+  color: #18181b;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 600;
+  font-size: 0.9rem;
+  padding: 20px;
+  width: clamp(140px, 14vw, 220px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+  border-radius: 4px;
 }
 
 /* --- CHAOTIC SCRAPBOOK OVERLAY STAGE --- */
@@ -119,14 +146,7 @@
   object-fit: cover;
   filter: contrast(0.95) sepia(0.05); /* Vintage color profiling tint */
 }
-.polaroid-caption {
-  font-family: "Georgia", serif;
-  font-style: italic;
-  font-size: 0.8rem;
-  color: #3f3f46;
-  text-align: center;
-  margin-top: 14px;
-}
+
 
 /* Type B: Playful Transparent Sticker Elements */
 .piece-sticker {
@@ -134,18 +154,6 @@
   filter: drop-shadow(0 8px 15px rgba(0,0,0,0.3));
 }
 
-/* Type C: Scattered Paper Note Scrap */
-.piece-note {
-  background: #fef08a; /* Soft pastel note yellow */
-  color: #1c1917;
-  font-family: "Courier New", Courier, monospace;
-  font-weight: bold;
-  font-size: 0.9rem;
-  padding: 20px;
-  width: clamp(140px, 14vw, 220px);
-  box-shadow: 5px 15px 30px rgba(0,0,0,0.3);
-  border-radius: 1px;
-}
 
 /* Type D: Washi Tape Strips (Layer over photos dynamically) */
 .piece-tape {

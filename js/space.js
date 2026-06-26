@@ -13,38 +13,46 @@ function initPortfolio() {
     card.className = 'project-item';
     card.dataset.category = item.category;
     
-    // Compute positions down the long gallery hallway
-    // We add an extra -500px offset at the start to clear room for the opening title card box
+    // Matrix Position Calculation along the deep Z axis hallway
     const calculatedZ = (index * depthInterval) - 500;
+    const sideOffset = (index % 3 === 1) ? -16 : (index % 3 === 2 ? 16 : 0);
+    const verticalOffset = (index % 2 === 0) ? -4 : 4;
 
-    // We cycle through an asymmetric layout loop to stagger items left, center, right 
-    let sideOffset = 0;
-    if (index % 3 === 1) sideOffset = -18; // Left wall track
-    if (index % 3 === 2) sideOffset = 18;  // Right wall track
-    
-    // Soft organic vertical shifting variations
-    const verticalOffset = (index % 2 === 0) ? -5 : 5;
-
-    // Save metrics cleanly to the target canvas node style variables
     card.style.setProperty('--tx', `${sideOffset}vw`);
     card.style.setProperty('--ty', `${verticalOffset}vh`);
     card.style.setProperty('--tz', `${calculatedZ}px`);
     card.style.transform = `translate3d(${sideOffset}vw, ${verticalOffset}vh, ${calculatedZ}px)`;
 
-    // HTML Component Assembly
+    // 1. Core Project Asset Image Image
     const img = document.createElement('img');
     img.src = item.src;
     img.alt = item.title;
-    
+    card.appendChild(img);
+
+    // 2. Immersive Title Label Capsule
     const title = document.createElement('h2');
     title.className = 'project-title';
     title.innerText = item.title;
-
-    card.appendChild(img);
     card.appendChild(title);
+
+    // NEW: 3. Dynamic Typographic Description Panel
+    if (item.description) {
+      const descPanel = document.createElement('div');
+      descPanel.className = 'project-description-panel';
+      descPanel.innerHTML = typeof item.description === 'string' ? item.description : '';
+      card.appendChild(descPanel);
+    }
+
+    // NEW: 4. Space Environmental Background Glow Backdrop
+    const backgroundGlow = document.createElement('div');
+    backgroundGlow.className = 'spatial-bg-backdrop';
+    // Generates a soft ambient halo tint based on your theme
+    backgroundGlow.style.background = `radial-gradient(circle, rgba(59, 130, 246, 0.12) 0%, transparent 70%)`;
+    card.appendChild(backgroundGlow);
+
     spaceContainer.appendChild(card);
 
-    // --- 100% UNFAILING ROUTER FIX ---
+    // --- Absolute Unfailing Redirect Listener ---
     card.addEventListener('click', (e) => {
       e.preventDefault();
       e.stopPropagation();
@@ -61,7 +69,6 @@ function initPortfolio() {
     });
   });
 
-  // Launch LERP step looping execution passes
   animate();
 }
 

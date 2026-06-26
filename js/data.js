@@ -4,8 +4,9 @@ const portfolioItems = [
     id: "about-me",
     title: "All About Me // Shades of Blue",
     category: "info",
-    src: "assets/images/.jpg", 
-    redirectUrl: "/aboutme.html",
+    src: "assets/images/kitchen-lab.jpg", 
+    actionType: "page",
+    redirectUrl: "/aboutme.html", // <-- CRITICAL: Ensure this exact key is present
     description: "Discover the layers of data, storytelling, and code framing my creative background."
   },
 
