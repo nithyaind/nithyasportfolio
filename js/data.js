@@ -14,7 +14,7 @@ const portfolioItems = [
     id: "tonys-kitchen",
     title: "Tony's Kitchen Lab",
     category: "multimedia",
-    src: "assets/images/tonys-lab.gif",
+    src: "assets/img/tonys-lab.gif",
     redirectUrl: "https://food-for-thought-six.vercel.app/",
     description: "An immersive, responsive storytelling experience combining text, film, and interactive elements."
   },
@@ -22,7 +22,7 @@ const portfolioItems = [
     id: "sso-fidelity",
     title: "SSO Security Module",
     category: "tech",
-    src: "assets/images/fidelity.png",
+    src: "assets/img/fidelity.png",
     redirectUrl: "/projects/sso-security.html",
     description: "Architected scalable authentication patterns within a customer protection center of excellence."
   },
@@ -54,7 +54,7 @@ const portfolioItems = [
     id: "since-2020",
     title: "Since 20/20",
     category: "multimedia",
-    src: "assets/images/since-2020.jpg", 
+    src: "assets/img/since-2020.jpg", 
     redirectUrl: "https://light-drab-psi.vercel.app/",
     description: "Interactive web experience using WebGazer.js to trace and simulate cognitive focus patterns."
   },
