@@ -1,101 +1,81 @@
 const portfolioItems = [
-  // ==========================================
-  // --- THE CURATED TOP 6 PROJECTS -----------
-  // ==========================================
+  // --- PORTAL 1: INTERACTIVE ABOUT ME TIMELINE ENTRY ---
+  {
+    id: "about-me",
+    title: "All About Me // Shades of Blue",
+    category: "info",
+    src: "assets/images/kitchen-lab.jpg", 
+    redirectUrl: "/about.html",
+    description: "Discover the layers of data, storytelling, and code framing my creative background."
+  },
+
+  // --- PORTALS 2 - 7: THE TOP CURATED PROJECTS ---
   {
     id: "tonys-kitchen",
     title: "Tony's Kitchen Lab",
     category: "multimedia",
-    type: "image",
-    src: "assets/img/tonys-lab.gif",
-    // Foreground, left-aligned, close-up depth layer
-    x: -28, y: -15, z: -150,
-    actionType: "page",
-    redirectUrl: "https://food-for-thought-six.vercel.app/",
-    description: "<p>An immersive, responsive storytelling experience combining text, film, and interactive game elements.</p><p>Built entirely with vanilla architecture and hosted on Vercel.</p>"
+    src: "assets/images/kitchen-lab.jpg",
+    redirectUrl: "/projects/kitchen-lab.html",
+    description: "An immersive, responsive storytelling experience combining text, film, and interactive elements."
   },
   {
     id: "sso-fidelity",
-    title: "Security and SWE Internship @ Fidelity Investments",
+    title: "SSO Security Module",
     category: "tech",
-    type: "image",
-    src: "assets/img/fidelity.png",
-    // Mid-ground, deep left side, mid-depth layer
-    x: -35, y: 5, z: -250,
-    actionType: "panel",
-    description: "<p>Architected scalable access patterns for a single sign-on team within a customer protection center of excellence.</p><p>Focused on optimizing identity verification workflows and secure user sessions.</p>"
+    src: "assets/images/sso-security.png",
+    redirectUrl: "/projects/sso-security.html",
+    description: "Architected scalable authentication patterns within a customer protection center of excellence."
   },
   {
-    id: "media-ethics-study",
+    id: "ethics-registry",
     title: "AI & Media Ethics Registry",
     category: "multimedia",
-    type: "image",
     src: "assets/images/ethics-study.png",
-    // Foreground, right-aligned, close-up depth layer
-    x: 32, y: -20, z: -120,
-    actionType: "panel",
-    description: "<p>A critical research initiative tracking the shifting frameworks of trust, generative media tools, and community literacy in localized journalism.</p>"
+    redirectUrl: "/projects/ethics-registry.html",
+    description: "Critical research initiative tracking the shifting frameworks of trust and generative media tools."
   },
   {
-    id: "journalism-award",
+    id: "journalism-prize",
     title: "AI Ethics Journalism Prize",
     category: "achievement",
-    type: "image",
     src: "assets/objects/trophy.png",
-    // Lower mid-ground, right side, mid-depth layer
-    x: 24, y: 18, z: -280,
-    actionType: "panel",
-    description: "<p>Won second place in a multimedia journalism competition for integrating ethical AI components into investigative reporting workflows.</p>"
+    redirectUrl: "/projects/journalism-prize.html",
+    description: "Award-winning investigative reporting exploring ethical AI integration components."
   },
   {
     id: "converge-con",
     title: "ConvergeCon 2026",
     category: "tech",
-    type: "image",
-    src: "assets/img/photo-journalism.png",
-    // Background tunnel layer, left-center position
-    x: -12, y: -22, z: -380,
-    actionType: "panel",
-    description: "<p>Assisted in hosting and developing platform modules for ConvergeCon to raise technological and media literacy across the community.</p>"
+    src: "assets/images/photo-journalism.png",
+    redirectUrl: "/projects/converge-con.html",
+    description: "Platform infrastructure hosting community digital literacy development summits."
   },
   {
-    id: "since-2020",
-    title: "Since 20/20",
+    id: "eye-tracking",
+    title: "Eye-Tracking Simulation",
     category: "multimedia",
-    type: "image",
-    src: "assets/img/since-2020.jpg", 
-    // Mid-ground, central-right position, mid-depth layer
-    x: 12, y: 10, z: -200,
-    actionType: "page",
-    redirectUrl: "https://light-drab-psi.vercel.app/",
-    description: "<p></p>"
+    src: "assets/images/kitchen-lab.jpg", 
+    redirectUrl: "/projects/eye-tracking.html",
+    description: "Interactive web experience using WebGazer.js to trace and simulate cognitive focus patterns."
   },
 
-  // ==========================================
-  // --- NAVIGATION DESTINATIONS (7 & 8) ------
-  // ==========================================
+  // --- PORTAL 8: THE EXPERIMENTAL ARCHIVE DECK ---
   {
     id: "project-archive",
     title: "The Project Archive",
-    category: "all", 
-    type: "link-node",
+    category: "index", 
     src: "assets/objects/archive-folder.png", 
-    // Positioned distinctly lower left, framing the bottom edge
-    x: -40, y: 28, z: -180,
-    actionType: "page",
     redirectUrl: "/archive.html",
-    description: "Click to open the deep storage log of past experiments, drafts, music, and side-quests."
+    description: "Deep storage logs mapping secondary code experiments, design fragments, and side-quests."
   },
+
+  // --- PORTAL 9: THE CREATIVE WRITING & LOG PORTALS ---
   {
-    id: "about-me",
-    title: "All About Me",
-    category: "all",
-    type: "link-node",
-    src: "assets/objects/profile-avatar.png", 
-    // Positioned opposite the archive lower right, framing the bottom edge
-    x: 40, y: 28, z: -180,
-    actionType: "page",
-    redirectUrl: "/aboutme.html",
-    description: "Click to see who is behind the curtain—background, resume, and creative philosophies."
+    id: "blog-terminal",
+    title: "Food For Thought // Blog",
+    category: "writing",
+    src: "assets/images/photo-journalism.png",
+    redirectUrl: "/blog/index.html",
+    description: "A digital collection of notes, design logs, and essays tracing tech and media ethics."
   }
 ];

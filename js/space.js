@@ -1,189 +1,144 @@
-let targetRotationX = 0, targetRotationY = 0;
-let currentRotationX = 0, currentRotationY = 0;
-
-let targetPanX = 0, targetPanY = 0;
-let currentPanX = 0, currentPanY = 0;
-
 let targetZoom = 0; 
 let currentZoom = 0;
+const depthInterval = -400; // Leaves exactly 400px of clean breathing room between portals
 
-let isDragging = false;
-let previousMouseX = 0, previousMouseY = 0;
-
-// --- 1. Dynamic Element Renderer ---
-// --- Updated 1. Dynamic Element Renderer & Router Fix ---
 function initPortfolio() {
   const spaceContainer = document.getElementById('space-container');
   if (!spaceContainer) return;
 
-  portfolioItems.forEach(item => {
-    const row = document.createElement('div');
-    row.className = 'project-item';
-    row.dataset.category = item.category;
+  spaceContainer.innerHTML = '';
+
+  portfolioItems.forEach((item, index) => {
+    const card = document.createElement('div');
+    card.className = 'project-item';
+    card.dataset.category = item.category;
     
-    if (item.id === "project-archive" || item.id === "about-me") {
-      row.classList.add('navigation-node');
-    }
+    // Compute positions down the long gallery hallway
+    // We add an extra -500px offset at the start to clear room for the opening title card box
+    const calculatedZ = (index * depthInterval) - 500;
 
-    // SPATIAL EXTRA GAP: We multiply your coordinates slightly here to 
-    // automatically spread items further apart without breaking data.js
-    const gapMultiplierX = 1.3; // Spreads them wider on left/right axes
-    const gapMultiplierY = 1.2; // Spreads them wider vertically
+    // We cycle through an asymmetric layout loop to stagger items left, center, right 
+    let sideOffset = 0;
+    if (index % 3 === 1) sideOffset = -18; // Left wall track
+    if (index % 3 === 2) sideOffset = 18;  // Right wall track
     
-    const calculatedX = item.x * gapMultiplierX;
-    const calculatedY = item.y * gapMultiplierY;
+    // Soft organic vertical shifting variations
+    const verticalOffset = (index % 2 === 0) ? -5 : 5;
 
-    // Save individual layout coordinates to CSS variables
-    row.style.setProperty('--tx', `${calculatedX}vw`);
-    row.style.setProperty('--ty', `${calculatedY}vh`);
-    row.style.setProperty('--tz', `${item.z}px`);
-    row.style.transform = `translate3d(${calculatedX}vw, ${calculatedY}vh, ${item.z}px)`;
+    // Save metrics cleanly to the target canvas node style variables
+    card.style.setProperty('--tx', `${sideOffset}vw`);
+    card.style.setProperty('--ty', `${verticalOffset}vh`);
+    card.style.setProperty('--tz', `${calculatedZ}px`);
+    card.style.transform = `translate3d(${sideOffset}vw, ${verticalOffset}vh, ${calculatedZ}px)`;
 
-    // Asset image node injection
+    // HTML Component Assembly
     const img = document.createElement('img');
     img.src = item.src;
     img.alt = item.title;
     
-    // Title label node injection
     const title = document.createElement('h2');
     title.className = 'project-title';
     title.innerText = item.title;
 
-    row.appendChild(img);
-    row.appendChild(title);
-    spaceContainer.appendChild(row);
+    card.appendChild(img);
+    card.appendChild(title);
+    spaceContainer.appendChild(card);
 
-    // FIX: Explicitly bind target listeners to ensure redirection triggers 
-    // regardless of whether user clicks the raw text, padding, or image node
-    row.addEventListener('click', (e) => {
+    // --- 100% UNFAILING ROUTER FIX ---
+    card.addEventListener('click', (e) => {
       e.preventDefault();
       e.stopPropagation();
-      
-      // Determine destination target string safely
-      const destination = item.redirectUrl;
-      if (!destination || destination === '#') return;
 
-      // Trigger high-end fade out before routing context windows
+      const url = item.redirectUrl;
+      if (!url || url === '#') return;
+
       document.body.style.opacity = 0;
-      document.body.style.transition = "opacity 0.3s ease";
+      document.body.style.transition = "opacity 0.35s ease-out";
       
       setTimeout(() => {
-        window.location.href = destination;
-      }, 300);
+        window.location.href = url;
+      }, 350);
     });
   });
 
-  // Start smooth rendering frame loops
+  // Launch LERP step looping execution passes
   animate();
 }
 
-function updateDrag(clientX, clientY) {
-  if (!isDragging) return;
-  const deltaX = clientX - previousMouseX;
-  const deltaY = clientY - previousMouseY;
-
-  targetPanX += deltaX * 0.6;
-  targetPanY += deltaY * 0.6;
-
-  previousMouseX = clientX;
-  previousMouseY = clientY;
-}
-
-window.addEventListener('mousedown', (e) => {
-  if(e.target.closest('.filter-menu')) return;
-  startDrag(e.clientX, e.clientY);
-});
-
-window.addEventListener('mousemove', (e) => {
-  if (isDragging) {
-    updateDrag(e.clientX, e.clientY);
-  } else {
-    // Soft subtle vector orientation tracking tilt when passive
-    targetRotationX = (e.clientX / window.innerWidth - 0.5) * 12;
-    targetRotationY = (e.clientY / window.innerHeight - 0.5) * -12;
-  }
-});
-
-window.addEventListener('mouseup', () => isDragging = false);
-
-// Mobile Touch Architecture Wireups
-let initialTouchDist = 0;
-window.addEventListener('touchstart', (e) => {
-  if (e.touches.length === 1) {
-    startDrag(e.touches[0].clientX, e.touches[0].clientY);
-  } else if (e.touches.length === 2) {
-    initialTouchDist = Math.hypot(e.touches[0].clientX - e.touches[1].clientX, e.touches[0].clientY - e.touches[1].clientY);
-  }
+// --- CORE SCROLL TRACKING MECHANICS ---
+window.addEventListener('wheel', (e) => {
+  // Pull elements forward on scroll wheel ticks
+  targetZoom += e.deltaY * -1.3;
+  
+  // Dynamic boundary locks: locks scrolling before the first portal and clips at the final blog node
+  const maximumTunnelDepth = Math.abs(portfolioItems.length * depthInterval) + 800;
+  targetZoom = Math.min(Math.max(targetZoom, -50), maximumTunnelDepth); 
 }, { passive: true });
 
+// Mobile Swiping System Compatibility
+let touchStartY = 0;
+window.addEventListener('touchstart', (e) => { touchStartY = e.touches[0].clientY; }, { passive: true });
 window.addEventListener('touchmove', (e) => {
-  if (e.touches.length === 1) {
-    updateDrag(e.touches[0].clientX, e.touches[0].clientY);
-  } else if (e.touches.length === 2 && initialTouchDist > 0) {
-    const currentDist = Math.hypot(e.touches[0].clientX - e.touches[1].clientX, e.touches[0].clientY - e.touches[1].clientY);
-    targetZoom += (currentDist - initialTouchDist) * 2.5;
-    initialTouchDist = currentDist;
-  }
+  const currentY = e.touches[0].clientY;
+  targetZoom += (currentY - touchStartY) * 2.5;
+  touchStartY = currentY;
+  
+  const maximumTunnelDepth = Math.abs(portfolioItems.length * depthInterval) + 800;
+  targetZoom = Math.min(Math.max(targetZoom, -50), maximumTunnelDepth);
 }, { passive: true });
 
-window.addEventListener('touchend', () => isDragging = false);
-
-// --- 4. Animation Matrix Engine ---
+// --- RENDER MATRIX FRAME ANIMATION LOOP ---
 function animate() {
   const spaceContainer = document.getElementById('space-container');
+  const introPortal = document.getElementById('intro-portal');
   
-  currentRotationX += (targetRotationX - currentRotationX) * 0.08;
-  currentRotationY += (targetRotationY - currentRotationY) * 0.08;
-  currentPanX += (targetPanX - currentPanX) * 0.08;
-  currentPanY += (targetPanY - currentPanY) * 0.08;
-  currentZoom += (targetZoom - currentZoom) * 0.08;
+  currentZoom += (targetZoom - currentZoom) * 0.08; // LERP equation
 
   if (spaceContainer) {
-    spaceContainer.style.transform = `
-      translate3d(${currentPanX}px, ${currentPanY}px, ${currentZoom}px) 
-      rotateX(${currentRotationY}deg) 
-      rotateY(${currentRotationX}deg)
-    `;
+    spaceContainer.style.transform = `translate3d(0, 0, ${currentZoom}px)`;
   }
+
+  // Fade out the center rectangle box intro frame as the user scrolls deep into the space
+  if (introPortal) {
+    const introFadeFraction = Math.max(0, 1 - (currentZoom / 350));
+    introPortal.style.opacity = introFadeFraction;
+    introPortal.style.transform = `translate3d(-50%, -50%, 0px) scale(${1 + (currentZoom / 1000)})`;
+    introPortal.style.pointerEvents = introFadeFraction < 0.1 ? 'none' : 'auto';
+  }
+
+  // --- FOCAL DEPTH FIELD PROXIMITY CALCULATOR ---
+  const cards = document.querySelectorAll('.project-item');
+  cards.forEach((card, index) => {
+    const staticZ = (index * depthInterval) - 500;
+    const currentRelativeDepth = staticZ + currentZoom;
+
+    if (currentRelativeDepth > 150 || currentRelativeDepth < -1000) {
+      // Element is completely behind the viewer lens or buried deep in distant fog canvas layers
+      card.style.opacity = 0;
+      card.style.pointerEvents = 'none';
+    } else {
+      // Bring item into clear focus right as it approaches reading range
+      const factor = 1 - Math.abs(currentRelativeDepth) / 1000;
+      card.style.opacity = Math.max(0, Math.min(1, factor * 1.5));
+      
+      // Re-enable click fields only if the portal is in clear focus range
+      card.style.pointerEvents = currentRelativeDepth < 50 ? 'auto' : 'none';
+    }
+  });
+
   requestAnimationFrame(animate);
 }
 
-// --- 5. Filtering Matrix System ---
-document.querySelectorAll('.filter-btn').forEach(btn => {
-  btn.addEventListener('click', (e) => {
-    e.stopPropagation();
-    document.querySelector('.filter-btn.active').classList.remove('active');
-    e.target.classList.add('active');
-
-    const filterValue = e.target.dataset.filter;
-    const items = document.querySelectorAll('.project-item');
-
-    items.forEach(item => {
-      if (item.classList.contains('navigation-node')) return;
-
-      if (filterValue === 'all' || item.dataset.category === filterValue) {
-        item.classList.remove('dimmed');
-      } else {
-        item.classList.add('dimmed');
-      }
-    });
-  });
-});
-
-// --- 6. Particle Sparkle Trail Engine ---
+// --- SPARKLE DUST ENGINE ---
 window.addEventListener('mousemove', (e) => {
-  if (Math.random() > 0.35) {
-    const sparkle = document.createElement('div');
-    sparkle.className = 'sparkle';
-    sparkle.style.left = `${e.clientX}px`;
-    sparkle.style.top = `${e.clientY}px`;
-    const size = Math.random() * 5 + 3;
-    sparkle.style.width = `${size}px`;
-    sparkle.style.height = `${size}px`;
-    document.body.appendChild(sparkle);
-    setTimeout(() => sparkle.remove(), 600);
+  if (Math.random() > 0.5) {
+    const particle = document.createElement('div');
+    particle.className = 'sparkle';
+    particle.style.left = `${e.clientX}px`;
+    particle.style.top = `${e.clientY}px`;
+    document.body.appendChild(particle);
+    setTimeout(() => particle.remove(), 500);
   }
 });
 
-// Launch initialization lifecycle
 initPortfolio();

@@ -1,15 +1,22 @@
-/* Full screen fixed 3D viewport */
+/* Core Viewport Canvas Resets */
+body {
+  margin: 0;
+  background-color: #050506;
+  color: #f5f5f7;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+}
+
 .viewport3d {
   width: 100vw;
   height: 100vh;
-  perspective: 1000px;
+  perspective: 900px; /* Establishes the immersive depth landscape lens */
   perspective-origin: 50% 50%;
-  overflow: hidden;
   position: relative;
 }
 
-/* Container hosting all overlapping projects */
-/* Container hosting all overlapping projects */
 .space-container {
   width: 100%;
   height: 100%;
@@ -18,7 +25,51 @@
   will-change: transform;
 }
 
-/* Individual floating items */
+/* --- THE INTRO STARTING PORTAL RECTANGLE --- */
+.intro-portal {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate3d(-50%, -50%, 0px);
+  transform-style: preserve-3d;
+  z-index: 100;
+  will-change: opacity, transform;
+  transition: opacity 0.5s ease-out;
+}
+
+.portal-frame {
+  width: clamp(280px, 40vw, 500px);
+  padding: 60px 40px;
+  background: rgba(11, 11, 13, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 8px;
+  backdrop-filter: blur(20px);
+  box-shadow: 0 40px 100px rgba(0, 0, 0, 0.8);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.portal-title {
+  font-size: clamp(1.8rem, 3vw, 3rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  line-height: 1;
+}
+
+.portal-subtitle {
+  font-family: monospace;
+  font-size: 0.85rem;
+  color: #a1a1aa;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* --- GALLERY PORTAL LAYOUT BLOCKS --- */
 .project-item {
   position: absolute;
   left: 50%;
@@ -28,65 +79,66 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* Extra transitions for smooth hover lifting */
-  transition: opacity 0.4s ease, filter 0.4s ease, transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity;
+  pointer-events: none; /* Managed dynamically via JavaScript proximity tracking */
+  transition: filter 0.3s ease;
+}
+
+/* Isolate pointer mechanics directly to the top frame row levels */
+.project-item img, 
+.project-item h2, 
+.project-item p {
+  pointer-events: none;
 }
 
 .project-item img {
-  width: clamp(160px, 20vw, 280px); /* Slightly larger scale presence */
+  width: clamp(200px, 25vw, 380px);
   height: auto;
   object-fit: cover;
   border-radius: 6px;
-  
-  /* CRITICAL: Heavy multilayered studio shadow to isolate depth layering */
-  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8), 
-              0 0 0 1px rgba(255, 255, 255, 0.08); 
-              
-  user-select: none;
-  -webkit-user-drag: none;
+  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.85),
+              0 0 0 1px rgba(255, 255, 255, 0.08);
 }
 
-/* Card titles text styling layered below the image asset */
 .project-title {
   font-family: monospace;
   font-size: 0.85rem;
   text-transform: uppercase;
   font-weight: 600;
   letter-spacing: 0.05em;
-  margin-top: 16px;
-  text-align: center;
-  color: #a1a1aa;
-  
-  /* Clean capsule container styling */
-  background: rgba(11, 11, 12, 0.85);
-  padding: 6px 14px;
+  margin-top: 20px;
+  background: rgba(11, 11, 12, 0.9);
+  padding: 6px 16px;
   border-radius: 20px;
-  backdrop-filter: blur(8px);
   border: 1px solid rgba(255, 255, 255, 0.1);
   white-space: nowrap;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.4);
 }
 
-/* Active Hover Lift: Pulls the image forward toward the user when hovered */
+/* High-Contrast Hover Scale-Up Lift Elements */
 .project-item:hover {
-  transform: translate3d(var(--tx), var(--ty), calc(var(--tz) + 60px)) !important;
-  z-index: 999;
+  filter: drop-shadow(0 0 25px rgba(255, 255, 255, 0.15));
 }
 
-.project-item:hover img {
-  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.9), 
-              0 0 20px rgba(255, 255, 255, 0.15);
+/* Target Layout Core Navigation Color Schemes Override mappings */
+.project-item[data-category="info"] .project-title,
+.project-item[data-category="index"] .project-title,
+.project-item[data-category="writing"] .project-title {
+  color: #ff3e3e; /* Punchy accent red token mapping */
+  border-style: dashed;
 }
 
-/* Navigational portal styling overrides */
-.navigation-node .project-title {
-  color: var(--accent-color, #ff3e3e);
-  border: 1px dashed rgba(255, 62, 62, 0.4);
-}
-
-/* Filter Dimming */
-.project-item.dimmed {
-  opacity: 0.03;
-  filter: blur(12px) grayscale(100%);
+/* --- PERSISTENT SPARKLE ELEMENTS LAYER --- */
+.sparkle {
+  position: fixed;
   pointer-events: none;
+  width: 5px;
+  height: 5px;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #fff, 0 0 15px #ff3e3e;
+  animation: fadeOut 0.6s ease-out forwards;
+  z-index: 9999;
+}
+@keyframes fadeOut {
+  to { transform: scale(0); opacity: 0; }
 }
