@@ -95,7 +95,7 @@ const portfolioItems = [
     // Positioned opposite the archive lower right, framing the bottom edge
     x: 40, y: 28, z: -180,
     actionType: "page",
-    redirectUrl: "/about.html",
+    redirectUrl: "/aboutme.html",
     description: "Click to see who is behind the curtain—background, resume, and creative philosophies."
   }
 ];
