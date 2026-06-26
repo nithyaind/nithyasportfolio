@@ -3,9 +3,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const stage = document.getElementById('scrapbook-stage');
   const nodeTrack = document.getElementById('timeline-nodes');
 
-  // --- 1. GENERATE DYNAMIC MARKUP FROM CONTENT ARRAY ---
+  // --- 1. THE WHIMSICAL COLLAGE COMPILER ---
   blogEntries.forEach((entry, index) => {
-    // A. Generate Text Block Column Cards
+    // A. Generate Text Flow Item
     const card = document.createElement('article');
     card.className = 'blog-entry-card';
     card.id = entry.id;
@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
     `;
     textStream.appendChild(card);
 
-    // B. Generate Architectural Sideline Timeline Nodes
+    // B. Build Timeline Node Dots
     const node = document.createElement('div');
     node.className = `t-node ${index === 0 ? 'active-node' : ''}`;
     node.dataset.target = entry.id;
@@ -25,75 +25,92 @@ document.addEventListener('DOMContentLoaded', () => {
       <div class="node-dot"></div>
       <span class="node-label">${entry.date}</span>
     `;
-    
-    // Wire up smooth scrolling directly to timeline node clicks
     node.addEventListener('click', () => {
       document.getElementById(entry.id).scrollIntoView({ behavior: 'smooth', block: 'center' });
     });
     nodeTrack.appendChild(node);
 
-    // C. Pre-render Scrapbook Media Nodes directly into the Stage canvas
-    entry.media.forEach((file, fIndex) => {
-      let element;
-      if (file.type === "video") {
-        element = document.createElement('video');
-        element.src = file.src;
-        element.autoplay = true;
-        element.muted = true;
-        element.loop = true;
-        element.setAttribute('playsinline', '');
-      } else {
-        element = document.createElement('img');
-        element.src = file.src;
+    // C. Assemble & Stagger Whimsical Scrap Elements
+    entry.media.forEach((item) => {
+      const pieceWrapper = document.createElement('div');
+      pieceWrapper.className = `scrapbook-piece item-from-${entry.id}`;
+
+      // Manufacture specific HTML structures based on the whimsical asset type
+      if (item.type === "polaroid") {
+        pieceWrapper.classList.add('piece-polaroid');
+        pieceWrapper.innerHTML = `
+          <img src="${item.src}" alt="scrapbook photo">
+          <div class="polaroid-caption">${item.caption || ''}</div>
+        `;
+      } else if (item.type === "video-scrap") {
+        pieceWrapper.classList.add('piece-polaroid');
+        pieceWrapper.innerHTML = `
+          <video autoplay muted loop playsinline src="${item.src}"></video>
+          <div class="polaroid-caption">motion snippet</div>
+        `;
+      } else if (item.type === "sticker" || item.type === "tape") {
+        pieceWrapper.classList.add(`piece-${item.type}`);
+        const img = document.createElement('img');
+        img.src = item.src;
+        pieceWrapper.appendChild(img);
+      } else if (item.type === "paper-note") {
+        pieceWrapper.classList.add('piece-note');
+        pieceWrapper.innerHTML = `<p>${item.text}</p>`;
       }
-      
-      element.className = `scrapbook-piece item-from-${entry.id}`;
-      
-      // Calculate layout coordinates ahead of time so items throw randomly across the right sector
-      // Generates horizontal positions clustered around the central grid workspace
-      const xCoord = Math.floor(Math.random() * 40 + 30) + "%";
-      const yCoord = Math.floor(Math.random() * 40 + 30) + "%";
-      const rotationDeg = (Math.random() * 30 - 15) + "deg";
-      // Subtle layered opacity differences for depth texturing
-      const opacityScale = (Math.random() * 0.15 + 0.85);
 
-      element.style.setProperty('--x', xCoord);
-      element.style.setProperty('--y', yCoord);
-      element.style.setProperty('--rot', rotationDeg);
-      element.style.setProperty('--target-opacity', opacityScale);
+      // --- RANDOMIZED POSITION GENERATOR ---
+      // Spread items whimsically all across the right half of the viewport canvas grid
+      const randomX = Math.floor(Math.random() * 55 + 20) + "%";
+      const randomY = Math.floor(Math.random() * 50 + 25) + "%";
+      
+      // Random rotations for a chaotic, non-grid feel
+      const finalRotation = (Math.random() * 36 - 18) + "deg";
+      const fallingStartRotation = (Math.random() * 90 - 45) + "deg"; // Rotation in the air before landing
+      
+      // Slight scale variations so stickers look small and notes/polaroids look prominent
+      const baseScale = item.type === "sticker" ? 0.9 : (item.type === "tape" ? 1.1 : 1.0);
+      const subtleScaleVariation = baseScale + (Math.random() * 0.15 - 0.07);
 
-      stage.appendChild(element);
+      pieceWrapper.style.setProperty('--x', randomX);
+      pieceWrapper.style.setProperty('--y', randomY);
+      pieceWrapper.style.setProperty('--rot', finalRotation);
+      pieceWrapper.style.setProperty('--start-rot', fallingStartRotation);
+      pieceWrapper.style.setProperty('--scale', subtleScaleVariation);
+
+      stage.appendChild(pieceWrapper);
     });
   });
 
-  // --- 2. INTERSECTION TRACKING & ANIMATION SCATTER FLIGHTS ---
+  // --- 2. TRANSITION DETECTOR (THE COLLAGE DROP MECHANIC) ---
   const trackingObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       const postId = entry.target.id;
-      const index = entry.target.dataset.index;
       const connectedPieces = document.querySelectorAll(`.item-from-${postId}`);
       const connectedNode = document.querySelector(`.t-node[data-target="${postId}"]`);
 
       if (entry.isIntersecting) {
         entry.target.classList.add('active-post');
         
-        // Throw the media items onto the stage layout structure
-        connectedPieces.forEach(piece => piece.classList.add('scattered'));
+        // Items drop and rotate smoothly into place
+        connectedPieces.forEach((piece, index) => {
+          setTimeout(() => {
+            piece.classList.add('scattered');
+          }, index * 80); // Micro-delay between items for a natural cascading look
+        });
         
-        // Sync active styles to matching timeline side tracker dots
         document.querySelectorAll('.t-node').forEach(n => n.classList.remove('active-node'));
         if (connectedNode) connectedNode.classList.add('active-node');
       } else {
         entry.target.classList.remove('active-post');
-        // Retrieve pieces smoothly back into hidden storage when scrolled past
+        // Items fly back off the page cleanly when you scroll away
         connectedPieces.forEach(piece => piece.classList.remove('scattered'));
       }
     });
-  }, { threshold: 0.4, rootMargin: "-10% 0px -10% 0px" });
+  }, { threshold: 0.35, rootMargin: "-5% 0px -5% 0px" });
 
   document.querySelectorAll('.blog-entry-card').forEach(card => trackingObserver.observe(card));
 
-  // --- 3. TIMELINE SCROLL BAR COUNTER FILLER ---
+  // --- 3. TIMELINE SCROLL BAR FILLER ---
   window.addEventListener('scroll', () => {
     const scrollMax = document.documentElement.scrollHeight - window.innerHeight;
     if (scrollMax > 0) {

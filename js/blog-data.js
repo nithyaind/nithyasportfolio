@@ -5,10 +5,12 @@ const blogEntries = [
     title: "Reimagining Modern Storytelling through Fluid Interfaces",
     category: "Media Ethics",
     text: "<p>We build interactive products not to isolate humans behind screens, but to act as responsive glass portals. Merging multimedia workflows with vanilla code execution blocks allows journalism to become a felt, tactile experience rather than static ink on a screen.</p>",
-    // Pass as many files as you want here—the engine will turn them into floating scrapbook pieces
+    // Mix images, custom scrapbook polaroids, and whimsical stickers
     media: [
-      { type: "image", src: "../assets/images/photo-journalism.png" },
-      { type: "image", src: "../assets/images/ethics-study.png" }
+      { type: "polaroid", src: "../assets/images/photo-journalism.png", caption: "captured workflows // '26" },
+      { type: "sticker", src: "../assets/objects/star-sticker.png" },
+      { type: "paper-note", text: "Design Rule #1: Break the grid." },
+      { type: "tape", src: "../assets/objects/washi-tape.png" }
     ]
   },
   {
@@ -18,8 +20,9 @@ const blogEntries = [
     category: "Tech Ethics",
     text: "<p>A critical look at the shifting frameworks of trust, generative media tools, and algorithmic verification inside localized newsrooms. How do we synthesize ethical automation with human-driven local tracking pipelines?</p>",
     media: [
-      { type: "video", src: "https://sample-videos.com/video321/mp4/720/big_buck_bunny_720p_1mb.mp4" },
-      { type: "image", src: "../assets/objects/trophy.png" }
+      { type: "polaroid", src: "../assets/objects/trophy.png", caption: "2nd place // multimedia prize" },
+      { type: "sticker", src: "../assets/objects/smiley.png" },
+      { type: "video-scrap", src: "https://sample-videos.com/video321/mp4/720/big_buck_bunny_720p_1mb.mp4" }
     ]
   },
   {
@@ -29,7 +32,8 @@ const blogEntries = [
     category: "Development",
     text: "<p>Notes on deploying a multimedia web application combining text layouts, interactive game elements, and WebGazer.js tracking systems. Keeping hydration footprints low while executing heavy asset transitions natively.</p>",
     media: [
-      { type: "image", src: "../assets/images/kitchen-lab.jpg" }
+      { type: "polaroid", src: "../assets/images/kitchen-lab.jpg", caption: "kitchen lab alpha build" },
+      { type: "tape", src: "../assets/objects/washi-tape.png" }
     ]
   }
 ];
