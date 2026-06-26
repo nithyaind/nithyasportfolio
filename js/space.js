@@ -11,6 +11,7 @@ let isDragging = false;
 let previousMouseX = 0, previousMouseY = 0;
 
 // --- 1. Dynamic Element Renderer ---
+// --- Updated 1. Dynamic Element Renderer & Router Fix ---
 function initPortfolio() {
   const spaceContainer = document.getElementById('space-container');
   if (!spaceContainer) return;
@@ -24,11 +25,19 @@ function initPortfolio() {
       row.classList.add('navigation-node');
     }
 
-    // Set variable transformation variables safely
-    row.style.setProperty('--tx', `${item.x}vw`);
-    row.style.setProperty('--ty', `${item.y}vh`);
+    // SPATIAL EXTRA GAP: We multiply your coordinates slightly here to 
+    // automatically spread items further apart without breaking data.js
+    const gapMultiplierX = 1.3; // Spreads them wider on left/right axes
+    const gapMultiplierY = 1.2; // Spreads them wider vertically
+    
+    const calculatedX = item.x * gapMultiplierX;
+    const calculatedY = item.y * gapMultiplierY;
+
+    // Save individual layout coordinates to CSS variables
+    row.style.setProperty('--tx', `${calculatedX}vw`);
+    row.style.setProperty('--ty', `${calculatedY}vh`);
     row.style.setProperty('--tz', `${item.z}px`);
-    row.style.transform = `translate3d(${item.x}vw, ${item.y}vh, ${item.z}px)`;
+    row.style.transform = `translate3d(${calculatedX}vw, ${calculatedY}vh, ${item.z}px)`;
 
     // Asset image node injection
     const img = document.createElement('img');
@@ -44,32 +53,28 @@ function initPortfolio() {
     row.appendChild(title);
     spaceContainer.appendChild(row);
 
-    // Direct redirection execution setup
+    // FIX: Explicitly bind target listeners to ensure redirection triggers 
+    // regardless of whether user clicks the raw text, padding, or image node
     row.addEventListener('click', (e) => {
+      e.preventDefault();
       e.stopPropagation();
+      
+      // Determine destination target string safely
+      const destination = item.redirectUrl;
+      if (!destination || destination === '#') return;
+
+      // Trigger high-end fade out before routing context windows
       document.body.style.opacity = 0;
+      document.body.style.transition = "opacity 0.3s ease";
+      
       setTimeout(() => {
-        window.location.href = item.redirectUrl;
-      }, 400);
+        window.location.href = destination;
+      }, 300);
     });
   });
 
-  // Start smooth LERP engine rendering frame loops
+  // Start smooth rendering frame loops
   animate();
-}
-
-// --- 2. Zoom Tracking Matrix (Mouse Wheel Scroll) ---
-window.addEventListener('wheel', (e) => {
-  targetZoom += e.deltaY * -0.85;
-  // Boundary guardrails to lock flight lines safely
-  targetZoom = Math.min(Math.max(targetZoom, -1800), 600); 
-}, { passive: true });
-
-// --- 3. Drag, Tilt & Pan Camera Controls ---
-function startDrag(clientX, clientY) {
-  isDragging = true;
-  previousMouseX = clientX;
-  previousMouseY = clientY;
 }
 
 function updateDrag(clientX, clientY) {
