@@ -4,7 +4,7 @@ const portfolioItems = [
     id: "about-me",
     title: "All About Me // Shades of Blue",
     category: "info",
-    src: "assets/images/kitchen-lab.jpg", 
+    src: "assets/img/portrait.JPG", 
     actionType: "page",
     redirectUrl: "/aboutme.html", // <-- CRITICAL: Ensure this exact key is present
     description: "Discover the layers of data, storytelling, and code framing my creative background."
@@ -55,7 +55,7 @@ const portfolioItems = [
     id: "since-2020",
     title: "Since 20/20",
     category: "multimedia",
-    src: "assets/img/since-2020.jpg", 
+    src: "assets/img/since-2020.JPG", 
     redirectUrl: "https://light-drab-psi.vercel.app/",
     description: "Interactive web experience using WebGazer.js to trace and simulate cognitive focus patterns."
   },
