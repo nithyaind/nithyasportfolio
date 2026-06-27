@@ -3,241 +3,177 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>YOUR NAME | Work</title>
-  <meta name="description" content="A collection of YOUR NAME's work spanning INDUSTRIES." />
-
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&family=Space+Mono:ital@0;1&display=swap" rel="stylesheet" />
-
-  <link rel="stylesheet" href="css/styles.css" />
-  <link rel="stylesheet" href="css/work.css" />
-
-  <style>
-    :root {
-      --font-display: 'DM Serif Display', Georgia, serif;
-      --font-mono: 'Space Mono', monospace;
-      --font-body: 'DM Sans', system-ui, sans-serif;
-    }
-  </style>
+  <title>Work — Nithya Sunkara Indlamuri</title>
+  <meta name="description" content="A collection of work spanning journalism, software, film, and interactive storytelling." />
+  <link rel="stylesheet" href="css/tokens.css" />
+  <link rel="stylesheet" href="css/pages.css" />
 </head>
 <body>
 
-  <!-- ══ NAVIGATION ══════════════════════════════════ -->
-  <nav id="top">
-    <a href="index.html" class="nav-logo">
-      <!-- REPLACE: your initials -->
-      YOUR INITIALS
-    </a>
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
 
-    <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="work.html" class="active">Work</a></li>
-    </ul>
+<!-- ══ NAV ══ -->
+<nav class="site-nav">
+  <a href="index.html" class="nav-logo">BY <strong>NITHYA</strong></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="work.html">Work</a></li>
+    <li><a href="archive.html">Archive</a></li>
+    <li><a href="nijam.html">నిజము [Nijam]</a></li>
+    <li><a href="about.html">About</a></li>
+  </ul>
+  <div class="nav-dateline"></div>
+</nav>
 
-    <span class="nav-year">©&thinsp;2026</span>
-  </nav>
+<!-- ══ HOVER PREVIEW GHOST ══ -->
+<div class="work-preview-ghost" id="work-preview"><img src="" alt="" /></div>
 
+<!-- ══ HERO ══ -->
+<header class="page-hero">
+  <div class="page-hero-inner">
+    <p class="page-hero-eyebrow">Selected work · 2022 – present</p>
+    <h1 class="page-hero-title">
+      <div class="line"><span>WO</span></div>
+      <div class="line"><span><em>RK</em></span></div>
+    </h1>
+    <p class="page-hero-sub">
+      I tell stories through both code and camera — because the most
+      powerful experiences live at that intersection of journalism,
+      technology, and human connection.
+    </p>
+  </div>
+</header>
 
-  <!-- ══ WORK HERO ════════════════════════════════════ -->
-  <section class="work-hero">
+<!-- ══ PROJECT LIST ══ -->
+<section class="work-page">
 
-    <!--
-      OPTIONAL VIDEO BG — same guidance as home page.
-      Set src to a looping ambient clip from your work.
-
-    <div class="work-hero-bg" aria-hidden="true">
-      <video src="assets/YOUR_WORK_REEL.mp4" autoplay muted loop playsinline></video>
-    </div>
-    -->
-
-    <div class="work-hero-content">
-
-      <p class="work-hero-eyebrow">
-        <!-- REPLACE: how many featured projects you have -->
-        8 FEATURED PROJECTS
-      </p>
-
-      <h1 class="work-hero-title">
-        <span>WO</span>
-        <em>RK</em>
-      </h1>
-
-      <div class="work-hero-stats">
-        <div class="work-stat">
-          <!--
-            REPLACE data-target with your real number.
-            The JS will count up to this on scroll.
-          -->
-          <span class="work-stat-num count-up" data-target="12">12</span>
-          <span class="work-stat-label">Projects</span>
-        </div>
-        <div class="work-stat">
-          <span class="work-stat-num count-up" data-target="5">5</span>
-          <span class="work-stat-label">Industries</span>
-        </div>
-        <div class="work-stat">
-          <span class="work-stat-num count-up" data-target="4">4</span>
-          <span class="work-stat-label">Years exp.</span>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-
-  <!-- ══ HOVER PREVIEW ══════════════════════════════ -->
-  <!-- This follows the cursor and shows a preview of the project on hover -->
-  <div class="work-item-preview" id="work-preview" aria-hidden="true">
-    <img src="" alt="" />
+  <div class="work-col-heads">
+    <span>#</span>
+    <span>Project</span>
+    <span>Type</span>
+    <span>Year</span>
+    <span>Status</span>
   </div>
 
+  <!--
+    REPLACE per row:
+    - href            → case study page
+    - data-preview    → thumbnail image path
+    - work-row-name   → project title
+    - work-row-type   → Interactive Story / Journalism / Web App / Film / etc.
+    - work-row-year   → year
+    - status class    → status-live / status-wip / status-soon
+  -->
 
-  <!-- ══ PROJECT LIST ════════════════════════════════ -->
-  <section class="work-list" style="padding-top:0; padding-bottom:0;">
+  <a href="work/project-one.html" class="work-row reveal"
+     data-preview="assets/images/project-1.jpg">
+    <span class="work-row-num">01</span>
+    <span class="work-row-name">YOUR FEATURED PROJECT</span>
+    <span class="work-row-type">Interactive Story</span>
+    <span class="work-row-year">2025</span>
+    <span class="work-row-status status-live">Live</span>
+  </a>
 
-    <!-- Column headers -->
-    <div class="work-list-header">
-      <span>#</span>
-      <span>Project</span>
-      <span>Type</span>
-      <span style="text-align:right;">Year</span>
-    </div>
+  <a href="work/project-two.html" class="work-row reveal"
+     data-preview="assets/images/project-2.jpg">
+    <span class="work-row-num">02</span>
+    <span class="work-row-name">PROJECT TWO</span>
+    <span class="work-row-type">Multimedia</span>
+    <span class="work-row-year">2025</span>
+    <span class="work-row-status status-live">Live</span>
+  </a>
 
-    <!--
-      ═══════════════════════════════════════════════
-      PROJECT ITEMS — copy/paste this block per project.
+  <a href="work/project-three.html" class="work-row reveal"
+     data-preview="assets/images/project-3.jpg">
+    <span class="work-row-num">03</span>
+    <span class="work-row-name">PROJECT THREE</span>
+    <span class="work-row-type">Web App</span>
+    <span class="work-row-year">2024</span>
+    <span class="work-row-status status-live">Live</span>
+  </a>
 
-      REPLACE per item:
-        href            → case study page or # if not ready
-        data-preview    → path to thumbnail image shown on hover
-        .work-item-num  → sequential number (01, 02, 03…)
-        .work-item-name → project name
-        .work-item-type → e.g. "Mobile App", "Responsive Web", "Brand Identity"
-        .work-item-year → year completed
+  <a href="#" class="work-row reveal">
+    <span class="work-row-num">04</span>
+    <span class="work-row-name">PROJECT FOUR</span>
+    <span class="work-row-type">Journalism</span>
+    <span class="work-row-year">2024</span>
+    <span class="work-row-status status-wip">In progress</span>
+  </a>
 
-      Add class="coming-soon" to items not yet published.
-      ═══════════════════════════════════════════════
-    -->
+  <div class="work-row reveal" style="opacity:0.45; pointer-events:none;">
+    <span class="work-row-num">05</span>
+    <span class="work-row-name">PROJECT FIVE</span>
+    <span class="work-row-type">Film</span>
+    <span class="work-row-year">2026</span>
+    <span class="work-row-status status-soon">Coming soon</span>
+  </div>
 
-    <a href="work/project-one.html"
-       class="work-item reveal"
-       data-preview="assets/images/project-1.jpg">
-      <span class="work-item-num">01</span>
-      <span class="work-item-name">PROJECT ONE</span>
-      <span class="work-item-type">Mobile App</span>
-      <span class="work-item-year">2025</span>
-    </a>
+</section>
 
-    <a href="work/project-two.html"
-       class="work-item reveal"
-       data-preview="assets/images/project-2.jpg">
-      <span class="work-item-num">02</span>
-      <span class="work-item-name">PROJECT TWO</span>
-      <span class="work-item-type">Responsive Web</span>
-      <span class="work-item-year">2025</span>
-    </a>
-
-    <a href="work/project-three.html"
-       class="work-item reveal"
-       data-preview="assets/images/project-3.jpg">
-      <span class="work-item-num">03</span>
-      <span class="work-item-name">PROJECT THREE</span>
-      <span class="work-item-type">Brand Identity</span>
-      <span class="work-item-year">2024</span>
-    </a>
-
-    <a href="work/project-four.html"
-       class="work-item reveal"
-       data-preview="assets/images/project-4.jpg">
-      <span class="work-item-num">04</span>
-      <span class="work-item-name">PROJECT FOUR</span>
-      <span class="work-item-type">Design System</span>
-      <span class="work-item-year">2024</span>
-    </a>
-
-    <!-- Example: coming soon item -->
-    <div class="work-item coming-soon" aria-hidden="true">
-      <span class="work-item-num">05</span>
-      <span class="work-item-name">PROJECT FIVE</span>
-      <span class="work-item-type">Mobile App</span>
-      <span class="work-item-year">2026</span>
-    </div>
-
-  </section>
-
-
-  <!-- ══ BELIEFS / PHILOSOPHY ════════════════════════ -->
-  <section class="section-beliefs">
-    <div class="beliefs-inner">
-
-      <div class="beliefs-left">
-        <span class="section-title t-mono reveal">Philosophy</span>
-      </div>
-
-      <div>
-        <h2 class="beliefs-headline reveal">
-          <!-- REPLACE: your design philosophy / belief statement.
-               Use <em> for italic accent colour. -->
-          Transforming insights into experiences that
-          bridge <em>[cultures]</em> and resonate with
-          <em>[people]</em>.
-        </h2>
-
-        <p class="beliefs-body reveal reveal-delay-1">
-          <!-- REPLACE: 2–3 sentences expanding on your philosophy.
-               Updated date should reflect when you last added work. -->
-          X projects created across Y industries, and counting.
-          <br><br>
-          <!-- REPLACE: your last updated date -->
-          <span style="color:var(--muted); font-size:12px; font-family:var(--font-mono); letter-spacing:0.1em; text-transform:uppercase;">
-            LAST UPDATED: JUNE 2025
-          </span>
-        </p>
-
-        <a href="about.html" class="info-link reveal reveal-delay-2"
-           style="display:inline-flex; align-items:center; gap:10px; font-family:var(--font-mono); font-size:11px; letter-spacing:0.15em; text-transform:uppercase; border-bottom:1px solid var(--border); padding-bottom:4px; transition:border-color 0.2s, gap 0.2s; margin-top:40px;">
-          <!-- REPLACE: your about/info page label -->
-          Read my story &amp; services
-        </a>
-      </div>
-
-    </div>
-  </section>
-
-
-  <!-- ══ FOOTER ══════════════════════════════════════ -->
-  <footer>
-    <div class="footer-inner">
-
-      <div>
-        <div class="footer-hello t-display">
-          COME<br>
-          <em>say</em><br>
-          HELLO
+<!-- ══ PHILOSOPHY ══ -->
+<section style="border-top: 1.5px solid var(--ink); padding: clamp(48px,8vw,100px) var(--gutter);">
+  <div style="max-width: var(--max-w); margin: 0 auto; display: grid; grid-template-columns: 1fr 1.5fr; gap: 80px;">
+    <div>
+      <p class="t-label reveal" style="margin-bottom: 20px;">My Philosophy</p>
+      <div style="position: sticky; top: calc(var(--nav-h) + 24px);">
+        <div style="display: flex; gap: 32px; margin-bottom: 8px;">
+          <div>
+            <div style="font-family: var(--font-display); font-size: clamp(40px,5vw,64px); font-weight:900; line-height:1; letter-spacing:-0.02em;" class="count-up" data-target="12">0</div>
+            <div class="t-label" style="margin-top:4px;">Projects</div>
+          </div>
+          <div>
+            <div style="font-family: var(--font-display); font-size: clamp(40px,5vw,64px); font-weight:900; line-height:1; letter-spacing:-0.02em;" class="count-up" data-target="5">0</div>
+            <div class="t-label" style="margin-top:4px;">Industries</div>
+          </div>
         </div>
-
-        <!--
-          OPTIONAL Spotify embed — see home page for instructions.
-        -->
       </div>
-
-      <div class="footer-links">
-        <!-- REPLACE: your real contact links -->
-        <a href="mailto:YOUR@EMAIL.COM" class="footer-link">Email me</a>
-        <a href="https://linkedin.com/in/YOUR-HANDLE" class="footer-link" target="_blank" rel="noopener">LinkedIn</a>
-        <a href="https://instagram.com/YOUR-HANDLE" class="footer-link" target="_blank" rel="noopener">Instagram</a>
-      </div>
-
     </div>
-
-    <div class="footer-bottom">
-      <span>YOUR NAME &copy; 2026</span>
-      <a href="#top" class="back-to-top">Back to top ↑</a>
+    <div class="reveal">
+      <h2 style="font-family: var(--font-display); font-size: clamp(24px,3vw,40px); line-height:1.2; letter-spacing:-0.02em; margin-bottom:20px;">
+        I build things that feel <em style="color:var(--magenta); font-style:italic;">human</em> —
+        whether that's a piece of software, a film, or a news story.
+      </h2>
+      <p style="font-size:15px; color:var(--charcoal); line-height:1.8; margin-bottom:24px;">
+        I care about the ethics of technology in journalism and want to be
+        part of those conversations — building tools and telling stories
+        that get truth to the communities that benefit from it most.
+      </p>
+      <a href="about.html" class="identity-link">My story &amp; values</a>
     </div>
-  </footer>
+  </div>
+</section>
 
+<!-- ══ FOOTER ══ -->
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div>
+      <div class="footer-masthead">GET IN<br><em>TOUCH</em></div>
+      <p class="footer-tagline">Journalist · Filmmaker · Engineer<br>Chapel Hill, NC</p>
+    </div>
+    <div>
+      <div class="footer-col-title">Navigate</div>
+      <ul class="footer-links-list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="archive.html">Archive</a></li>
+        <li><a href="nijam.html">నిజము [Nijam]</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Connect</div>
+      <ul class="footer-links-list">
+        <li><a href="mailto:nithya.indla8@gmail.com">Email</a></li>
+        <li><a href="https://www.linkedin.com/in/nithya-ind/" target="_blank" rel="noopener">LinkedIn</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>Nithya Sunkara Indlamuri © 2026</span>
+    <a href="#" class="back-to-top">↑ Back to top</a>
+  </div>
+</footer>
 
-  <script src="js/main.js"></script>
+<script src="js/main.js"></script>
 </body>
 </html>

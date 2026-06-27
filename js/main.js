@@ -1,103 +1,158 @@
-/* =========================================
-   PORTFOLIO SCRIPTS — main.js
-   ========================================= */
+/* ============================================================
+   NITHYA SUNKARA INDLAMURI — main.js
+   ============================================================ */
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  // ── SCROLL REVEAL ──────────────────────
-  const revealObserver = new IntersectionObserver((entries) => {
-    entries.forEach(el => {
-      if (el.isIntersecting) {
-        el.target.classList.add('visible');
-        revealObserver.unobserve(el.target);
+  // ── CUSTOM CURSOR ────────────────────────────────────────
+  const cursor     = document.getElementById('cursor');
+  const cursorRing = document.getElementById('cursor-ring');
+
+  if (cursor && cursorRing) {
+    let mx = 0, my = 0, rx = 0, ry = 0;
+
+    document.addEventListener('mousemove', e => {
+      mx = e.clientX; my = e.clientY;
+      cursor.style.left = mx + 'px';
+      cursor.style.top  = my + 'px';
+    });
+
+    // Smooth ring lag
+    const animateRing = () => {
+      rx += (mx - rx) * 0.12;
+      ry += (my - ry) * 0.12;
+      cursorRing.style.left = rx + 'px';
+      cursorRing.style.top  = ry + 'px';
+      requestAnimationFrame(animateRing);
+    };
+    animateRing();
+
+    // Grow on hover
+    const hoverEls = document.querySelectorAll('a, button, .card, .work-row, .archive-card, .nijam-card, .filter-btn');
+    hoverEls.forEach(el => {
+      el.addEventListener('mouseenter', () => cursor.classList.add('hovered'));
+      el.addEventListener('mouseleave', () => cursor.classList.remove('hovered'));
+    });
+  }
+
+  // ── SCROLL REVEAL ────────────────────────────────────────
+  const revealObserver = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        revealObserver.unobserve(e.target);
       }
     });
-  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  }, { threshold: 0.1, rootMargin: '0px 0px -32px 0px' });
 
   document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
-  // ── ACTIVE NAV ─────────────────────────
-  const currentPath = window.location.pathname;
-  document.querySelectorAll('.nav-links a').forEach(link => {
-    if (link.getAttribute('href') === currentPath ||
-        link.getAttribute('href') === currentPath.replace('.html','')) {
-      link.classList.add('active');
+  // ── ACTIVE NAV ───────────────────────────────────────────
+  const path = window.location.pathname.split('/').pop() || 'index.html';
+  document.querySelectorAll('.nav-links a').forEach(a => {
+    const href = a.getAttribute('href');
+    if (href === path || (path === 'index.html' && href === 'index.html')) {
+      a.classList.add('active');
+    }
+    // Special magenta for Nijam
+    if (href === 'nijam.html' && path === 'nijam.html') {
+      a.classList.remove('active');
+      a.classList.add('active-magenta');
     }
   });
 
-  // ── BACK TO TOP ────────────────────────
-  const btt = document.querySelector('.back-to-top');
-  if (btt) {
-    btt.addEventListener('click', (e) => {
-      e.preventDefault();
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
+  // ── DATELINE ─────────────────────────────────────────────
+  const dateline = document.querySelector('.nav-dateline');
+  if (dateline) {
+    const now  = new Date();
+    const opts = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' };
+    dateline.textContent = now.toLocaleDateString('en-US', opts).toUpperCase();
   }
 
-  // ── PROJECT HOVER PREVIEW ──────────────
-  const preview = document.querySelector('.work-item-preview');
-  if (preview) {
-    const previewImg = preview.querySelector('img');
+  // ── WORK/ARCHIVE HOVER PREVIEW ───────────────────────────
+  const ghost    = document.querySelector('.work-preview-ghost');
+  const ghostImg = ghost?.querySelector('img');
 
-    document.querySelectorAll('.work-item[data-preview]').forEach(item => {
-      item.addEventListener('mouseenter', (e) => {
-        previewImg.src = item.dataset.preview;
-        preview.classList.add('visible');
+  if (ghost && ghostImg) {
+    document.querySelectorAll('[data-preview]').forEach(row => {
+      row.addEventListener('mouseenter', e => {
+        ghostImg.src = row.dataset.preview;
+        ghost.classList.add('visible');
       });
-
-      item.addEventListener('mouseleave', () => {
-        preview.classList.remove('visible');
-      });
-
-      item.addEventListener('mousemove', (e) => {
-        preview.style.left = e.clientX + 'px';
-        preview.style.top = e.clientY + 'px';
+      row.addEventListener('mouseleave', () => ghost.classList.remove('visible'));
+      row.addEventListener('mousemove', e => {
+        ghost.style.left = e.clientX + 'px';
+        ghost.style.top  = e.clientY + 'px';
       });
     });
   }
 
-  // ── SMOOTH INTERNAL LINKS ──────────────
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', (e) => {
-      const target = document.querySelector(anchor.getAttribute('href'));
-      if (target) {
-        e.preventDefault();
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
+  // ── NIJAM FILTER BUTTONS ──────────────────────────────────
+  const filterBtns   = document.querySelectorAll('.filter-btn');
+  const storyItems   = document.querySelectorAll('[data-tag]');
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const tag = btn.dataset.filter;
+      storyItems.forEach(item => {
+        if (tag === 'all' || item.dataset.tag === tag) {
+          item.style.display = '';
+        } else {
+          item.style.display = 'none';
+        }
+      });
     });
   });
 
-  // ── NAV SCROLL STYLE ───────────────────
-  const nav = document.querySelector('nav');
-  if (nav) {
-    window.addEventListener('scroll', () => {
-      nav.style.borderBottomColor = window.scrollY > 40
-        ? 'rgba(245, 243, 238, 0.12)'
-        : 'transparent';
-    }, { passive: true });
-  }
-
-  // ── COUNT-UP ANIMATION ─────────────────
-  const countEls = document.querySelectorAll('.count-up');
-  const countObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (!entry.isIntersecting) return;
-      const el = entry.target;
+  // ── COUNT-UP ─────────────────────────────────────────────
+  const countObserver = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      const el     = e.target;
       const target = parseInt(el.dataset.target, 10);
-      const duration = 1200;
-      const start = performance.now();
-      const animate = (now) => {
-        const elapsed = now - start;
-        const progress = Math.min(elapsed / duration, 1);
-        const eased = 1 - Math.pow(1 - progress, 3);
-        el.textContent = Math.round(eased * target);
-        if (progress < 1) requestAnimationFrame(animate);
+      const dur    = 1100;
+      const start  = performance.now();
+      const tick   = now => {
+        const t = Math.min((now - start) / dur, 1);
+        const v = 1 - Math.pow(1 - t, 3);
+        el.textContent = Math.round(v * target);
+        if (t < 1) requestAnimationFrame(tick);
       };
-      requestAnimationFrame(animate);
+      requestAnimationFrame(tick);
       countObserver.unobserve(el);
     });
   }, { threshold: 0.5 });
 
-  countEls.forEach(el => countObserver.observe(el));
+  document.querySelectorAll('.count-up').forEach(el => countObserver.observe(el));
+
+  // ── BACK TO TOP ──────────────────────────────────────────
+  document.querySelectorAll('.back-to-top').forEach(el => {
+    el.addEventListener('click', e => {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  });
+
+  // ── TILT EFFECT on cards (subtle, whimsical) ─────────────
+  document.querySelectorAll('.card, .archive-card').forEach(card => {
+    card.addEventListener('mousemove', e => {
+      const rect = card.getBoundingClientRect();
+      const x = (e.clientX - rect.left) / rect.width  - 0.5;
+      const y = (e.clientY - rect.top)  / rect.height - 0.5;
+      card.style.transform = `perspective(600px) rotateY(${x * 6}deg) rotateX(${-y * 6}deg)`;
+    });
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = '';
+    });
+  });
+
+  // ── MARQUEE pause on hover ────────────────────────────────
+  document.querySelectorAll('.ticker-track').forEach(track => {
+    track.addEventListener('mouseenter', () => track.style.animationPlayState = 'paused');
+    track.addEventListener('mouseleave', () => track.style.animationPlayState = 'running');
+  });
 
 });

@@ -1,0 +1,242 @@
+/* ============================================================
+   NITHYA నిజము [NIJAM] — NEWSPAPER PAGE
+   ============================================================ */
+
+/* ── MASTHEAD ── */
+.nijam-page-masthead {
+  padding-top: var(--nav-h);
+  border-bottom: 1.5px solid var(--ink);
+  background: var(--paper);
+}
+
+.nijam-banner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 40px var(--gutter) 0;
+  text-align: center;
+  border-bottom: 3px double var(--ink);
+  padding-bottom: 20px;
+}
+
+.nijam-banner-hed {
+  font-family: var(--font-display);
+  font-size: clamp(48px, 10vw, 120px);
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  line-height: 0.9;
+}
+.nijam-banner-hed .line-english { display: block; }
+.nijam-banner-hed .line-telugu  {
+  display: block;
+  color: var(--magenta);
+  font-style: italic;
+  font-size: 0.7em;
+}
+
+.nijam-tagline {
+  margin-top: 12px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.nijam-meta-bar {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 10px var(--gutter);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  border-top: 1px solid var(--rule);
+}
+
+.nijam-filter-bar {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+  display: flex;
+  gap: 0;
+  border-top: 1.5px solid var(--ink);
+  overflow-x: auto;
+}
+
+.filter-btn {
+  padding: 12px 20px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  border-right: 1px solid var(--rule-bold);
+  background: none;
+  cursor: pointer;
+  transition: background 0.18s, color 0.18s;
+  white-space: nowrap;
+}
+.filter-btn:hover { background: var(--paper-dark); color: var(--ink); }
+.filter-btn.active { background: var(--magenta); color: var(--paper); }
+
+/* ── FRONT PAGE LAYOUT ── */
+.nijam-front-page {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 32px var(--gutter) 80px;
+}
+
+/* Hero story — full-width banner */
+.story-hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: start;
+  padding-bottom: 32px;
+  border-bottom: 1.5px solid var(--ink);
+  margin-bottom: 32px;
+}
+
+.story-hero-image {
+  aspect-ratio: 16/9;
+  overflow: hidden;
+  background: var(--paper-dark);
+}
+.story-hero-image img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(10%); }
+
+.story-hero-content {}
+
+.story-kicker {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  display: inline-block;
+  padding: 3px 10px;
+  margin-bottom: 12px;
+}
+.story-kicker.writing  { background: var(--ink); color: var(--paper); }
+.story-kicker.project  { background: var(--magenta); color: var(--paper); }
+.story-kicker.update   { border: 1px solid var(--ink); color: var(--ink); }
+.story-kicker.art      { background: var(--charcoal); color: var(--paper); }
+
+.story-hed {
+  font-family: var(--font-display);
+  font-size: clamp(24px, 3.5vw, 44px);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-bottom: 12px;
+}
+.story-hed a { transition: color 0.18s; }
+.story-hed a:hover { color: var(--magenta); }
+
+.story-dek {
+  font-size: 15px;
+  color: var(--charcoal);
+  line-height: 1.7;
+  margin-bottom: 16px;
+}
+
+.story-byline {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  display: flex;
+  gap: 16px;
+}
+.story-byline strong { color: var(--magenta); }
+
+/* Three-column broadsheet grid */
+.nijam-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 0;
+}
+
+.nijam-col {
+  padding-right: 28px;
+  border-right: 1px solid var(--rule-bold);
+}
+.nijam-col:last-child { padding-right: 0; border-right: none; padding-left: 28px; }
+.nijam-col:nth-child(2) { padding: 0 28px; }
+
+.col-label {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding-bottom: 10px;
+  border-bottom: 1.5px solid var(--ink);
+  margin-bottom: 20px;
+}
+
+/* Story card in column */
+.story-item {
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid var(--rule);
+}
+.story-item:last-child { border-bottom: none; }
+
+.story-item-hed {
+  font-family: var(--font-display);
+  font-size: clamp(17px, 1.8vw, 22px);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  margin-bottom: 6px;
+}
+.story-item-hed a:hover { color: var(--magenta); }
+
+.story-item-dek {
+  font-size: 13px;
+  color: var(--charcoal);
+  line-height: 1.65;
+}
+
+.story-item-thumb {
+  aspect-ratio: 16/9;
+  overflow: hidden;
+  background: var(--paper-dark);
+  margin-bottom: 12px;
+}
+.story-item-thumb img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(15%); }
+
+/* ── POST SINGLE VIEW ── */
+.post-single {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 48px var(--gutter) 100px;
+}
+.post-single .story-hed {
+  font-size: clamp(32px, 5vw, 60px);
+  margin-bottom: 20px;
+}
+.post-single .story-byline { margin-bottom: 32px; padding-bottom: 32px; border-bottom: 1.5px solid var(--ink); }
+.post-body { font-size: 17px; line-height: 1.85; color: var(--charcoal); }
+.post-body p { margin-bottom: 1.5em; }
+.post-body h2 { font-family: var(--font-display); font-size: 28px; margin: 2em 0 0.5em; letter-spacing: -0.01em; }
+.post-body blockquote {
+  border-left: 3px solid var(--magenta);
+  padding: 8px 0 8px 20px;
+  margin: 1.5em 0;
+  font-style: italic;
+  color: var(--charcoal);
+  font-size: 19px;
+  line-height: 1.65;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .story-hero { grid-template-columns: 1fr; }
+  .nijam-columns { grid-template-columns: 1fr; }
+  .nijam-col { padding: 0 0 24px; border-right: none; border-bottom: 1px solid var(--rule-bold); }
+  .nijam-col:last-child { padding-left: 0; }
+}

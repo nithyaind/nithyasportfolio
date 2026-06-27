@@ -3,296 +3,296 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>YOUR NAME | YOUR TITLE</title>
-  <meta name="description" content="YOUR META DESCRIPTION" />
-  <meta property="og:title" content="YOUR NAME | YOUR TITLE" />
-  <meta property="og:description" content="YOUR META DESCRIPTION" />
+  <title>Nithya Sunkara Indlamuri — Creative Technologist</title>
+  <meta name="description" content="Nithya Sunkara Indlamuri — multimedia journalist, filmmaker, and software engineer. Creative technologist at the intersection of story and code." />
+  <meta property="og:title" content="Nithya Sunkara Indlamuri" />
+  <meta property="og:description" content="Creative technologist. Journalist. Filmmaker. Engineer." />
   <meta property="og:image" content="assets/images/og-image.jpg" />
-
-  <!-- Google Fonts — swap these for your chosen typefaces -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&family=Space+Mono:ital@0;1&display=swap" rel="stylesheet" />
-
-  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/tokens.css" />
   <link rel="stylesheet" href="css/home.css" />
-
-  <style>
-    /* Override font variables to match chosen fonts */
-    :root {
-      --font-display: 'DM Serif Display', Georgia, serif;
-      --font-mono: 'Space Mono', monospace;
-      --font-body: 'DM Sans', system-ui, sans-serif;
-    }
-  </style>
 </head>
 <body>
 
-  <!-- ══ NAVIGATION ══════════════════════════════════ -->
-  <nav id="top">
-    <span class="nav-logo">
-      <!-- REPLACE: your initials or short logo text -->
-      YOUR INITIALS
-    </span>
+<!-- CURSOR -->
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
 
-    <ul class="nav-links">
-      <li><a href="index.html" class="active">Home</a></li>
-      <li><a href="work.html">Work</a></li>
-      <!-- Add more: Info, About, etc. -->
-    </ul>
+<!-- ══ NAV ══════════════════════════════════════════════════ -->
+<nav class="site-nav">
+  <a href="index.html" class="nav-logo">BY <strong>NITHYA</strong></a>
 
-    <span class="nav-year">©&thinsp;2026</span>
-  </nav>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="work.html">Work</a></li>
+    <li><a href="archive.html">Archive</a></li>
+    <li><a href="nijam.html">నిజము [Nijam]</a></li>
+    <li><a href="about.html">About</a></li>
+  </ul>
+
+  <div class="nav-dateline"></div>
+</nav>
 
 
-  <!-- ══ HERO ════════════════════════════════════════ -->
-  <section class="hero">
+<!-- ══ HERO ═════════════════════════════════════════════════ -->
+<section class="hero">
+  <div class="hero-inner">
 
-    <!-- Optional left side label -->
-    <div class="hero-side left" aria-hidden="true">
-      <span class="vertical-label">
-        <!-- REPLACE: your role / tagline short form -->
-        DESIGNER &amp; DEVELOPER
-      </span>
+    <!-- Left: name block -->
+    <div class="hero-left">
+      <div class="hero-eyebrow">Creative Technologist · Chapel Hill, NC</div>
+
+      <h1 class="hero-name" aria-label="Nithya Sunkara Indlamuri">
+        <span class="name-line">NITHYA</span>
+        <span class="name-line">SUNKARA</span>
+        <span class="name-line">INDLAMURI</span>
+      </h1>
+
+      <p class="hero-telugu">నిత్య సుంకర ఇందలమూరి</p>
     </div>
 
-    <div class="hero-content">
+    <!-- Right: role + bio + CTAs -->
+    <div class="hero-right">
 
-      <!-- Optional: role pill with availability status -->
-      <div class="hero-role-pill">
-        <!-- REPLACE: your current role & company -->
-        DESIGNER @ STUDIO NAME &nbsp;·&nbsp; BASED IN CITY
-      </div>
-
-      <!-- Big name display -->
-      <div class="hero-name" aria-label="YOUR FULL NAME">
-        <div class="line-first">
-          <!-- REPLACE: your first name -->
-          <span class="first">FIRST</span>
-          <!-- REPLACE: your last name (italicised accent colour) -->
-          <span class="last">LAST</span>
+      <div class="hero-role-block">
+        <div class="hero-role-title">Currently</div>
+        <div class="hero-role-value">
+          Multimedia Journalist<br>
+          &amp; SWE Intern @ Fidelity Investments
         </div>
       </div>
 
-      <!-- Tagline + meta columns -->
-      <div class="hero-tagline">
-        <p class="hero-tagline-text">
-          <!-- REPLACE: 1–2 sentences describing who you are and what you do -->
-          I partner with brands and startups to craft digital
-          experiences that are intuitive, meaningful, and
-          quietly unforgettable.
-        </p>
-        <div class="hero-tagline-meta">
-          <!-- REPLACE: your specialisms / interests, one per line -->
-          UI / VISUAL DESIGN<br>
-          USER EXPERIENCE<br>
-          BRAND IDENTITY<br>
-          <!-- REPLACE: your personal interest / fun fact -->
-          &amp; COFFEE OBSESSIVE
-        </div>
+      <div class="hero-role-block">
+        <div class="hero-role-title">Based in</div>
+        <div class="hero-role-value">Chapel Hill, NC</div>
       </div>
 
-      <span class="hero-scroll-hint" aria-hidden="true">Scroll</span>
-    </div>
+      <p class="hero-bio">
+        Equal parts journalist and filmmaker, equal parts software engineer
+        and storyteller. I use technology to build new-age stories that are
+        <em>experiences people can step inside</em>.
+      </p>
 
-    <!-- Right edge label -->
-    <div class="hero-side right" aria-hidden="true">
-      <span class="vertical-label">
-        <!-- REPLACE: year / version tag or leave as-is -->
-        2026
-      </span>
-    </div>
+      <div class="hero-ctas">
+        <a href="work.html" class="btn-primary">See My Work →</a>
+        <a href="about.html" class="btn-outline">My Story</a>
+      </div>
 
-    <!--
-      OPTIONAL VIDEO BACKGROUND STRIP
-      Uncomment and set src to your own showreel clip.
-      Keep it short (5–10s looping), muted, and subtle.
-
-    <div class="hero-video-strip" aria-hidden="true">
-      <video src="assets/YOUR_REEL.mp4" autoplay muted loop playsinline></video>
-    </div>
-    -->
-  </section>
-
-
-  <!-- ══ FEATURED PROJECTS ═══════════════════════════ -->
-  <section class="section-featured">
-
-    <div class="section-header">
-      <span class="section-title">Featured Projects</span>
-      <a href="work.html" class="section-cta">View all work</a>
-    </div>
-
-    <div class="projects-grid">
-
-      <!--
-        PROJECT CARD — repeat for each featured project (2–4 cards recommended).
-
-        REPLACE per card:
-          href        → link to case study page or external URL
-          img src     → your project thumbnail (assets/images/project-1.jpg)
-          img alt     → descriptive alt text
-          data-type   → e.g. "Mobile App", "Responsive Web", "Brand Identity"
-          project name → the name shown large
-      -->
-
-      <a href="work/project-one.html" class="project-card reveal">
-        <img src="assets/images/project-1.jpg" alt="PROJECT ONE – brief description" />
-        <div class="project-card-info">
-          <p class="project-card-type">Mobile App</p>
-          <h3 class="project-card-name">PROJECT ONE</h3>
-        </div>
-      </a>
-
-      <a href="work/project-two.html" class="project-card reveal reveal-delay-1">
-        <img src="assets/images/project-2.jpg" alt="PROJECT TWO – brief description" />
-        <div class="project-card-info">
-          <p class="project-card-type">Responsive Web</p>
-          <h3 class="project-card-name">PROJECT TWO</h3>
-        </div>
-      </a>
-
-      <!-- Add more cards, or remove one to keep 2 featured -->
-
-    </div>
-
-    <!-- Optional descriptor line under grid -->
-    <p class="section-cta-line reveal" style="margin-top:40px; font-size:14px; color:var(--muted); max-width:480px;">
-      <!-- REPLACE: your design philosophy in one sentence -->
-      Experiences crafted from user insights and design thinking — built to stand apart.
-    </p>
-
-  </section>
-
-
-  <!-- ══ SKILLS TICKER ═══════════════════════════════ -->
-  <div class="skills-ticker" aria-hidden="true">
-    <div class="ticker-track">
-      <!--
-        REPLACE: list your skills / services. Duplicate the whole set once
-        after the first copy so the ticker loops seamlessly.
-      -->
-      <span class="ticker-item">UI / Visual Design</span>
-      <span class="ticker-item">UX Design</span>
-      <span class="ticker-item">Brand Identity</span>
-      <span class="ticker-item">Art Direction</span>
-      <span class="ticker-item">Design Systems</span>
-      <span class="ticker-item">Prototyping</span>
-      <span class="ticker-item">User Research</span>
-      <!-- Duplicate below for seamless loop -->
-      <span class="ticker-item">UI / Visual Design</span>
-      <span class="ticker-item">UX Design</span>
-      <span class="ticker-item">Brand Identity</span>
-      <span class="ticker-item">Art Direction</span>
-      <span class="ticker-item">Design Systems</span>
-      <span class="ticker-item">Prototyping</span>
-      <span class="ticker-item">User Research</span>
     </div>
   </div>
 
+  <!-- Ticker -->
+  <div class="hero-ticker">
+    <div class="ticker-track">
+      <span class="ticker-item">Multimedia Journalism</span>
+      <span class="ticker-item accent">✦</span>
+      <span class="ticker-item">Software Engineering</span>
+      <span class="ticker-item accent">✦</span>
+      <span class="ticker-item">Filmmaking</span>
+      <span class="ticker-item accent">✦</span>
+      <span class="ticker-item">Ethics of Tech</span>
+      <span class="ticker-item accent">✦</span>
+      <span class="ticker-item">Interactive Storytelling</span>
+      <span class="ticker-item accent">✦</span>
+      <span class="ticker-item">UNC Chapel Hill</span>
+      <span class="ticker-item accent">✦</span>
+      <span class="ticker-item">Fidelity Investments</span>
+      <span class="ticker-item accent">✦</span>
+      <!-- duplicate for seamless loop -->
+      <span class="ticker-item">Multimedia Journalism</span>
+      <span class="ticker-item accent">✦</span>
+      <span class="ticker-item">Software Engineering</span>
+      <span class="ticker-item accent">✦</span>
+      <span class="ticker-item">Filmmaking</span>
+      <span class="ticker-item accent">✦</span>
+      <span class="ticker-item">Ethics of Tech</span>
+      <span class="ticker-item accent">✦</span>
+      <span class="ticker-item">Interactive Storytelling</span>
+      <span class="ticker-item accent">✦</span>
+      <span class="ticker-item">UNC Chapel Hill</span>
+      <span class="ticker-item accent">✦</span>
+      <span class="ticker-item">Fidelity Investments</span>
+      <span class="ticker-item accent">✦</span>
+    </div>
+  </div>
+</section>
 
-  <!-- ══ ABOUT / INFO SECTION ════════════════════════ -->
-  <section class="section-info">
-    <div class="info-inner">
 
-      <div>
-        <span class="section-title t-mono reveal">About</span>
+<!-- ══ FEATURED WORK ══════════════════════════════════════════ -->
+<section class="section-featured">
+  <div class="section-hed reveal">
+    <h2>Featured <em>Work</em></h2>
+    <a href="work.html" class="see-all">All projects</a>
+  </div>
 
-        <h2 class="info-headline reveal reveal-delay-1">
-          <!-- REPLACE: your background story in a compelling short headline.
-               Use <em> around a word or phrase for italic accent styling. -->
-          A <em>[cross-cultural]</em> perspective
-          shaped by curiosity, emotion,
-          and empathy.
-        </h2>
+  <div class="work-grid">
+    <!--
+      REPLACE: each card needs an image in assets/images/
+      and a link to the case study page.
+      Keep the first card as the big "hero" card.
+    -->
+    <a href="work/project-one.html" class="card reveal">
+      <img src="assets/images/project-1.jpg" alt="Project One" />
+      <div class="card-overlay"></div>
+      <div class="card-info">
+        <p class="card-type">Interactive Story · 2025</p>
+        <h3 class="card-name">YOUR FEATURED PROJECT</h3>
+      </div>
+    </a>
 
-        <p class="info-body reveal reveal-delay-2">
-          <!-- REPLACE: 2–3 sentences about your design philosophy or backstory. -->
-          Design, to me, is a bridge between emotion and function. My goal
-          has always been to elevate everyday interactions into something
-          more meaningful — quietly threading in moments of joy that catch
-          people by surprise and stay with them.
+    <a href="work/project-two.html" class="card reveal reveal-d1">
+      <img src="assets/images/project-2.jpg" alt="Project Two" />
+      <div class="card-overlay"></div>
+      <div class="card-info">
+        <p class="card-type">Multimedia · 2024</p>
+        <h3 class="card-name">PROJECT TWO</h3>
+      </div>
+    </a>
+
+    <a href="work/project-three.html" class="card reveal reveal-d2">
+      <img src="assets/images/project-3.jpg" alt="Project Three" />
+      <div class="card-overlay"></div>
+      <div class="card-info">
+        <p class="card-type">Web App · 2024</p>
+        <h3 class="card-name">PROJECT THREE</h3>
+      </div>
+    </a>
+  </div>
+</section>
+
+
+<!-- ══ NIJAM PREVIEW STRIP ════════════════════════════════════ -->
+<section class="section-nijam-preview">
+  <div class="nijam-preview-inner">
+
+    <div class="reveal">
+      <h2 class="nijam-masthead">Nithya<br><em>నిజము</em><br>[Nijam]</h2>
+      <p class="nijam-subtitle">Nithya Truth · Writing · Projects · Updates</p>
+    </div>
+
+    <div class="nijam-cards">
+
+      <article class="nijam-card reveal">
+        <div class="nijam-card-date">May 2025</div>
+        <span class="nijam-card-tag">Essay</span>
+        <h3 class="nijam-card-hed">
+          <!-- REPLACE: your first essay/post title -->
+          On being equal parts: identity, code, and camera
+        </h3>
+        <p class="nijam-card-dek">
+          <!-- REPLACE: your teaser text -->
+          What it means to be a creative technologist when no one agrees on what that label means.
         </p>
+      </article>
 
-        <a href="about.html" class="info-link reveal reveal-delay-3">
-          <!-- REPLACE: label for your About/Info page link -->
-          Read my story
-        </a>
-      </div>
+      <article class="nijam-card reveal reveal-d1">
+        <div class="nijam-card-date">April 2025</div>
+        <span class="nijam-card-tag">Project Update</span>
+        <h3 class="nijam-card-hed">
+          <!-- REPLACE -->
+          Building something new at Fidelity — and what I'm learning about ethical tech
+        </h3>
+        <p class="nijam-card-dek">
+          <!-- REPLACE -->
+          Notes from the intersection of finance, journalism, and software engineering.
+        </p>
+      </article>
 
-      <div class="info-image reveal reveal-delay-2">
-        <!--
-          REPLACE: a portrait or atmospheric photo of you / your workspace.
-          Good aspect ratio: 3:4 (portrait orientation).
-          src="assets/images/about-photo.jpg"
-        -->
-        <img
-          src="assets/images/about-photo.jpg"
-          alt="A photo of YOUR NAME"
-        />
-        <span class="info-image-label">
-          <!-- REPLACE: brief caption — location, year, etc. -->
-          YOUR CITY, 2025
-        </span>
-      </div>
-
-    </div>
-  </section>
-
-
-  <!-- ══ FOOTER ══════════════════════════════════════ -->
-  <footer>
-    <div class="footer-inner">
-
-      <div>
-        <div class="footer-hello t-display">
-          COME<br>
-          <em>say</em><br>
-          HELLO
-        </div>
-
-        <!--
-          OPTIONAL: Spotify "currently on repeat" embed.
-          Replace the track ID in the iframe src.
-          Find it: open Spotify → right-click a track → Share → Copy Embed Code.
-        -->
-        <div class="spotify-widget">
-          <span class="spotify-label">Currently on repeat</span>
-          <!--
-          <iframe
-            class="spotify-embed"
-            src="https://open.spotify.com/embed/track/YOUR_TRACK_ID?theme=0"
-            width="100%" height="80"
-            frameborder="0"
-            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-            loading="lazy">
-          </iframe>
-          -->
-        </div>
-      </div>
-
-      <div class="footer-links">
-        <!--
-          REPLACE: update hrefs and labels for your actual social / contact links.
-        -->
-        <a href="mailto:YOUR@EMAIL.COM" class="footer-link">Email me</a>
-        <a href="https://linkedin.com/in/YOUR-HANDLE" class="footer-link" target="_blank" rel="noopener">LinkedIn</a>
-        <a href="https://instagram.com/YOUR-HANDLE" class="footer-link" target="_blank" rel="noopener">Instagram</a>
-        <!-- Add: Dribbble, GitHub, Behance, etc. -->
-      </div>
+      <article class="nijam-card reveal reveal-d2">
+        <div class="nijam-card-date">March 2025</div>
+        <span class="nijam-card-tag">Dispatch</span>
+        <h3 class="nijam-card-hed">
+          <!-- REPLACE -->
+          Chapel Hill light at 6am and why I always have a camera
+        </h3>
+        <p class="nijam-card-dek">
+          <!-- REPLACE -->
+          A filmmaker's diary entry disguised as a journalism student's reflection.
+        </p>
+      </article>
 
     </div>
 
-    <div class="footer-bottom">
-      <span>
-        <!-- REPLACE: your name and year -->
-        YOUR NAME &copy; 2026
-      </span>
-      <a href="#top" class="back-to-top">Back to top ↑</a>
+    <a href="nijam.html" class="nijam-read-all reveal">Read all dispatches</a>
+
+  </div>
+</section>
+
+
+<!-- ══ IDENTITY SECTION ════════════════════════════════════════ -->
+<section class="section-identity">
+
+  <div class="reveal">
+    <p class="t-label" style="margin-bottom:16px;">Who I Am</p>
+    <h2 class="identity-headline">
+      Equal parts <em>S. Sunkara</em><br>
+      and <em>P. Indlamuri</em> —<br>
+      equal parts everything.
+    </h2>
+    <p class="identity-body">
+      I am a creative technologist, equal parts journalist and filmmaker
+      and software engineer. I care about the ethics of technology in
+      journalism, and I want to be part of those conversations — building
+      tools and stories that get truth to the communities that need it most.
+    </p>
+    <a href="about.html" class="identity-link">Read my full story</a>
+  </div>
+
+  <div class="identity-portrait reveal reveal-d2">
+    <!--
+      REPLACE: assets/images/about-photo.jpg
+      A portrait of you, or an atmospheric photo from a shoot.
+      3:4 portrait ratio works best here.
+    -->
+    <img src="assets/images/about-photo.jpg" alt="Nithya Sunkara Indlamuri" />
+    <span class="identity-portrait-caption">Chapel Hill, NC · 2025</span>
+  </div>
+
+</section>
+
+
+<!-- ══ FOOTER ═════════════════════════════════════════════════ -->
+<footer class="site-footer">
+  <div class="footer-grid">
+
+    <div>
+      <div class="footer-masthead">
+        GET IN<br><em>TOUCH</em>
+      </div>
+      <p class="footer-tagline">
+        Journalist · Filmmaker · Engineer<br>
+        Chapel Hill, NC · Available for collaborations
+      </p>
     </div>
-  </footer>
 
+    <div>
+      <div class="footer-col-title">Navigate</div>
+      <ul class="footer-links-list">
+        <li><a href="work.html">Work</a></li>
+        <li><a href="archive.html">Archive</a></li>
+        <li><a href="nijam.html">నిజము [Nijam]</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+    </div>
 
-  <script src="js/main.js"></script>
+    <div>
+      <div class="footer-col-title">Connect</div>
+      <ul class="footer-links-list">
+        <li><a href="mailto:nithya.indla8@gmail.com">Email</a></li>
+        <li><a href="https://www.linkedin.com/in/nithya-ind/" target="_blank" rel="noopener">LinkedIn</a></li>
+        <!-- REPLACE: add your Instagram, GitHub, etc. -->
+        <!-- <li><a href="https://instagram.com/YOUR_HANDLE" target="_blank" rel="noopener">Instagram</a></li> -->
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <span>Nithya Sunkara Indlamuri © 2026</span>
+    <a href="nijam.html">నిజము [Nijam] →</a>
+    <a href="#" class="back-to-top">↑ Back to top</a>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
 </body>
 </html>

@@ -1,138 +1,154 @@
-# nithyasportfolio# Portfolio — Setup Guide
+# Nithya Sunkara Indlamuri — Portfolio
+## Setup Guide & Content Checklist
+
+---
 
 ## File Structure
 
 ```
-portfolio/
+/
 ├── index.html          ← Home page
-├── work.html           ← Work index page
-├── about.html          ← (create this yourself or ask for code)
+├── work.html           ← Featured work list
+├── archive.html        ← Archival projects grid
+├── nijam.html          ← Newspaper / blog page (Nithya నిజము [Nijam])
+├── about.html          ← About me page
+│
 ├── work/
-│   ├── project-one.html
-│   ├── project-two.html
-│   └── ...             ← one file per case study
+│   ├── project-one.html    ← Individual case study (create per project)
+│   └── ...
+│
+├── nijam/
+│   ├── post-one.html       ← Individual blog post (create per post)
+│   └── ...
+│
 ├── css/
-│   ├── styles.css      ← shared tokens, nav, footer, animations
-│   ├── home.css        ← hero, featured grid, about section
-│   └── work.css        ← work hero, project list, philosophy
+│   ├── tokens.css      ← Brand tokens, nav, footer, cursor, animations
+│   ├── home.css        ← Home page styles
+│   ├── nijam.css       ← Newspaper page styles
+│   └── pages.css       ← Work, archive, about styles
+│
 ├── js/
-│   └── main.js         ← scroll reveal, hover preview, count-up
+│   └── main.js         ← Cursor, scroll reveal, hover preview, filters, count-up
+│
 └── assets/
-    ├── images/
-    │   ├── og-image.jpg          ← 1200×630 social share image
-    │   ├── about-photo.jpg       ← portrait / workspace (portrait ratio)
-    │   ├── project-1.jpg         ← featured project thumbnail
-    │   ├── project-2.jpg
-    │   └── ...
-    └── fonts/                    ← optional self-hosted fonts
+    └── images/
+        ├── og-image.jpg          ← 1200×630 social share
+        ├── about-photo.jpg       ← Portrait of you (3:4 ratio)
+        ├── project-1.jpg         ← Work thumbnails
+        ├── project-2.jpg
+        ├── project-3.jpg
+        ├── nijam-hero.jpg        ← Nijam lead story image
+        ├── nijam-post-2.jpg      ← Essay thumbnail
+        ├── nijam-proj-1.jpg      ← Project update thumbnail
+        ├── nijam-dispatch-1.jpg  ← Dispatch thumbnail
+        ├── archive-1.jpg         ← Archive thumbnails
+        └── ...
 ```
 
 ---
 
 ## Step-by-Step Setup
 
-### Step 1 — Replace your identity
-Search the HTML files for `YOUR NAME`, `YOUR INITIALS`, `YOUR TITLE` etc.
-and swap in your real details. Every placeholder is `UPPERCASE` or wrapped
-in a comment starting with `<!-- REPLACE`.
+### Step 1 — Add your images
+Every `<img>` tag has a `src` pointing to `assets/images/`.
+Drop your photos there. Specs:
+- `og-image.jpg` — 1200×630 px
+- `about-photo.jpg` — tall portrait, 900×1200 px works well
+- Project thumbnails — 1600×1200 px (4:3) for hover previews
+- Nijam images — 1200×675 px (16:9) for story images
 
-### Step 2 — Add your images
-Drop images into `assets/images/`. Recommended specs:
-- **og-image.jpg** — 1200 × 630 px (social share)
-- **about-photo.jpg** — 900 × 1200 px (3:4 portrait)
-- **project-N.jpg** — 1600 × 1200 px (4:3 landscape, used as card + hover preview)
-- Keep files under 300 KB each — compress at squoosh.app
+Compress everything at **squoosh.app** before uploading. Target < 300 KB each.
 
-### Step 3 — Add your projects
-In `work.html`, copy the `.work-item` block and fill in:
-- `href` → path to your case study page
-- `data-preview` → thumbnail path
-- Project name, type (Mobile App / Responsive Web / Brand Identity …), year
+### Step 2 — Fill in your projects (work.html + index.html)
+Find every `.work-row` and `.card` block. Fill in:
+- `href` → link to your case study page in `/work/`
+- `data-preview` → path to thumbnail
+- Project name, type, year
+- Status: `status-live`, `status-wip`, or `status-soon`
 
-In `index.html`, update the `.project-card` blocks similarly (2–4 featured ones).
+Update the count-up `data-target` values to match your real project count.
 
-### Step 4 — Update your stats
-In `work.html` find the three `.work-stat` divs and update `data-target`
-to your real numbers (projects, industries, years of experience).
-The JS will animate them counting up when they scroll into view.
+### Step 3 — Add your work to the archive (archive.html)
+Copy the `.archive-card` blocks and fill in per project.
+Organise by year — add or remove year groups as needed.
 
-### Step 5 — Customise typefaces (optional)
-The default stack uses Google Fonts:
-- Display: **DM Serif Display** (elegant, editorial)
-- Mono: **Space Mono** (for labels, nav, metadata)
-- Body: **DM Sans** (clean, readable)
+### Step 4 — Write your first Nijam posts (nijam.html)
+Replace the placeholder headlines, teasers, and dates with your real content.
+To add a new post:
+1. Create a file in `/nijam/your-post-title.html`
+2. Add a `.story-item` block to `nijam.html`
+3. Set `data-tag` to: `writing`, `project`, `dispatch`, `art`, or `update`
 
-To change, update the `<link>` in both HTML files and the `:root` variables
-at the top of each `<style>` block.
+### Step 5 — Replace your project images (index.html hero section)
+The home page shows 3 featured cards. Set each `img src` and `href`.
 
-### Step 6 — Add social links
-In both `index.html` and `work.html`, find the footer and replace
-`YOUR@EMAIL.COM`, `YOUR-HANDLE` with real links.
+### Step 6 — Add your social links
+All pages have commented-out slots for Instagram, GitHub, Dribbble, etc.
+Search for `<!-- REPLACE: add your Instagram` and uncomment/update.
 
-### Step 7 — Add Spotify (optional)
-Uncomment the `<iframe>` block in the footer of each page.
-Replace `YOUR_TRACK_ID` with a Spotify track ID:
-→ Open Spotify → right-click any song → Share → Copy embed code → grab the ID.
+### Step 7 — Customise the ticker (index.html)
+The hero ticker lists your disciplines. Edit the `.ticker-item` spans to
+reflect what you actually do — keep one set, then duplicate it once for
+seamless looping.
 
-### Step 8 — Optional video backgrounds
-Both pages have commented-out `<video>` blocks for ambient background clips.
-If you have a showreel or product walkthrough clip:
-- Export as `.mp4`, H.264, 1280×720 max, ideally under 5 MB
-- Set `src` to `assets/YOUR_FILE.mp4`
-- Uncomment the block
+### Step 8 — Deploy
+Drag the whole folder to:
+- **Vercel** (vercel.com) — instant, free, custom domain support
+- **Netlify** (netlify.com) — same
+- **GitHub Pages** — commit to a repo and enable Pages in Settings
 
-### Step 9 — Deploy
-- **Quick**: Drag the entire `portfolio/` folder to Vercel, Netlify, or GitHub Pages
-- The site is static HTML — no build step needed
-- Point your custom domain in your host's dashboard
+No build step needed. Pure HTML/CSS/JS.
 
 ---
 
-## Content Checklist — What You Need to Prepare
+## Content You Still Need to Write
 
-### Identity
-- [ ] Full name (first + last shown separately in hero)
-- [ ] Your initials for the nav logo
-- [ ] Current role + company name
-- [ ] City / location
-- [ ] Short bio (2–3 sentences, for the about section on home page)
-- [ ] Design philosophy / belief statement (1–2 lines, shown on work page)
-
-### Images
-- [ ] `og-image.jpg` — social share preview
-- [ ] `about-photo.jpg` — portrait of you OR an atmospheric workspace photo
-- [ ] 1 thumbnail per project (`project-1.jpg`, `project-2.jpg` …)
-
-### Projects (for each)
+### Per project (work.html + case study pages):
 - [ ] Project name
-- [ ] Project type (Mobile App / Responsive Web / Brand Identity / etc.)
-- [ ] Year completed
+- [ ] Project type (Interactive Story / Journalism / Web App / Film / etc.)
+- [ ] Year
 - [ ] Thumbnail image
-- [ ] Link to a case study page (or `#` as placeholder while you build it)
+- [ ] Status (live / in progress / coming soon)
+- [ ] Case study page content (optional but great for portfolios)
 
-### Contact / Social
-- [ ] Email address
-- [ ] LinkedIn URL
-- [ ] Instagram / Dribbble / GitHub / Behance URL(s)
+### For Nijam (nijam.html):
+- [ ] At minimum 3 real post titles and teasers to replace the placeholders
+- [ ] At least 1 hero story image (`nijam-hero.jpg`)
+- [ ] Real dates for each post
 
-### Optional extras
-- [ ] Spotify track ID (currently playing embed)
-- [ ] A short looping video clip for the hero background
-- [ ] Favicon (`favicon.ico` or `favicon.svg` in the root)
+### For Archive (archive.html):
+- [ ] List of older/smaller projects you want to document
+- [ ] An image for each (can be a screenshot or still)
+
+### Images needed:
+- [ ] `og-image.jpg` — make this a bold text card or a great photo
+- [ ] `about-photo.jpg` — the most important one. Be yourself.
+- [ ] 1 image per featured project (home + work pages)
+- [ ] 1 image per archive entry
+- [ ] Hero + 2-3 images for Nijam posts
 
 ---
 
-## Customisation Quick Reference
+## Design Notes
 
-| What to change          | Where                                          |
-|-------------------------|------------------------------------------------|
-| Colour palette          | `css/styles.css` → `:root` variables           |
-| Typefaces               | `<link>` in `<head>` + `:root` font variables  |
-| Nav links               | Both HTML files → `<ul class="nav-links">`      |
-| Hero headline           | `index.html` → `.hero-name .first` / `.last`   |
-| Tagline text            | `index.html` → `.hero-tagline-text`            |
-| Skills ticker items     | `index.html` → `.ticker-item` elements         |
-| Projects on home        | `index.html` → `.project-card` blocks          |
-| Projects on work page   | `work.html` → `.work-item` blocks              |
-| Stats (counts)          | `work.html` → `data-target` attributes         |
-| Footer social links     | Both HTML files → `footer .footer-links`       |
+**Palette:**
+- `--paper`    #f4f0e8  off-white newsprint
+- `--ink`      #1a1a1a  near-black
+- `--magenta`  #e8006e  the signature punch
+- `--charcoal` #3d3d3d  body text
+- `--muted`    #888880  captions, labels
+
+**Typefaces (loaded from Google Fonts):**
+- Display: **Playfair Display** — editorial headlines
+- Body: **Space Grotesk** — clean, modern UI
+- Mono: **Space Mono** — labels, nav, captions
+
+**Signature interactions:**
+- Custom magenta cursor that blooms on hover
+- Scroll-triggered reveal on all sections
+- Hover preview ghost image on work list rows
+- Card tilt on mouse move (subtle 3D)
+- Ticker pauses on hover
+- Count-up animation on stats
+- Filter buttons on Nijam page (by tag: writing, project, dispatch, art, update)
+- Spinning sticker on About page portrait
