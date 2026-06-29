@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About — Nithya Sunkara Indlamuri</title>
+  <meta name="description" content="My favorite color is Blue. An autobiographical scroll story by Nithya Sunkara Indlamuri." />
+  <link rel="stylesheet" href="css/tokens.css" />
+  <link rel="stylesheet" href="css/about.css" />
+</head>
+<body class="story-shell">
+
+<div id="cursor"></div>
+<div id="cursor-trail"></div>
+<div class="story-progress"></div>
+
+<!-- ══ NAV (starts dark, story mode) ══ -->
+<nav class="site-nav dark">
+  <a href="index.html" class="nav-logo">BY <strong>NITHYA</strong></a>
+  <ul class="nav-links">
+    <li><a href="index.html"   class="nav-link">Home</a></li>
+    <li><a href="work.html"    class="nav-link">Work</a></li>
+    <li><a href="archive.html" class="nav-link">Archive</a></li>
+    <li><a href="nijam.html"   class="nav-link nijam-link">నిజము</a></li>
+    <li><a href="about.html"   class="nav-link active">About</a></li>
+  </ul>
+  <div class="nav-dateline"></div>
+</nav>
+
+<!-- ══ FIXED BACKGROUND STAGE ══ -->
+<div class="bg-stage" aria-hidden="true">
+
+  <!-- TITLE bg — abstract blue -->
+  <div class="bg-layer active" data-section="title">
+    <!-- REPLACE src with your blue abstract image -->
+    <img src="assets/images/blu-abstract.jpg" alt="" />
+    <div class="overlay overlay-blue"></div>
+  </div>
+
+  <!-- TENNIS -->
+  <div class="bg-layer" data-section="tennis">
+    <img src="assets/img/about/tennis/IMG_1692.JPG" alt="" />
+    <div class="overlay overlay-dark"></div>
+  </div>
+  <div class="bg-layer" data-section="tennis-2">
+    <!-- REPLACE: your tennis video -->
+    <video autoplay muted loop playsinline>
+      <source src="assets/vid/about/tennis/nithya-tennis.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay overlay-dark"></div>
+  </div>
+  <div class="bg-layer" data-section="tennis-3">
+    <img src="assets/img/about/tennis/IMG_1499.JPG" alt="" />
+    <div class="overlay overlay-dark"></div>
+  </div>
+
+  <!-- BEACH / CRUISE -->
+  <div class="bg-layer" data-section="beach">
+    <img src="assets/img/about/cruise/IMG_9838.JPG" alt="" />
+    <div class="overlay overlay-blue"></div>
+  </div>
+  <div class="bg-layer" data-section="beach-2">
+    <img src="assets/img/about/cruise/IMG_9957.JPG" alt="" />
+    <div class="overlay overlay-warm"></div>
+  </div>
+  <div class="bg-layer" data-section="beach-3">
+    <img src="assets/img/about/cruise/IMG_9519.JPG" alt="" />
+    <div class="overlay overlay-warm"></div>
+  </div>
+
+  <!-- HOME WALLS -->
+  <div class="bg-layer" data-section="walls">
+    <img src="assets/img/about/wallls/IMG_3963.jpg" alt="" />
+    <div class="overlay overlay-blue"></div>
+  </div>
+  <div class="bg-layer" data-section="walls-2">
+    <img src="assets/img/about/wallls/IMG_1315.JPG" alt="" />
+    <div class="overlay overlay-warm"></div>
+  </div>
+  <div class="bg-layer" data-section="walls-3">
+    <img src="assets/images/walls-fort.jpg" alt="" />
+    <div class="overlay overlay-warm"></div>
+  </div>
+  <div class="bg-layer" data-section="walls-4">
+    <video autoplay muted loop playsinline>
+      <source src="assets/vid/india-trip.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay overlay-dark"></div>
+  </div>
+
+  <!-- THATHAMMA -->
+  <div class="bg-layer" data-section="thathamma">
+    <img src="assets/img/about/thathamma/IMG_3482.jpg" alt="" />
+    <div class="overlay overlay-magenta"></div>
+  </div>
+  <div class="bg-layer" data-section="thathamma-2">
+    <img src="assets/img/about/thathamma/IMG_3515.jpg" alt="" />
+    <div class="overlay overlay-warm"></div>
+  </div>
+  <div class="bg-layer" data-section="thathamma-3">
+    <video autoplay muted loop playsinline>
+      <source src="assets/vid/about/thathamma/thathamma.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay overlay-magenta"></div>
+  </div>
+
+  <!-- WHO I AM (new sections) -->
+  <div class="bg-layer" data-section="journalist">
+    <img src="assets/images/journalism.jpg" alt="" />
+    <div class="overlay overlay-dark"></div>
+  </div>
+  <div class="bg-layer" data-section="filmmaker">
+    <img src="assets/images/film.jpg" alt="" />
+    <div class="overlay overlay-dark"></div>
+  </div>
+  <div class="bg-layer" data-section="engineer">
+    <img src="assets/images/code.jpg" alt="" />
+    <div class="overlay overlay-dark"></div>
+  </div>
+  <div class="bg-layer" data-section="skills">
+    <img src="assets/images/skills-bg.jpg" alt="" />
+    <div class="overlay overlay-blue"></div>
+  </div>
+
+  <!-- CAROLINA -->
+  <div class="bg-layer" data-section="carolina">
+    <img src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=1920&fit=crop" alt="" />
+    <div class="overlay overlay-blue"></div>
+  </div>
+  <div class="bg-layer" data-section="carolina-2">
+    <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=1920&fit=crop" alt="" />
+    <div class="overlay overlay-warm"></div>
+  </div>
+
+  <!-- FINAL -->
+  <div class="bg-layer" data-section="final">
+    <img src="https://images.unsplash.com/photo-1419242902214-272b3f66ee7a?w=1920&fit=crop" alt="" />
+    <div class="overlay overlay-magenta"></div>
+  </div>
+
+</div>
+
+<!-- ══ CHAPTER DOTS ══ -->
+<nav class="chapter-nav" aria-label="Story chapters">
+  <div class="chapter-dot active" data-chapter="0" data-label="Title"></div>
+  <div class="chapter-dot" data-chapter="1" data-label="Tennis"></div>
+  <div class="chapter-dot" data-chapter="2" data-label="Beach"></div>
+  <div class="chapter-dot" data-chapter="3" data-label="Home"></div>
+  <div class="chapter-dot" data-chapter="4" data-label="Thathamma"></div>
+  <div class="chapter-dot" data-chapter="5" data-label="Who I Am"></div>
+  <div class="chapter-dot" data-chapter="6" data-label="Carolina"></div>
+  <div class="chapter-dot" data-chapter="7" data-label="Blue"></div>
+</nav>
+
+<!-- ══ SCROLL CUE ══ -->
+<div class="scroll-cue" aria-hidden="true">
+  <span class="scroll-cue-label">scroll</span>
+  <div class="scroll-cue-arrow"></div>
+</div>
+
+<!-- ══ STORY SECTIONS ══ -->
+
+<!-- TITLE -->
+<section class="story-section pos-center" data-section="title" data-chapter="0">
+  <div class="text-panel">
+    <div class="panel-title">
+      <div class="eyebrow">Nithya Sunkara Indlamuri · About Me</div>
+      <h1>My favorite<br>color is <em>Blue.</em></h1>
+      <p class="subtitle">Originally written by 5th grade me —<br>still stands true a decade later.</p>
+      <p class="intro-cue">↓ scroll to discover the shades of blue that paint my life's canvas</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── TENNIS ── -->
+<section class="story-section pos-left" data-section="tennis" data-chapter="1">
+  <div class="text-panel">
+    <p class="chapter-text">
+      <span class="hl">Blue</span> is my first tennis racket.
+    </p>
+  </div>
+</section>
+
+<section class="story-section pos-right" data-section="tennis-2" data-chapter="1">
+  <div class="text-panel">
+    <p class="chapter-text">
+      It's where I discovered the thrill of slicing backhands
+      and sweating through state tournaments
+    </p>
+  </div>
+</section>
+
+<section class="story-section pos-center" data-section="tennis-3" data-chapter="1">
+  <div class="text-panel">
+    <p class="chapter-text">
+      with my brother under the watchful eyes of our Dr. Pepper-loving coach.
+    </p>
+  </div>
+</section>
+
+<!-- ── BEACH ── -->
+<section class="story-section pos-left" data-section="beach" data-chapter="2">
+  <div class="text-panel">
+    <p class="chapter-text">
+      <span class="hl">Blue</span> is the sparkling shade of Cabbage Beach.
+    </p>
+  </div>
+</section>
+
+<section class="story-section pos-right" data-section="beach-2" data-chapter="2">
+  <div class="text-panel">
+    <p class="chapter-text">
+      A miracle when my family accidentally stumbled into a Windows-wallpaper-looking
+      paradise on a wildly underplanned cruise.
+    </p>
+  </div>
+</section>
+
+<section class="story-section pos-center" data-section="beach-3" data-chapter="2">
+  <div class="text-panel">
+    <p class="chapter-text">
+      We played volleyball, buried each other in sand,
+      and took millions of pictures.
+    </p>
+  </div>
+</section>
+
+<!-- ── HOME WALLS ── -->
+<section class="story-section pos-left" data-section="walls" data-chapter="3">
+  <div class="text-panel">
+    <p class="chapter-text">
+      <span class="hl">Blue</span> is the living room walls of our family home.
+    </p>
+  </div>
+</section>
+
+<section class="story-section pos-right" data-section="walls-2" data-chapter="3">
+  <div class="text-panel">
+    <p class="chapter-text">
+      Still bare — but brimming
+    </p>
+  </div>
+</section>
+
+<section class="story-section pos-center" data-section="walls-3" data-chapter="3">
+  <div class="text-panel">
+    <p class="chapter-text">
+      with invisible murals of late-night Pictionary matches,
+      fort-building escapades, and cozy movie marathons under my mom's shared blanket.
+    </p>
+  </div>
+</section>
+
+<section class="story-section pos-left" data-section="walls-4" data-chapter="3">
+  <div class="text-panel">
+    <p class="chapter-text">
+      These walls hold our laughter, our dreams, and the countless moments
+      that make a house a home.
+    </p>
+  </div>
+</section>
+
+<!-- ── THATHAMMA ── -->
+<section class="story-section pos-right" data-section="thathamma" data-chapter="4">
+  <div class="text-panel">
+    <p class="chapter-text">
+      <span class="hl">Blue</span> is the deep aqua sari my thathamma wore
+      as she worked the fields in India.
+    </p>
+  </div>
+</section>
+
+<section class="story-section pos-center" data-section="thathamma-2" data-chapter="4">
+  <div class="text-panel">
+    <p class="chapter-text">
+      Her strength is a reminder of where I come from
+      and how far her legacy stretches.
+    </p>
+  </div>
+</section>
+
+<section class="story-section pos-left" data-section="thathamma-3" data-chapter="4">
+  <div class="text-panel">
+    <p class="chapter-text">
+      Everyone says that I look like her.
+    </p>
+  </div>
+</section>
+
+<!-- ── WHO I AM (new expanded sections) ── -->
+<section class="story-section pos-center" data-section="journalist" data-chapter="5">
+  <div class="text-panel">
+    <div style="text-align:center;">
+      <p style="font-family:var(--font-mono);font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:20px;">Chapter V · Who I Am</p>
+    </div>
+    <p class="chapter-text">
+      I am a <span class="hl-m">journalist</span> —
+      someone who believes the most ethical thing you can do
+      is bear witness and report it truthfully.
+    </p>
+  </div>
+</section>
+
+<section class="story-section pos-right" data-section="filmmaker" data-chapter="5">
+  <div class="text-panel">
+    <p class="chapter-text">
+      I am a <span class="hl">filmmaker</span> —
+      because some truths need to be felt, not just read.
+    </p>
+  </div>
+</section>
+
+<section class="story-section pos-left" data-section="engineer" data-chapter="5">
+  <div class="text-panel">
+    <p class="chapter-text">
+      I am a <span class="hl-m">software engineer</span> —
+      building the tools that let stories reach the people who need them most.
+    </p>
+  </div>
+</section>
+
+<!-- IDENTITY INFO CARD -->
+<section class="story-section pos-center" data-section="skills" data-chapter="5">
+  <div class="text-panel" style="max-width:860px;">
+    <div class="info-card">
+      <div>
+        <div class="info-card-label">Currently</div>
+        <div class="info-card-value">Multimedia Journalist<br>&amp; SWE Intern @ <em>Fidelity</em></div>
+      </div>
+      <div>
+        <div class="info-card-label">Based in</div>
+        <div class="info-card-value">Chapel Hill, NC<br>UNC · Class of 2027</div>
+      </div>
+      <div>
+        <div class="info-card-label">Equal parts</div>
+        <div class="info-card-value">S. Sunkara<br>&amp; P. Indlamuri</div>
+      </div>
+      <div>
+        <div class="info-card-label">Also equal parts</div>
+        <div class="info-card-value">"<em>toe-may-toe</em>"<br>&amp; "tah-mah-tarrr"</div>
+      </div>
+    </div>
+
+    <!-- Skills chips -->
+    <div class="skills-mosaic" style="margin-top:32px;">
+      <span class="skill-chip" style="--dur:2.8s;--delay:0s">Multimedia Journalism</span>
+      <span class="skill-chip" style="--dur:3.2s;--delay:.3s">Documentary Film</span>
+      <span class="skill-chip" style="--dur:2.6s;--delay:.6s">Software Engineering</span>
+      <span class="skill-chip" style="--dur:3.5s;--delay:.1s">Interactive Storytelling</span>
+      <span class="skill-chip" style="--dur:2.9s;--delay:.4s">Data Journalism</span>
+      <span class="skill-chip" style="--dur:3.1s;--delay:.7s">Ethics of Tech</span>
+      <span class="skill-chip" style="--dur:2.7s;--delay:.2s">Web Development</span>
+      <span class="skill-chip" style="--dur:3.3s;--delay:.5s">Photography</span>
+    </div>
+  </div>
+</section>
+
+<!-- ── CAROLINA ── -->
+<section class="story-section pos-right" data-section="carolina" data-chapter="6">
+  <div class="text-panel">
+    <p class="chapter-text">
+      <span class="hl">Blue</span> is Carolina Blue —
+      my new world as a third-year at UNC Chapel Hill.
+    </p>
+  </div>
+</section>
+
+<section class="story-section pos-left" data-section="carolina-2" data-chapter="6">
+  <div class="text-panel">
+    <p class="chapter-text">
+      New faces, new stories, new experiences —
+      and the constant excitement of writing the next chapter.
+    </p>
+  </div>
+</section>
+
+<!-- ── FINAL ── -->
+<section class="story-section pos-center" data-section="final" data-chapter="7">
+  <div class="text-panel">
+    <p class="final-words">
+      <span class="break">Blue is more than my favorite color.</span>
+      <span class="break" style="margin-top:.4em;font-size:.8em;color:rgba(255,255,255,.8);">
+        It's my timeline, my family, my culture,<br>
+        my adventures, and my dreams
+      </span>
+      <span class="break accent" style="margin-top:.4em;">rolled into one.</span>
+    </p>
+
+    <div class="final-ctas">
+      <a href="work.html"  class="cta-btn solid">See My Work →</a>
+      <a href="nijam.html" class="cta-btn outline">Read నిజము [Nijam]</a>
+      <a href="mailto:nithya.indla8@gmail.com" class="cta-btn outline">Say Hello</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ SCRIPTS ══ -->
+<script src="js/global.js"></script>
+<script src="js/about.js"></script>
+</body>
+</html>

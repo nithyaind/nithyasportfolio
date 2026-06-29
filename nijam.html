@@ -4,236 +4,70 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>నిజము [Nijam] — Nithya Truth</title>
-  <meta name="description" content="Nithya నిజము [Nijam] — dispatches on journalism, technology, film, and life. Writing, project updates, and creative notes by Nithya Sunkara Indlamuri." />
+  <meta name="description" content="Nithya's newspaper — dispatches on journalism, technology, film and life." />
   <link rel="stylesheet" href="css/tokens.css" />
   <link rel="stylesheet" href="css/nijam.css" />
 </head>
 <body>
 
 <div id="cursor"></div>
-<div id="cursor-ring"></div>
+<div id="cursor-trail"></div>
+<div class="progress-bar"></div>
 
 <!-- ══ NAV ══ -->
-<nav class="site-nav">
+<nav class="site-nav dark">
   <a href="index.html" class="nav-logo">BY <strong>NITHYA</strong></a>
   <ul class="nav-links">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="work.html">Work</a></li>
-    <li><a href="archive.html">Archive</a></li>
-    <li><a href="nijam.html">నిజము [Nijam]</a></li>
-    <li><a href="about.html">About</a></li>
+    <li><a href="index.html"    class="nav-link">Home</a></li>
+    <li><a href="work.html"     class="nav-link">Work</a></li>
+    <li><a href="archive.html"  class="nav-link">Archive</a></li>
+    <li><a href="nijam.html"    class="nav-link nijam-link active">నిజము</a></li>
+    <li><a href="about.html"    class="nav-link">About</a></li>
   </ul>
   <div class="nav-dateline"></div>
 </nav>
 
 <!-- ══ MASTHEAD ══ -->
-<header class="nijam-page-masthead">
-  <div class="nijam-banner">
-    <h1 class="nijam-banner-hed">
-      <span class="line-english">NITHYA</span>
-      <span class="line-telugu">నిజము [NIJAM]</span>
-    </h1>
-    <p class="nijam-tagline">
-      Nithya Truth · Dispatches on Journalism, Technology, Film &amp; Life
-    </p>
+<header class="nijam-masthead">
+  <div class="masthead-top">
+    <div class="masthead-left" id="masthead-meta-left">
+      Chapel Hill, NC<br>
+      Vol. I · Issue <span id="issue-num">1</span><br>
+      Est. 2024
+    </div>
+    <div class="masthead-center">
+      <h1 class="masthead-hed">
+        <span class="hed-en">NITHYA</span>
+        <span class="hed-te">నిజము [Nijam]</span>
+      </h1>
+      <p class="masthead-kicker">Nithya Truth · Writing · Projects · Dispatches · Art · Life</p>
+    </div>
+    <div class="masthead-right" id="masthead-meta-right">
+      <span id="post-count">— Posts</span><br>
+      Free to read · Always honest<br>
+      <span id="masthead-date"></span>
+    </div>
   </div>
+  <hr class="masthead-rule" />
 
-  <div class="nijam-meta-bar">
-    <span>Chapel Hill, NC</span>
-    <span class="js-date">Established 2024</span>
-    <span>Stories that matter</span>
-    <span>Vol. I</span>
-  </div>
-
-  <!-- Filter bar -->
-  <div class="nijam-filter-bar">
+  <!-- Filter strip -->
+  <div class="nijam-filter-strip">
     <button class="filter-btn active" data-filter="all">All</button>
     <button class="filter-btn" data-filter="writing">Writing</button>
-    <button class="filter-btn" data-filter="project">Project Update</button>
+    <button class="filter-btn" data-filter="project">Project</button>
     <button class="filter-btn" data-filter="dispatch">Dispatch</button>
     <button class="filter-btn" data-filter="art">Art</button>
     <button class="filter-btn" data-filter="update">Life Update</button>
   </div>
 </header>
 
-<!-- ══ FRONT PAGE ══ -->
-<main class="nijam-front-page">
+<!-- ══ BODY ══ -->
+<main class="nijam-body" id="nijam-body">
+  <!-- Hero story (first post) injected by JS -->
+  <div id="hero-slot"></div>
 
-  <!-- HERO STORY (most recent / most important) -->
-  <!--
-    REPLACE: This is your lead story — your biggest/most recent post.
-    Add an image to assets/images/nijam-hero.jpg
-  -->
-  <article class="story-hero" data-tag="writing">
-    <div class="story-hero-image">
-      <img src="assets/images/nijam-hero.jpg" alt="Hero story image" />
-    </div>
-    <div class="story-hero-content">
-      <span class="story-kicker writing">Essay</span>
-      <h2 class="story-hed">
-        <a href="nijam/post-one.html">
-          <!-- REPLACE: Your lead essay headline -->
-          On being equal parts: what it means to hold two worlds without choosing one
-        </a>
-      </h2>
-      <p class="story-dek">
-        <!-- REPLACE: 2–3 sentence teaser -->
-        I am Nithya Sunkara Indlamuri, equal parts my mom S. Sunkara and
-        my dad P. Indlamuri. This essay is about what happens when you
-        refuse to pick a lane — in identity, in craft, in life.
-      </p>
-      <div class="story-byline">
-        <span>By <strong>Nithya Sunkara Indlamuri</strong></span>
-        <span>May 2025</span>
-        <span>8 min read</span>
-      </div>
-    </div>
-  </article>
-
-  <!-- THREE-COLUMN BROADSHEET -->
-  <div class="nijam-columns">
-
-    <!-- COLUMN 1: Writing / Essays -->
-    <div class="nijam-col">
-      <div class="col-label">Writing &amp; Essays</div>
-
-      <!--
-        REPLACE: add your essay posts here.
-        Copy the .story-item block for each post.
-        data-tag must match a filter button's data-filter value.
-      -->
-      <article class="story-item" data-tag="writing">
-        <div class="story-item-thumb">
-          <img src="assets/images/nijam-post-2.jpg" alt="" />
-        </div>
-        <span class="story-kicker writing" style="font-size:9px; padding:2px 8px; margin-bottom:8px;">Essay</span>
-        <h3 class="story-item-hed">
-          <a href="nijam/post-two.html">
-            <!-- REPLACE -->
-            The ethics of algorithmic journalism — who benefits and who gets left out
-          </a>
-        </h3>
-        <p class="story-item-dek">
-          <!-- REPLACE -->
-          When newsrooms use AI to decide what to cover, the communities
-          that most need coverage are often the ones who disappear.
-        </p>
-        <div class="story-byline" style="margin-top:10px;">
-          <span>April 2025</span>
-          <span>6 min read</span>
-        </div>
-      </article>
-
-      <article class="story-item" data-tag="writing">
-        <h3 class="story-item-hed">
-          <a href="#">
-            <!-- REPLACE -->
-            "Toe-may-toe" / "Tah-mah-tarrr" — a meditation on accent and belonging
-          </a>
-        </h3>
-        <p class="story-item-dek">
-          <!-- REPLACE -->
-          Growing up Indian-American means being fluent in two
-          registers of everything — including your own name.
-        </p>
-        <div class="story-byline" style="margin-top:10px;">
-          <span>February 2025</span>
-          <span>4 min read</span>
-        </div>
-      </article>
-
-    </div>
-
-    <!-- COLUMN 2: Project Updates -->
-    <div class="nijam-col">
-      <div class="col-label">Project Updates</div>
-
-      <article class="story-item" data-tag="project">
-        <div class="story-item-thumb">
-          <img src="assets/images/nijam-proj-1.jpg" alt="" />
-        </div>
-        <span class="story-kicker project" style="font-size:9px; padding:2px 8px; margin-bottom:8px;">Project</span>
-        <h3 class="story-item-hed">
-          <a href="#">
-            <!-- REPLACE -->
-            What I'm building at Fidelity — notes on responsible fintech
-          </a>
-        </h3>
-        <p class="story-item-dek">
-          <!-- REPLACE -->
-          Reflections from my SWE internship on how financial tools
-          can be designed to serve, not exploit.
-        </p>
-        <div class="story-byline" style="margin-top:10px;">
-          <span>May 2025</span>
-        </div>
-      </article>
-
-      <article class="story-item" data-tag="project">
-        <h3 class="story-item-hed">
-          <a href="#">
-            <!-- REPLACE -->
-            [PROJECT NAME]: behind the scenes of an interactive story
-          </a>
-        </h3>
-        <p class="story-item-dek">
-          <!-- REPLACE -->
-          How I combined data journalism, web development, and
-          documentary filmmaking into one experience.
-        </p>
-        <div class="story-byline" style="margin-top:10px;">
-          <span>March 2025</span>
-        </div>
-      </article>
-
-    </div>
-
-    <!-- COLUMN 3: Dispatches / Life -->
-    <div class="nijam-col">
-      <div class="col-label">Dispatches &amp; Life</div>
-
-      <article class="story-item" data-tag="dispatch">
-        <div class="story-item-thumb">
-          <img src="assets/images/nijam-dispatch-1.jpg" alt="" />
-        </div>
-        <span class="story-kicker update" style="font-size:9px; padding:2px 8px; margin-bottom:8px;">Dispatch</span>
-        <h3 class="story-item-hed">
-          <a href="#">
-            <!-- REPLACE -->
-            Chapel Hill light at 6am and why I always carry a camera
-          </a>
-        </h3>
-        <p class="story-item-dek">
-          <!-- REPLACE -->
-          A filmmaker's diary entry from a journalism student
-          who can't stop looking.
-        </p>
-        <div class="story-byline" style="margin-top:10px;">
-          <span>March 2025</span>
-        </div>
-      </article>
-
-      <article class="story-item" data-tag="update">
-        <h3 class="story-item-hed">
-          <a href="#">
-            <!-- REPLACE -->
-            Third-year: curious to learn, eager to create
-          </a>
-        </h3>
-        <p class="story-item-dek">
-          <!-- REPLACE -->
-          A semester in review — what surprised me, what challenged me,
-          and what I'm building next.
-        </p>
-        <div class="story-byline" style="margin-top:10px;">
-          <span>January 2025</span>
-        </div>
-      </article>
-
-    </div>
-
-  </div><!-- /nijam-columns -->
-
+  <!-- Columns for remaining posts -->
+  <div class="cols-3" id="cols-slot"></div>
 </main>
 
 <!-- ══ FOOTER ══ -->
@@ -241,10 +75,7 @@
   <div class="footer-grid">
     <div>
       <div class="footer-masthead">NITHYA<br><em>నిజము</em></div>
-      <p class="footer-tagline">
-        Nithya Truth · Writing, Projects &amp; Life<br>
-        By Nithya Sunkara Indlamuri
-      </p>
+      <p class="footer-tagline">Nithya Truth · Writing, Projects &amp; Life<br>By Nithya Sunkara Indlamuri</p>
     </div>
     <div>
       <div class="footer-col-title">Navigate</div>
@@ -269,11 +100,161 @@
   </div>
 </footer>
 
-<script src="js/main.js"></script>
+<!-- ══ SCRIPTS ══ -->
+<script src="js/global.js"></script>
 <script>
-  // Set dateline on Nijam page
-  const d = document.querySelector('.js-date');
-  if (d) d.textContent = new Date().toLocaleDateString('en-US', {weekday:'long', year:'numeric', month:'long', day:'numeric'}).toUpperCase();
+/* ================================================================
+   ✏️  HOW TO ADD A NEW POST
+   ================================================================
+   1. Add an object to the POSTS array below.
+   2. Fill in every field (use "" for optional image).
+   3. For an external link, set link to the full URL.
+      For an internal post, create a file in nijam-posts/
+      and set link to "nijam-posts/your-post.html".
+   4. Save the file — done! The page rebuilds itself.
+
+   Tags: "writing" | "project" | "dispatch" | "art" | "update"
+   ================================================================ */
+
+const POSTS = [
+  {
+    title:   "On being equal parts: what it means to hold two worlds without choosing one",
+    dek:     "I am Nithya Sunkara Indlamuri, equal parts my mom S. Sunkara and my dad P. Indlamuri. This essay is about what happens when you refuse to pick a lane — in identity, in craft, in life.",
+    tag:     "writing",
+    date:    "May 2025",
+    readTime:"8 min read",
+    image:   "assets/images/nijam-hero.jpg",   /* REPLACE with your image */
+    link:    "nijam-posts/equal-parts.html",
+    featured: true  /* ← this becomes the hero story */
+  },
+  {
+    title:   "The ethics of algorithmic journalism — who benefits and who gets left out",
+    dek:     "When newsrooms use AI to decide what to cover, the communities that most need coverage are the ones who disappear.",
+    tag:     "writing",
+    date:    "April 2025",
+    readTime:"6 min read",
+    image:   "assets/images/nijam-algo.jpg",
+    link:    "nijam-posts/algo-journalism.html"
+  },
+  {
+    title:   "What I'm building at Fidelity — notes on responsible fintech",
+    dek:     "Reflections from my SWE internship on how financial tools can be designed to serve, not exploit.",
+    tag:     "project",
+    date:    "May 2025",
+    readTime:"4 min read",
+    image:   "",
+    link:    "nijam-posts/fidelity-notes.html"
+  },
+  {
+    title:   "\"Toe-may-toe\" / \"Tah-mah-tarrr\" — a meditation on accent and belonging",
+    dek:     "Growing up Indian-American means being fluent in two registers of everything — including your own name.",
+    tag:     "writing",
+    date:    "February 2025",
+    readTime:"4 min read",
+    image:   "",
+    link:    "nijam-posts/accent.html"
+  },
+  {
+    title:   "Chapel Hill light at 6am and why I always carry a camera",
+    dek:     "A filmmaker's diary entry from a journalism student who can't stop looking.",
+    tag:     "dispatch",
+    date:    "March 2025",
+    readTime:"3 min read",
+    image:   "assets/images/nijam-unc.jpg",
+    link:    "nijam-posts/chapel-hill-light.html"
+  },
+  {
+    title:   "Third-year: curious to learn, eager to create",
+    dek:     "A semester in review — what surprised me, what challenged me, and what I'm building next.",
+    tag:     "update",
+    date:    "January 2025",
+    readTime:"5 min read",
+    image:   "",
+    link:    "nijam-posts/third-year.html"
+  },
+];
+
+/* ── KICKER LABELS ── */
+const KICKER_CLASS = {
+  writing:  'kicker-writing',
+  project:  'kicker-project',
+  dispatch: 'kicker-dispatch',
+  art:      'kicker-art',
+  update:   'kicker-update',
+};
+const KICKER_LABEL = {
+  writing:  'Essay',
+  project:  'Project',
+  dispatch: 'Dispatch',
+  art:      'Art',
+  update:   'Life Update',
+};
+
+/* ── BUILD HERO ── */
+function buildHero(post) {
+  const imgBlock = post.image
+    ? `<div class="hero-story-img"><img src="${post.image}" alt="${post.title}" loading="lazy" /></div>`
+    : `<div class="hero-story-img" style="background:var(--paper-dark);display:flex;align-items:center;justify-content:center;">
+         <span style="font-family:var(--font-display);font-style:italic;font-size:2rem;color:var(--muted);">✦</span>
+       </div>`;
+  return `
+  <article class="hero-story" data-tag="${post.tag}">
+    ${imgBlock}
+    <div>
+      <span class="story-kicker ${KICKER_CLASS[post.tag]}">${KICKER_LABEL[post.tag]}</span>
+      <h2 class="story-hed"><a href="${post.link}">${post.title}</a></h2>
+      <p class="story-dek">${post.dek}</p>
+      <div class="story-byline">
+        <span>By <strong>Nithya Sunkara Indlamuri</strong></span>
+        <span>${post.date}</span>
+        ${post.readTime ? `<span>${post.readTime}</span>` : ''}
+      </div>
+    </div>
+  </article>`;
+}
+
+/* ── BUILD CARD ── */
+function buildCard(post) {
+  const imgBlock = post.image
+    ? `<div class="story-card-img"><img src="${post.image}" alt="${post.title}" loading="lazy" /></div>`
+    : '';
+  return `
+  <article class="story-card" data-tag="${post.tag}">
+    ${imgBlock}
+    <span class="story-kicker ${KICKER_CLASS[post.tag]}" style="font-size:9px;padding:2px 8px;margin-bottom:8px;">${KICKER_LABEL[post.tag]}</span>
+    <h3 class="story-card-hed"><a href="${post.link}">${post.title}</a></h3>
+    <p class="story-card-dek">${post.dek}</p>
+    <div class="story-byline" style="margin-top:8px;"><span>${post.date}</span>${post.readTime ? `<span>${post.readTime}</span>` : ''}</div>
+    <a href="${post.link}" class="read-more">Read</a>
+  </article>`;
+}
+
+/* ── RENDER ── */
+function render() {
+  const featured = POSTS.find(p => p.featured) || POSTS[0];
+  const rest     = POSTS.filter(p => p !== featured);
+
+  document.getElementById('hero-slot').innerHTML = buildHero(featured);
+
+  /* Split remaining posts across 3 columns */
+  const cols = [[], [], []];
+  rest.forEach((p, i) => cols[i % 3].push(p));
+
+  const colLabels = ['Writing &amp; Essays', 'Projects &amp; Updates', 'Dispatches &amp; Life'];
+  let colHTML = '';
+  cols.forEach((col, i) => {
+    colHTML += `<div class="col"><div class="col-label">${colLabels[i]}</div>${col.map(buildCard).join('')}</div>`;
+  });
+  document.getElementById('cols-slot').innerHTML = colHTML;
+
+  /* Update meta */
+  document.getElementById('post-count').textContent = POSTS.length + ' Posts';
+  document.getElementById('issue-num').textContent  = Math.ceil(POSTS.length / 5);
+  document.getElementById('masthead-date').textContent = new Date().toLocaleDateString('en-US',
+    { year:'numeric', month:'long', day:'numeric' }).toUpperCase();
+}
+
+render();
 </script>
 </body>
 </html>
