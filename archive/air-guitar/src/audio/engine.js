@@ -1,132 +1,126 @@
 /**
  * audio/engine.js
- * Web Audio API chord synthesiser.
+ * Guitar chord synthesiser using Web Audio API.
  *
- * Each "string" is a sawtooth oscillator → BiquadFilter → GainNode → output.
- * Strings are staggered in time to mimic a real strum.
+ * Signal chain per string:
+ *   OscillatorNode (sawtooth) → BiquadFilter (lowpass) → GainNode → destination
+ *
+ * Envelope mimics a plucked string: very fast attack, exponential decay.
+ * Strings are staggered in time to simulate a pick stroke across strings.
  */
 
 import { CHORD_NOTES } from './chords.js';
 
-const STRUM_DELAY_S   = 0.018;  // seconds between each string on a strum
-const ATTACK_S        = 0.04;   // gain ramp-up time
-const SUSTAIN_FACTOR  = 0.45;   // sustain level relative to peak
-const SUSTAIN_DECAY_S = 0.4;    // time constant for decay to sustain
-const RELEASE_S       = 0.05;   // time constant for note-off fade
+// Tuning constants
+const STRUM_DELAY_S  = 0.014; // gap between each string during a strum
+const ATTACK_S       = 0.005; // near-instant pluck attack
+const DECAY_TC       = 0.55;  // exponential decay time constant (seconds)
+const RELEASE_TC     = 0.06;  // fade time on chord release
+const DETUNE_CENTS   = 5;     // per-string random detune for warmth
 
-let audioCtx   = null;
-let voiceNodes = [];  // [{ osc, gainNode }]
-let currentChordName = null;
+let audioCtx = null;
+let voices   = [];            // { osc, gain }[]
+let currentChord = null;
 let isActive = false;
 
-/** Lazily create the AudioContext (must happen after a user gesture). */
 function getCtx() {
-  if (!audioCtx) {
-    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-  }
-  if (audioCtx.state === 'suspended') {
-    audioCtx.resume();
-  }
+  if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+  if (audioCtx.state === 'suspended') audioCtx.resume();
   return audioCtx;
 }
 
-/** Explicitly unlock/resume audio — call this from a direct user-gesture handler. */
 export function unlockAudio() {
-  const ctx = getCtx();
-  if (ctx.state === 'suspended') ctx.resume();
+  getCtx();
 }
 
-/** Kill all active oscillators with a short release fade. */
 export function stopChord() {
-  if (!voiceNodes.length) return;
+  if (!voices.length) return;
   const ctx = getCtx();
   const now = ctx.currentTime;
-  voiceNodes.forEach(({ gainNode, osc }) => {
-    gainNode.gain.cancelScheduledValues(now);
-    gainNode.gain.setTargetAtTime(0, now, RELEASE_S);
-    setTimeout(() => { try { osc.stop(); } catch (_) {} }, 300);
+  voices.forEach(({ gain, osc }) => {
+    gain.gain.cancelScheduledValues(now);
+    gain.gain.setTargetAtTime(0, now, RELEASE_TC);
+    setTimeout(() => { try { osc.stop(); } catch (_) {} }, 400);
   });
-  voiceNodes = [];
+  voices = [];
   isActive = false;
-  currentChordName = null;
+  currentChord = null;
 }
 
 /**
- * Begin playing a chord.
- * @param {string} chordName  - key from CHORD_NOTES
- * @param {number} velocity   - 0..1, controls attack volume
+ * Build and start all string voices for a chord.
+ * Called once per new chord; restrum() re-attacks the same voices.
  */
-export function playChord(chordName, velocity = 0.5) {
+function buildVoices(chordName, velocity) {
+  const ctx   = getCtx();
   const notes = CHORD_NOTES[chordName];
-  if (!notes) {
-    console.warn('[audio] Unknown chord name:', chordName);
-    return;
-  }
-
-  const ctx = getCtx();
-  console.log('[audio] playChord', chordName, 'velocity', velocity.toFixed(2), 'ctx.state', ctx.state);
-
-  // If same chord is already sounding, only re-strum on a genuine strum
-  // gesture (velocity above threshold), not every single frame while held
-  if (currentChordName === chordName && isActive) {
-    if (velocity > 0.15) restrum(velocity);
-    return;
-  }
-
-  stopChord();
-
-  currentChordName = chordName;
-  isActive = true;
-
-  const peakVol  = Math.min(0.85, 0.3 + velocity * 0.55) / notes.length;
-  const sustainV = peakVol * SUSTAIN_FACTOR;
-  const now = ctx.currentTime;
+  const peak  = Math.min(0.9, 0.4 + velocity * 0.5) / notes.length;
+  const now   = ctx.currentTime;
 
   notes.forEach((freq, i) => {
     const t0     = now + i * STRUM_DELAY_S;
+    const osc    = ctx.createOscillator();
     const filter = ctx.createBiquadFilter();
     const gain   = ctx.createGain();
-    const osc    = ctx.createOscillator();
+
+    osc.type            = 'sawtooth';
+    osc.frequency.value = freq;
+    osc.detune.value    = (Math.random() - 0.5) * 2 * DETUNE_CENTS;
 
     filter.type            = 'lowpass';
-    filter.frequency.value = Math.min(4000, 1800 + freq * 2.5);
-    filter.Q.value         = 0.7;
+    filter.frequency.value = Math.min(5000, 2000 + freq * 3);
+    filter.Q.value         = 0.5;
 
-    osc.type           = 'sawtooth';
-    osc.frequency.value = freq;
-
-    gain.gain.setValueAtTime(0, t0);
-    gain.gain.linearRampToValueAtTime(peakVol, t0 + ATTACK_S);
-    gain.gain.setTargetAtTime(sustainV, t0 + ATTACK_S, SUSTAIN_DECAY_S);
+    // Plucked envelope: instant peak → exponential decay toward silence
+    gain.gain.setValueAtTime(0.0001, t0);
+    gain.gain.linearRampToValueAtTime(peak, t0 + ATTACK_S);
+    gain.gain.setTargetAtTime(0.0001, t0 + ATTACK_S, DECAY_TC);
 
     osc.connect(filter);
     filter.connect(gain);
     gain.connect(ctx.destination);
     osc.start(t0);
 
-    voiceNodes.push({ osc, gainNode: gain });
+    voices.push({ osc, gain });
   });
 }
 
 /**
- * Re-attack the currently-held chord (right-hand strum gesture).
- * @param {number} velocity  0..1
+ * Play a chord (builds voices fresh).
+ * @param {string} chordName
+ * @param {number} velocity  0–1
  */
-export function restrum(velocity = 0.5) {
-  if (!isActive || !voiceNodes.length) return;
-  const ctx  = getCtx();
-  const now  = ctx.currentTime;
-  const n    = voiceNodes.length;
-  const peak = Math.min(0.85, 0.25 + velocity * 0.65) / n;
+export function playChord(chordName, velocity = 0.6) {
+  const notes = CHORD_NOTES[chordName];
+  if (!notes) return;
+  stopChord();
+  currentChord = chordName;
+  isActive = true;
+  buildVoices(chordName, velocity);
+}
 
-  voiceNodes.forEach(({ gainNode }, i) => {
+/**
+ * Re-strum the currently held chord — re-attacks the envelope
+ * without rebuilding oscillators, so there's no click or gap.
+ * @param {number} velocity  0–1
+ */
+export function restrum(velocity = 0.6) {
+  if (!isActive || !voices.length || !currentChord) return;
+  const ctx   = getCtx();
+  const notes = CHORD_NOTES[currentChord];
+  const peak  = Math.min(0.9, 0.4 + velocity * 0.5) / voices.length;
+  const now   = ctx.currentTime;
+
+  voices.forEach(({ gain }, i) => {
     const t0 = now + i * STRUM_DELAY_S;
-    gainNode.gain.cancelScheduledValues(t0);
-    gainNode.gain.setValueAtTime(0, t0);
-    gainNode.gain.linearRampToValueAtTime(peak, t0 + ATTACK_S);
-    gainNode.gain.setTargetAtTime(peak * SUSTAIN_FACTOR, t0 + ATTACK_S, SUSTAIN_DECAY_S);
+    // Read current gain value before cancelling to avoid click
+    const cur = gain.gain.value;
+    gain.gain.cancelScheduledValues(t0);
+    gain.gain.setValueAtTime(cur, t0);
+    gain.gain.linearRampToValueAtTime(peak, t0 + ATTACK_S);
+    gain.gain.setTargetAtTime(0.0001, t0 + ATTACK_S, DECAY_TC);
   });
 }
 
-export function getCurrentChord()  { return currentChordName; }
-export function isChordActive()    { return isActive; }
+export function getCurrentChord() { return currentChord; }
+export function isChordActive()   { return isActive; }
