@@ -73,8 +73,13 @@ startBtn.addEventListener('click', async () => {
     await videoEl.play();
 
     // Check MediaPipe globals loaded via CDN <script> tags
-    if (typeof window.Hands === 'undefined') {
-      throw new Error('MediaPipe Hands not loaded. Check your internet connection.');
+    const missing = ['Hands', 'Camera', 'drawConnectors', 'drawLandmarks']
+      .filter(name => typeof window[name] === 'undefined');
+    if (missing.length) {
+      throw new Error(
+        `MediaPipe failed to load (missing: ${missing.join(', ')}). ` +
+        `Reload the page — if it persists, the CDN script tags in index.html may need version pinning.`
+      );
     }
 
     stopTracking = await startTracking(videoEl, onHandResults);

@@ -65,6 +65,7 @@ export async function startTracking(videoEl, onResults) {
   const hands = new window.Hands({
     locateFile: f =>
       `https://cdn.jsdelivr.net/npm/@mediapipe/hands@0.4.1646424915/${f}`,
+    // NOTE: this version must match the <script> tag for hands.js in index.html
   });
 
   hands.setOptions({
