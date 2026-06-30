@@ -58,7 +58,13 @@ export function stopChord() {
  */
 export function playChord(chordName, velocity = 0.5) {
   const notes = CHORD_NOTES[chordName];
-  if (!notes) return;
+  if (!notes) {
+    console.warn('[audio] Unknown chord name:', chordName);
+    return;
+  }
+
+  const ctx = getCtx();
+  console.log('[audio] playChord', chordName, 'velocity', velocity.toFixed(2), 'ctx.state', ctx.state);
 
   // If same chord is already sounding, only re-strum on a genuine strum
   // gesture (velocity above threshold), not every single frame while held
@@ -69,7 +75,6 @@ export function playChord(chordName, velocity = 0.5) {
 
   stopChord();
 
-  const ctx = getCtx();
   currentChordName = chordName;
   isActive = true;
 
