@@ -1,0 +1,224 @@
+/* ── Reset & base ───────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --clr-bg:        #0e0e10;
+  --clr-surface:   #1a1a1e;
+  --clr-card:      #222228;
+  --clr-border:    rgba(255,255,255,0.08);
+  --clr-border-hi: rgba(255,255,255,0.18);
+  --clr-text:      #f0f0f0;
+  --clr-muted:     #888;
+  --clr-green:     #1D9E75;
+  --clr-green-bg:  #0d2e22;
+  --clr-blue:      #378ADD;
+  --clr-blue-bg:   #0d1f33;
+  --radius:        10px;
+  --gap:           14px;
+}
+
+body {
+  font-family: system-ui, -apple-system, sans-serif;
+  background: var(--clr-bg);
+  color: var(--clr-text);
+  min-height: 100dvh;
+  padding: 1.5rem 1rem 3rem;
+}
+
+/* ── Layout ─────────────────────────────────────────────── */
+#app { max-width: 780px; margin: 0 auto; }
+
+/* ── Header ─────────────────────────────────────────────── */
+.header { text-align: center; margin-bottom: 1.75rem; }
+.header h1 { font-size: 28px; font-weight: 600; letter-spacing: -0.5px; }
+.header .subtitle { font-size: 13px; color: var(--clr-muted); margin-top: 4px; }
+
+/* ── Chord grid ─────────────────────────────────────────── */
+.chord-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--gap);
+  margin-bottom: 1.25rem;
+}
+
+.chord-card {
+  background: var(--clr-card);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius);
+  padding: 14px 10px 12px;
+  text-align: center;
+  cursor: default;
+  transition: border-color 0.12s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.chord-card .finger-label {
+  font-size: 10px;
+  color: var(--clr-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+}
+
+.chord-card .finger-icon { font-size: 26px; line-height: 1; }
+
+.chord-card select {
+  width: 100%;
+  font-size: 13px;
+  font-weight: 500;
+  background: var(--clr-surface);
+  color: var(--clr-text);
+  border: 1px solid var(--clr-border-hi);
+  border-radius: 6px;
+  padding: 5px 6px;
+  cursor: pointer;
+  text-align: center;
+}
+.chord-card select:focus { outline: 2px solid var(--clr-blue); outline-offset: 2px; }
+
+/* states */
+.chord-card.active  { border-color: var(--clr-blue); }
+.chord-card.playing {
+  border-color: var(--clr-green);
+  background: var(--clr-green-bg);
+  animation: glow 0.55s ease-in-out infinite alternate;
+}
+@keyframes glow { from { border-color: #0d5c42; } to { border-color: var(--clr-green); } }
+
+/* ── Camera section ─────────────────────────────────────── */
+.camera-section {
+  display: flex;
+  gap: var(--gap);
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+
+.video-container {
+  position: relative;
+  flex: 1;
+  aspect-ratio: 4 / 3;
+  min-height: 220px;
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: #000;
+  border: 1px solid var(--clr-border);
+}
+
+#videoEl {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scaleX(-1);
+  display: block;
+}
+
+#overlayCanvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  transform: scaleX(-1);
+  pointer-events: none;
+}
+
+/* ── Status panel ───────────────────────────────────────── */
+.status-panel {
+  width: 178px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.status-card {
+  background: var(--clr-card);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius);
+  padding: 11px 13px;
+}
+.status-card .label {
+  display: block;
+  font-size: 10px;
+  color: var(--clr-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  margin-bottom: 7px;
+}
+.status-card .value { font-size: 15px; font-weight: 500; }
+.status-card .chord-display { font-size: 20px; color: var(--clr-green); }
+
+/* pinch dots */
+.pinch-indicators { display: flex; gap: 7px; }
+.pinch-dot {
+  width: 11px; height: 11px;
+  border-radius: 50%;
+  background: var(--clr-surface);
+  border: 1.5px solid var(--clr-border-hi);
+  transition: background 0.1s, border-color 0.1s;
+}
+.pinch-dot.active { background: var(--clr-green); border-color: #0d5c42; }
+
+/* strum bars */
+.strum-bars { display: flex; gap: 4px; align-items: flex-end; height: 34px; }
+.strum-bar {
+  flex: 1;
+  height: 30%;
+  background: var(--clr-border-hi);
+  border-radius: 3px;
+  transition: height 0.07s, background 0.08s;
+  min-height: 4px;
+}
+.strum-bar.lit { background: var(--clr-blue); }
+
+/* start button */
+#startBtn {
+  width: 100%;
+  padding: 10px;
+  background: var(--clr-blue);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.15s, opacity 0.15s;
+}
+#startBtn:hover  { background: #185FA5; }
+#startBtn:disabled { opacity: 0.45; cursor: not-allowed; }
+
+/* ── Status message ─────────────────────────────────────── */
+#statusMsg {
+  font-size: 12px;
+  color: var(--clr-muted);
+  text-align: center;
+  min-height: 18px;
+  margin-bottom: 10px;
+}
+
+/* ── Instructions ───────────────────────────────────────── */
+.instructions {
+  background: var(--clr-card);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius);
+  padding: 13px 16px;
+  font-size: 13px;
+  color: var(--clr-muted);
+  line-height: 1.75;
+}
+.instructions strong { color: var(--clr-text); font-weight: 500; }
+
+/* ── Responsive ─────────────────────────────────────────── */
+@media (max-width: 560px) {
+  .chord-grid { grid-template-columns: repeat(2, 1fr); }
+  .camera-section { flex-direction: column; }
+  .status-panel { width: 100%; flex-direction: row; flex-wrap: wrap; }
+  .status-card { flex: 1; min-width: 130px; }
+  #startBtn { width: 100%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .chord-card.playing { animation: none; }
+  * { transition-duration: 0ms !important; }
+}

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Air Guitar</title>
+  <link rel="stylesheet" href="src/style.css" />
+</head>
+<body>
+  <div id="app">
+    <header class="header">
+      <h1>Air Guitar</h1>
+      <p class="subtitle">Left hand = chords &nbsp;·&nbsp; Right hand = strumming</p>
+    </header>
+
+    <!-- Chord selector cards -->
+    <section class="chord-grid" aria-label="Chord assignments">
+      <div class="chord-card" id="card-0">
+        <span class="finger-label">Index</span>
+        <span class="finger-icon" aria-hidden="true">☝️</span>
+        <select id="chord-0" aria-label="Index finger chord"></select>
+      </div>
+      <div class="chord-card" id="card-1">
+        <span class="finger-label">Middle</span>
+        <span class="finger-icon" aria-hidden="true">✌️</span>
+        <select id="chord-1" aria-label="Middle finger chord"></select>
+      </div>
+      <div class="chord-card" id="card-2">
+        <span class="finger-label">Ring</span>
+        <span class="finger-icon" aria-hidden="true">💍</span>
+        <select id="chord-2" aria-label="Ring finger chord"></select>
+      </div>
+      <div class="chord-card" id="card-3">
+        <span class="finger-label">Pinky</span>
+        <span class="finger-icon" aria-hidden="true">🤙</span>
+        <select id="chord-3" aria-label="Pinky finger chord"></select>
+      </div>
+    </section>
+
+    <!-- Camera + status panel -->
+    <section class="camera-section">
+      <div class="video-container">
+        <video id="videoEl" playsinline autoplay muted aria-label="Camera feed"></video>
+        <canvas id="overlayCanvas" aria-hidden="true"></canvas>
+      </div>
+
+      <aside class="status-panel">
+        <div class="status-card">
+          <span class="label">Chord playing</span>
+          <span class="value chord-display" id="chordDisplay">—</span>
+        </div>
+        <div class="status-card">
+          <span class="label">Left hand pinches</span>
+          <div class="pinch-indicators" id="pinchDots" aria-live="polite">
+            <div class="pinch-dot" title="index"></div>
+            <div class="pinch-dot" title="middle"></div>
+            <div class="pinch-dot" title="ring"></div>
+            <div class="pinch-dot" title="pinky"></div>
+          </div>
+        </div>
+        <div class="status-card">
+          <span class="label">Right hand strum</span>
+          <div class="strum-bars" id="strumBars" aria-hidden="true">
+            <div class="strum-bar"></div>
+            <div class="strum-bar"></div>
+            <div class="strum-bar"></div>
+            <div class="strum-bar"></div>
+            <div class="strum-bar"></div>
+          </div>
+        </div>
+        <button id="startBtn">Start camera</button>
+      </aside>
+    </section>
+
+    <p id="statusMsg" aria-live="polite">Click "Start camera" to begin</p>
+
+    <div class="instructions">
+      <strong>How to play:</strong><br>
+      <strong>Left hand</strong> — pinch your thumb to a finger to hold that chord.<br>
+      <strong>Right hand</strong> — move your hand up and down to strum. Faster = louder.
+    </div>
+  </div>
+
+  <!-- MediaPipe (CDN, no bundler needed) -->
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands@0.4.1646424915/hands.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js" crossorigin="anonymous"></script>
+
+  <!-- App modules (order matters) -->
+  <script type="module" src="src/main.js"></script>
+</body>
+</html>
