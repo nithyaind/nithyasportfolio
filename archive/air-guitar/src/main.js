@@ -6,7 +6,7 @@
 
 import { startTracking, parseHands } from './hands/tracker.js';
 import { drawOverlay }               from './hands/overlay.js';
-import { playChord, stopChord, unlockAudio } from './audio/engine.js';
+import { playChord, restrum, stopChord, unlockAudio } from './audio/engine.js';
 import { updateStrumVelocity, resetStrum } from './ui/strum.js';
 import {
   videoEl, overlayCanvas,
@@ -21,6 +21,8 @@ initChordSelects();
 let stopTracking = null;  // cleanup handle returned by startTracking
 
 // ── Per-frame callback ────────────────────────────────────
+let lastPingedFinger = -1; // track transitions so we only attack once per pinch
+
 function onHandResults(results) {
   // 1. Draw landmarks on the canvas overlay
   drawOverlay(overlayCanvas, videoEl, results);
@@ -28,8 +30,8 @@ function onHandResults(results) {
   // 2. Parse hand state
   const { leftPinches, rightWristY } = parseHands(results);
 
-  // 3. Calculate strum velocity from right-hand motion
-  const velocity = updateStrumVelocity(rightWristY);
+  // 3. Calculate strum velocity + detect discrete strum events
+  const { velocity, strumEvent } = updateStrumVelocity(rightWristY);
 
   // 4. Update strum visualiser
   const rightLandmarks = results.multiHandLandmarks?.find(
@@ -46,13 +48,24 @@ function onHandResults(results) {
   // 7. Audio logic
   if (pingedFinger >= 0) {
     const chordName = getSelectedChord(pingedFinger);
-    playChord(chordName, velocity);
+    const justPinched = pingedFinger !== lastPingedFinger;
+
+    if (justPinched) {
+      // New pinch (or switched finger) — play the chord immediately
+      playChord(chordName, Math.max(0.5, velocity));
+    } else if (strumEvent) {
+      // Held pinch + a completed strum stroke — re-attack with that stroke's intensity
+      restrum(velocity);
+    }
+
     updatePlayingCard(pingedFinger);
   } else {
     // No fingers pinched — silence
     stopChord();
     updatePlayingCard(-1);
   }
+
+  lastPingedFinger = pingedFinger;
 }
 
 // ── Camera start ──────────────────────────────────────────
