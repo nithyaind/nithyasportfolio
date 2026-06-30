@@ -6,7 +6,7 @@
 
 import { startTracking, parseHands } from './hands/tracker.js';
 import { drawOverlay }               from './hands/overlay.js';
-import { playChord, stopChord }      from './audio/engine.js';
+import { playChord, stopChord, unlockAudio } from './audio/engine.js';
 import { updateStrumVelocity, resetStrum } from './ui/strum.js';
 import {
   videoEl, overlayCanvas,
@@ -44,14 +44,9 @@ function onHandResults(results) {
   updatePinchDots(leftPinches);
 
   // 7. Audio logic
-  if (pingedFinger >= 0 && velocity > 0.05) {
-    // A finger is pinched AND the right hand is moving — play/strum
+  if (pingedFinger >= 0) {
     const chordName = getSelectedChord(pingedFinger);
     playChord(chordName, velocity);
-    updatePlayingCard(pingedFinger);
-  } else if (pingedFinger >= 0) {
-    // Finger held down but no strum yet — keep any currently-playing chord
-    // Don't retrigger; just keep the display accurate
     updatePlayingCard(pingedFinger);
   } else {
     // No fingers pinched — silence
@@ -62,6 +57,7 @@ function onHandResults(results) {
 
 // ── Camera start ──────────────────────────────────────────
 startBtn.addEventListener('click', async () => {
+  unlockAudio(); // must run synchronously inside the click handler to satisfy autoplay policy
   setStatus('Requesting camera access…', 'Starting…', true);
 
   try {

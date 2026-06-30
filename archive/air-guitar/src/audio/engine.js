@@ -24,7 +24,16 @@ function getCtx() {
   if (!audioCtx) {
     audioCtx = new (window.AudioContext || window.webkitAudioContext)();
   }
+  if (audioCtx.state === 'suspended') {
+    audioCtx.resume();
+  }
   return audioCtx;
+}
+
+/** Explicitly unlock/resume audio — call this from a direct user-gesture handler. */
+export function unlockAudio() {
+  const ctx = getCtx();
+  if (ctx.state === 'suspended') ctx.resume();
 }
 
 /** Kill all active oscillators with a short release fade. */
@@ -51,9 +60,10 @@ export function playChord(chordName, velocity = 0.5) {
   const notes = CHORD_NOTES[chordName];
   if (!notes) return;
 
-  // If same chord is already sounding, re-strum it instead
+  // If same chord is already sounding, only re-strum on a genuine strum
+  // gesture (velocity above threshold), not every single frame while held
   if (currentChordName === chordName && isActive) {
-    restrum(velocity);
+    if (velocity > 0.15) restrum(velocity);
     return;
   }
 
