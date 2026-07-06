@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Air Guitar</title>
+  <link rel="stylesheet" href="src/style.css" />
+</head>
+<body>
+  <div id="app">
+
+    <h1>Air Guitar</h1>
+
+    <!-- Chord selector row -->
+    <div class="chord-row">
+      <div class="chord-cell" id="card-0">
+        <label>Index</label>
+        <select id="chord-0"></select>
+      </div>
+      <div class="chord-cell" id="card-1">
+        <label>Middle</label>
+        <select id="chord-1"></select>
+      </div>
+      <div class="chord-cell" id="card-2">
+        <label>Ring</label>
+        <select id="chord-2"></select>
+      </div>
+      <div class="chord-cell" id="card-3">
+        <label>Pinky</label>
+        <select id="chord-3"></select>
+      </div>
+    </div>
+
+    <!-- Camera feed -->
+    <div class="camera-wrap">
+      <video id="videoEl" playsinline autoplay muted></video>
+      <canvas id="overlayCanvas"></canvas>
+
+      <!-- Overlaid status badges -->
+      <div class="badge chord-badge" id="chordDisplay">—</div>
+      <div class="badge fist-badge" id="fistIndicator">✊ strum</div>
+    </div>
+
+    <!-- Controls row -->
+    <div class="controls">
+      <button id="startBtn">Start camera</button>
+      <p id="statusMsg">Pinch left thumb to a finger · Close right fist to strum</p>
+    </div>
+
+    <!-- Pinch dots -->
+    <div class="pinch-row" id="pinchDots">
+      <div class="dot" title="index"></div>
+      <div class="dot" title="middle"></div>
+      <div class="dot" title="ring"></div>
+      <div class="dot" title="pinky"></div>
+    </div>
+
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands@0.4.1646424915/hands.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils@0.3.1675466862/camera_utils.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils@0.3.1675466124/drawing_utils.js" crossorigin="anonymous"></script>
+  <script type="module" src="src/main.js"></script>
+</body>
+</html>
