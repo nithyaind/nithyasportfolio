@@ -3,63 +3,246 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Air Guitar</title>
-  <link rel="stylesheet" href="src/style.css" />
+  <title>Nithya Sunkara Indlamuri — Creative Technologist</title>
+  <meta name="description" content="Multimedia journalist, filmmaker & software engineer. Creative technologist at UNC Chapel Hill." />
+  <link rel="stylesheet" href="css/tokens.css" />
+  <link rel="stylesheet" href="css/home.css" />
 </head>
 <body>
-  <div id="app">
+<div id="cursor"></div>
+<div id="cursor-trail"></div>
+<div class="progress-bar"></div>
 
-    <h1>Air Guitar</h1>
+<!-- ══ NAV ══ -->
+<nav class="site-nav" id="site-nav">
+  <a href="index.html" class="nav-logo">BY <strong>NITHYA</strong></a>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="index.html"   class="nav-link active">Home</a></li>
+    <li><a href="archive.html" class="nav-link">Innovation / Tech</a></li>
+    <li><a href="gallery.html" class="nav-link">Film / Photo</a></li>
+    <li><a href="nijam.html"   class="nav-link nijam-link">నిజము</a></li>
+    <li><a href="about.html"   class="nav-link">About</a></li>
+  </ul>
+  <div class="nav-right">
+    <div class="nav-dateline"></div>
+    <button class="hamburger" aria-label="Menu">☰</button>
+  </div>
+</nav>
 
-    <!-- Chord selector row -->
-    <div class="chord-row">
-      <div class="chord-cell" id="card-0">
-        <label>Index</label>
-        <select id="chord-0"></select>
-      </div>
-      <div class="chord-cell" id="card-1">
-        <label>Middle</label>
-        <select id="chord-1"></select>
-      </div>
-      <div class="chord-cell" id="card-2">
-        <label>Ring</label>
-        <select id="chord-2"></select>
-      </div>
-      <div class="chord-cell" id="card-3">
-        <label>Pinky</label>
-        <select id="chord-3"></select>
-      </div>
+<!-- ══ HERO ══ -->
+<section class="hero">
+  <div class="hero-inner">
+
+    <div class="hero-left">
+      <div class="hero-eyebrow">Creative Technologist · Chapel Hill, NC</div>
+
+      <h1 class="hero-name" aria-label="Nithya Sunkara Indlamuri">
+        <span class="nline">NITHYA</span>
+        <span class="nline">SUNKARA</span>
+        <span class="nline">INDLAMURI</span>
+      </h1>
+
+      <p class="hero-telugu">నిత్య సుంకర ఇందలమూరి</p>
     </div>
 
-    <!-- Camera feed -->
-    <div class="camera-wrap">
-      <video id="videoEl" playsinline autoplay muted></video>
-      <canvas id="overlayCanvas"></canvas>
-
-      <!-- Overlaid status badges -->
-      <div class="badge chord-badge" id="chordDisplay">—</div>
-      <div class="badge fist-badge" id="fistIndicator">✊ strum</div>
-    </div>
-
-    <!-- Controls row -->
-    <div class="controls">
-      <button id="startBtn">Start camera</button>
-      <p id="statusMsg">Pinch left thumb to a finger · Close right fist to strum</p>
-    </div>
-
-    <!-- Pinch dots -->
-    <div class="pinch-row" id="pinchDots">
-      <div class="dot" title="index"></div>
-      <div class="dot" title="middle"></div>
-      <div class="dot" title="ring"></div>
-      <div class="dot" title="pinky"></div>
+    <div class="hero-right">
+      <div class="hero-role">
+        <div class="hero-role-label">Currently</div>
+        <div class="hero-role-value">Multimedia Journalist<br>&amp; SWE Intern @ Fidelity Investments</div>
+      </div>
+      <div class="hero-role">
+        <div class="hero-role-label">Also</div>
+        <div class="hero-role-value">Innovation Fellow @ Blue Sky Innovations &amp; Robotics<br>Jr. Creative Production Manager @ MMT Productions</div>
+      </div>
+      <p class="hero-bio">
+        Equal parts journalist and filmmaker, equal parts software engineer and storyteller.
+        I use technology to build new-age stories that are
+        <em style="color:var(--orange);font-style:italic;">experiences people can step inside</em>.
+      </p>
+      <div class="hero-ctas">
+        <a href="archive.html" class="btn btn-solid">See Work →</a>
+        <a href="about.html"   class="btn btn-outline">My Story</a>
+        <a href="mailto:nithya.indla8@gmail.com" class="btn btn-orange">Say Hello</a>
+      </div>
     </div>
 
   </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands@0.4.1646424915/hands.js" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils@0.3.1675466862/camera_utils.js" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils@0.3.1675466124/drawing_utils.js" crossorigin="anonymous"></script>
-  <script type="module" src="src/main.js"></script>
+  <!-- Ticker -->
+  <div class="hero-ticker" aria-hidden="true">
+    <div class="ticker-track">
+      <span class="ticker-item">Multimedia Journalism</span>
+      <span class="ticker-item accent">✦</span>
+      <span class="ticker-item">Software Engineering</span>
+      <span class="ticker-item accent">✦</span>
+      <span class="ticker-item">Documentary Filmmaking</span>
+      <span class="ticker-item accent">✦</span>
+      <span class="ticker-item">Ethics of Tech</span>
+      <span class="ticker-item accent">✦</span>
+      <span class="ticker-item">Interactive Storytelling</span>
+      <span class="ticker-item accent">✦</span>
+      <span class="ticker-item">UNC Chapel Hill</span>
+      <span class="ticker-item accent">✦</span>
+      <span class="ticker-item">Fidelity Investments</span>
+      <span class="ticker-item accent">✦</span>
+      <!-- duplicate for seamless loop -->
+      <span class="ticker-item">Multimedia Journalism</span>
+      <span class="ticker-item accent">✦</span>
+      <span class="ticker-item">Software Engineering</span>
+      <span class="ticker-item accent">✦</span>
+      <span class="ticker-item">Documentary Filmmaking</span>
+      <span class="ticker-item accent">✦</span>
+      <span class="ticker-item">Ethics of Tech</span>
+      <span class="ticker-item accent">✦</span>
+      <span class="ticker-item">Interactive Storytelling</span>
+      <span class="ticker-item accent">✦</span>
+      <span class="ticker-item">UNC Chapel Hill</span>
+      <span class="ticker-item accent">✦</span>
+      <span class="ticker-item">Fidelity Investments</span>
+      <span class="ticker-item accent">✦</span>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FEATURED WORK ══ -->
+<section class="section-featured">
+  <div class="section-hed reveal">
+    <h2>Featured <em>Work</em></h2>
+    <a href="archive.html" class="see-all">All projects</a>
+  </div>
+
+  <div class="work-grid">
+    <!--
+      ╔══════════════════════════════════════════╗
+      ║  HOW TO ADD A FEATURED PROJECT           ║
+      ║  Copy one .wcard block below.            ║
+      ║  Set href → case study or external URL   ║
+      ║  Set img src → your thumbnail image      ║
+      ║  Set wcard-type → the project category   ║
+      ║  Set wcard-name → project name           ║
+      ╚══════════════════════════════════════════╝
+    -->
+    <a href="https://bynithya.com/ID8TG/home.html" class="wcard reveal" target="_blank" rel="noopener">
+      <img src="https://bynithya.com/portfolio/vid/id8.gif" alt="ID8 app" />
+      <div class="wcard-overlay"></div>
+      <div class="wcard-info">
+        <p class="wcard-type">Hackathon · Web App · 2025</p>
+        <h3 class="wcard-name">ID8 — Democratizing Ideas</h3>
+      </div>
+    </a>
+
+    <a href="https://youtu.be/UEuhzhqySO0" class="wcard reveal" target="_blank" rel="noopener">
+      <img src="https://bynithya.com/portfolio/vid/cseek.gif.gif" alt="CSEek" />
+      <div class="wcard-overlay"></div>
+      <div class="wcard-info">
+        <p class="wcard-type">Programming · AI · 2025</p>
+        <h3 class="wcard-name">[CS]eek Study Room AI</h3>
+      </div>
+    </a>
+
+    <a href="https://www.mmtproductions.com/" class="wcard reveal" target="_blank" rel="noopener">
+      <div class="wcard-placeholder">
+        <span class="wcard-placeholder-inner" style="color:var(--orange);">MMT</span>
+      </div>
+      <div class="wcard-overlay"></div>
+      <div class="wcard-info">
+        <p class="wcard-type">Web Design · 2024</p>
+        <h3 class="wcard-name">Mild Mannered &amp; Timid</h3>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- ══ NIJAM PREVIEW ══ -->
+<section class="section-nijam">
+  <div class="nijam-inner">
+    <div class="reveal">
+      <h2 class="nijam-hed">Nithya<br><em>నిజము</em><br>[Nijam]</h2>
+      <p class="nijam-sub">Nithya Truth · Writing · Projects · Updates</p>
+    </div>
+
+    <div class="nijam-preview-grid">
+      <!-- Pulled from the POSTS array in nijam.html — update these to match your latest 3 posts -->
+      <a href="nijam.html" class="nijam-preview-card reveal">
+        <div class="npc-date">May 2025</div>
+        <span class="npc-tag">Essay</span>
+        <h3 class="npc-hed">On being equal parts: holding two worlds without choosing one</h3>
+        <p class="npc-dek">What happens when you refuse to pick a lane — in identity, in craft, in life.</p>
+      </a>
+      <a href="nijam.html" class="nijam-preview-card reveal rd1">
+        <div class="npc-date">April 2025</div>
+        <span class="npc-tag">Project</span>
+        <h3 class="npc-hed">Notes on responsible fintech from my Fidelity internship</h3>
+        <p class="npc-dek">How financial tools can be designed to serve, not exploit.</p>
+      </a>
+      <a href="nijam.html" class="nijam-preview-card reveal rd2">
+        <div class="npc-date">March 2025</div>
+        <span class="npc-tag">Dispatch</span>
+        <h3 class="npc-hed">Chapel Hill light at 6am and why I always carry a camera</h3>
+        <p class="npc-dek">A filmmaker's diary disguised as a journalism student's reflection.</p>
+      </a>
+    </div>
+
+    <a href="nijam.html" class="nijam-all reveal">Read all dispatches</a>
+  </div>
+</section>
+
+<!-- ══ IDENTITY ══ -->
+<section class="section-identity">
+  <div class="reveal">
+    <p class="t-label" style="margin-bottom:14px;">Who I Am</p>
+    <h2 class="identity-hed">
+      Equal parts <em>S. Sunkara</em><br>
+      and <em>P. Indlamuri</em> —<br>
+      equal parts everything.
+    </h2>
+    <p class="identity-body">
+      I'm a creative technologist who cares about the ethics of technology in journalism.
+      I want to tell stories and build relationships, then get those stories to the communities
+      that benefit from them most — using technology to create new-age experiences
+      people can partake in.
+    </p>
+    <a href="about.html" class="identity-link">Read my full story</a>
+  </div>
+
+  <div class="identity-portrait reveal rd2">
+    <!-- REPLACE: src with your portrait -->
+    <img src="assets/images/about-photo.jpg" alt="Nithya Sunkara Indlamuri" />
+    <span class="identity-portrait-cap">Chapel Hill, NC · 2025</span>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div>
+      <div class="footer-masthead">GET IN<br><em>TOUCH</em></div>
+      <p class="footer-tagline">Journalist · Filmmaker · Engineer<br>Chapel Hill, NC · Class of 2027</p>
+    </div>
+    <div>
+      <div class="footer-col-title">Navigate</div>
+      <ul class="footer-links-list">
+        <li><a href="archive.html">Innovation / Tech</a></li>
+        <li><a href="gallery.html">Film / Photo</a></li>
+        <li><a href="nijam.html">నిజము [Nijam]</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Connect</div>
+      <ul class="footer-links-list">
+        <li><a href="mailto:nithya.indla8@gmail.com">Email</a></li>
+        <li><a href="https://www.linkedin.com/in/nithya-ind/" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="https://www.youtube.com/@nithyaaa" target="_blank" rel="noopener">YouTube</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>Nithya Sunkara Indlamuri © 2026</span>
+    <a href="#" class="back-to-top">↑ Back to top</a>
+  </div>
+</footer>
+
+<script src="js/global.js"></script>
 </body>
 </html>

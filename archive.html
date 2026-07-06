@@ -3,141 +3,313 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Archive — Nithya Sunkara Indlamuri</title>
-  <meta name="description" content="Archival projects by Nithya Sunkara Indlamuri spanning journalism, film, code, and creative experiments." />
+  <title>Innovation / Tech — Nithya Sunkara Indlamuri</title>
   <link rel="stylesheet" href="css/tokens.css" />
-  <link rel="stylesheet" href="css/pages.css" />
+  <link rel="stylesheet" href="css/archive.css" />
 </head>
 <body>
-
 <div id="cursor"></div>
-<div id="cursor-ring"></div>
+<div id="cursor-trail"></div>
+<div class="progress-bar"></div>
 
-<nav class="site-nav">
+<nav class="site-nav" id="site-nav">
   <a href="index.html" class="nav-logo">BY <strong>NITHYA</strong></a>
-  <ul class="nav-links">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="work.html">Work</a></li>
-    <li><a href="archive.html">Archive</a></li>
-    <li><a href="nijam.html">నిజము [Nijam]</a></li>
-    <li><a href="about.html">About</a></li>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="index.html"   class="nav-link">Home</a></li>
+    <li><a href="archive.html" class="nav-link active">Innovation / Tech</a></li>
+    <li><a href="gallery.html" class="nav-link">Film / Photo</a></li>
+    <li><a href="nijam.html"   class="nav-link nijam-link">నిజము</a></li>
+    <li><a href="about.html"   class="nav-link">About</a></li>
   </ul>
-  <div class="nav-dateline"></div>
+  <div class="nav-right">
+    <div class="nav-dateline"></div>
+    <button class="hamburger" aria-label="Menu">☰</button>
+  </div>
 </nav>
 
 <!-- HERO -->
-<header class="page-hero">
-  <div class="page-hero-inner">
-    <p class="page-hero-eyebrow">Every experiment · Every draft · Every attempt</p>
-    <h1 class="page-hero-title">
-      <div class="line"><span>ARCHI</span></div>
-      <div class="line"><span><em>VE</em></span></div>
+<header class="archive-hero">
+  <div class="archive-hero-inner">
+    <p class="archive-hero-eyebrow">Innovation · Technology · Design</p>
+    <h1 class="archive-hero-title">
+      <div class="line"><span>INNOVA</span></div>
+      <div class="line"><span><em>TION</em></span></div>
     </h1>
-    <p class="page-hero-sub">
-      Not everything becomes a flagship project. Some things are
-      experiments, student work, early films, or the thing that taught
-      me what the next thing should be. All of it lives here.
+    <p class="archive-hero-sub">
+      "this is the future." — projects spanning AI, web, VR, design, and the ethics of what we build.
     </p>
+    <div class="archive-credits">
+      <div class="credit-pill">SWE Intern · Fidelity Investments 2025</div>
+      <div class="credit-pill">Innovation Fellow · Blue Sky 2024–2025</div>
+      <div class="credit-pill">Lifelong Learner · Pearson @ Pearl Hacks 2025</div>
+    </div>
   </div>
 </header>
 
-<!-- ARCHIVE -->
-<section class="archive-page">
+<!-- FILTER -->
+<div class="archive-filter">
+  <div class="archive-filter-inner" data-filter-group="archive">
+    <button class="afilter-btn active" data-filter="all">All</button>
+    <button class="afilter-btn" data-filter="programming">Programming</button>
+    <button class="afilter-btn" data-filter="design">Design</button>
+    <button class="afilter-btn" data-filter="emerging">Emerging Tech</button>
+    <button class="afilter-btn" data-filter="web">Web Design</button>
+  </div>
+</div>
 
-  <!-- 2025 -->
-  <div class="archive-year-group reveal">
-    <div style="font-family:var(--font-display); font-size:clamp(40px,6vw,64px); font-weight:900; letter-spacing:-0.03em; border-bottom:1.5px solid var(--ink); padding-bottom:12px; margin-bottom:20px;">2025</div>
-    <div class="archive-grid">
+<!-- PROJECT LIST -->
+<section class="archive-body">
 
-      <!--
-        REPLACE per card:
-        href, img src, alt, data-type, card name
-        Add as many as you have.
-      -->
+  <div class="project-col-heads">
+    <span>#</span><span>Project</span><span>Type</span><span>Year</span><span></span>
+  </div>
 
-      <a href="#" class="archive-card">
-        <img src="assets/images/archive-1.jpg" alt="Archive project 1" />
-        <div class="archive-card-label">
-          <div class="archive-card-type">Journalism</div>
-          <div class="archive-card-name">STORY TITLE</div>
+  <!--
+    ╔═══════════════════════════════════════════════════════╗
+    ║  HOW TO ADD A NEW PROJECT                             ║
+    ║                                                       ║
+    ║  1. Copy one .project-row block below                 ║
+    ║  2. Update data-tag to match a filter button          ║
+    ║     (programming / design / emerging / web)           ║
+    ║  3. Fill in: number, name, type, year                 ║
+    ║  4. In .project-detail:                               ║
+    ║     - Set .project-detail-media img/video src         ║
+    ║     - Add .project-tag spans for tech stack           ║
+    ║     - Write description in .project-detail-desc       ║
+    ║     - Add .project-link anchors for each external URL ║
+    ║     - Optional: add .project-accolade for awards      ║
+    ║  5. Save — done!                                      ║
+    ╚═══════════════════════════════════════════════════════╝
+  -->
+
+  <!-- PROJECT 1: ID8 -->
+  <div class="project-row reveal" data-tag="programming" data-filter-scope="archive">
+    <div class="project-row-summary">
+      <span class="project-row-num">01</span>
+      <span class="project-row-name">ID8</span>
+      <span class="project-row-type">Web App · Hackathon</span>
+      <span class="project-row-year">2025</span>
+      <span class="project-row-expand">+</span>
+    </div>
+    <div class="project-detail">
+      <div class="project-detail-media">
+        <img class="gif-preview" src="https://bynithya.com/portfolio/vid/id8.gif" alt="ID8 app preview" />
+      </div>
+      <div class="project-detail-info">
+        <div class="project-tags">
+          <span class="project-tag">React</span>
+          <span class="project-tag">Node.js</span>
+          <span class="project-tag">Figma</span>
+          <span class="project-tag">Hackathon</span>
         </div>
-      </a>
-
-      <a href="#" class="archive-card">
-        <img src="assets/images/archive-2.jpg" alt="Archive project 2" />
-        <div class="archive-card-label">
-          <div class="archive-card-type">Web App</div>
-          <div class="archive-card-name">PROJECT NAME</div>
+        <p class="project-detail-desc">
+          A case study showed minorities and people without connections struggle to find investors.
+          ID8 lets entrepreneurs pitch their idea anonymously — without name, face, race, or ethnicity —
+          so investors engage with the idea before the person. This democratizes ideas and their impact value.
+        </p>
+        <div class="project-accolade">Lifelong Learner Award by Pearson @ Pearl Hacks 2025</div>
+        <div class="project-links">
+          <a href="https://bynithya.com/ID8TG/home.html" class="project-link" target="_blank" rel="noopener">Live Project</a>
+          <a href="https://devpost.com/software/id8" class="project-link" target="_blank" rel="noopener">DevPost</a>
+          <a href="https://www.figma.com/proto/K9NPFdB2LqL4ELDeacxkOb/ID8?node-id=29-890" class="project-link" target="_blank" rel="noopener">Figma</a>
         </div>
-      </a>
-
-      <a href="#" class="archive-card">
-        <img src="assets/images/archive-3.jpg" alt="Archive project 3" />
-        <div class="archive-card-label">
-          <div class="archive-card-type">Film</div>
-          <div class="archive-card-name">FILM TITLE</div>
-        </div>
-      </a>
-
+      </div>
     </div>
   </div>
 
-  <!-- 2024 -->
-  <div class="archive-year-group reveal">
-    <div style="font-family:var(--font-display); font-size:clamp(40px,6vw,64px); font-weight:900; letter-spacing:-0.03em; border-bottom:1.5px solid var(--ink); padding-bottom:12px; margin-bottom:20px;">2024</div>
-    <div class="archive-grid">
-
-      <a href="#" class="archive-card">
-        <img src="assets/images/archive-4.jpg" alt="Archive project 4" />
-        <div class="archive-card-label">
-          <div class="archive-card-type">Multimedia</div>
-          <div class="archive-card-name">PROJECT NAME</div>
+  <!-- PROJECT 2: CSEek -->
+  <div class="project-row reveal" data-tag="programming" data-filter-scope="archive">
+    <div class="project-row-summary">
+      <span class="project-row-num">02</span>
+      <span class="project-row-name">[CS]eek</span>
+      <span class="project-row-type">AI · Web App</span>
+      <span class="project-row-year">2025</span>
+      <span class="project-row-expand">+</span>
+    </div>
+    <div class="project-detail">
+      <div class="project-detail-media">
+        <img class="gif-preview" src="https://bynithya.com/portfolio/vid/cseek.gif.gif" alt="CSEek preview" />
+      </div>
+      <div class="project-detail-info">
+        <div class="project-tags">
+          <span class="project-tag">FastAPI</span>
+          <span class="project-tag">Docker</span>
+          <span class="project-tag">Angular</span>
+          <span class="project-tag">SQL</span>
+          <span class="project-tag">Kubernetes</span>
+          <span class="project-tag">OpenAI</span>
         </div>
-      </a>
-
-      <a href="#" class="archive-card">
-        <img src="assets/images/archive-5.jpg" alt="Archive project 5" />
-        <div class="archive-card-label">
-          <div class="archive-card-type">Photography</div>
-          <div class="archive-card-name">PHOTO SERIES</div>
+        <p class="project-detail-desc">
+          An AI chatbot that helps UNC Chapel Hill CS students quickly and easily book study rooms
+          using natural language. Built with FastAPI, Docker, Angular, SQL, Kubernetes, and OpenAI —
+          deployed as a full-stack application with containerized infrastructure.
+        </p>
+        <div class="project-links">
+          <a href="https://youtu.be/UEuhzhqySO0" class="project-link" target="_blank" rel="noopener">Watch Presentation</a>
         </div>
-      </a>
-
+      </div>
     </div>
   </div>
 
-  <!-- 2023 -->
-  <div class="archive-year-group reveal">
-    <div style="font-family:var(--font-display); font-size:clamp(40px,6vw,64px); font-weight:900; letter-spacing:-0.03em; border-bottom:1.5px solid var(--ink); padding-bottom:12px; margin-bottom:20px;">2023</div>
-    <div class="archive-grid">
-
-      <a href="#" class="archive-card">
-        <img src="assets/images/archive-6.jpg" alt="Archive project 6" />
-        <div class="archive-card-label">
-          <div class="archive-card-type">Student Film</div>
-          <div class="archive-card-name">FIRST SHORT FILM</div>
+  <!-- PROJECT 3: Akari Game -->
+  <div class="project-row reveal" data-tag="programming" data-filter-scope="archive">
+    <div class="project-row-summary">
+      <span class="project-row-num">03</span>
+      <span class="project-row-name">Akari Game</span>
+      <span class="project-row-type">Java · OOP</span>
+      <span class="project-row-year">2024</span>
+      <span class="project-row-expand">+</span>
+    </div>
+    <div class="project-detail">
+      <div class="project-detail-media">
+        <img class="gif-preview" src="https://bynithya.com/portfolio/vid/akari_gif.gif" alt="Akari game preview" />
+      </div>
+      <div class="project-detail-info">
+        <div class="project-tags">
+          <span class="project-tag">Java</span>
+          <span class="project-tag">MVC</span>
+          <span class="project-tag">OOP</span>
+          <span class="project-tag">Design Patterns</span>
         </div>
-      </a>
-
-      <a href="#" class="archive-card">
-        <img src="assets/images/archive-7.jpg" alt="Archive project 7" />
-        <div class="archive-card-label">
-          <div class="archive-card-type">Journalism</div>
-          <div class="archive-card-name">FIRST STORY</div>
+        <p class="project-detail-desc">
+          A complete implementation of the Akari puzzle game in Java. Used multiple design patterns,
+          MVC architecture, and a deep web of classes and interfaces to fully utilize object-oriented
+          programming — optimizing for both functionality and extensibility.
+        </p>
+        <div class="project-links">
+          <!-- REPLACE with GitHub or demo link if available -->
+          <a href="#" class="project-link">View Code</a>
         </div>
-      </a>
-
-      <a href="#" class="archive-card">
-        <img src="assets/images/archive-8.jpg" alt="Archive project 8" />
-        <div class="archive-card-label">
-          <div class="archive-card-type">Code Experiment</div>
-          <div class="archive-card-name">EXPERIMENT</div>
-        </div>
-      </a>
-
+      </div>
     </div>
   </div>
 
+  <!-- PROJECT 4: CoutureRevolution -->
+  <div class="project-row reveal" data-tag="design" data-filter-scope="archive">
+    <div class="project-row-summary">
+      <span class="project-row-num">04</span>
+      <span class="project-row-name">CoutureRevolution</span>
+      <span class="project-row-type">UI / UX Design</span>
+      <span class="project-row-year">2024</span>
+      <span class="project-row-expand">+</span>
+    </div>
+    <div class="project-detail">
+      <div class="project-detail-media">
+        <!-- Embed the Figma prototype -->
+        <iframe
+          style="width:100%;height:300px;border:none;"
+          src="https://embed.figma.com/proto/xSFFN1DPH2pXh8OwmnUTje/project-1?node-id=121-76&node-type=canvas&scaling=scale-down&content-scaling=fixed&page-id=73%3A113&starting-point-node-id=121%3A76&embed-host=share"
+          allowfullscreen>
+        </iframe>
+      </div>
+      <div class="project-detail-info">
+        <div class="project-tags">
+          <span class="project-tag">Figma</span>
+          <span class="project-tag">CapCut</span>
+          <span class="project-tag">Adobe</span>
+          <span class="project-tag">UI/UX</span>
+        </div>
+        <p class="project-detail-desc">
+          A UI/UX design for a website that highlights influential women in the tech-fashion industry.
+          The design celebrates the intersection of creativity and technology, centering the stories
+          of women who shaped both fields.
+        </p>
+        <div class="project-links">
+          <a href="https://embed.figma.com/proto/xSFFN1DPH2pXh8OwmnUTje/project-1?node-id=121-76" class="project-link" target="_blank" rel="noopener">View Prototype</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROJECT 5: VR -->
+  <div class="project-row reveal" data-tag="emerging" data-filter-scope="archive">
+    <div class="project-row-summary">
+      <span class="project-row-num">05</span>
+      <span class="project-row-name">VR Training — Labor &amp; Delivery</span>
+      <span class="project-row-type">VR · Emerging Tech</span>
+      <span class="project-row-year">2024–25</span>
+      <span class="project-row-expand">+</span>
+    </div>
+    <div class="project-detail">
+      <div class="project-detail-media">
+        <img class="gif-preview" src="https://bynithya.com/portfolio/vid/vr_gif.gif" alt="VR experience snippet" />
+      </div>
+      <div class="project-detail-info">
+        <div class="project-tags">
+          <span class="project-tag">Virtual Reality</span>
+          <span class="project-tag">UNC Blue Sky Lab</span>
+          <span class="project-tag">Healthcare</span>
+        </div>
+        <p class="project-detail-desc">
+          Developing VR experiences for training staff and professionals in the labor and delivery
+          ward of hospitals — focusing on behavioral skills training. An ongoing project with
+          UNC Blue Sky Innovations Lab, exploring how immersive technology can improve
+          healthcare outcomes and staff preparedness.
+        </p>
+        <div class="project-links">
+          <!-- REPLACE if a public link becomes available -->
+          <span class="project-link" style="opacity:.5;cursor:default;">In Development</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROJECT 6: MMT Website -->
+  <div class="project-row reveal" data-tag="web" data-filter-scope="archive">
+    <div class="project-row-summary">
+      <span class="project-row-num">06</span>
+      <span class="project-row-name">Mild Mannered &amp; Timid Website</span>
+      <span class="project-row-type">Web Design · Build</span>
+      <span class="project-row-year">2024</span>
+      <span class="project-row-expand">+</span>
+    </div>
+    <div class="project-detail">
+      <div class="project-detail-media" style="background:var(--paper-dark);padding:24px;display:flex;align-items:center;justify-content:center;min-height:180px;">
+        <span style="font-family:var(--font-display);font-size:2rem;font-style:italic;color:var(--charcoal);">MMT Productions</span>
+      </div>
+      <div class="project-detail-info">
+        <div class="project-tags">
+          <span class="project-tag">HTML / CSS / JS</span>
+          <span class="project-tag">Web Design</span>
+          <span class="project-tag">Brand</span>
+        </div>
+        <p class="project-detail-desc">
+          Designed and built the Mild Mannered &amp; Timid website from scratch, reflecting
+          the story and identity of this budding production company. The site brings their
+          narrative to life through careful visual storytelling and clean, purposeful design.
+        </p>
+        <div class="project-links">
+          <a href="https://www.mmtproductions.com/" class="project-link" target="_blank" rel="noopener">Live Site</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--
+    ╔═══════════════════════════════════════╗
+    ║  ADD NEW PROJECT HERE — copy block ↑  ║
+    ╚═══════════════════════════════════════╝
+  -->
+
+</section>
+
+<!-- PHILOSOPHY -->
+<section class="archive-philosophy">
+  <div class="archive-philosophy-inner">
+    <div class="reveal">
+      <p class="t-label" style="margin-bottom:12px;">Philosophy</p>
+      <h2 class="ap-hed">Building things that feel <em>human</em></h2>
+    </div>
+    <div class="reveal rd1">
+      <p class="ap-body">
+        I care about the ethics of what we build. Technology shapes whose stories get told,
+        whose voices get amplified, and who gets left behind. I want to understand those systems
+        deeply enough to challenge them — and build better alternatives. Whether it's a hackathon
+        prototype, a production website, or a VR training tool, every project starts with
+        a question: <em>who does this serve?</em>
+      </p>
+    </div>
+  </div>
 </section>
 
 <!-- FOOTER -->
@@ -151,7 +323,7 @@
       <div class="footer-col-title">Navigate</div>
       <ul class="footer-links-list">
         <li><a href="index.html">Home</a></li>
-        <li><a href="work.html">Work</a></li>
+        <li><a href="gallery.html">Film / Photo</a></li>
         <li><a href="nijam.html">నిజము [Nijam]</a></li>
         <li><a href="about.html">About</a></li>
       </ul>
@@ -161,6 +333,7 @@
       <ul class="footer-links-list">
         <li><a href="mailto:nithya.indla8@gmail.com">Email</a></li>
         <li><a href="https://www.linkedin.com/in/nithya-ind/" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="https://www.youtube.com/@nithyaaa" target="_blank" rel="noopener">YouTube</a></li>
       </ul>
     </div>
   </div>
@@ -170,6 +343,35 @@
   </div>
 </footer>
 
-<script src="js/main.js"></script>
+<script src="js/global.js"></script>
+<script>
+/* Expand/collapse project rows */
+document.querySelectorAll('.project-row').forEach(row => {
+  const summary = row.querySelector('.project-row-summary');
+  if (summary) {
+    summary.addEventListener('click', () => {
+      const isOpen = row.classList.toggle('open');
+      const detail = row.querySelector('.project-detail');
+      if (detail) {
+        detail.style.maxHeight = isOpen ? detail.scrollHeight + 'px' : '0';
+        detail.style.paddingTop = isOpen ? '28px' : '0';
+        detail.style.paddingBottom = isOpen ? '32px' : '0';
+      }
+    });
+  }
+});
+/* Wire filter buttons for this page */
+const filterBtns = document.querySelectorAll('.afilter-btn');
+filterBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    filterBtns.forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    const tag = btn.dataset.filter;
+    document.querySelectorAll('.project-row').forEach(row => {
+      row.style.display = (tag==='all'||row.dataset.tag===tag)?'':'none';
+    });
+  });
+});
+</script>
 </body>
 </html>
