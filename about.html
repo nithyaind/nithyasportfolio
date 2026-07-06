@@ -7,6 +7,7 @@
   <meta name="description" content="My favorite color is Blue. An autobiographical scroll story by Nithya Sunkara Indlamuri." />
   <link rel="stylesheet" href="css/tokens.css" />
   <link rel="stylesheet" href="css/about.css" />
+  <link rel="stylesheet" href="css/transitions.css" />
 </head>
 <body class="story-shell">
 
@@ -15,30 +16,21 @@
 <div class="story-progress"></div>
 
 <!-- ══ NAV (starts dark, story mode) ══ -->
-<nav class="site-nav dark" id="site-nav">
-  <div class="nav-top">
-    <a href="index.html" class="nav-logo-wrap">
-      <span class="nav-logo-text">BY <strong>NITHYA</strong></span>
-    </a>
-    <button class="nav-hamburger" id="nav-hamburger" aria-label="Menu">☰</button>
-    <div class="nav-links-wrap" id="nav-links-wrap">
-      <div class="nav-link has-drop">
-        Work
-        <div class="nav-dropdown">
-          <a href="archive.html">Innovation / Tech</a>
-          <a href="archive.html#gallery">Film / Photo</a>
-        </div>
-      </div>
-      <a href="archive.html" class="nav-link">Archive</a>
-      <a href="nijam.html"   class="nav-link nijam-link">నిజము [Nijam]</a>
-      <a href="about.html"   class="nav-link active">About</a>
-      <a href="mailto:nithya.indla8@gmail.com" class="nav-link">Contact</a>
-    </div>
-    <div class="nav-dateline-wrap">
-      <div class="nav-dateline"></div>
+<div class="nav-links-wrap" id="nav-links-wrap">
+
+  <div class="nav-link has-drop">
+    Work
+    <div class="nav-dropdown">
+      <a href="archive.html">Innovation / Tech</a>
+      <a href="archive.html#gallery">Film / Photo</a>
     </div>
   </div>
-</nav>
+
+  <a href="nijam.html" class="nav-link nijam-link">నిజము [Nijam]</a>
+  <a href="about.html" class="nav-link">About</a>
+  <a href="mailto:nithya.indla8@gmail.com" class="nav-link">Contact</a>
+
+</div>
 
 <!-- ══ FIXED BACKGROUND STAGE ══ -->
 <div class="bg-stage" aria-hidden="true">
@@ -408,7 +400,8 @@
 </section>
 
 <!-- ══ SCRIPTS ══ -->
-<script src="js/global.js"></script>
 <script src="js/about.js"></script>
+<script src="js/global.js"></script>
+<script src="js/transitions.js"></script>
 </body>
 </html>

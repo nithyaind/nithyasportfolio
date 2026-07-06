@@ -7,6 +7,7 @@
   <meta name="description" content="Archival projects — innovation, tech, journalism, film, and photography by Nithya Sunkara Indlamuri." />
   <link rel="stylesheet" href="css/tokens.css" />
   <link rel="stylesheet" href="css/archive.css" />
+  <link rel="stylesheet" href="css/transitions.css" />
 </head>
 <body>
 
@@ -18,27 +19,21 @@
 <div class="preview-ghost" id="preview-ghost"><img src="" alt="" /></div>
 
 <!-- ════ NAV ════ -->
-<nav class="site-nav" id="site-nav">
-  <div class="nav-top">
-    <a href="index.html" class="nav-logo-wrap">
-      <span class="nav-logo-text">BY <strong>NITHYA</strong></span>
-    </a>
-    <button class="nav-hamburger" id="nav-hamburger" aria-label="Menu">☰</button>
-    <div class="nav-links-wrap" id="nav-links-wrap">
-      <div class="nav-link has-drop active">Work
-        <div class="nav-dropdown">
-          <a href="archive.html">Innovation / Tech</a>
-          <a href="archive.html#gallery">Film / Photo</a>
-        </div>
-      </div>
-      <a href="archive.html"  class="nav-link active">Archive</a>
-      <a href="nijam.html"    class="nav-link nijam-link">నిజము [Nijam]</a>
-      <a href="about.html"    class="nav-link">About</a>
-      <a href="mailto:nithya.indla8@gmail.com" class="nav-link">Contact</a>
+<div class="nav-links-wrap" id="nav-links-wrap">
+
+  <div class="nav-link has-drop">
+    Work
+    <div class="nav-dropdown">
+      <a href="archive.html">Innovation / Tech</a>
+      <a href="archive.html#gallery">Film / Photo</a>
     </div>
-    <div class="nav-dateline-wrap"><div class="nav-dateline"></div></div>
   </div>
-</nav>
+
+  <a href="nijam.html" class="nav-link nijam-link">నిజము [Nijam]</a>
+  <a href="about.html" class="nav-link">About</a>
+  <a href="mailto:nithya.indla8@gmail.com" class="nav-link">Contact</a>
+
+</div>
 
 <!-- ════ HERO ════ -->
 <header class="page-hero">
@@ -130,6 +125,7 @@
 </footer>
 
 <script src="js/global.js"></script>
+<script src="js/transitions.js"></script>
 <script>
 /* ════════════════════════════════════════════════════════════════
    ✏️  HOW TO ADD A TECH PROJECT

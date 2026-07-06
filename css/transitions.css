@@ -1,0 +1,251 @@
+/* ═══════════════════════════════════════════════════════════
+   transitions.css
+   Page transition curtain, image morph, and motion polish
+   Add: <link rel="stylesheet" href="css/transitions.css" />
+   in <head> of every HTML file, before closing </head>
+═══════════════════════════════════════════════════════════ */
+
+/* ── Curtain panels ──────────────────────────────────────── */
+#pg-curtain {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.pg-panel {
+  flex: 1;
+  background: var(--ink, #1a1a1a);
+  transform: scaleY(0);
+  transform-origin: bottom;
+  will-change: transform;
+}
+
+.pg-panel-b {
+  transform-origin: top;
+}
+
+/* ── Enter: curtains already closed, then open outward ───── */
+#pg-curtain.is-entering .pg-panel {
+  transform: scaleY(1);
+  transition: none;
+}
+
+#pg-curtain.is-open .pg-panel-a {
+  transform: scaleY(0);
+  transition: transform 0.65s cubic-bezier(0.77, 0, 0.18, 1) 0.05s;
+  transform-origin: top;
+}
+
+#pg-curtain.is-open .pg-panel-b {
+  transform: scaleY(0);
+  transition: transform 0.65s cubic-bezier(0.77, 0, 0.18, 1) 0.1s;
+  transform-origin: bottom;
+}
+
+#pg-curtain.is-done {
+  display: none;
+}
+
+/* ── Exit: curtains slam closed ──────────────────────────── */
+#pg-curtain.is-exiting .pg-panel-a {
+  transform: scaleY(1);
+  transition: transform 0.5s cubic-bezier(0.77, 0, 0.18, 1);
+  transform-origin: bottom;
+}
+
+#pg-curtain.is-exiting .pg-panel-b {
+  transform: scaleY(1);
+  transition: transform 0.5s cubic-bezier(0.77, 0, 0.18, 1) 0.04s;
+  transform-origin: top;
+}
+
+/* ── Morph layer ─────────────────────────────────────────── */
+#pg-morph {
+  border-radius: 0 !important;
+}
+
+/* ── Page body: start invisible, fade in after curtain ────── */
+body {
+  opacity: 0;
+  transition: opacity 0.01s;
+}
+
+body.pg-ready {
+  opacity: 1;
+  transition: opacity 0.35s ease 0.15s;
+}
+
+/* ── Hero name lines: start hidden for scramble ──────────── */
+.hero-name .name-line {
+  display: inline-block;
+  overflow: hidden;
+}
+
+/* ── Card hover: scale + shadow lift ────────────────────── */
+.card {
+  transition:
+    transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+    box-shadow 0.4s ease;
+  will-change: transform;
+}
+
+.card:hover {
+  transform: translateY(-6px) scale(1.015);
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.18);
+}
+
+.card img {
+  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transform-origin: center;
+}
+
+.card:hover img {
+  transform: scale(1.06);
+}
+
+/* ── Work row hover: smooth reveal line ─────────────────── */
+.project-row {
+  position: relative;
+  transition: background 0.2s ease, padding-left 0.3s ease;
+}
+
+.project-row::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 3px;
+  background: var(--magenta, #e8006e);
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.project-row:hover::before {
+  transform: scaleY(1);
+}
+
+.project-row:hover {
+  padding-left: 12px;
+}
+
+/* ── Nijam cards: slide up on scroll reveal ─────────────── */
+.nijam-card {
+  transform: translateY(28px);
+  opacity: 0;
+  transition:
+    transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1),
+    opacity 0.5s ease;
+}
+
+.nijam-card.visible {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* Stagger via existing rd1/rd2 delay pattern */
+.nijam-card.rd1 { transition-delay: 0.12s; }
+.nijam-card.rd2 { transition-delay: 0.24s; }
+
+/* ── Gallery items: scale up on reveal ───────────────────── */
+.gallery-item {
+  transform: scale(0.94);
+  opacity: 0;
+  transition:
+    transform 0.55s cubic-bezier(0.34, 1.2, 0.64, 1),
+    opacity 0.45s ease;
+}
+
+.gallery-item.visible {
+  transform: scale(1);
+  opacity: 1;
+}
+
+/* ── General .reveal enhancement ────────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition:
+    opacity 0.55s ease,
+    transform 0.6s cubic-bezier(0.34, 1.1, 0.64, 1);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal.rd1 { transition-delay: 0.1s; }
+.reveal.rd2 { transition-delay: 0.2s; }
+.reveal.rd3 { transition-delay: 0.3s; }
+
+/* ── Nav link magnetic hover ─────────────────────────────── */
+.nav-link,
+.btn {
+  transition: transform 0.2s ease, color 0.2s ease, background 0.2s ease !important;
+}
+
+/* ── Ticker: pause on hover ──────────────────────────────── */
+.hero-ticker:hover .ticker-track {
+  animation-play-state: paused;
+}
+
+/* ── Footer links: underline slide ──────────────────────── */
+.footer-links-list a {
+  position: relative;
+  display: inline-block;
+}
+
+.footer-links-list a::after {
+  content: '';
+  position: absolute;
+  bottom: -1px; left: 0;
+  width: 100%; height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s ease;
+}
+
+.footer-links-list a:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* ── Identity portrait: subtle float ────────────────────── */
+.identity-portrait {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%   { transform: translateY(0px); }
+  50%  { transform: translateY(-8px); }
+  100% { transform: translateY(0px); }
+}
+
+/* ── Cursor bloom (if not already in tokens.css) ─────────── */
+#cursor {
+  transition: transform 0.15s ease, opacity 0.2s ease, background 0.2s ease;
+}
+
+/* ── Reduced motion: strip everything ───────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  #pg-curtain,
+  #pg-morph,
+  .reveal,
+  .card,
+  .card img,
+  .project-row,
+  .nijam-card,
+  .gallery-item,
+  .identity-portrait {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+
+  body { opacity: 1 !important; }
+}
