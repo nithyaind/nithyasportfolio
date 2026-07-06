@@ -11,19 +11,26 @@
 <body>
 
 <div id="cursor"></div>
-<div id="cursor-ring"></div>
+<div id="cursor-trail"></div>
 
 <!-- ══ NAV ══ -->
-<nav class="site-nav">
-  <a href="index.html" class="nav-logo">BY <strong>NITHYA</strong></a>
-  <ul class="nav-links">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="work.html">Work</a></li>
-    <li><a href="archive.html">Archive</a></li>
-    <li><a href="nijam.html">నిజము [Nijam]</a></li>
-    <li><a href="about.html">About</a></li>
-  </ul>
-  <div class="nav-dateline"></div>
+<nav class="site-nav" id="site-nav">
+  <div class="nav-top">
+    <a href="index.html" class="nav-logo-wrap">
+      <span class="nav-logo-text">BY <strong>NITHYA</strong></span>
+    </a>
+    <button class="nav-hamburger" id="nav-hamburger" aria-label="Menu">☰</button>
+    <div class="nav-links-wrap" id="nav-links-wrap">
+      <a href="work.html"    class="nav-link active">Work</a>
+      <a href="archive.html" class="nav-link">Archive</a>
+      <a href="nijam.html"   class="nav-link nijam-link">నిజము [Nijam]</a>
+      <a href="about.html"   class="nav-link">About</a>
+      <a href="mailto:nithya.indla8@gmail.com" class="nav-link">Contact</a>
+    </div>
+    <div class="nav-dateline-wrap">
+      <div class="nav-dateline"></div>
+    </div>
+  </div>
 </nav>
 
 <!-- ══ HOVER PREVIEW GHOST ══ -->
@@ -174,6 +181,7 @@
   </div>
 </footer>
 
+<script src="js/global.js"></script>
 <script src="js/main.js"></script>
 </body>
 </html>

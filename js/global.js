@@ -90,4 +90,18 @@ document.addEventListener('DOMContentLoaded', () => {
     t.addEventListener('mouseleave', ()=>t.style.animationPlayState='running');
   });
 
+  /* ── GRACEFUL FALLBACK FOR MISSING/PLACEHOLDER IMAGES ──
+     Several image paths in this project are still content
+     placeholders (see README "Content You Still Need to Write").
+     Rather than showing a broken-image icon to visitors, swap
+     in a subtle branded placeholder until real photos are added. */
+  document.addEventListener('error', e => {
+    const el = e.target;
+    if (el.tagName === 'IMG' && !el.dataset.fallbackApplied) {
+      el.dataset.fallbackApplied = 'true';
+      el.classList.add('img-missing');
+      el.alt = el.alt || 'Image coming soon';
+    }
+  }, true);
+
 });
