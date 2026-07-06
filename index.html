@@ -4,40 +4,60 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Nithya Sunkara Indlamuri — Creative Technologist</title>
-  <meta name="description" content="Nithya Sunkara Indlamuri — multimedia journalist, filmmaker, and software engineer. Creative technologist at the intersection of story and code." />
-  <meta property="og:title" content="Nithya Sunkara Indlamuri" />
-  <meta property="og:description" content="Creative technologist. Journalist. Filmmaker. Engineer." />
-  <meta property="og:image" content="assets/images/og-image.jpg" />
+  <meta name="description" content="Nithya Sunkara Indlamuri — multimedia journalist, filmmaker, and software engineer at UNC Chapel Hill." />
   <link rel="stylesheet" href="css/tokens.css" />
   <link rel="stylesheet" href="css/home.css" />
 </head>
 <body>
 
-<!-- CURSOR -->
 <div id="cursor"></div>
-<div id="cursor-ring"></div>
+<div id="cursor-trail"></div>
+<div class="progress-bar"></div>
 
-<!-- ══ NAV ══════════════════════════════════════════════════ -->
-<nav class="site-nav">
-  <a href="index.html" class="nav-logo">BY <strong>NITHYA</strong></a>
+<!-- ════════════════════════════════════════════
+     NAV
+     ════════════════════════════════════════════ -->
+<nav class="site-nav" id="site-nav">
+  <div class="nav-top">
 
-  <ul class="nav-links">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="work.html">Work</a></li>
-    <li><a href="archive.html">Archive</a></li>
-    <li><a href="nijam.html">నిజము [Nijam]</a></li>
-    <li><a href="about.html">About</a></li>
-  </ul>
+    <a href="index.html" class="nav-logo-wrap">
+      <span class="nav-logo-text">BY <strong>NITHYA</strong></span>
+    </a>
 
-  <div class="nav-dateline"></div>
+    <!-- hamburger (mobile) -->
+    <button class="nav-hamburger" id="nav-hamburger" aria-label="Menu">☰</button>
+
+    <!-- links -->
+    <div class="nav-links-wrap" id="nav-links-wrap">
+      <!-- Work dropdown -->
+      <div class="nav-link has-drop">
+        Work
+        <div class="nav-dropdown">
+          <a href="archive.html">Innovation / Tech</a>
+          <a href="archive.html#gallery">Film / Photo</a>
+        </div>
+      </div>
+      <a href="archive.html"  class="nav-link">Archive</a>
+      <a href="nijam.html"    class="nav-link nijam-link">నిజము [Nijam]</a>
+      <a href="about.html"    class="nav-link">About</a>
+      <a href="mailto:nithya.indla8@gmail.com" class="nav-link">Contact</a>
+    </div>
+
+    <div class="nav-dateline-wrap">
+      <div class="nav-dateline"></div>
+    </div>
+
+  </div>
 </nav>
 
 
-<!-- ══ HERO ═════════════════════════════════════════════════ -->
+<!-- ════════════════════════════════════════════
+     HERO
+     ════════════════════════════════════════════ -->
 <section class="hero">
   <div class="hero-inner">
 
-    <!-- Left: name block -->
+    <!-- Left: name -->
     <div class="hero-left">
       <div class="hero-eyebrow">Creative Technologist · Chapel Hill, NC</div>
 
@@ -50,44 +70,43 @@
       <p class="hero-telugu">నిత్య సుంకర ఇందలమూరి</p>
     </div>
 
-    <!-- Right: role + bio + CTAs -->
+    <!-- Right: roles + bio + CTAs -->
     <div class="hero-right">
 
       <div class="hero-role-block">
-        <div class="hero-role-title">Currently</div>
+        <div class="hero-role-label">Currently</div>
         <div class="hero-role-value">
-          Multimedia Journalist<br>
-          &amp; SWE Intern @ Fidelity Investments
+          Multimedia Journalist &amp; SWE Intern<br>@ Fidelity Investments
         </div>
       </div>
 
       <div class="hero-role-block">
-        <div class="hero-role-title">Based in</div>
-        <div class="hero-role-value">Chapel Hill, NC</div>
+        <div class="hero-role-label">Based in</div>
+        <div class="hero-role-value">Chapel Hill, NC · UNC Class of 2027</div>
       </div>
 
       <p class="hero-bio">
         Equal parts journalist and filmmaker, equal parts software engineer
-        and storyteller. I use technology to build new-age stories that are
+        and storyteller. I use technology to build stories that are
         <em>experiences people can step inside</em>.
       </p>
 
       <div class="hero-ctas">
-        <a href="work.html" class="btn-primary">See My Work →</a>
-        <a href="about.html" class="btn-outline">My Story</a>
+        <a href="archive.html" class="btn btn-solid">See My Work →</a>
+        <a href="about.html"   class="btn btn-outline">My Story</a>
       </div>
 
     </div>
   </div>
 
-  <!-- Ticker -->
-  <div class="hero-ticker">
+  <!-- Scrolling ticker -->
+  <div class="hero-ticker" aria-hidden="true">
     <div class="ticker-track">
       <span class="ticker-item">Multimedia Journalism</span>
       <span class="ticker-item accent">✦</span>
       <span class="ticker-item">Software Engineering</span>
       <span class="ticker-item accent">✦</span>
-      <span class="ticker-item">Filmmaking</span>
+      <span class="ticker-item">Documentary Film</span>
       <span class="ticker-item accent">✦</span>
       <span class="ticker-item">Ethics of Tech</span>
       <span class="ticker-item accent">✦</span>
@@ -102,7 +121,7 @@
       <span class="ticker-item accent">✦</span>
       <span class="ticker-item">Software Engineering</span>
       <span class="ticker-item accent">✦</span>
-      <span class="ticker-item">Filmmaking</span>
+      <span class="ticker-item">Documentary Film</span>
       <span class="ticker-item accent">✦</span>
       <span class="ticker-item">Ethics of Tech</span>
       <span class="ticker-item accent">✦</span>
@@ -117,98 +136,106 @@
 </section>
 
 
-<!-- ══ FEATURED WORK ══════════════════════════════════════════ -->
+<!-- ════════════════════════════════════════════
+     FEATURED WORK
+     ════════════════════════════════════════════ -->
 <section class="section-featured">
-  <div class="section-hed reveal">
-    <h2>Featured <em>Work</em></h2>
-    <a href="work.html" class="see-all">All projects</a>
+
+  <div class="sec-header reveal">
+    <div>
+      <p class="sec-eyebrow">Selected work</p>
+      <h2 class="sec-title">Featured <em>Projects</em></h2>
+    </div>
+    <a href="archive.html" class="see-all">All projects</a>
   </div>
 
+  <!--
+  ╔══════════════════════════════════════════════════════╗
+  ║  HOW TO ADD A FEATURED PROJECT                       ║
+  ║  1. Copy one .card block below                       ║
+  ║  2. Set href to your project URL                     ║
+  ║  3. Set img src to assets/images/your-thumb.jpg      ║
+  ║  4. Update card-type and card-name                   ║
+  ║  5. First .card is always the big left hero card     ║
+  ╚══════════════════════════════════════════════════════╝
+  -->
+
   <div class="work-grid">
-    <!--
-      REPLACE: each card needs an image in assets/images/
-      and a link to the case study page.
-      Keep the first card as the big "hero" card.
-    -->
-    <a href="work/project-one.html" class="card reveal">
-      <img src="assets/images/project-1.jpg" alt="Project One" />
+
+    <!-- BIG HERO CARD (spans both rows on left) -->
+    <a href="https://bynithya.com/portfolio/innovatech/index.html"
+       class="card reveal" target="_blank" rel="noopener">
+      <!--  REPLACE: your featured project thumbnail -->
+      <img src="assets/images/featured-1.jpg" alt="Innovation / Tech portfolio" />
       <div class="card-overlay"></div>
       <div class="card-info">
-        <p class="card-type">Interactive Story · 2025</p>
-        <h3 class="card-name">YOUR FEATURED PROJECT</h3>
+        <p class="card-type">Innovation · Tech · Journalism</p>
+        <h3 class="card-name">Innovation &amp; Tech Work</h3>
       </div>
     </a>
 
-    <a href="archive/air-guitar/index.html" class="card reveal reveal-d1">
-      <img src="assets/images/project-2.jpg" alt="Project Two" />
+    <!-- TOP-RIGHT CARD -->
+    <a href="https://bynithya.com/portfolio/film-photo/index.html"
+       class="card reveal rd1" target="_blank" rel="noopener">
+      <img src="assets/images/featured-2.jpg" alt="Film and photo work" />
       <div class="card-overlay"></div>
       <div class="card-info">
-        <p class="card-type">Computer Vision x Music · 2026</p>
-        <h3 class="card-name">AIR GUITAR</h3>
+        <p class="card-type">Film · Photography</p>
+        <h3 class="card-name">Film &amp; Photo Gallery</h3>
       </div>
     </a>
 
-    <a href="work/project-three.html" class="card reveal reveal-d2">
-      <img src="assets/images/project-3.jpg" alt="Project Three" />
+    <!-- BOTTOM-RIGHT CARD -->
+    <a href="nijam.html" class="card reveal rd2">
+      <img src="assets/images/featured-3.jpg" alt="Nijam writing" />
       <div class="card-overlay"></div>
       <div class="card-info">
-        <p class="card-type">Web App · 2024</p>
-        <h3 class="card-name">PROJECT THREE</h3>
+        <p class="card-type">Writing · Dispatches</p>
+        <h3 class="card-name">నిజము [Nijam]</h3>
       </div>
     </a>
+
   </div>
 </section>
 
 
-<!-- ══ NIJAM PREVIEW STRIP ════════════════════════════════════ -->
-<section class="section-nijam-preview">
+<!-- ════════════════════════════════════════════
+     NIJAM PREVIEW STRIP
+     ════════════════════════════════════════════ -->
+<section class="section-nijam">
   <div class="nijam-preview-inner">
 
     <div class="reveal">
-      <h2 class="nijam-masthead">Nithya<br><em>నిజము</em><br>[Nijam]</h2>
-      <p class="nijam-subtitle">Nithya Truth · Writing · Projects · Updates</p>
+      <h2 class="nijam-hed">Nithya<br><em>నిజము</em><br>[Nijam]</h2>
+      <p class="nijam-sub">Nithya Truth · Writing · Projects · Updates</p>
     </div>
 
     <div class="nijam-cards">
 
-      <article class="nijam-card reveal">
+      <!--
+        REPLACE each card's href, date, tag, title, and dek.
+        These mirror the top 3 posts from nijam.html's POSTS array.
+      -->
+      <a href="nijam-posts/equal-parts.html" class="nijam-card reveal">
         <div class="nijam-card-date">May 2025</div>
         <span class="nijam-card-tag">Essay</span>
-        <h3 class="nijam-card-hed">
-          <!-- REPLACE: your first essay/post title -->
-          On being equal parts: identity, code, and camera
-        </h3>
-        <p class="nijam-card-dek">
-          <!-- REPLACE: your teaser text -->
-          What it means to be a creative technologist when no one agrees on what that label means.
-        </p>
-      </article>
+        <h3 class="nijam-card-hed">On being equal parts: identity, code, and camera</h3>
+        <p class="nijam-card-dek">What it means to be a creative technologist when no one agrees on what that label means.</p>
+      </a>
 
-      <article class="nijam-card reveal reveal-d1">
+      <a href="nijam-posts/algo-journalism.html" class="nijam-card reveal rd1">
         <div class="nijam-card-date">April 2025</div>
-        <span class="nijam-card-tag">Project Update</span>
-        <h3 class="nijam-card-hed">
-          <!-- REPLACE -->
-          Building something new at Fidelity — and what I'm learning about ethical tech
-        </h3>
-        <p class="nijam-card-dek">
-          <!-- REPLACE -->
-          Notes from the intersection of finance, journalism, and software engineering.
-        </p>
-      </article>
+        <span class="nijam-card-tag">Writing</span>
+        <h3 class="nijam-card-hed">The ethics of algorithmic journalism — who benefits</h3>
+        <p class="nijam-card-dek">When newsrooms use AI to decide what to cover, the communities that most need it disappear.</p>
+      </a>
 
-      <article class="nijam-card reveal reveal-d2">
-        <div class="nijam-card-date">March 2025</div>
-        <span class="nijam-card-tag">Dispatch</span>
-        <h3 class="nijam-card-hed">
-          <!-- REPLACE -->
-          Chapel Hill light at 6am and why I always have a camera
-        </h3>
-        <p class="nijam-card-dek">
-          <!-- REPLACE -->
-          A filmmaker's diary entry disguised as a journalism student's reflection.
-        </p>
-      </article>
+      <a href="nijam-posts/fidelity-notes.html" class="nijam-card reveal rd2">
+        <div class="nijam-card-date">May 2025</div>
+        <span class="nijam-card-tag">Project Update</span>
+        <h3 class="nijam-card-hed">Building at Fidelity — notes on responsible fintech</h3>
+        <p class="nijam-card-dek">Reflections from my SWE internship on designing financial tools that serve, not exploit.</p>
+      </a>
 
     </div>
 
@@ -218,81 +245,72 @@
 </section>
 
 
-<!-- ══ IDENTITY SECTION ════════════════════════════════════════ -->
+<!-- ════════════════════════════════════════════
+     IDENTITY / ABOUT PREVIEW
+     ════════════════════════════════════════════ -->
 <section class="section-identity">
 
   <div class="reveal">
-    <p class="t-label" style="margin-bottom:16px;">Who I Am</p>
-    <h2 class="identity-headline">
+    <p class="t-mono" style="margin-bottom:16px;">Who I Am</p>
+    <h2 class="identity-hed">
       Equal parts <em>S. Sunkara</em><br>
       and <em>P. Indlamuri</em> —<br>
       equal parts everything.
     </h2>
     <p class="identity-body">
-      I am a creative technologist, equal parts journalist and filmmaker
+      I'm a creative technologist, equal parts journalist and filmmaker
       and software engineer. I care about the ethics of technology in
-      journalism, and I want to be part of those conversations — building
-      tools and stories that get truth to the communities that need it most.
+      journalism and want to be part of those conversations —
+      building tools and stories that get truth to the communities
+      that need it most.
     </p>
     <a href="about.html" class="identity-link">Read my full story</a>
   </div>
 
-  <div class="identity-portrait reveal reveal-d2">
-    <!--
-      REPLACE: assets/images/about-photo.jpg
-      A portrait of you, or an atmospheric photo from a shoot.
-      3:4 portrait ratio works best here.
-    -->
+  <div class="identity-portrait reveal rd2">
+    <!--  REPLACE: assets/images/about-photo.jpg (3:4 portrait ratio) -->
     <img src="assets/images/about-photo.jpg" alt="Nithya Sunkara Indlamuri" />
-    <span class="identity-portrait-caption">Chapel Hill, NC · 2025</span>
+    <span class="identity-portrait-cap">Chapel Hill, NC · 2025</span>
   </div>
 
 </section>
 
 
-<!-- ══ FOOTER ═════════════════════════════════════════════════ -->
+<!-- ════════════════════════════════════════════
+     FOOTER
+     ════════════════════════════════════════════ -->
 <footer class="site-footer">
   <div class="footer-grid">
-
     <div>
-      <div class="footer-masthead">
-        GET IN<br><em>TOUCH</em>
-      </div>
+      <div class="footer-masthead">GET IN<br><em>TOUCH</em></div>
       <p class="footer-tagline">
         Journalist · Filmmaker · Engineer<br>
-        Chapel Hill, NC · Available for collaborations
+        Chapel Hill, NC · Open to collaborations
       </p>
     </div>
-
     <div>
       <div class="footer-col-title">Navigate</div>
       <ul class="footer-links-list">
-        <li><a href="work.html">Work</a></li>
-        <li><a href="archive.html">Archive</a></li>
+        <li><a href="archive.html">Work</a></li>
         <li><a href="nijam.html">నిజము [Nijam]</a></li>
         <li><a href="about.html">About</a></li>
       </ul>
     </div>
-
     <div>
       <div class="footer-col-title">Connect</div>
       <ul class="footer-links-list">
         <li><a href="mailto:nithya.indla8@gmail.com">Email</a></li>
         <li><a href="https://www.linkedin.com/in/nithya-ind/" target="_blank" rel="noopener">LinkedIn</a></li>
-        <!-- REPLACE: add your Instagram, GitHub, etc. -->
-        <!-- <li><a href="https://instagram.com/YOUR_HANDLE" target="_blank" rel="noopener">Instagram</a></li> -->
+        <!-- REPLACE: add Instagram, GitHub, etc. -->
       </ul>
     </div>
-
   </div>
-
   <div class="footer-bottom">
     <span>Nithya Sunkara Indlamuri © 2026</span>
-    <a href="nijam.html">నిజము [Nijam] →</a>
     <a href="#" class="back-to-top">↑ Back to top</a>
   </div>
 </footer>
 
-<script src="js/main.js"></script>
+<script src="js/global.js"></script>
 </body>
 </html>

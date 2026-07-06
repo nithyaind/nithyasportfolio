@@ -3,316 +3,104 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Innovation / Tech — Nithya Sunkara Indlamuri</title>
+  <title>Archive — Nithya Sunkara Indlamuri</title>
+  <meta name="description" content="Archival projects — innovation, tech, journalism, film, and photography by Nithya Sunkara Indlamuri." />
   <link rel="stylesheet" href="css/tokens.css" />
   <link rel="stylesheet" href="css/archive.css" />
 </head>
 <body>
+
 <div id="cursor"></div>
 <div id="cursor-trail"></div>
 <div class="progress-bar"></div>
 
+<!-- hover preview ghost -->
+<div class="preview-ghost" id="preview-ghost"><img src="" alt="" /></div>
+
+<!-- ════ NAV ════ -->
 <nav class="site-nav" id="site-nav">
-  <a href="index.html" class="nav-logo">BY <strong>NITHYA</strong></a>
-  <ul class="nav-links" id="nav-links">
-    <li><a href="index.html"   class="nav-link">Home</a></li>
-    <li><a href="archive.html" class="nav-link active">Innovation / Tech</a></li>
-    <li><a href="gallery.html" class="nav-link">Film / Photo</a></li>
-    <li><a href="nijam.html"   class="nav-link nijam-link">నిజము</a></li>
-    <li><a href="about.html"   class="nav-link">About</a></li>
-  </ul>
-  <div class="nav-right">
-    <div class="nav-dateline"></div>
-    <button class="hamburger" aria-label="Menu">☰</button>
+  <div class="nav-top">
+    <a href="index.html" class="nav-logo-wrap">
+      <span class="nav-logo-text">BY <strong>NITHYA</strong></span>
+    </a>
+    <button class="nav-hamburger" id="nav-hamburger" aria-label="Menu">☰</button>
+    <div class="nav-links-wrap" id="nav-links-wrap">
+      <div class="nav-link has-drop active">Work
+        <div class="nav-dropdown">
+          <a href="archive.html">Innovation / Tech</a>
+          <a href="archive.html#gallery">Film / Photo</a>
+        </div>
+      </div>
+      <a href="archive.html"  class="nav-link active">Archive</a>
+      <a href="nijam.html"    class="nav-link nijam-link">నిజము [Nijam]</a>
+      <a href="about.html"    class="nav-link">About</a>
+      <a href="mailto:nithya.indla8@gmail.com" class="nav-link">Contact</a>
+    </div>
+    <div class="nav-dateline-wrap"><div class="nav-dateline"></div></div>
   </div>
 </nav>
 
-<!-- HERO -->
-<header class="archive-hero">
-  <div class="archive-hero-inner">
-    <p class="archive-hero-eyebrow">Innovation · Technology · Design</p>
-    <h1 class="archive-hero-title">
-      <div class="line"><span>INNOVA</span></div>
-      <div class="line"><span><em>TION</em></span></div>
+<!-- ════ HERO ════ -->
+<header class="page-hero">
+  <div class="page-hero-inner">
+    <p class="page-hero-eyebrow">Every project · Every experiment · Every story</p>
+    <h1 class="page-hero-title">
+      <div class="line"><span>ARCHI</span></div>
+      <div class="line"><span><em>VE</em></span></div>
     </h1>
-    <p class="archive-hero-sub">
-      "this is the future." — projects spanning AI, web, VR, design, and the ethics of what we build.
+    <p class="page-hero-sub">
+      Innovation and tech work, journalism projects, documentary film,
+      photography, and creative experiments — all of it lives here.
     </p>
-    <div class="archive-credits">
-      <div class="credit-pill">SWE Intern · Fidelity Investments 2025</div>
-      <div class="credit-pill">Innovation Fellow · Blue Sky 2024–2025</div>
-      <div class="credit-pill">Lifelong Learner · Pearson @ Pearl Hacks 2025</div>
-    </div>
   </div>
 </header>
 
-<!-- FILTER -->
-<div class="archive-filter">
-  <div class="archive-filter-inner" data-filter-group="archive">
-    <button class="afilter-btn active" data-filter="all">All</button>
-    <button class="afilter-btn" data-filter="programming">Programming</button>
-    <button class="afilter-btn" data-filter="design">Design</button>
-    <button class="afilter-btn" data-filter="emerging">Emerging Tech</button>
-    <button class="afilter-btn" data-filter="web">Web Design</button>
+<!-- ════ TABS ════ -->
+<div style="border-bottom:1.5px solid var(--ink);">
+  <div class="tab-bar" id="tab-bar">
+    <button class="tab-btn active" data-tab="tech">Innovation &amp; Tech</button>
+    <button class="tab-btn" data-tab="gallery" id="gallery-tab-btn">Film &amp; Photo</button>
   </div>
 </div>
 
-<!-- PROJECT LIST -->
-<section class="archive-body">
-
-  <div class="project-col-heads">
-    <span>#</span><span>Project</span><span>Type</span><span>Year</span><span></span>
-  </div>
-
-  <!--
-    ╔═══════════════════════════════════════════════════════╗
-    ║  HOW TO ADD A NEW PROJECT                             ║
-    ║                                                       ║
-    ║  1. Copy one .project-row block below                 ║
-    ║  2. Update data-tag to match a filter button          ║
-    ║     (programming / design / emerging / web)           ║
-    ║  3. Fill in: number, name, type, year                 ║
-    ║  4. In .project-detail:                               ║
-    ║     - Set .project-detail-media img/video src         ║
-    ║     - Add .project-tag spans for tech stack           ║
-    ║     - Write description in .project-detail-desc       ║
-    ║     - Add .project-link anchors for each external URL ║
-    ║     - Optional: add .project-accolade for awards      ║
-    ║  5. Save — done!                                      ║
-    ╚═══════════════════════════════════════════════════════╝
-  -->
-
-  <!-- PROJECT 1: ID8 -->
-  <div class="project-row reveal" data-tag="programming" data-filter-scope="archive">
-    <div class="project-row-summary">
-      <span class="project-row-num">01</span>
-      <span class="project-row-name">ID8</span>
-      <span class="project-row-type">Web App · Hackathon</span>
-      <span class="project-row-year">2025</span>
-      <span class="project-row-expand">+</span>
-    </div>
-    <div class="project-detail">
-      <div class="project-detail-media">
-        <img class="gif-preview" src="https://bynithya.com/portfolio/vid/id8.gif" alt="ID8 app preview" />
-      </div>
-      <div class="project-detail-info">
-        <div class="project-tags">
-          <span class="project-tag">React</span>
-          <span class="project-tag">Node.js</span>
-          <span class="project-tag">Figma</span>
-          <span class="project-tag">Hackathon</span>
-        </div>
-        <p class="project-detail-desc">
-          A case study showed minorities and people without connections struggle to find investors.
-          ID8 lets entrepreneurs pitch their idea anonymously — without name, face, race, or ethnicity —
-          so investors engage with the idea before the person. This democratizes ideas and their impact value.
-        </p>
-        <div class="project-accolade">Lifelong Learner Award by Pearson @ Pearl Hacks 2025</div>
-        <div class="project-links">
-          <a href="https://bynithya.com/ID8TG/home.html" class="project-link" target="_blank" rel="noopener">Live Project</a>
-          <a href="https://devpost.com/software/id8" class="project-link" target="_blank" rel="noopener">DevPost</a>
-          <a href="https://www.figma.com/proto/K9NPFdB2LqL4ELDeacxkOb/ID8?node-id=29-890" class="project-link" target="_blank" rel="noopener">Figma</a>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- PROJECT 2: CSEek -->
-  <div class="project-row reveal" data-tag="programming" data-filter-scope="archive">
-    <div class="project-row-summary">
-      <span class="project-row-num">02</span>
-      <span class="project-row-name">[CS]eek</span>
-      <span class="project-row-type">AI · Web App</span>
-      <span class="project-row-year">2025</span>
-      <span class="project-row-expand">+</span>
-    </div>
-    <div class="project-detail">
-      <div class="project-detail-media">
-        <img class="gif-preview" src="https://bynithya.com/portfolio/vid/cseek.gif.gif" alt="CSEek preview" />
-      </div>
-      <div class="project-detail-info">
-        <div class="project-tags">
-          <span class="project-tag">FastAPI</span>
-          <span class="project-tag">Docker</span>
-          <span class="project-tag">Angular</span>
-          <span class="project-tag">SQL</span>
-          <span class="project-tag">Kubernetes</span>
-          <span class="project-tag">OpenAI</span>
-        </div>
-        <p class="project-detail-desc">
-          An AI chatbot that helps UNC Chapel Hill CS students quickly and easily book study rooms
-          using natural language. Built with FastAPI, Docker, Angular, SQL, Kubernetes, and OpenAI —
-          deployed as a full-stack application with containerized infrastructure.
-        </p>
-        <div class="project-links">
-          <a href="https://youtu.be/UEuhzhqySO0" class="project-link" target="_blank" rel="noopener">Watch Presentation</a>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- PROJECT 3: Akari Game -->
-  <div class="project-row reveal" data-tag="programming" data-filter-scope="archive">
-    <div class="project-row-summary">
-      <span class="project-row-num">03</span>
-      <span class="project-row-name">Akari Game</span>
-      <span class="project-row-type">Java · OOP</span>
-      <span class="project-row-year">2024</span>
-      <span class="project-row-expand">+</span>
-    </div>
-    <div class="project-detail">
-      <div class="project-detail-media">
-        <img class="gif-preview" src="https://bynithya.com/portfolio/vid/akari_gif.gif" alt="Akari game preview" />
-      </div>
-      <div class="project-detail-info">
-        <div class="project-tags">
-          <span class="project-tag">Java</span>
-          <span class="project-tag">MVC</span>
-          <span class="project-tag">OOP</span>
-          <span class="project-tag">Design Patterns</span>
-        </div>
-        <p class="project-detail-desc">
-          A complete implementation of the Akari puzzle game in Java. Used multiple design patterns,
-          MVC architecture, and a deep web of classes and interfaces to fully utilize object-oriented
-          programming — optimizing for both functionality and extensibility.
-        </p>
-        <div class="project-links">
-          <!-- REPLACE with GitHub or demo link if available -->
-          <a href="#" class="project-link">View Code</a>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- PROJECT 4: CoutureRevolution -->
-  <div class="project-row reveal" data-tag="design" data-filter-scope="archive">
-    <div class="project-row-summary">
-      <span class="project-row-num">04</span>
-      <span class="project-row-name">CoutureRevolution</span>
-      <span class="project-row-type">UI / UX Design</span>
-      <span class="project-row-year">2024</span>
-      <span class="project-row-expand">+</span>
-    </div>
-    <div class="project-detail">
-      <div class="project-detail-media">
-        <!-- Embed the Figma prototype -->
-        <iframe
-          style="width:100%;height:300px;border:none;"
-          src="https://embed.figma.com/proto/xSFFN1DPH2pXh8OwmnUTje/project-1?node-id=121-76&node-type=canvas&scaling=scale-down&content-scaling=fixed&page-id=73%3A113&starting-point-node-id=121%3A76&embed-host=share"
-          allowfullscreen>
-        </iframe>
-      </div>
-      <div class="project-detail-info">
-        <div class="project-tags">
-          <span class="project-tag">Figma</span>
-          <span class="project-tag">CapCut</span>
-          <span class="project-tag">Adobe</span>
-          <span class="project-tag">UI/UX</span>
-        </div>
-        <p class="project-detail-desc">
-          A UI/UX design for a website that highlights influential women in the tech-fashion industry.
-          The design celebrates the intersection of creativity and technology, centering the stories
-          of women who shaped both fields.
-        </p>
-        <div class="project-links">
-          <a href="https://embed.figma.com/proto/xSFFN1DPH2pXh8OwmnUTje/project-1?node-id=121-76" class="project-link" target="_blank" rel="noopener">View Prototype</a>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- PROJECT 5: VR -->
-  <div class="project-row reveal" data-tag="emerging" data-filter-scope="archive">
-    <div class="project-row-summary">
-      <span class="project-row-num">05</span>
-      <span class="project-row-name">VR Training — Labor &amp; Delivery</span>
-      <span class="project-row-type">VR · Emerging Tech</span>
-      <span class="project-row-year">2024–25</span>
-      <span class="project-row-expand">+</span>
-    </div>
-    <div class="project-detail">
-      <div class="project-detail-media">
-        <img class="gif-preview" src="https://bynithya.com/portfolio/vid/vr_gif.gif" alt="VR experience snippet" />
-      </div>
-      <div class="project-detail-info">
-        <div class="project-tags">
-          <span class="project-tag">Virtual Reality</span>
-          <span class="project-tag">UNC Blue Sky Lab</span>
-          <span class="project-tag">Healthcare</span>
-        </div>
-        <p class="project-detail-desc">
-          Developing VR experiences for training staff and professionals in the labor and delivery
-          ward of hospitals — focusing on behavioral skills training. An ongoing project with
-          UNC Blue Sky Innovations Lab, exploring how immersive technology can improve
-          healthcare outcomes and staff preparedness.
-        </p>
-        <div class="project-links">
-          <!-- REPLACE if a public link becomes available -->
-          <span class="project-link" style="opacity:.5;cursor:default;">In Development</span>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- PROJECT 6: MMT Website -->
-  <div class="project-row reveal" data-tag="web" data-filter-scope="archive">
-    <div class="project-row-summary">
-      <span class="project-row-num">06</span>
-      <span class="project-row-name">Mild Mannered &amp; Timid Website</span>
-      <span class="project-row-type">Web Design · Build</span>
-      <span class="project-row-year">2024</span>
-      <span class="project-row-expand">+</span>
-    </div>
-    <div class="project-detail">
-      <div class="project-detail-media" style="background:var(--paper-dark);padding:24px;display:flex;align-items:center;justify-content:center;min-height:180px;">
-        <span style="font-family:var(--font-display);font-size:2rem;font-style:italic;color:var(--charcoal);">MMT Productions</span>
-      </div>
-      <div class="project-detail-info">
-        <div class="project-tags">
-          <span class="project-tag">HTML / CSS / JS</span>
-          <span class="project-tag">Web Design</span>
-          <span class="project-tag">Brand</span>
-        </div>
-        <p class="project-detail-desc">
-          Designed and built the Mild Mannered &amp; Timid website from scratch, reflecting
-          the story and identity of this budding production company. The site brings their
-          narrative to life through careful visual storytelling and clean, purposeful design.
-        </p>
-        <div class="project-links">
-          <a href="https://www.mmtproductions.com/" class="project-link" target="_blank" rel="noopener">Live Site</a>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!--
-    ╔═══════════════════════════════════════╗
-    ║  ADD NEW PROJECT HERE — copy block ↑  ║
-    ╚═══════════════════════════════════════╝
-  -->
-
+<!-- ════════════════════════════════════════════
+     TAB 1: TECH / INNOVATECH ARCHIVE
+     ════════════════════════════════════════════ -->
+<section class="archive-section active" id="tab-tech">
+  <div id="tech-projects"></div>
 </section>
 
-<!-- PHILOSOPHY -->
-<section class="archive-philosophy">
-  <div class="archive-philosophy-inner">
-    <div class="reveal">
-      <p class="t-label" style="margin-bottom:12px;">Philosophy</p>
-      <h2 class="ap-hed">Building things that feel <em>human</em></h2>
+<!-- ════════════════════════════════════════════
+     TAB 2: FILM & PHOTO GALLERY
+     ════════════════════════════════════════════ -->
+<section class="gallery-section" id="tab-gallery" id="gallery">
+  <div style="max-width:var(--max-w);margin:0 auto;padding:40px var(--gutter) 0;">
+    <div class="sec-header">
+      <div>
+        <p class="sec-eyebrow">Visual work</p>
+        <h2 class="sec-title" style="font-size:clamp(24px,3.5vw,40px);">Film &amp; <em>Photography</em></h2>
+      </div>
+      <a href="https://bynithya.com/portfolio/film-photo/index.html" class="see-all" target="_blank" rel="noopener">Full gallery ↗</a>
     </div>
-    <div class="reveal rd1">
-      <p class="ap-body">
-        I care about the ethics of what we build. Technology shapes whose stories get told,
-        whose voices get amplified, and who gets left behind. I want to understand those systems
-        deeply enough to challenge them — and build better alternatives. Whether it's a hackathon
-        prototype, a production website, or a VR training tool, every project starts with
-        a question: <em>who does this serve?</em>
-      </p>
-    </div>
+  </div>
+  <div style="max-width:var(--max-w);margin:0 auto;padding:0 var(--gutter);">
+    <div class="gallery-grid" id="gallery-grid"></div>
   </div>
 </section>
 
-<!-- FOOTER -->
+<!-- ════ LIGHTBOX ════ -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true">
+  <button class="lightbox-close" id="lb-close">Close ✕</button>
+  <button class="lightbox-prev" id="lb-prev">← Prev</button>
+  <div id="lb-media"></div>
+  <button class="lightbox-next" id="lb-next">Next →</button>
+  <div class="lightbox-caption">
+    <div class="lightbox-title" id="lb-title"></div>
+    <div class="lightbox-desc"  id="lb-desc"></div>
+  </div>
+</div>
+
+<!-- ════ FOOTER ════ -->
 <footer class="site-footer">
   <div class="footer-grid">
     <div>
@@ -323,7 +111,6 @@
       <div class="footer-col-title">Navigate</div>
       <ul class="footer-links-list">
         <li><a href="index.html">Home</a></li>
-        <li><a href="gallery.html">Film / Photo</a></li>
         <li><a href="nijam.html">నిజము [Nijam]</a></li>
         <li><a href="about.html">About</a></li>
       </ul>
@@ -333,7 +120,6 @@
       <ul class="footer-links-list">
         <li><a href="mailto:nithya.indla8@gmail.com">Email</a></li>
         <li><a href="https://www.linkedin.com/in/nithya-ind/" target="_blank" rel="noopener">LinkedIn</a></li>
-        <li><a href="https://www.youtube.com/@nithyaaa" target="_blank" rel="noopener">YouTube</a></li>
       </ul>
     </div>
   </div>
@@ -345,33 +131,378 @@
 
 <script src="js/global.js"></script>
 <script>
-/* Expand/collapse project rows */
-document.querySelectorAll('.project-row').forEach(row => {
-  const summary = row.querySelector('.project-row-summary');
-  if (summary) {
-    summary.addEventListener('click', () => {
-      const isOpen = row.classList.toggle('open');
-      const detail = row.querySelector('.project-detail');
-      if (detail) {
-        detail.style.maxHeight = isOpen ? detail.scrollHeight + 'px' : '0';
-        detail.style.paddingTop = isOpen ? '28px' : '0';
-        detail.style.paddingBottom = isOpen ? '32px' : '0';
-      }
-    });
+/* ════════════════════════════════════════════════════════════════
+   ✏️  HOW TO ADD A TECH PROJECT
+   ════════════════════════════════════════════════════════════════
+   Add an object to TECH_PROJECTS below.
+   Fields:
+     name     — project title
+     type     — "Journalism" | "Web App" | "Data Story" | "SWE" | etc.
+     tools    — array of tech/tools used (shown as chips)
+     year     — e.g. "2025"
+     status   — "Live" | "In Progress" | "Coming Soon"
+     link     — external or internal URL (set to "" if no link)
+     image    — thumbnail for hover preview (use "" if none)
+     desc     — 2–3 sentence description shown when row is clicked
+     extLink  — second link label, e.g. "GitHub"
+     extHref  — second link href
+
+   To add a GALLERY item, scroll to GALLERY_ITEMS below.
+   ════════════════════════════════════════════════════════════════ */
+
+const TECH_PROJECTS = [
+  /* ── 2025 ── */
+  {
+    name:    "Responsible Fintech at Fidelity",
+    type:    "SWE / Journalism",
+    tools:   ["React", "Python", "Data Viz"],
+    year:    "2025",
+    status:  "In Progress",
+    link:    "",
+    image:   "assets/images/proj-fidelity.jpg",
+    desc:    "Internship project exploring how financial technology tools can be designed ethically — surfacing insights about algorithmic bias in investment recommendations.",
+    extLink: "",
+    extHref: ""
+  },
+  {
+    name:    "Algorithmic Journalism Ethics",
+    type:    "Journalism / Research",
+    tools:   ["Reporting", "Data", "Writing"],
+    year:    "2025",
+    status:  "Live",
+    link:    "nijam-posts/algo-journalism.html",
+    image:   "assets/images/proj-algo.jpg",
+    desc:    "An investigative essay examining how AI-driven editorial tools shape which communities get covered — and which don't.",
+    extLink: "Read →",
+    extHref: "nijam-posts/algo-journalism.html"
+  },
+  {
+    name:    "Interactive Story: Blue",
+    type:    "Interactive / Web",
+    tools:   ["HTML", "CSS", "JS", "Video"],
+    year:    "2025",
+    status:  "Live",
+    link:    "about.html",
+    image:   "assets/images/proj-blue.jpg",
+    desc:    "A scroll-driven autobiographical story exploring identity through color — built with fullscreen media layers, cinematic transitions, and original writing.",
+    extLink: "Experience →",
+    extHref: "about.html"
+  },
+
+  /* ── 2024 ── */
+  {
+    name:    "Innovation / Tech Portfolio",
+    type:    "Web / Journalism",
+    tools:   ["HTML", "CSS", "JS"],
+    year:    "2024",
+    status:  "Live",
+    link:    "https://bynithya.com/portfolio/innovatech/index.html",
+    image:   "assets/images/proj-innovatech.jpg",
+    desc:    "A portfolio page showcasing journalism and tech projects spanning data stories, web apps, and investigative reporting at UNC Chapel Hill.",
+    extLink: "Visit ↗",
+    extHref: "https://bynithya.com/portfolio/innovatech/index.html"
+  },
+  {
+    name:    "నిజము [Nijam] Newspaper",
+    type:    "Web / Publishing",
+    tools:   ["HTML", "CSS", "JS"],
+    year:    "2024",
+    status:  "Live",
+    link:    "nijam.html",
+    image:   "",
+    desc:    "A data-driven newspaper page with broadsheet layout, filter system, and animated scroll reveals. Posts are added by editing a single JavaScript array.",
+    extLink: "Open →",
+    extHref: "nijam.html"
+  },
+
+  /* ── 2023 ── */
+  {
+    name:    "UNC Journalism Story",
+    type:    "Multimedia Journalism",
+    tools:   ["Reporting", "Video", "Audio"],
+    year:    "2023",
+    status:  "Live",
+    link:    "#",
+    image:   "assets/images/proj-unc.jpg",
+    desc:    "REPLACE: Describe your first major journalism piece here — beat, scope, and what you discovered.",
+    extLink: "Read →",
+    extHref: "#"
   }
-});
-/* Wire filter buttons for this page */
-const filterBtns = document.querySelectorAll('.afilter-btn');
-filterBtns.forEach(btn => {
-  btn.addEventListener('click', () => {
-    filterBtns.forEach(b=>b.classList.remove('active'));
-    btn.classList.add('active');
-    const tag = btn.dataset.filter;
-    document.querySelectorAll('.project-row').forEach(row => {
-      row.style.display = (tag==='all'||row.dataset.tag===tag)?'':'none';
+];
+
+/* ════════════════════════════════════════════════════════════════
+   ✏️  HOW TO ADD A GALLERY ITEM
+   ════════════════════════════════════════════════════════════════
+   Fields:
+     title   — title shown in lightbox and on hover
+     desc    — caption shown in lightbox
+     type    — "photo" | "video"
+     src     — path to image or video file
+     thumb   — thumbnail image (can be same as src for photos)
+     year    — year
+   ════════════════════════════════════════════════════════════════ */
+
+const GALLERY_ITEMS = [
+  {
+    title: "Chapel Hill, 6am",
+    desc:  "Early morning light on Franklin Street. Canon R50.",
+    type:  "photo",
+    src:   "assets/images/gallery-1.jpg",
+    thumb: "assets/images/gallery-1.jpg",
+    year:  "2025"
+  },
+  {
+    title: "On the court",
+    desc:  "State tournament. My brother serves.",
+    type:  "photo",
+    src:   "assets/images/gallery-2.jpg",
+    thumb: "assets/images/gallery-2.jpg",
+    year:  "2024"
+  },
+  {
+    title: "Cabbage Beach",
+    desc:  "Nassau, Bahamas. The cruise that surprised everyone.",
+    type:  "photo",
+    src:   "assets/images/gallery-3.jpg",
+    thumb: "assets/images/gallery-3.jpg",
+    year:  "2023"
+  },
+  {
+    title: "Short Film — [TITLE]",
+    desc:  "REPLACE: your film description here.",
+    type:  "video",
+    src:   "assets/vid/film-1.mp4",
+    thumb: "assets/images/gallery-4.jpg",
+    year:  "2025"
+  },
+  {
+    title: "Thathamma",
+    desc:  "Fields outside Hyderabad. Everyone says I look like her.",
+    type:  "photo",
+    src:   "assets/images/gallery-5.jpg",
+    thumb: "assets/images/gallery-5.jpg",
+    year:  "2023"
+  },
+  {
+    title: "Blue Walls",
+    desc:  "Our living room. Still bare, always brimming.",
+    type:  "photo",
+    src:   "assets/images/gallery-6.jpg",
+    thumb: "assets/images/gallery-6.jpg",
+    year:  "2024"
+  },
+  {
+    title: "Documentary — [TITLE]",
+    desc:  "REPLACE: your documentary description.",
+    type:  "video",
+    src:   "assets/vid/doc-1.mp4",
+    thumb: "assets/images/gallery-7.jpg",
+    year:  "2024"
+  },
+  {
+    title: "UNC Campus",
+    desc:  "Carolina Blue. My new world.",
+    type:  "photo",
+    src:   "assets/images/gallery-8.jpg",
+    thumb: "assets/images/gallery-8.jpg",
+    year:  "2025"
+  }
+];
+
+/* ═══════════════════════════════
+   TECH PROJECTS RENDERER
+   ═══════════════════════════════ */
+function buildTechProjects() {
+  const byYear = {};
+  TECH_PROJECTS.forEach(p => {
+    if (!byYear[p.year]) byYear[p.year] = [];
+    byYear[p.year].push(p);
+  });
+
+  const years = Object.keys(byYear).sort((a,b) => b-a);
+  let html = '';
+  let globalIdx = 1;
+
+  years.forEach(yr => {
+    html += `<div class="year-group reveal">
+      <div class="year-label">${yr} <span>${byYear[yr].length} project${byYear[yr].length>1?'s':''}</span></div>
+      <div class="project-list">`;
+
+    byYear[yr].forEach(p => {
+      const statusColor = p.status === 'Live' ? '#2a9d2a' : p.status === 'In Progress' ? 'var(--orange)' : 'var(--muted)';
+      const toolChips   = p.tools.map(t => `<span class="tool-chip">${t}</span>`).join('');
+      const linkCell    = p.link
+        ? `<span class="project-row-link" onclick="event.stopPropagation();window.open('${p.link}','_blank')">View ↗</span>`
+        : `<span style="color:var(--muted);font-family:var(--font-mono);font-size:10px;text-align:right;">${p.status}</span>`;
+
+      html += `
+      <div class="project-row reveal"
+           data-idx="${globalIdx}"
+           data-preview="${p.image}"
+           onclick="toggleExpand(this)">
+        <span class="project-row-num">${String(globalIdx).padStart(2,'0')}</span>
+        <span class="project-row-name">${p.name}</span>
+        <span class="project-row-type">${p.type}</span>
+        <div class="project-row-tools">${toolChips}</div>
+        ${linkCell}
+      </div>`;
+
+      /* expand panel */
+      const expandImg = p.image
+        ? `<div class="expand-img"><img src="${p.image}" alt="${p.name}" loading="lazy"/></div>`
+        : `<div class="expand-img" style="background:var(--paper-dark);display:flex;align-items:center;justify-content:center;"><span style="font-family:var(--font-display);font-style:italic;font-size:2rem;color:var(--muted);">✦</span></div>`;
+      const expandLinks = [];
+      if (p.link) expandLinks.push(`<a href="${p.link}" target="_blank" rel="noopener" class="btn btn-solid" style="font-size:10px;padding:9px 18px;">View Project ↗</a>`);
+      if (p.extLink && p.extHref) expandLinks.push(`<a href="${p.extHref}" target="_blank" rel="noopener" class="btn btn-outline" style="font-size:10px;padding:9px 18px;">${p.extLink}</a>`);
+
+      html += `
+      <div class="project-expand" id="expand-${globalIdx}">
+        <div class="project-expand-inner">
+          ${expandImg}
+          <div>
+            <div class="expand-title">${p.name}</div>
+            <p class="expand-desc">${p.desc}</p>
+            <div class="expand-links">${expandLinks.join('')}</div>
+          </div>
+        </div>
+      </div>`;
+
+      globalIdx++;
     });
+
+    html += `</div></div>`;
+  });
+
+  document.getElementById('tech-projects').innerHTML = html;
+}
+
+function toggleExpand(row) {
+  const idx    = row.dataset.idx;
+  const panel  = document.getElementById(`expand-${idx}`);
+  const isOpen = panel.classList.contains('open');
+  /* close all */
+  document.querySelectorAll('.project-expand.open').forEach(p => p.classList.remove('open'));
+  if (!isOpen) panel.classList.add('open');
+}
+
+/* ═══════════════════════════════
+   GALLERY RENDERER
+   ═══════════════════════════════ */
+let currentLBIdx = 0;
+
+function buildGallery() {
+  const grid = document.getElementById('gallery-grid');
+  grid.innerHTML = GALLERY_ITEMS.map((item, i) => `
+    <div class="gallery-item ${item.type==='video'?'is-video':''}"
+         style="transition-delay:${(i%4)*0.07}s"
+         onclick="openLightbox(${i})">
+      <img src="${item.thumb}" alt="${item.title}" loading="lazy" />
+      <div class="gallery-item-overlay">
+        <div class="gallery-item-title">${item.title}</div>
+        <div class="gallery-item-meta">${item.type.toUpperCase()} · ${item.year}</div>
+      </div>
+    </div>`).join('');
+}
+
+function openLightbox(idx) {
+  currentLBIdx = idx;
+  renderLB();
+  document.getElementById('lightbox').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('open');
+  document.body.style.overflow = '';
+  document.getElementById('lb-media').innerHTML = '';
+}
+function renderLB() {
+  const item = GALLERY_ITEMS[currentLBIdx];
+  const med  = document.getElementById('lb-media');
+  med.innerHTML = item.type === 'video'
+    ? `<video class="lightbox-media" src="${item.src}" controls autoplay></video>`
+    : `<img class="lightbox-media" src="${item.src}" alt="${item.title}" />`;
+  document.getElementById('lb-title').textContent = item.title;
+  document.getElementById('lb-desc').textContent  = item.desc;
+}
+
+document.getElementById('lb-close').onclick = closeLightbox;
+document.getElementById('lb-prev').onclick  = () => {
+  currentLBIdx = (currentLBIdx - 1 + GALLERY_ITEMS.length) % GALLERY_ITEMS.length;
+  renderLB();
+};
+document.getElementById('lb-next').onclick  = () => {
+  currentLBIdx = (currentLBIdx + 1) % GALLERY_ITEMS.length;
+  renderLB();
+};
+document.getElementById('lightbox').addEventListener('click', e => {
+  if (e.target === document.getElementById('lightbox')) closeLightbox();
+});
+document.addEventListener('keydown', e => {
+  if (!document.getElementById('lightbox').classList.contains('open')) return;
+  if (e.key === 'Escape') closeLightbox();
+  if (e.key === 'ArrowLeft')  { currentLBIdx=(currentLBIdx-1+GALLERY_ITEMS.length)%GALLERY_ITEMS.length; renderLB(); }
+  if (e.key === 'ArrowRight') { currentLBIdx=(currentLBIdx+1)%GALLERY_ITEMS.length; renderLB(); }
+});
+
+/* ═══════════════════════════════
+   TABS
+   ═══════════════════════════════ */
+document.querySelectorAll('.tab-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const tab = btn.dataset.tab;
+    document.querySelectorAll('.archive-section,.gallery-section').forEach(s => s.classList.remove('active'));
+    document.getElementById(`tab-${tab}`).classList.add('active');
+
+    /* trigger gallery reveal on first switch */
+    if (tab === 'gallery') {
+      setTimeout(() => {
+        const ro3 = new IntersectionObserver(entries => {
+          entries.forEach(e => { if(e.isIntersecting){e.target.classList.add('visible');ro3.unobserve(e.target);} });
+        }, {threshold:.05});
+        document.querySelectorAll('.gallery-item').forEach(el => ro3.observe(el));
+      }, 60);
+    }
   });
 });
+
+/* ═══════════════════════════════
+   HOVER PREVIEW GHOST
+   ═══════════════════════════════ */
+const ghost = document.getElementById('preview-ghost');
+const ghostImg = ghost.querySelector('img');
+document.addEventListener('mousemove', e => {
+  ghost.style.left = e.clientX + 'px';
+  ghost.style.top  = e.clientY + 'px';
+});
+document.querySelectorAll('.project-row[data-preview]').forEach(row => {
+  row.addEventListener('mouseenter', () => {
+    if (!row.dataset.preview) return;
+    ghostImg.src = row.dataset.preview;
+    ghost.classList.add('visible');
+  });
+  row.addEventListener('mouseleave', () => ghost.classList.remove('visible'));
+});
+
+/* ═══════════════════════════════
+   INIT
+   ═══════════════════════════════ */
+buildTechProjects();
+buildGallery();
+
+/* handle #gallery hash */
+if (window.location.hash === '#gallery') {
+  document.querySelector('[data-tab="gallery"]')?.click();
+}
+
+/* reveal for dynamically built rows */
+setTimeout(() => {
+  const ro4 = new IntersectionObserver(entries => {
+    entries.forEach(e => { if(e.isIntersecting){e.target.classList.add('visible');ro4.unobserve(e.target);} });
+  }, {threshold:.05, rootMargin:'0px 0px -20px 0px'});
+  document.querySelectorAll('.project-row, .year-group').forEach(el => ro4.observe(el));
+}, 80);
 </script>
 </body>
 </html>

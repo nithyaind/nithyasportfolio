@@ -14,44 +14,52 @@
 <div id="cursor-trail"></div>
 <div class="progress-bar"></div>
 
-<!-- ══ NAV ══ -->
-<nav class="site-nav dark">
-  <a href="index.html" class="nav-logo">BY <strong>NITHYA</strong></a>
-  <ul class="nav-links">
-    <li><a href="index.html"    class="nav-link">Home</a></li>
-    <li><a href="work.html"     class="nav-link">Work</a></li>
-    <li><a href="archive.html"  class="nav-link">Archive</a></li>
-    <li><a href="nijam.html"    class="nav-link nijam-link active">నిజము</a></li>
-    <li><a href="about.html"    class="nav-link">About</a></li>
-  </ul>
-  <div class="nav-dateline"></div>
+<!-- ════ NAV ════ -->
+<nav class="site-nav" id="site-nav">
+  <div class="nav-top">
+    <a href="index.html" class="nav-logo-wrap">
+      <span class="nav-logo-text">BY <strong>NITHYA</strong></span>
+    </a>
+    <button class="nav-hamburger" id="nav-hamburger" aria-label="Menu">☰</button>
+    <div class="nav-links-wrap" id="nav-links-wrap">
+      <div class="nav-link has-drop">Work
+        <div class="nav-dropdown">
+          <a href="archive.html">Innovation / Tech</a>
+          <a href="archive.html#gallery">Film / Photo</a>
+        </div>
+      </div>
+      <a href="archive.html" class="nav-link">Archive</a>
+      <a href="nijam.html"   class="nav-link nijam-link orange-active">నిజము [Nijam]</a>
+      <a href="about.html"   class="nav-link">About</a>
+      <a href="mailto:nithya.indla8@gmail.com" class="nav-link">Contact</a>
+    </div>
+    <div class="nav-dateline-wrap"><div class="nav-dateline"></div></div>
+  </div>
 </nav>
 
-<!-- ══ MASTHEAD ══ -->
+<!-- ════ MASTHEAD ════ -->
 <header class="nijam-masthead">
-  <div class="masthead-top">
-    <div class="masthead-left" id="masthead-meta-left">
+  <div class="masthead-banner">
+    <div class="masthead-meta">
       Chapel Hill, NC<br>
       Vol. I · Issue <span id="issue-num">1</span><br>
       Est. 2024
     </div>
-    <div class="masthead-center">
+    <div>
       <h1 class="masthead-hed">
-        <span class="hed-en">NITHYA</span>
-        <span class="hed-te">నిజము [Nijam]</span>
+        <span class="en">NITHYA</span>
+        <span class="te">నిజము [Nijam]</span>
       </h1>
       <p class="masthead-kicker">Nithya Truth · Writing · Projects · Dispatches · Art · Life</p>
     </div>
-    <div class="masthead-right" id="masthead-meta-right">
+    <div class="masthead-meta right">
       <span id="post-count">— Posts</span><br>
       Free to read · Always honest<br>
       <span id="masthead-date"></span>
     </div>
   </div>
   <hr class="masthead-rule" />
-
-  <!-- Filter strip -->
-  <div class="nijam-filter-strip">
+  <div class="filter-strip">
     <button class="filter-btn active" data-filter="all">All</button>
     <button class="filter-btn" data-filter="writing">Writing</button>
     <button class="filter-btn" data-filter="project">Project</button>
@@ -61,28 +69,27 @@
   </div>
 </header>
 
-<!-- ══ BODY ══ -->
+<!-- ════ BODY (rendered by JS) ════ -->
 <main class="nijam-body" id="nijam-body">
-  <!-- Hero story (first post) injected by JS -->
   <div id="hero-slot"></div>
-
-  <!-- Columns for remaining posts -->
+  <div class="paper-rule" id="col-divider" style="display:none">
+    <span>Latest dispatches</span>
+  </div>
   <div class="cols-3" id="cols-slot"></div>
 </main>
 
-<!-- ══ FOOTER ══ -->
+<!-- ════ FOOTER ════ -->
 <footer class="site-footer">
   <div class="footer-grid">
     <div>
       <div class="footer-masthead">NITHYA<br><em>నిజము</em></div>
-      <p class="footer-tagline">Nithya Truth · Writing, Projects &amp; Life<br>By Nithya Sunkara Indlamuri</p>
+      <p class="footer-tagline">Nithya Truth · By Nithya Sunkara Indlamuri</p>
     </div>
     <div>
       <div class="footer-col-title">Navigate</div>
       <ul class="footer-links-list">
         <li><a href="index.html">Home</a></li>
-        <li><a href="work.html">Work</a></li>
-        <li><a href="archive.html">Archive</a></li>
+        <li><a href="archive.html">Work</a></li>
         <li><a href="about.html">About</a></li>
       </ul>
     </div>
@@ -100,161 +107,171 @@
   </div>
 </footer>
 
-<!-- ══ SCRIPTS ══ -->
 <script src="js/global.js"></script>
 <script>
-/* ================================================================
-   ✏️  HOW TO ADD A NEW POST
-   ================================================================
-   1. Add an object to the POSTS array below.
-   2. Fill in every field (use "" for optional image).
-   3. For an external link, set link to the full URL.
-      For an internal post, create a file in nijam-posts/
-      and set link to "nijam-posts/your-post.html".
-   4. Save the file — done! The page rebuilds itself.
+/* ════════════════════════════════════════════════════════════════
+   ✏️  HOW TO ADD A POST — edit the POSTS array below only.
+   ════════════════════════════════════════════════════════════════
 
-   Tags: "writing" | "project" | "dispatch" | "art" | "update"
-   ================================================================ */
+   Fields:
+     title    — headline
+     dek      — short teaser shown in the card
+     tag      — "writing" | "project" | "dispatch" | "art" | "update"
+     date     — "Month YYYY"
+     readTime — "X min read"  (optional, use "")
+     image    — "assets/images/your-file.jpg"  (use "" for no image)
+     link     — internal path OR full https:// URL
+     featured — true makes it the big hero story (only one!)
+
+   Add new posts at the TOP of the array (newest first).
+   ════════════════════════════════════════════════════════════════ */
 
 const POSTS = [
   {
-    title:   "On being equal parts: what it means to hold two worlds without choosing one",
-    dek:     "I am Nithya Sunkara Indlamuri, equal parts my mom S. Sunkara and my dad P. Indlamuri. This essay is about what happens when you refuse to pick a lane — in identity, in craft, in life.",
-    tag:     "writing",
-    date:    "May 2025",
-    readTime:"8 min read",
-    image:   "assets/images/nijam-hero.jpg",   /* REPLACE with your image */
-    link:    "nijam-posts/equal-parts.html",
-    featured: true  /* ← this becomes the hero story */
+    title:    "On being equal parts: what it means to hold two worlds without choosing one",
+    dek:      "I am Nithya Sunkara Indlamuri, equal parts my mom S. Sunkara and my dad P. Indlamuri. This essay is about what happens when you refuse to pick a lane.",
+    tag:      "writing",
+    date:     "May 2025",
+    readTime: "8 min read",
+    image:    "assets/images/nijam-hero.jpg",
+    link:     "nijam-posts/equal-parts.html",
+    featured: true
   },
   {
-    title:   "The ethics of algorithmic journalism — who benefits and who gets left out",
-    dek:     "When newsrooms use AI to decide what to cover, the communities that most need coverage are the ones who disappear.",
-    tag:     "writing",
-    date:    "April 2025",
-    readTime:"6 min read",
-    image:   "assets/images/nijam-algo.jpg",
-    link:    "nijam-posts/algo-journalism.html"
+    title:    "The ethics of algorithmic journalism — who benefits and who gets left out",
+    dek:      "When newsrooms use AI to decide what to cover, the communities that most need coverage are the ones who disappear.",
+    tag:      "writing",
+    date:     "April 2025",
+    readTime: "6 min read",
+    image:    "assets/images/nijam-algo.jpg",
+    link:     "nijam-posts/algo-journalism.html"
   },
   {
-    title:   "What I'm building at Fidelity — notes on responsible fintech",
-    dek:     "Reflections from my SWE internship on how financial tools can be designed to serve, not exploit.",
-    tag:     "project",
-    date:    "May 2025",
-    readTime:"4 min read",
-    image:   "",
-    link:    "nijam-posts/fidelity-notes.html"
+    title:    "What I'm building at Fidelity — notes on responsible fintech",
+    dek:      "Reflections from my SWE internship on how financial tools can be designed to serve, not exploit.",
+    tag:      "project",
+    date:     "May 2025",
+    readTime: "4 min read",
+    image:    "",
+    link:     "nijam-posts/fidelity-notes.html"
   },
   {
-    title:   "\"Toe-may-toe\" / \"Tah-mah-tarrr\" — a meditation on accent and belonging",
-    dek:     "Growing up Indian-American means being fluent in two registers of everything — including your own name.",
-    tag:     "writing",
-    date:    "February 2025",
-    readTime:"4 min read",
-    image:   "",
-    link:    "nijam-posts/accent.html"
+    title:    "\"Toe-may-toe\" / \"Tah-mah-tarrr\" — a meditation on accent and belonging",
+    dek:      "Growing up Indian-American means being fluent in two registers of everything — including your own name.",
+    tag:      "writing",
+    date:     "February 2025",
+    readTime: "4 min read",
+    image:    "",
+    link:     "nijam-posts/accent.html"
   },
   {
-    title:   "Chapel Hill light at 6am and why I always carry a camera",
-    dek:     "A filmmaker's diary entry from a journalism student who can't stop looking.",
-    tag:     "dispatch",
-    date:    "March 2025",
-    readTime:"3 min read",
-    image:   "assets/images/nijam-unc.jpg",
-    link:    "nijam-posts/chapel-hill-light.html"
+    title:    "Chapel Hill light at 6am and why I always carry a camera",
+    dek:      "A filmmaker's diary entry from a journalism student who can't stop looking.",
+    tag:      "dispatch",
+    date:     "March 2025",
+    readTime: "3 min read",
+    image:    "assets/images/nijam-unc.jpg",
+    link:     "nijam-posts/chapel-hill-light.html"
   },
   {
-    title:   "Third-year: curious to learn, eager to create",
-    dek:     "A semester in review — what surprised me, what challenged me, and what I'm building next.",
-    tag:     "update",
-    date:    "January 2025",
-    readTime:"5 min read",
-    image:   "",
-    link:    "nijam-posts/third-year.html"
-  },
+    title:    "Third-year: curious to learn, eager to create",
+    dek:      "A semester in review — what surprised me, what challenged me, and what I'm building next.",
+    tag:      "update",
+    date:     "January 2025",
+    readTime: "5 min read",
+    image:    "",
+    link:     "nijam-posts/third-year.html"
+  }
 ];
 
-/* ── KICKER LABELS ── */
-const KICKER_CLASS = {
-  writing:  'kicker-writing',
-  project:  'kicker-project',
-  dispatch: 'kicker-dispatch',
-  art:      'kicker-art',
-  update:   'kicker-update',
-};
-const KICKER_LABEL = {
-  writing:  'Essay',
-  project:  'Project',
-  dispatch: 'Dispatch',
-  art:      'Art',
-  update:   'Life Update',
+/* ─ KICKER CONFIG ─ */
+const K = {
+  writing:  { cls: 'k-writing',  label: 'Essay'        },
+  project:  { cls: 'k-project',  label: 'Project'      },
+  dispatch: { cls: 'k-dispatch', label: 'Dispatch'     },
+  art:      { cls: 'k-art',      label: 'Art'          },
+  update:   { cls: 'k-update',   label: 'Life Update'  },
 };
 
-/* ── BUILD HERO ── */
-function buildHero(post) {
-  const imgBlock = post.image
-    ? `<div class="hero-story-img"><img src="${post.image}" alt="${post.title}" loading="lazy" /></div>`
-    : `<div class="hero-story-img" style="background:var(--paper-dark);display:flex;align-items:center;justify-content:center;">
-         <span style="font-family:var(--font-display);font-style:italic;font-size:2rem;color:var(--muted);">✦</span>
+/* ─ HERO ─ */
+function buildHero(p) {
+  const img = p.image
+    ? `<div class="hero-story-img"><img src="${p.image}" alt="${p.title}" loading="lazy"/></div>`
+    : `<div class="hero-story-img" style="display:flex;align-items:center;justify-content:center;background:var(--paper-dark);">
+         <span style="font-family:var(--font-display);font-style:italic;font-size:3rem;color:var(--paper-mid);">✦</span>
        </div>`;
   return `
-  <article class="hero-story" data-tag="${post.tag}">
-    ${imgBlock}
+  <article class="hero-story" data-tag="${p.tag}">
+    ${img}
     <div>
-      <span class="story-kicker ${KICKER_CLASS[post.tag]}">${KICKER_LABEL[post.tag]}</span>
-      <h2 class="story-hed"><a href="${post.link}">${post.title}</a></h2>
-      <p class="story-dek">${post.dek}</p>
+      <span class="story-kicker ${K[p.tag].cls}">${K[p.tag].label}</span>
+      <h2 class="story-hed"><a href="${p.link}">${p.title}</a></h2>
+      <p class="story-dek">${p.dek}</p>
       <div class="story-byline">
         <span>By <strong>Nithya Sunkara Indlamuri</strong></span>
-        <span>${post.date}</span>
-        ${post.readTime ? `<span>${post.readTime}</span>` : ''}
+        <span>${p.date}</span>
+        ${p.readTime ? `<span>${p.readTime}</span>` : ''}
       </div>
     </div>
   </article>`;
 }
 
-/* ── BUILD CARD ── */
-function buildCard(post) {
-  const imgBlock = post.image
-    ? `<div class="story-card-img"><img src="${post.image}" alt="${post.title}" loading="lazy" /></div>`
+/* ─ CARD ─ */
+function buildCard(p, delay) {
+  const img = p.image
+    ? `<div class="story-card-img"><img src="${p.image}" alt="${p.title}" loading="lazy"/></div>`
     : '';
   return `
-  <article class="story-card" data-tag="${post.tag}">
-    ${imgBlock}
-    <span class="story-kicker ${KICKER_CLASS[post.tag]}" style="font-size:9px;padding:2px 8px;margin-bottom:8px;">${KICKER_LABEL[post.tag]}</span>
-    <h3 class="story-card-hed"><a href="${post.link}">${post.title}</a></h3>
-    <p class="story-card-dek">${post.dek}</p>
-    <div class="story-byline" style="margin-top:8px;"><span>${post.date}</span>${post.readTime ? `<span>${post.readTime}</span>` : ''}</div>
-    <a href="${post.link}" class="read-more">Read</a>
+  <article class="story-card" data-tag="${p.tag}" style="transition-delay:${delay}s">
+    ${img}
+    <span class="story-kicker ${K[p.tag].cls}" style="font-size:8px;padding:2px 8px;margin-bottom:7px;">${K[p.tag].label}</span>
+    <h3 class="story-card-hed"><a href="${p.link}">${p.title}</a></h3>
+    <p class="story-card-dek">${p.dek}</p>
+    <div class="story-byline" style="margin-top:7px;">
+      <span>${p.date}</span>
+      ${p.readTime ? `<span>${p.readTime}</span>` : ''}
+    </div>
+    <a href="${p.link}" class="read-more">Read</a>
   </article>`;
 }
 
-/* ── RENDER ── */
+/* ─ RENDER ─ */
 function render() {
   const featured = POSTS.find(p => p.featured) || POSTS[0];
   const rest     = POSTS.filter(p => p !== featured);
 
   document.getElementById('hero-slot').innerHTML = buildHero(featured);
 
-  /* Split remaining posts across 3 columns */
   const cols = [[], [], []];
   rest.forEach((p, i) => cols[i % 3].push(p));
 
-  const colLabels = ['Writing &amp; Essays', 'Projects &amp; Updates', 'Dispatches &amp; Life'];
-  let colHTML = '';
-  cols.forEach((col, i) => {
-    colHTML += `<div class="col"><div class="col-label">${colLabels[i]}</div>${col.map(buildCard).join('')}</div>`;
-  });
-  document.getElementById('cols-slot').innerHTML = colHTML;
+  const labels = ['Writing &amp; Essays', 'Projects &amp; Updates', 'Dispatches &amp; Life'];
+  document.getElementById('cols-slot').innerHTML = cols.map((col, ci) => `
+    <div class="col">
+      <div class="col-label">${labels[ci]}</div>
+      ${col.map((p, ri) => buildCard(p, ri * 0.1)).join('')}
+    </div>`).join('');
 
-  /* Update meta */
+  if (rest.length) document.getElementById('col-divider').style.display = 'flex';
+
   document.getElementById('post-count').textContent = POSTS.length + ' Posts';
   document.getElementById('issue-num').textContent  = Math.ceil(POSTS.length / 5);
-  document.getElementById('masthead-date').textContent = new Date().toLocaleDateString('en-US',
-    { year:'numeric', month:'long', day:'numeric' }).toUpperCase();
+  document.getElementById('masthead-date').textContent =
+    new Date().toLocaleDateString('en-US', {year:'numeric',month:'long',day:'numeric'}).toUpperCase();
 }
 
 render();
+
+/* ─ SCROLL REVEAL for dynamically built cards ─ */
+setTimeout(() => {
+  const ro2 = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); ro2.unobserve(e.target); }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -20px 0px' });
+
+  document.querySelectorAll('.story-card, .hero-story').forEach(el => ro2.observe(el));
+}, 50);
 </script>
 </body>
 </html>
