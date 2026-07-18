@@ -67,15 +67,17 @@
 
 <!-- ════════════════════════════════════════════
      TAB 2: FILM & PHOTO GALLERY
+     (id="gallery" so the nav's "#gallery" hash link
+     and the JS hash-router below both find this section) 
      ════════════════════════════════════════════ -->
-<section class="gallery-section" id="tab-gallery" id="gallery">
+<section class="gallery-section" id="gallery">
   <div style="max-width:var(--max-w);margin:0 auto;padding:40px var(--gutter) 0;">
     <div class="sec-header">
       <div>
         <p class="sec-eyebrow">Visual work</p>
         <h2 class="sec-title" style="font-size:clamp(24px,3.5vw,40px);">Film &amp; <em>Photography</em></h2>
       </div>
-      <a href="https://bynithya.com/portfolio/film-photo/index.html" class="see-all" target="_blank" rel="noopener">Full gallery ↗</a>
+      <a href="gallery.html" class="see-all">Full gallery →</a>
     </div>
   </div>
   <div style="max-width:var(--max-w);margin:0 auto;padding:0 var(--gutter);">
@@ -173,31 +175,19 @@ const TECH_PROJECTS = [
     extHref: "nijam-posts/algo-journalism.html"
   },
   {
-    name:    "Interactive Story: Blue",
-    type:    "Interactive / Web",
-    tools:   ["HTML", "CSS", "JS", "Video"],
+    name:    "Air Guitar",
+    type:    "Interactive / WebGL",
+    tools:   ["MediaPipe", "Web Audio API", "JS"],
     year:    "2025",
     status:  "Live",
-    link:    "about.html",
+    link:    "archive/air-guitar/index.html",
     image:   "assets/images/proj-blue.jpg",
-    desc:    "A scroll-driven autobiographical story exploring identity through color — built with fullscreen media layers, cinematic transitions, and original writing.",
-    extLink: "Experience →",
-    extHref: "about.html"
+    desc:    "A webcam hand-tracking instrument — pinch your left hand to hold a chord, close your right fist to strum it, all synthesized live with the Web Audio API.",
+    extLink: "Play →",
+    extHref: "archive/air-guitar/index.html"
   },
 
   /* ── 2024 ── */
-  {
-    name:    "Innovation / Tech Portfolio",
-    type:    "Web / Journalism",
-    tools:   ["HTML", "CSS", "JS"],
-    year:    "2024",
-    status:  "Live",
-    link:    "https://bynithya.com/portfolio/innovatech/index.html",
-    image:   "assets/images/proj-innovatech.jpg",
-    desc:    "A portfolio page showcasing journalism and tech projects spanning data stories, web apps, and investigative reporting at UNC Chapel Hill.",
-    extLink: "Visit ↗",
-    extHref: "https://bynithya.com/portfolio/innovatech/index.html"
-  },
   {
     name:    "నిజము [Nijam] Newspaper",
     type:    "Web / Publishing",
@@ -325,10 +315,9 @@ function buildTechProjects() {
       <div class="project-list">`;
 
     byYear[yr].forEach(p => {
-      const statusColor = p.status === 'Live' ? '#2a9d2a' : p.status === 'In Progress' ? 'var(--orange)' : 'var(--muted)';
       const toolChips   = p.tools.map(t => `<span class="tool-chip">${t}</span>`).join('');
       const linkCell    = p.link
-        ? `<span class="project-row-link" onclick="event.stopPropagation();window.open('${p.link}','_blank')">View ↗</span>`
+        ? `<span class="project-row-link" data-href="${p.link}" onclick="event.stopPropagation();window.open('${p.link}','_blank')">View ↗</span>`
         : `<span style="color:var(--muted);font-family:var(--font-mono);font-size:10px;text-align:right;">${p.status}</span>`;
 
       html += `
@@ -443,24 +432,24 @@ document.addEventListener('keydown', e => {
 /* ═══════════════════════════════
    TABS
    ═══════════════════════════════ */
-document.querySelectorAll('.tab-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    const tab = btn.dataset.tab;
-    document.querySelectorAll('.archive-section,.gallery-section').forEach(s => s.classList.remove('active'));
-    document.getElementById(`tab-${tab}`).classList.add('active');
+function activateTab(tab) {
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.toggle('active', b.dataset.tab === tab));
+  document.querySelectorAll('.archive-section,.gallery-section').forEach(s => s.classList.remove('active'));
+  if (tab === 'gallery') {
+    document.getElementById('gallery').classList.add('active');
+    setTimeout(() => {
+      const ro3 = new IntersectionObserver(entries => {
+        entries.forEach(e => { if(e.isIntersecting){e.target.classList.add('visible');ro3.unobserve(e.target);} });
+      }, {threshold:.05});
+      document.querySelectorAll('.gallery-item').forEach(el => ro3.observe(el));
+    }, 60);
+  } else {
+    document.getElementById('tab-tech').classList.add('active');
+  }
+}
 
-    /* trigger gallery reveal on first switch */
-    if (tab === 'gallery') {
-      setTimeout(() => {
-        const ro3 = new IntersectionObserver(entries => {
-          entries.forEach(e => { if(e.isIntersecting){e.target.classList.add('visible');ro3.unobserve(e.target);} });
-        }, {threshold:.05});
-        document.querySelectorAll('.gallery-item').forEach(el => ro3.observe(el));
-      }, 60);
-    }
-  });
+document.querySelectorAll('.tab-btn').forEach(btn => {
+  btn.addEventListener('click', () => activateTab(btn.dataset.tab));
 });
 
 /* ═══════════════════════════════
@@ -472,13 +461,15 @@ document.addEventListener('mousemove', e => {
   ghost.style.left = e.clientX + 'px';
   ghost.style.top  = e.clientY + 'px';
 });
-document.querySelectorAll('.project-row[data-preview]').forEach(row => {
-  row.addEventListener('mouseenter', () => {
-    if (!row.dataset.preview) return;
+document.addEventListener('mouseover', e => {
+  const row = e.target.closest('.project-row[data-preview]');
+  if (row && row.dataset.preview) {
     ghostImg.src = row.dataset.preview;
     ghost.classList.add('visible');
-  });
-  row.addEventListener('mouseleave', () => ghost.classList.remove('visible'));
+  }
+});
+document.addEventListener('mouseout', e => {
+  if (e.target.closest('.project-row[data-preview]')) ghost.classList.remove('visible');
 });
 
 /* ═══════════════════════════════
@@ -487,10 +478,8 @@ document.querySelectorAll('.project-row[data-preview]').forEach(row => {
 buildTechProjects();
 buildGallery();
 
-/* handle #gallery hash */
-if (window.location.hash === '#gallery') {
-  document.querySelector('[data-tab="gallery"]')?.click();
-}
+/* handle #gallery hash on load */
+if (window.location.hash === '#gallery') activateTab('gallery');
 
 /* reveal for dynamically built rows */
 setTimeout(() => {

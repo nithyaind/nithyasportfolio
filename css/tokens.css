@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Space+Grotesk:wght@300;400;500;600&family=Space+Mono:ital@0;1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Space+Grotesk:wght@300;400;500;600&family=Space+Mono:ital@0;1&family=Caveat:wght@500;600;700&display=swap');
 
 :root {
   /* ── PALETTE (orange edition) ── */
@@ -14,10 +14,22 @@
   --rule-bold:  rgba(17,16,16,.42);
   --blue-hl:    #74b9ff;      /* kept for "Blue" story */
 
+  /* ── COMPAT ALIAS ──
+     archive.css / pages.css / about.css / work.css were written
+     against an earlier magenta palette and still reference
+     var(--magenta) in dozens of places with no fallback value.
+     Rather than touch every rule in four files, we alias magenta
+     to the current signature orange here so those rules resolve
+     instead of silently rendering as transparent/invalid. If you
+     want a true two-tone palette again, just give --magenta its
+     own hex value instead of aliasing it. */
+  --magenta:    var(--orange);
+
   /* ── TYPE ── */
   --font-display:'Playfair Display', Georgia, serif;
   --font-body:   'Space Grotesk', system-ui, sans-serif;
   --font-mono:   'Space Mono', monospace;
+  --font-hand:   'Caveat', cursive;
 
   /* ── LAYOUT ── */
   --nav-h:   62px;
@@ -263,7 +275,57 @@ body::after {
   min-height: 120px; opacity: .55;
 }
 
-/* ── UTILITIES ── */
+/* ── CURSOR CAPTION LABEL ── */
+#cursor-label {
+  position: fixed; top: 0; left: 0;
+  z-index: 9997; pointer-events: none;
+  font-family: var(--font-hand);
+  font-size: 21px; font-weight: 600;
+  color: var(--orange);
+  background: var(--paper);
+  border: 1.5px solid var(--ink);
+  padding: 3px 16px 7px;
+  border-radius: 999px 999px 999px 4px;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity .2s;
+}
+#cursor-label.visible { opacity: 1; }
+@media (hover: none), (pointer: coarse) {
+  #cursor-label { display: none; }
+}
+
+/* ── "RIGHT NOW" FOOTER STRIP (injected by global.js) ── */
+.now-strip {
+  max-width: var(--max-w); margin: 0 auto;
+  padding: 20px 0;
+  border-bottom: 1px solid rgba(242,237,227,.1);
+  display: flex; flex-wrap: wrap; align-items: center; gap: 22px;
+  font-family: var(--font-mono); font-size: 10px;
+  letter-spacing: .08em; color: rgba(242,237,227,.55);
+}
+.now-label {
+  display: inline-flex; align-items: center; gap: 8px;
+  text-transform: uppercase; letter-spacing: .18em;
+  color: rgba(242,237,227,.35); font-size: 9px;
+}
+.now-dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: #2a9d2a; flex-shrink: 0;
+  animation: nowPulse 1.8s ease-in-out infinite;
+}
+.now-item em {
+  font-style: italic; color: var(--paper); font-weight: normal;
+}
+@keyframes nowPulse {
+  0%, 100% { opacity: .4; transform: scale(.85); }
+  50%       { opacity: 1;  transform: scale(1); }
+}
+@media (max-width: 700px) {
+  .now-strip { gap: 10px 18px; font-size: 9.5px; }
+}
+
+
 .t-mono  { font-family: var(--font-mono); font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
 .t-label { font-family: var(--font-mono); font-size: 9px; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); }
 .rule    { height: 1px; background: var(--rule); }

@@ -1,6 +1,19 @@
 /* ============================================================
    GLOBAL JS
    ============================================================ */
+
+/* ────────────────────────────────────────────────────────────
+   ✏️  "RIGHT NOW" WIDGET — EDIT THIS, NOTHING ELSE, TO UPDATE IT
+   Shows up automatically in the footer of every page. Update
+   these three lines whenever what you're doing changes — no
+   HTML editing required anywhere.
+   ──────────────────────────────────────────────────────────── */
+const NOW_STATUS = {
+  shooting: "a scrapbook coming-of-age piece for నిజము [Nijam]",
+  reading:  "a stack of half-finished New Yorker longreads",
+  building: "this portfolio (yes, really)"
+};
+
 document.addEventListener('DOMContentLoaded', () => {
 
   /* ── CURSOR ── */
@@ -23,6 +36,74 @@ document.addEventListener('DOMContentLoaded', () => {
         el.addEventListener('mouseenter', ()=>cur.classList.add('big'));
         el.addEventListener('mouseleave', ()=>cur.classList.remove('big'));
       });
+  }
+
+  /* ── CURSOR CAPTION LABEL ──
+     A little handwritten note that follows the cursor and says
+     something different depending on what you're hovering —
+     works site-wide via event delegation, so it applies even to
+     cards/rows that get built dynamically by page-specific JS
+     (nijam.html, archive.html, etc). Only runs on devices with a
+     real mouse, and respects reduced-motion. */
+  const canHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (canHover && !prefersReduced) {
+    const label = document.createElement('div');
+    label.id = 'cursor-label';
+    document.body.appendChild(label);
+
+    let lx = -9999, ly = -9999, tx2 = -9999, ty2 = -9999;
+    document.addEventListener('mousemove', e => { tx2 = e.clientX; ty2 = e.clientY; });
+    (function animateLabel() {
+      lx += (tx2 - lx) * 0.18;
+      ly += (ty2 - ly) * 0.18;
+      label.style.transform = `translate(${lx + 18}px, ${ly + 12}px) rotate(-4deg)`;
+      requestAnimationFrame(animateLabel);
+    })();
+
+    /* Order matters — first match wins, so specific selectors go first. */
+    const CURSOR_TEXTS = [
+      { sel: '.nav-dropdown a',                                       text: 'peek →' },
+      { sel: '.nav-link.has-drop',                                    text: 'browse ↓' },
+      { sel: '.nav-link.nijam-link',                                  text: 'read the paper →' },
+      { sel: '.nav-link',                                             text: 'go →' },
+      { sel: '.lightbox-nav, .lightbox-prev, .lightbox-next',         text: 'next shot' },
+      { sel: '.gallery-item',                                         text: 'zoom in ↗' },
+      { sel: '.project-row-link',                                     text: 'view project ↗' },
+      { sel: '.project-row',                                          text: 'peek inside →' },
+      { sel: '.work-row',                                             text: 'view case study →' },
+      { sel: '.card',                                                 text: 'take a look →' },
+      { sel: '.story-card, .hero-story',                              text: 'read on →' },
+      { sel: '.nijam-card',                                           text: 'read on →' },
+      { sel: '.filter-btn, .tab-btn, .gfilter-btn',                   text: 'filter' },
+      { sel: '.identity-link, .see-all, .read-more, .gallery-ext-link, .nijam-read-all', text: 'this way →' },
+      { sel: 'a[href^="mailto:"]',                                    text: 'say hi ✉' },
+      { sel: '.back-to-top',                                          text: 'up we go ↑' },
+      { sel: '.btn',                                                  text: 'click' },
+      { sel: 'a, button',                                             text: 'click' },
+    ];
+
+    function findLabelText(el) {
+      const withData = el.closest('[data-cursor]');
+      if (withData) return withData.dataset.cursor;
+      for (const { sel, text } of CURSOR_TEXTS) {
+        if (el.closest(sel)) return text;
+      }
+      return null;
+    }
+
+    document.addEventListener('mouseover', e => {
+      const text = findLabelText(e.target);
+      if (text) {
+        label.textContent = text;
+        label.classList.add('visible');
+      }
+    });
+    document.addEventListener('mouseout', e => {
+      const related = e.relatedTarget;
+      if (!related || !findLabelText(related)) label.classList.remove('visible');
+    });
   }
 
   /* ── MOBILE HAMBURGER ── */
@@ -89,6 +170,28 @@ document.addEventListener('DOMContentLoaded', () => {
     t.addEventListener('mouseenter', ()=>t.style.animationPlayState='paused');
     t.addEventListener('mouseleave', ()=>t.style.animationPlayState='running');
   });
+
+  /* ── "RIGHT NOW" FOOTER WIDGET ──
+     Auto-injects into every .site-footer, right above the
+     copyright line. Nothing to add to the HTML — just keep the
+     NOW_STATUS object at the top of this file up to date. */
+  const footer = document.querySelector('.site-footer');
+  if (footer) {
+    const bottomBar = footer.querySelector('.footer-bottom');
+    const strip = document.createElement('div');
+    strip.className = 'now-strip';
+    strip.innerHTML = `
+      <span class="now-label"><span class="now-dot"></span>Right now</span>
+      <span class="now-item">📷 Shooting <em>${NOW_STATUS.shooting}</em></span>
+      <span class="now-item">📖 Reading <em>${NOW_STATUS.reading}</em></span>
+      <span class="now-item">💻 Building <em>${NOW_STATUS.building}</em></span>
+    `;
+    if (bottomBar) {
+      footer.querySelector('.footer-grid')?.insertAdjacentElement('afterend', strip);
+    } else {
+      footer.appendChild(strip);
+    }
+  }
 
   /* ── GRACEFUL FALLBACK FOR MISSING/PLACEHOLDER IMAGES ──
      Several image paths in this project are still content
