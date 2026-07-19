@@ -18,22 +18,33 @@
 <!-- hover preview ghost -->
 <div class="preview-ghost" id="preview-ghost"><img src="" alt="" /></div>
 
-<!-- ════ NAV ════ -->
-<div class="nav-links-wrap" id="nav-links-wrap">
-
-  <div class="nav-link has-drop">
-    Work
-    <div class="nav-dropdown">
-      <a href="archive.html">Innovation / Tech</a>
-      <a href="archive.html#gallery">Film / Photo</a>
-    </div>
+<!-- ════ FIXED HEADER — breaking strip + nav ════ -->
+<nav class="site-nav" id="site-nav">
+  <div class="breaking-strip">
+    <span class="breaking-tag"><span class="breaking-dot"></span>Right now</span>
+    <div class="breaking-track-wrap"><div class="breaking-track" id="breaking-track"></div></div>
   </div>
-
-  <a href="nijam.html" class="nav-link nijam-link">నిజము [Nijam]</a>
-  <a href="about.html" class="nav-link">About</a>
-  <a href="mailto:nithya.indla8@gmail.com" class="nav-link">Contact</a>
-
-</div>
+  <div class="nav-top">
+    <a href="index.html" class="nav-logo-wrap">
+      <span class="nav-logo-text">BY <strong>NITHYA</strong></span>
+    </a>
+    <button class="nav-hamburger" id="nav-hamburger" aria-label="Menu">☰</button>
+    <div class="nav-links-wrap" id="nav-links-wrap">
+      <div class="nav-link has-drop">
+        Work
+        <div class="nav-dropdown">
+          <a href="archive.html">Innovation / Tech</a>
+          <a href="gallery.html">Film / Photo</a>
+        </div>
+      </div>
+      <a href="archive.html" class="nav-link">Archive</a>
+      <a href="nijam.html" class="nav-link nijam-link">నిజము [Nijam]</a>
+      <a href="about.html" class="nav-link">About</a>
+      <a href="mailto:nithya.indla8@gmail.com" class="nav-link">Contact</a>
+    </div>
+    <div class="nav-dateline-wrap"><div class="nav-dateline"></div></div>
+  </div>
+</nav>
 
 <!-- ════ HERO ════ -->
 <header class="page-hero">
@@ -58,18 +69,12 @@
   </div>
 </div>
 
-<!-- ════════════════════════════════════════════
-     TAB 1: TECH / INNOVATECH ARCHIVE
-     ════════════════════════════════════════════ -->
+<!-- TAB 1: TECH / INNOVATECH ARCHIVE -->
 <section class="archive-section active" id="tab-tech">
   <div id="tech-projects"></div>
 </section>
 
-<!-- ════════════════════════════════════════════
-     TAB 2: FILM & PHOTO GALLERY
-     (id="gallery" so the nav's "#gallery" hash link
-     and the JS hash-router below both find this section) 
-     ════════════════════════════════════════════ -->
+<!-- TAB 2: FILM & PHOTO GALLERY PREVIEW -->
 <section class="gallery-section" id="gallery">
   <div style="max-width:var(--max-w);margin:0 auto;padding:40px var(--gutter) 0;">
     <div class="sec-header">
@@ -129,27 +134,7 @@
 <script src="js/global.js"></script>
 <script src="js/transitions.js"></script>
 <script>
-/* ════════════════════════════════════════════════════════════════
-   ✏️  HOW TO ADD A TECH PROJECT
-   ════════════════════════════════════════════════════════════════
-   Add an object to TECH_PROJECTS below.
-   Fields:
-     name     — project title
-     type     — "Journalism" | "Web App" | "Data Story" | "SWE" | etc.
-     tools    — array of tech/tools used (shown as chips)
-     year     — e.g. "2025"
-     status   — "Live" | "In Progress" | "Coming Soon"
-     link     — external or internal URL (set to "" if no link)
-     image    — thumbnail for hover preview (use "" if none)
-     desc     — 2–3 sentence description shown when row is clicked
-     extLink  — second link label, e.g. "GitHub"
-     extHref  — second link href
-
-   To add a GALLERY item, scroll to GALLERY_ITEMS below.
-   ════════════════════════════════════════════════════════════════ */
-
 const TECH_PROJECTS = [
-  /* ── 2025 ── */
   {
     name:    "Responsible Fintech at Fidelity",
     type:    "SWE / Journalism",
@@ -186,8 +171,6 @@ const TECH_PROJECTS = [
     extLink: "Play →",
     extHref: "archive/air-guitar/index.html"
   },
-
-  /* ── 2024 ── */
   {
     name:    "నిజము [Nijam] Newspaper",
     type:    "Web / Publishing",
@@ -200,8 +183,6 @@ const TECH_PROJECTS = [
     extLink: "Open →",
     extHref: "nijam.html"
   },
-
-  /* ── 2023 ── */
   {
     name:    "UNC Journalism Story",
     type:    "Multimedia Journalism",
@@ -216,98 +197,22 @@ const TECH_PROJECTS = [
   }
 ];
 
-/* ════════════════════════════════════════════════════════════════
-   ✏️  HOW TO ADD A GALLERY ITEM
-   ════════════════════════════════════════════════════════════════
-   Fields:
-     title   — title shown in lightbox and on hover
-     desc    — caption shown in lightbox
-     type    — "photo" | "video"
-     src     — path to image or video file
-     thumb   — thumbnail image (can be same as src for photos)
-     year    — year
-   ════════════════════════════════════════════════════════════════ */
-
 const GALLERY_ITEMS = [
-  {
-    title: "Chapel Hill, 6am",
-    desc:  "Early morning light on Franklin Street. Canon R50.",
-    type:  "photo",
-    src:   "assets/images/gallery-1.jpg",
-    thumb: "assets/images/gallery-1.jpg",
-    year:  "2025"
-  },
-  {
-    title: "On the court",
-    desc:  "State tournament. My brother serves.",
-    type:  "photo",
-    src:   "assets/images/gallery-2.jpg",
-    thumb: "assets/images/gallery-2.jpg",
-    year:  "2024"
-  },
-  {
-    title: "Cabbage Beach",
-    desc:  "Nassau, Bahamas. The cruise that surprised everyone.",
-    type:  "photo",
-    src:   "assets/images/gallery-3.jpg",
-    thumb: "assets/images/gallery-3.jpg",
-    year:  "2023"
-  },
-  {
-    title: "Short Film — [TITLE]",
-    desc:  "REPLACE: your film description here.",
-    type:  "video",
-    src:   "assets/vid/film-1.mp4",
-    thumb: "assets/images/gallery-4.jpg",
-    year:  "2025"
-  },
-  {
-    title: "Thathamma",
-    desc:  "Fields outside Hyderabad. Everyone says I look like her.",
-    type:  "photo",
-    src:   "assets/images/gallery-5.jpg",
-    thumb: "assets/images/gallery-5.jpg",
-    year:  "2023"
-  },
-  {
-    title: "Blue Walls",
-    desc:  "Our living room. Still bare, always brimming.",
-    type:  "photo",
-    src:   "assets/images/gallery-6.jpg",
-    thumb: "assets/images/gallery-6.jpg",
-    year:  "2024"
-  },
-  {
-    title: "Documentary — [TITLE]",
-    desc:  "REPLACE: your documentary description.",
-    type:  "video",
-    src:   "assets/vid/doc-1.mp4",
-    thumb: "assets/images/gallery-7.jpg",
-    year:  "2024"
-  },
-  {
-    title: "UNC Campus",
-    desc:  "Carolina Blue. My new world.",
-    type:  "photo",
-    src:   "assets/images/gallery-8.jpg",
-    thumb: "assets/images/gallery-8.jpg",
-    year:  "2025"
-  }
+  { title: "Chapel Hill, 6am", desc: "Early morning light on Franklin Street. Canon R50.", type: "photo", src: "assets/images/gallery-1.jpg", thumb: "assets/images/gallery-1.jpg", year: "2025" },
+  { title: "On the court", desc: "State tournament. My brother serves.", type: "photo", src: "assets/images/gallery-2.jpg", thumb: "assets/images/gallery-2.jpg", year: "2024" },
+  { title: "Cabbage Beach", desc: "Nassau, Bahamas. The cruise that surprised everyone.", type: "photo", src: "assets/images/gallery-3.jpg", thumb: "assets/images/gallery-3.jpg", year: "2023" },
+  { title: "Short Film — [TITLE]", desc: "REPLACE: your film description here.", type: "video", src: "assets/vid/film-1.mp4", thumb: "assets/images/gallery-4.jpg", year: "2025" },
+  { title: "Thathamma", desc: "Fields outside Hyderabad. Everyone says I look like her.", type: "photo", src: "assets/images/gallery-5.jpg", thumb: "assets/images/gallery-5.jpg", year: "2023" },
+  { title: "Blue Walls", desc: "Our living room. Still bare, always brimming.", type: "photo", src: "assets/images/gallery-6.jpg", thumb: "assets/images/gallery-6.jpg", year: "2024" },
+  { title: "Documentary — [TITLE]", desc: "REPLACE: your documentary description.", type: "video", src: "assets/vid/doc-1.mp4", thumb: "assets/images/gallery-7.jpg", year: "2024" },
+  { title: "UNC Campus", desc: "Carolina Blue. My new world.", type: "photo", src: "assets/images/gallery-8.jpg", thumb: "assets/images/gallery-8.jpg", year: "2025" }
 ];
 
-/* ═══════════════════════════════
-   TECH PROJECTS RENDERER
-   ═══════════════════════════════ */
 function buildTechProjects() {
   const byYear = {};
-  TECH_PROJECTS.forEach(p => {
-    if (!byYear[p.year]) byYear[p.year] = [];
-    byYear[p.year].push(p);
-  });
-
+  TECH_PROJECTS.forEach(p => { (byYear[p.year] = byYear[p.year] || []).push(p); });
   const years = Object.keys(byYear).sort((a,b) => b-a);
-  let html = '';
-  let globalIdx = 1;
+  let html = ''; let globalIdx = 1;
 
   years.forEach(yr => {
     html += `<div class="year-group reveal">
@@ -315,16 +220,13 @@ function buildTechProjects() {
       <div class="project-list">`;
 
     byYear[yr].forEach(p => {
-      const toolChips   = p.tools.map(t => `<span class="tool-chip">${t}</span>`).join('');
-      const linkCell    = p.link
+      const toolChips = p.tools.map(t => `<span class="tool-chip">${t}</span>`).join('');
+      const linkCell  = p.link
         ? `<span class="project-row-link" data-href="${p.link}" onclick="event.stopPropagation();window.open('${p.link}','_blank')">View ↗</span>`
         : `<span style="color:var(--muted);font-family:var(--font-mono);font-size:10px;text-align:right;">${p.status}</span>`;
 
       html += `
-      <div class="project-row reveal"
-           data-idx="${globalIdx}"
-           data-preview="${p.image}"
-           onclick="toggleExpand(this)">
+      <div class="project-row reveal" data-idx="${globalIdx}" data-preview="${p.image}" onclick="toggleExpand(this)">
         <span class="project-row-num">${String(globalIdx).padStart(2,'0')}</span>
         <span class="project-row-name">${p.name}</span>
         <span class="project-row-type">${p.type}</span>
@@ -332,7 +234,6 @@ function buildTechProjects() {
         ${linkCell}
       </div>`;
 
-      /* expand panel */
       const expandImg = p.image
         ? `<div class="expand-img"><img src="${p.image}" alt="${p.name}" loading="lazy"/></div>`
         : `<div class="expand-img" style="background:var(--paper-dark);display:flex;align-items:center;justify-content:center;"><span style="font-family:var(--font-display);font-style:italic;font-size:2rem;color:var(--muted);">✦</span></div>`;
@@ -351,36 +252,26 @@ function buildTechProjects() {
           </div>
         </div>
       </div>`;
-
       globalIdx++;
     });
-
     html += `</div></div>`;
   });
-
   document.getElementById('tech-projects').innerHTML = html;
 }
 
 function toggleExpand(row) {
-  const idx    = row.dataset.idx;
-  const panel  = document.getElementById(`expand-${idx}`);
+  const idx = row.dataset.idx;
+  const panel = document.getElementById(`expand-${idx}`);
   const isOpen = panel.classList.contains('open');
-  /* close all */
   document.querySelectorAll('.project-expand.open').forEach(p => p.classList.remove('open'));
   if (!isOpen) panel.classList.add('open');
 }
 
-/* ═══════════════════════════════
-   GALLERY RENDERER
-   ═══════════════════════════════ */
 let currentLBIdx = 0;
-
 function buildGallery() {
   const grid = document.getElementById('gallery-grid');
   grid.innerHTML = GALLERY_ITEMS.map((item, i) => `
-    <div class="gallery-item ${item.type==='video'?'is-video':''}"
-         style="transition-delay:${(i%4)*0.07}s"
-         onclick="openLightbox(${i})">
+    <div class="gallery-item ${item.type==='video'?'is-video':''}" style="transition-delay:${(i%4)*0.07}s" onclick="openLightbox(${i})">
       <img src="${item.thumb}" alt="${item.title}" loading="lazy" />
       <div class="gallery-item-overlay">
         <div class="gallery-item-title">${item.title}</div>
@@ -388,10 +279,8 @@ function buildGallery() {
       </div>
     </div>`).join('');
 }
-
 function openLightbox(idx) {
-  currentLBIdx = idx;
-  renderLB();
+  currentLBIdx = idx; renderLB();
   document.getElementById('lightbox').classList.add('open');
   document.body.style.overflow = 'hidden';
 }
@@ -402,26 +291,17 @@ function closeLightbox() {
 }
 function renderLB() {
   const item = GALLERY_ITEMS[currentLBIdx];
-  const med  = document.getElementById('lb-media');
+  const med = document.getElementById('lb-media');
   med.innerHTML = item.type === 'video'
     ? `<video class="lightbox-media" src="${item.src}" controls autoplay></video>`
     : `<img class="lightbox-media" src="${item.src}" alt="${item.title}" />`;
   document.getElementById('lb-title').textContent = item.title;
-  document.getElementById('lb-desc').textContent  = item.desc;
+  document.getElementById('lb-desc').textContent = item.desc;
 }
-
 document.getElementById('lb-close').onclick = closeLightbox;
-document.getElementById('lb-prev').onclick  = () => {
-  currentLBIdx = (currentLBIdx - 1 + GALLERY_ITEMS.length) % GALLERY_ITEMS.length;
-  renderLB();
-};
-document.getElementById('lb-next').onclick  = () => {
-  currentLBIdx = (currentLBIdx + 1) % GALLERY_ITEMS.length;
-  renderLB();
-};
-document.getElementById('lightbox').addEventListener('click', e => {
-  if (e.target === document.getElementById('lightbox')) closeLightbox();
-});
+document.getElementById('lb-prev').onclick = () => { currentLBIdx=(currentLBIdx-1+GALLERY_ITEMS.length)%GALLERY_ITEMS.length; renderLB(); };
+document.getElementById('lb-next').onclick = () => { currentLBIdx=(currentLBIdx+1)%GALLERY_ITEMS.length; renderLB(); };
+document.getElementById('lightbox').addEventListener('click', e => { if (e.target === document.getElementById('lightbox')) closeLightbox(); });
 document.addEventListener('keydown', e => {
   if (!document.getElementById('lightbox').classList.contains('open')) return;
   if (e.key === 'Escape') closeLightbox();
@@ -429,9 +309,6 @@ document.addEventListener('keydown', e => {
   if (e.key === 'ArrowRight') { currentLBIdx=(currentLBIdx+1)%GALLERY_ITEMS.length; renderLB(); }
 });
 
-/* ═══════════════════════════════
-   TABS
-   ═══════════════════════════════ */
 function activateTab(tab) {
   document.querySelectorAll('.tab-btn').forEach(b => b.classList.toggle('active', b.dataset.tab === tab));
   document.querySelectorAll('.archive-section,.gallery-section').forEach(s => s.classList.remove('active'));
@@ -447,41 +324,21 @@ function activateTab(tab) {
     document.getElementById('tab-tech').classList.add('active');
   }
 }
+document.querySelectorAll('.tab-btn').forEach(btn => btn.addEventListener('click', () => activateTab(btn.dataset.tab)));
 
-document.querySelectorAll('.tab-btn').forEach(btn => {
-  btn.addEventListener('click', () => activateTab(btn.dataset.tab));
-});
-
-/* ═══════════════════════════════
-   HOVER PREVIEW GHOST
-   ═══════════════════════════════ */
 const ghost = document.getElementById('preview-ghost');
 const ghostImg = ghost.querySelector('img');
-document.addEventListener('mousemove', e => {
-  ghost.style.left = e.clientX + 'px';
-  ghost.style.top  = e.clientY + 'px';
-});
+document.addEventListener('mousemove', e => { ghost.style.left = e.clientX + 'px'; ghost.style.top = e.clientY + 'px'; });
 document.addEventListener('mouseover', e => {
   const row = e.target.closest('.project-row[data-preview]');
-  if (row && row.dataset.preview) {
-    ghostImg.src = row.dataset.preview;
-    ghost.classList.add('visible');
-  }
+  if (row && row.dataset.preview) { ghostImg.src = row.dataset.preview; ghost.classList.add('visible'); }
 });
-document.addEventListener('mouseout', e => {
-  if (e.target.closest('.project-row[data-preview]')) ghost.classList.remove('visible');
-});
+document.addEventListener('mouseout', e => { if (e.target.closest('.project-row[data-preview]')) ghost.classList.remove('visible'); });
 
-/* ═══════════════════════════════
-   INIT
-   ═══════════════════════════════ */
 buildTechProjects();
 buildGallery();
-
-/* handle #gallery hash on load */
 if (window.location.hash === '#gallery') activateTab('gallery');
 
-/* reveal for dynamically built rows */
 setTimeout(() => {
   const ro4 = new IntersectionObserver(entries => {
     entries.forEach(e => { if(e.isIntersecting){e.target.classList.add('visible');ro4.unobserve(e.target);} });

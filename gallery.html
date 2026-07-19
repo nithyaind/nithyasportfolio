@@ -12,21 +12,33 @@
 <div id="cursor-trail"></div>
 <div class="progress-bar"></div>
 
-<div class="nav-links-wrap" id="nav-links-wrap">
-
-  <div class="nav-link has-drop">
-    Work
-    <div class="nav-dropdown">
-      <a href="archive.html">Innovation / Tech</a>
-      <a href="archive.html#gallery">Film / Photo</a>
-    </div>
+<!-- ════ FIXED HEADER — breaking strip + nav ════ -->
+<nav class="site-nav" id="site-nav">
+  <div class="breaking-strip">
+    <span class="breaking-tag"><span class="breaking-dot"></span>Right now</span>
+    <div class="breaking-track-wrap"><div class="breaking-track" id="breaking-track"></div></div>
   </div>
-
-  <a href="nijam.html" class="nav-link nijam-link">నిజము [Nijam]</a>
-  <a href="about.html" class="nav-link">About</a>
-  <a href="mailto:nithya.indla8@gmail.com" class="nav-link">Contact</a>
-
-</div>
+  <div class="nav-top">
+    <a href="index.html" class="nav-logo-wrap">
+      <span class="nav-logo-text">BY <strong>NITHYA</strong></span>
+    </a>
+    <button class="nav-hamburger" id="nav-hamburger" aria-label="Menu">☰</button>
+    <div class="nav-links-wrap" id="nav-links-wrap">
+      <div class="nav-link has-drop">
+        Work
+        <div class="nav-dropdown">
+          <a href="archive.html">Innovation / Tech</a>
+          <a href="gallery.html">Film / Photo</a>
+        </div>
+      </div>
+      <a href="archive.html" class="nav-link">Archive</a>
+      <a href="nijam.html" class="nav-link nijam-link">నిజము [Nijam]</a>
+      <a href="about.html" class="nav-link">About</a>
+      <a href="mailto:nithya.indla8@gmail.com" class="nav-link">Contact</a>
+    </div>
+    <div class="nav-dateline-wrap"><div class="nav-dateline"></div></div>
+  </div>
+</nav>
 
 <!-- HERO -->
 <header class="gallery-hero">
@@ -72,378 +84,154 @@
 <!-- GALLERY BODY -->
 <main class="gallery-body">
 
-  <!--
-    ╔════════════════════════════════════════════════════════╗
-    ║  HOW TO ADD PHOTOS / VIDEOS                           ║
-    ║                                                       ║
-    ║  1. Add a .gallery-item div inside .gallery-masonry   ║
-    ║  2. data-tag: portrait / documentary / event /        ║
-    ║               film / travel                           ║
-    ║  3. data-caption: description shown in lightbox       ║
-    ║  4. data-type: "photo", "gif", or "video"             ║
-    ║  5. For video: add data-video="path/to/video.mp4"     ║
-    ║  6. Always add a .gallery-item-caption inside too     ║
-    ║  7. To add a new SERIES, copy .gallery-series-head    ║
-    ╚════════════════════════════════════════════════════════╝
-  -->
-
-  <!-- ── SERIES: Portraits ── -->
   <div class="gallery-series-head reveal" data-series-tag="portrait">
     <h2 class="gallery-series-title">Portraits</h2>
     <span class="gallery-series-meta">People · Moments · Light</span>
   </div>
 
   <div class="gallery-masonry" data-series="portrait">
-
-    <div class="gallery-item"
-         data-tag="portrait" data-type="photo"
-         data-src="https://bynithya.com/portfolio/img/carson1.jpg"
-         data-caption="Carson Tanguilig, senior D1 UNC Chapel Hill women's tennis player, reflecting on her last weeks as a student-athlete before embarking on her pro tennis journey."
-         data-label="Portrait">
+    <div class="gallery-item" data-tag="portrait" data-type="photo" data-src="https://bynithya.com/portfolio/img/carson1.jpg" data-caption="Carson Tanguilig, senior D1 UNC Chapel Hill women's tennis player, reflecting on her last weeks as a student-athlete before embarking on her pro tennis journey." data-label="Portrait">
       <img src="https://bynithya.com/portfolio/img/carson1.jpg" alt="Carson Tanguilig portrait" loading="lazy" />
-      <div class="gallery-item-caption">
-        <span class="cap-tag">Portrait</span>
-        <p>Carson Tanguilig — senior D1 women's tennis, UNC Chapel Hill</p>
-      </div>
+      <div class="gallery-item-caption"><span class="cap-tag">Portrait</span><p>Carson Tanguilig — senior D1 women's tennis, UNC Chapel Hill</p></div>
     </div>
-
-    <div class="gallery-item"
-         data-tag="portrait" data-type="photo"
-         data-src="https://bynithya.com/portfolio/img/arame.jpg"
-         data-caption="A portrait with eye-catching light in Davis Library."
-         data-label="Portrait">
+    <div class="gallery-item" data-tag="portrait" data-type="photo" data-src="https://bynithya.com/portfolio/img/arame.jpg" data-caption="A portrait with eye-catching light in Davis Library." data-label="Portrait">
       <img src="https://bynithya.com/portfolio/img/arame.jpg" alt="Portrait in Davis Library" loading="lazy" />
-      <div class="gallery-item-caption">
-        <span class="cap-tag">Portrait</span>
-        <p>Eye-catching light in Davis Library</p>
-      </div>
+      <div class="gallery-item-caption"><span class="cap-tag">Portrait</span><p>Eye-catching light in Davis Library</p></div>
     </div>
-
-    <div class="gallery-item"
-         data-tag="portrait" data-type="photo"
-         data-src="https://bynithya.com/portfolio/img/carson9.jpg"
-         data-caption="Carson Tanguilig preparing her Trader Joe's chipotle bowl while her cat lays on her shoulder."
-         data-label="Portrait">
+    <div class="gallery-item" data-tag="portrait" data-type="photo" data-src="https://bynithya.com/portfolio/img/carson9.jpg" data-caption="Carson Tanguilig preparing her Trader Joe's chipotle bowl while her cat lays on her shoulder." data-label="Portrait">
       <img src="https://bynithya.com/portfolio/img/carson9.jpg" alt="Carson at home" loading="lazy" />
-      <div class="gallery-item-caption">
-        <span class="cap-tag">Portrait</span>
-        <p>Carson — Trader Joe's chipotle bowl, cat on shoulder</p>
-      </div>
+      <div class="gallery-item-caption"><span class="cap-tag">Portrait</span><p>Carson — Trader Joe's chipotle bowl, cat on shoulder</p></div>
     </div>
-
-    <div class="gallery-item"
-         data-tag="portrait" data-type="photo"
-         data-src="https://bynithya.com/portfolio/img/vivek1.jpg"
-         data-caption="Vivek doom scrolling in West Virginia."
-         data-label="Portrait">
+    <div class="gallery-item" data-tag="portrait" data-type="photo" data-src="https://bynithya.com/portfolio/img/vivek1.jpg" data-caption="Vivek doom scrolling in West Virginia." data-label="Portrait">
       <img src="https://bynithya.com/portfolio/img/vivek1.jpg" alt="Vivek in West Virginia" loading="lazy" />
-      <div class="gallery-item-caption">
-        <span class="cap-tag">Portrait</span>
-        <p>Vivek doom scrolling in West Virginia</p>
-      </div>
+      <div class="gallery-item-caption"><span class="cap-tag">Portrait</span><p>Vivek doom scrolling in West Virginia</p></div>
     </div>
-
-    <div class="gallery-item"
-         data-tag="portrait" data-type="photo"
-         data-src="https://bynithya.com/portfolio/img/jules.jpg"
-         data-caption="Jules enjoying her free drink from Stone and Leaf in Davis Library at UNC Chapel Hill."
-         data-label="Portrait">
+    <div class="gallery-item" data-tag="portrait" data-type="photo" data-src="https://bynithya.com/portfolio/img/jules.jpg" data-caption="Jules enjoying her free drink from Stone and Leaf in Davis Library at UNC Chapel Hill." data-label="Portrait">
       <img src="https://bynithya.com/portfolio/img/jules.jpg" alt="Jules at Davis Library" loading="lazy" />
-      <div class="gallery-item-caption">
-        <span class="cap-tag">Portrait</span>
-        <p>Jules — free drink from Stone and Leaf, Davis Library</p>
-      </div>
+      <div class="gallery-item-caption"><span class="cap-tag">Portrait</span><p>Jules — free drink from Stone and Leaf, Davis Library</p></div>
     </div>
-
   </div>
 
-  <!-- ── SERIES: Documentary ── -->
   <div class="gallery-series-head reveal" data-series-tag="documentary">
     <h2 class="gallery-series-title">Documentary</h2>
     <span class="gallery-series-meta">Stories · Truth · Witness</span>
   </div>
 
   <div class="gallery-masonry" data-series="documentary">
-
-    <div class="gallery-item"
-         data-tag="documentary" data-type="photo"
-         data-src="https://bynithya.com/portfolio/img/amma1.jpg"
-         data-caption="My mom making pulihora while on vacation in West Virginia."
-         data-label="Documentary">
+    <div class="gallery-item" data-tag="documentary" data-type="photo" data-src="https://bynithya.com/portfolio/img/amma1.jpg" data-caption="My mom making pulihora while on vacation in West Virginia." data-label="Documentary">
       <img src="https://bynithya.com/portfolio/img/amma1.jpg" alt="Amma making pulihora" loading="lazy" />
-      <div class="gallery-item-caption">
-        <span class="cap-tag">Documentary</span>
-        <p>My mom making pulihora on vacation in West Virginia</p>
-      </div>
+      <div class="gallery-item-caption"><span class="cap-tag">Documentary</span><p>My mom making pulihora on vacation in West Virginia</p></div>
     </div>
-
-    <div class="gallery-item"
-         data-tag="documentary" data-type="photo"
-         data-src="https://bynithya.com/portfolio/img/man-praying.png"
-         data-caption="Man praying to Lord Hanuman at the Sri Venkateswara Temple in Cary, NC. Selected for UNC Asian American Center photo competition capturing Asian American culture, life, and struggles."
-         data-label="Documentary">
+    <div class="gallery-item" data-tag="documentary" data-type="photo" data-src="https://bynithya.com/portfolio/img/man-praying.png" data-caption="Man praying to Lord Hanuman at the Sri Venkateswara Temple in Cary, NC. Selected for UNC Asian American Center photo competition capturing Asian American culture, life, and struggles." data-label="Documentary">
       <img src="https://bynithya.com/portfolio/img/man-praying.png" alt="Man praying at temple" loading="lazy" />
-      <div class="gallery-item-caption">
-        <span class="cap-tag">Documentary · Nominee</span>
-        <p>Sri Venkateswara Temple, Cary, NC — UNC Asian American Center photo competition</p>
-      </div>
+      <div class="gallery-item-caption"><span class="cap-tag">Documentary · Nominee</span><p>Sri Venkateswara Temple, Cary, NC — UNC Asian American Center photo competition</p></div>
     </div>
-
-    <div class="gallery-item"
-         data-tag="documentary" data-type="photo"
-         data-src="https://bynithya.com/portfolio/img/yuwa2.jpg"
-         data-caption="Girls at the Yuwa school in Jharkhand, India."
-         data-label="Documentary">
+    <div class="gallery-item" data-tag="documentary" data-type="photo" data-src="https://bynithya.com/portfolio/img/yuwa2.jpg" data-caption="Girls at the Yuwa school in Jharkhand, India." data-label="Documentary">
       <img src="https://bynithya.com/portfolio/img/yuwa2.jpg" alt="Girls at Yuwa school" loading="lazy" />
-      <div class="gallery-item-caption">
-        <span class="cap-tag">Documentary</span>
-        <p>Yuwa school, Jharkhand, India</p>
-      </div>
+      <div class="gallery-item-caption"><span class="cap-tag">Documentary</span><p>Yuwa school, Jharkhand, India</p></div>
     </div>
-
-    <div class="gallery-item"
-         data-tag="documentary" data-type="photo"
-         data-src="https://bynithya.com/portfolio/img/yuwa3.jpg"
-         data-caption="Girls at the Yuwa school in Jharkhand, India."
-         data-label="Documentary">
+    <div class="gallery-item" data-tag="documentary" data-type="photo" data-src="https://bynithya.com/portfolio/img/yuwa3.jpg" data-caption="Girls at the Yuwa school in Jharkhand, India." data-label="Documentary">
       <img src="https://bynithya.com/portfolio/img/yuwa3.jpg" alt="Girls at Yuwa school" loading="lazy" />
-      <div class="gallery-item-caption">
-        <span class="cap-tag">Documentary</span>
-        <p>Yuwa school, Jharkhand, India</p>
-      </div>
+      <div class="gallery-item-caption"><span class="cap-tag">Documentary</span><p>Yuwa school, Jharkhand, India</p></div>
     </div>
-
-    <div class="gallery-item"
-         data-tag="documentary" data-type="photo"
-         data-src="https://bynithya.com/portfolio/img/bond.jpg"
-         data-caption="Bond Park in Cary, North Carolina — shot on a handicam."
-         data-label="Documentary">
+    <div class="gallery-item" data-tag="documentary" data-type="photo" data-src="https://bynithya.com/portfolio/img/bond.jpg" data-caption="Bond Park in Cary, North Carolina — shot on a handicam." data-label="Documentary">
       <img src="https://bynithya.com/portfolio/img/bond.jpg" alt="Bond Park on handicam" loading="lazy" />
-      <div class="gallery-item-caption">
-        <span class="cap-tag">Documentary</span>
-        <p>Bond Park, Cary NC — handicam</p>
-      </div>
+      <div class="gallery-item-caption"><span class="cap-tag">Documentary</span><p>Bond Park, Cary NC — handicam</p></div>
     </div>
-
   </div>
 
-  <!-- ── SERIES: Events ── -->
   <div class="gallery-series-head reveal" data-series-tag="event">
     <h2 class="gallery-series-title">Events &amp; Community</h2>
     <span class="gallery-series-meta">Celebration · Culture · People</span>
   </div>
 
   <div class="gallery-masonry" data-series="event">
-
-    <div class="gallery-item"
-         data-tag="event" data-type="photo"
-         data-src="https://bynithya.com/portfolio/img/samaa_seniors.jpg"
-         data-caption="Graduation photos of the Class of 2025 at UNC Chapel Hill."
-         data-label="Event">
+    <div class="gallery-item" data-tag="event" data-type="photo" data-src="https://bynithya.com/portfolio/img/samaa_seniors.jpg" data-caption="Graduation photos of the Class of 2025 at UNC Chapel Hill." data-label="Event">
       <img src="https://bynithya.com/portfolio/img/samaa_seniors.jpg" alt="SAMAA seniors" loading="lazy" />
-      <div class="gallery-item-caption">
-        <span class="cap-tag">Event</span>
-        <p>Class of 2025 — UNC Chapel Hill</p>
-      </div>
+      <div class="gallery-item-caption"><span class="cap-tag">Event</span><p>Class of 2025 — UNC Chapel Hill</p></div>
     </div>
-
-    <div class="gallery-item"
-         data-tag="event" data-type="photo"
-         data-src="https://bynithya.com/portfolio/img/holi1.jpg"
-         data-caption="Holi, the Hindu festival of color, celebrations at the Northwest YMCA."
-         data-label="Event">
+    <div class="gallery-item" data-tag="event" data-type="photo" data-src="https://bynithya.com/portfolio/img/holi1.jpg" data-caption="Holi, the Hindu festival of color, celebrations at the Northwest YMCA." data-label="Event">
       <img src="https://bynithya.com/portfolio/img/holi1.jpg" alt="Holi festival" loading="lazy" />
-      <div class="gallery-item-caption">
-        <span class="cap-tag">Event · Culture</span>
-        <p>Holi at the Northwest YMCA</p>
-      </div>
+      <div class="gallery-item-caption"><span class="cap-tag">Event · Culture</span><p>Holi at the Northwest YMCA</p></div>
     </div>
-
-    <div class="gallery-item"
-         data-tag="event" data-type="photo"
-         data-src="https://bynithya.com/portfolio/img/holi2.jpg"
-         data-caption="Holi, the Hindu festival of color, celebrations at the Northwest YMCA in Cary, NC."
-         data-label="Event">
+    <div class="gallery-item" data-tag="event" data-type="photo" data-src="https://bynithya.com/portfolio/img/holi2.jpg" data-caption="Holi, the Hindu festival of color, celebrations at the Northwest YMCA in Cary, NC." data-label="Event">
       <img src="https://bynithya.com/portfolio/img/holi2.jpg" alt="Holi festival 2" loading="lazy" />
-      <div class="gallery-item-caption">
-        <span class="cap-tag">Event · Culture</span>
-        <p>Holi — Northwest YMCA, Cary, NC</p>
-      </div>
+      <div class="gallery-item-caption"><span class="cap-tag">Event · Culture</span><p>Holi — Northwest YMCA, Cary, NC</p></div>
     </div>
-
-    <div class="gallery-item"
-         data-tag="event" data-type="photo"
-         data-src="https://bynithya.com/portfolio/img/bb-game.jpg"
-         data-caption="Carolina fans at the UNC women's basketball game. Tar heel born, bred, dead."
-         data-label="Event">
+    <div class="gallery-item" data-tag="event" data-type="photo" data-src="https://bynithya.com/portfolio/img/bb-game.jpg" data-caption="Carolina fans at the UNC women's basketball game. Tar heel born, bred, dead." data-label="Event">
       <img src="https://bynithya.com/portfolio/img/bb-game.jpg" alt="UNC basketball fans" loading="lazy" />
-      <div class="gallery-item-caption">
-        <span class="cap-tag">Event</span>
-        <p>Carolina fans — UNC women's basketball. Tar heel born, bred, dead.</p>
-      </div>
+      <div class="gallery-item-caption"><span class="cap-tag">Event</span><p>Carolina fans — UNC women's basketball. Tar heel born, bred, dead.</p></div>
     </div>
-
-    <div class="gallery-item"
-         data-tag="event" data-type="photo"
-         data-src="https://bynithya.com/portfolio/img/cheer.jpg"
-         data-caption="UNC cheerleaders at a women's basketball game."
-         data-label="Event">
+    <div class="gallery-item" data-tag="event" data-type="photo" data-src="https://bynithya.com/portfolio/img/cheer.jpg" data-caption="UNC cheerleaders at a women's basketball game." data-label="Event">
       <img src="https://bynithya.com/portfolio/img/cheer.jpg" alt="UNC cheerleaders" loading="lazy" />
-      <div class="gallery-item-caption">
-        <span class="cap-tag">Event</span>
-        <p>UNC cheerleaders — women's basketball</p>
-      </div>
+      <div class="gallery-item-caption"><span class="cap-tag">Event</span><p>UNC cheerleaders — women's basketball</p></div>
     </div>
-
-    <div class="gallery-item"
-         data-tag="event" data-type="photo"
-         data-src="https://bynithya.com/portfolio/img/futbol3.jpg"
-         data-caption="Recreation team Ball Hogs FC celebrating before halftime at a Saturday morning game."
-         data-label="Event">
+    <div class="gallery-item" data-tag="event" data-type="photo" data-src="https://bynithya.com/portfolio/img/futbol3.jpg" data-caption="Recreation team Ball Hogs FC celebrating before halftime at a Saturday morning game." data-label="Event">
       <img src="https://bynithya.com/portfolio/img/futbol3.jpg" alt="Ball Hogs FC soccer" loading="lazy" />
-      <div class="gallery-item-caption">
-        <span class="cap-tag">Event</span>
-        <p>Ball Hogs FC — Saturday morning halftime</p>
-      </div>
+      <div class="gallery-item-caption"><span class="cap-tag">Event</span><p>Ball Hogs FC — Saturday morning halftime</p></div>
     </div>
-
-    <div class="gallery-item"
-         data-tag="event" data-type="photo"
-         data-src="https://bynithya.com/portfolio/img/carson2.jpg"
-         data-caption="UNC Chapel Hill women's tennis team taking their iconic .5 selfie after winning the ACC title for their second consecutive year."
-         data-label="Event">
+    <div class="gallery-item" data-tag="event" data-type="photo" data-src="https://bynithya.com/portfolio/img/carson2.jpg" data-caption="UNC Chapel Hill women's tennis team taking their iconic .5 selfie after winning the ACC title for their second consecutive year." data-label="Event">
       <img src="https://bynithya.com/portfolio/img/carson2.jpg" alt="UNC tennis ACC champions" loading="lazy" />
-      <div class="gallery-item-caption">
-        <span class="cap-tag">Event · Sports</span>
-        <p>UNC women's tennis — 2× consecutive ACC champions</p>
-      </div>
+      <div class="gallery-item-caption"><span class="cap-tag">Event · Sports</span><p>UNC women's tennis — 2× consecutive ACC champions</p></div>
     </div>
-
-    <div class="gallery-item"
-         data-tag="event" data-type="photo"
-         data-src="https://bynithya.com/portfolio/img/carson3.jpg"
-         data-caption="Carson Tanguilig playing her senior day match while family, friends, teammates, and everyone who has been on this journey with her watches and cheers."
-         data-label="Event · Sports">
+    <div class="gallery-item" data-tag="event" data-type="photo" data-src="https://bynithya.com/portfolio/img/carson3.jpg" data-caption="Carson Tanguilig playing her senior day match while family, friends, teammates, and everyone who has been on this journey with her watches and cheers." data-label="Event · Sports">
       <img src="https://bynithya.com/portfolio/img/carson3.jpg" alt="Carson senior day" loading="lazy" />
-      <div class="gallery-item-caption">
-        <span class="cap-tag">Event · Sports</span>
-        <p>Carson Tanguilig — senior day match</p>
-      </div>
+      <div class="gallery-item-caption"><span class="cap-tag">Event · Sports</span><p>Carson Tanguilig — senior day match</p></div>
     </div>
-
-    <div class="gallery-item"
-         data-tag="event" data-type="photo"
-         data-src="https://bynithya.com/portfolio/img/carson7.jpg"
-         data-caption="Carson Tanguilig stretching and recovering after a long week of practice leading up to the NCAAs."
-         data-label="Event · Sports">
+    <div class="gallery-item" data-tag="event" data-type="photo" data-src="https://bynithya.com/portfolio/img/carson7.jpg" data-caption="Carson Tanguilig stretching and recovering after a long week of practice leading up to the NCAAs." data-label="Event · Sports">
       <img src="https://bynithya.com/portfolio/img/carson7.jpg" alt="Carson stretching" loading="lazy" />
-      <div class="gallery-item-caption">
-        <span class="cap-tag">Sports</span>
-        <p>Carson — recovering ahead of the NCAAs</p>
-      </div>
+      <div class="gallery-item-caption"><span class="cap-tag">Sports</span><p>Carson — recovering ahead of the NCAAs</p></div>
     </div>
-
   </div>
 
-  <!-- ── SERIES: Film / Video ── -->
   <div class="gallery-series-head reveal" data-series-tag="film">
     <h2 class="gallery-series-title">Film &amp; Video</h2>
     <span class="gallery-series-meta">Motion · Story · Time</span>
   </div>
 
   <div class="gallery-masonry" data-series="film">
-
-    <div class="gallery-item"
-         data-tag="film" data-type="gif"
-         data-src="https://bynithya.com/portfolio/vid/sparks-to-flames.gif"
-         data-caption="Sparks to Flames: it started as a conversation and I hope when this short video ends, you are left with a question or a thought — a spark."
-         data-label="Short Film">
+    <div class="gallery-item" data-tag="film" data-type="gif" data-src="https://bynithya.com/portfolio/vid/sparks-to-flames.gif" data-caption="Sparks to Flames: it started as a conversation and I hope when this short video ends, you are left with a question or a thought — a spark." data-label="Short Film">
       <img src="https://bynithya.com/portfolio/vid/sparks-to-flames.gif" alt="Sparks to Flames" loading="lazy" />
       <span class="media-badge video">GIF · Film</span>
-      <div class="gallery-item-caption">
-        <span class="cap-tag">Short Film</span>
-        <p>Sparks to Flames — a spark of a question</p>
-      </div>
+      <div class="gallery-item-caption"><span class="cap-tag">Short Film</span><p>Sparks to Flames — a spark of a question</p></div>
     </div>
-
-    <div class="gallery-item"
-         data-tag="film" data-type="gif"
-         data-src="https://bynithya.com/portfolio/vid/samaa_gif.gif"
-         data-caption="Intro video for UNC's premier South Asian competitive a cappella team."
-         data-label="Film · Production">
+    <div class="gallery-item" data-tag="film" data-type="gif" data-src="https://bynithya.com/portfolio/vid/samaa_gif.gif" data-caption="Intro video for UNC's premier South Asian competitive a cappella team." data-label="Film · Production">
       <img src="https://bynithya.com/portfolio/vid/samaa_gif.gif" alt="SAMAA intro video" loading="lazy" />
       <span class="media-badge video">GIF · Video</span>
-      <div class="gallery-item-caption">
-        <span class="cap-tag">Film · Production</span>
-        <p>Intro video — UNC South Asian competitive a cappella</p>
-      </div>
+      <div class="gallery-item-caption"><span class="cap-tag">Film · Production</span><p>Intro video — UNC South Asian competitive a cappella</p></div>
     </div>
-
-    <!--
-      TO ADD A REAL VIDEO:
-      <div class="gallery-item" data-tag="film" data-type="video"
-           data-video="path/to/video.mp4"
-           data-caption="Your caption here." data-label="Film">
-        <video src="path/to/video.mp4" muted playsinline preload="metadata"></video>
-        <span class="media-badge video">▶ Video</span>
-        <div class="gallery-item-caption">
-          <span class="cap-tag">Film</span><p>Your caption</p>
-        </div>
-      </div>
-    -->
-
   </div>
 
-  <!-- ── SERIES: Class of 2025 ── -->
   <div class="gallery-series-head reveal" data-series-tag="event">
     <h2 class="gallery-series-title">Class of 2025 — UNC</h2>
     <span class="gallery-series-meta">Seniors · Portraits · Celebration</span>
   </div>
 
   <div class="gallery-masonry" data-series="seniors">
-
-    <div class="gallery-item" data-tag="event" data-type="photo"
-         data-src="https://bynithya.com/portfolio/img/samaa_seniors5.jpg"
-         data-caption="Class of 2025 at UNC Chapel Hill." data-label="Event">
+    <div class="gallery-item" data-tag="event" data-type="photo" data-src="https://bynithya.com/portfolio/img/samaa_seniors5.jpg" data-caption="Class of 2025 at UNC Chapel Hill." data-label="Event">
       <img src="https://bynithya.com/portfolio/img/samaa_seniors5.jpg" alt="Class of 2025" loading="lazy" />
       <div class="gallery-item-caption"><span class="cap-tag">Event</span><p>Class of 2025 — UNC Chapel Hill</p></div>
     </div>
-
-    <div class="gallery-item" data-tag="event" data-type="photo"
-         data-src="https://bynithya.com/portfolio/img/sunthapal5.jpg"
-         data-caption="Class of 2025 at UNC Chapel Hill." data-label="Event">
+    <div class="gallery-item" data-tag="event" data-type="photo" data-src="https://bynithya.com/portfolio/img/sunthapal5.jpg" data-caption="Class of 2025 at UNC Chapel Hill." data-label="Event">
       <img src="https://bynithya.com/portfolio/img/sunthapal5.jpg" alt="Class of 2025" loading="lazy" />
       <div class="gallery-item-caption"><span class="cap-tag">Event</span><p>Class of 2025 — UNC Chapel Hill</p></div>
     </div>
-
-    <div class="gallery-item" data-tag="event" data-type="photo"
-         data-src="https://bynithya.com/portfolio/img/samaa_seniors2.jpg"
-         data-caption="Class of 2025 at UNC Chapel Hill." data-label="Event">
+    <div class="gallery-item" data-tag="event" data-type="photo" data-src="https://bynithya.com/portfolio/img/samaa_seniors2.jpg" data-caption="Class of 2025 at UNC Chapel Hill." data-label="Event">
       <img src="https://bynithya.com/portfolio/img/samaa_seniors2.jpg" alt="Class of 2025" loading="lazy" />
       <div class="gallery-item-caption"><span class="cap-tag">Event</span><p>Class of 2025 — UNC Chapel Hill</p></div>
     </div>
-
-    <div class="gallery-item" data-tag="event" data-type="photo"
-         data-src="https://bynithya.com/portfolio/img/sunthapal.jpg"
-         data-caption="Class of 2025 at UNC Chapel Hill." data-label="Event">
+    <div class="gallery-item" data-tag="event" data-type="photo" data-src="https://bynithya.com/portfolio/img/sunthapal.jpg" data-caption="Class of 2025 at UNC Chapel Hill." data-label="Event">
       <img src="https://bynithya.com/portfolio/img/sunthapal.jpg" alt="Class of 2025" loading="lazy" />
       <div class="gallery-item-caption"><span class="cap-tag">Event</span><p>Class of 2025 — UNC Chapel Hill</p></div>
     </div>
-
-    <div class="gallery-item" data-tag="event" data-type="photo"
-         data-src="https://bynithya.com/portfolio/img/sunthapal2.jpg"
-         data-caption="Class of 2025 at UNC Chapel Hill." data-label="Event">
+    <div class="gallery-item" data-tag="event" data-type="photo" data-src="https://bynithya.com/portfolio/img/sunthapal2.jpg" data-caption="Class of 2025 at UNC Chapel Hill." data-label="Event">
       <img src="https://bynithya.com/portfolio/img/sunthapal2.jpg" alt="Class of 2025" loading="lazy" />
       <div class="gallery-item-caption"><span class="cap-tag">Event</span><p>Class of 2025 — UNC Chapel Hill</p></div>
     </div>
-
-    <div class="gallery-item" data-tag="event" data-type="photo"
-         data-src="https://bynithya.com/portfolio/img/sunthapal4.jpg"
-         data-caption="Class of 2025 at UNC Chapel Hill." data-label="Event">
+    <div class="gallery-item" data-tag="event" data-type="photo" data-src="https://bynithya.com/portfolio/img/sunthapal4.jpg" data-caption="Class of 2025 at UNC Chapel Hill." data-label="Event">
       <img src="https://bynithya.com/portfolio/img/sunthapal4.jpg" alt="Class of 2025" loading="lazy" />
       <div class="gallery-item-caption"><span class="cap-tag">Event</span><p>Class of 2025 — UNC Chapel Hill</p></div>
     </div>
-
   </div>
 
 </main>
@@ -492,23 +280,20 @@
 <script src="js/global.js"></script>
 <script src="js/transitions.js"></script>
 <script>
-/* ── GALLERY LIGHTBOX ENGINE ── */
 (function() {
-  const lb       = document.getElementById('lightbox');
-  const lbMedia  = document.getElementById('lb-media');
-  const lbCap    = document.getElementById('lb-caption');
-  const lbClose  = document.getElementById('lb-close');
-  const lbPrev   = document.getElementById('lb-prev');
-  const lbNext   = document.getElementById('lb-next');
+  const lb = document.getElementById('lightbox');
+  const lbMedia = document.getElementById('lb-media');
+  const lbCap = document.getElementById('lb-caption');
+  const lbClose = document.getElementById('lb-close');
+  const lbPrev = document.getElementById('lb-prev');
+  const lbNext = document.getElementById('lb-next');
 
   let currentItems = [];
   let currentIndex = 0;
 
   function getVisibleItems() {
-    return Array.from(document.querySelectorAll('.gallery-item'))
-      .filter(el => el.style.display !== 'none');
+    return Array.from(document.querySelectorAll('.gallery-item')).filter(el => el.style.display !== 'none');
   }
-
   function openLightbox(item, items) {
     currentItems = items;
     currentIndex = items.indexOf(item);
@@ -516,22 +301,19 @@
     lb.classList.add('open');
     document.body.style.overflow = 'hidden';
   }
-
   function closeLightbox() {
     lb.classList.remove('open');
     document.body.style.overflow = '';
     lbMedia.innerHTML = '';
   }
-
   function showItem(idx) {
     const item = currentItems[idx];
     if (!item) return;
-    const src     = item.dataset.src;
-    const cap     = item.dataset.caption || '';
-    const label   = item.dataset.label   || '';
-    const type    = item.dataset.type    || 'photo';
-    const vidSrc  = item.dataset.video   || '';
-
+    const src = item.dataset.src;
+    const cap = item.dataset.caption || '';
+    const label = item.dataset.label || '';
+    const type = item.dataset.type || 'photo';
+    const vidSrc = item.dataset.video || '';
     if (type === 'video' && vidSrc) {
       lbMedia.innerHTML = `<video src="${vidSrc}" controls autoplay muted playsinline style="max-width:100%;max-height:78vh;display:block;margin:0 auto;"></video>`;
     } else {
@@ -541,33 +323,19 @@
   }
 
   document.querySelectorAll('.gallery-item').forEach(item => {
-    item.addEventListener('click', () => {
-      openLightbox(item, getVisibleItems());
-    });
+    item.addEventListener('click', () => openLightbox(item, getVisibleItems()));
   });
-
   lbClose.addEventListener('click', closeLightbox);
   lb.addEventListener('click', e => { if (e.target === lb) closeLightbox(); });
-
-  lbPrev.addEventListener('click', e => {
-    e.stopPropagation();
-    currentIndex = (currentIndex - 1 + currentItems.length) % currentItems.length;
-    showItem(currentIndex);
-  });
-  lbNext.addEventListener('click', e => {
-    e.stopPropagation();
-    currentIndex = (currentIndex + 1) % currentItems.length;
-    showItem(currentIndex);
-  });
-
+  lbPrev.addEventListener('click', e => { e.stopPropagation(); currentIndex=(currentIndex-1+currentItems.length)%currentItems.length; showItem(currentIndex); });
+  lbNext.addEventListener('click', e => { e.stopPropagation(); currentIndex=(currentIndex+1)%currentItems.length; showItem(currentIndex); });
   document.addEventListener('keydown', e => {
     if (!lb.classList.contains('open')) return;
-    if (e.key === 'Escape')      closeLightbox();
-    if (e.key === 'ArrowLeft')   { currentIndex = (currentIndex-1+currentItems.length)%currentItems.length; showItem(currentIndex); }
-    if (e.key === 'ArrowRight')  { currentIndex = (currentIndex+1)%currentItems.length; showItem(currentIndex); }
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowLeft')  { currentIndex=(currentIndex-1+currentItems.length)%currentItems.length; showItem(currentIndex); }
+    if (e.key === 'ArrowRight') { currentIndex=(currentIndex+1)%currentItems.length; showItem(currentIndex); }
   });
 
-  /* ── FILTER ── */
   const filterBtns = document.querySelectorAll('.gfilter-btn');
   filterBtns.forEach(btn => {
     btn.addEventListener('click', () => {
@@ -577,7 +345,6 @@
       document.querySelectorAll('.gallery-item').forEach(item => {
         item.style.display = (tag === 'all' || item.dataset.tag === tag) ? '' : 'none';
       });
-      /* Hide/show series headers */
       document.querySelectorAll('.gallery-series-head').forEach(h => {
         const seriesTag = h.dataset.seriesTag;
         h.style.display = (tag === 'all' || seriesTag === tag) ? '' : 'none';
@@ -585,12 +352,10 @@
     });
   });
 
-  /* ── VIDEO autoplay on hover ── */
   document.querySelectorAll('.gallery-item video').forEach(v => {
     v.parentElement.addEventListener('mouseenter', () => v.play());
     v.parentElement.addEventListener('mouseleave', () => { v.pause(); v.currentTime = 0; });
   });
-
 })();
 </script>
 </body>

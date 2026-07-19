@@ -1,87 +1,14 @@
 /* ═══════════════════════════════════════════════════════════
    transitions.css
-   Page transition curtain, image morph, and motion polish
+   Motion polish — no full-page curtain/glitch anymore, just
+   tasteful hover and scroll detail.
    Add: <link rel="stylesheet" href="css/transitions.css" />
    in <head> of every HTML file, before closing </head>
 ═══════════════════════════════════════════════════════════ */
 
-/* ── Curtain panels ──────────────────────────────────────── */
-#pg-curtain {
-  position: fixed;
-  inset: 0;
-  z-index: 10000;
-  pointer-events: none;
-  display: flex;
-  flex-direction: column;
-}
-
-.pg-panel {
-  flex: 1;
-  background: var(--ink, #1a1a1a);
-  transform: scaleY(0);
-  transform-origin: bottom;
-  will-change: transform;
-}
-
-.pg-panel-b {
-  transform-origin: top;
-}
-
-/* ── Enter: curtains already closed, then open outward ───── */
-#pg-curtain.is-entering .pg-panel {
-  transform: scaleY(1);
-  transition: none;
-}
-
-#pg-curtain.is-open .pg-panel-a {
-  transform: scaleY(0);
-  transition: transform 0.65s cubic-bezier(0.77, 0, 0.18, 1) 0.05s;
-  transform-origin: top;
-}
-
-#pg-curtain.is-open .pg-panel-b {
-  transform: scaleY(0);
-  transition: transform 0.65s cubic-bezier(0.77, 0, 0.18, 1) 0.1s;
-  transform-origin: bottom;
-}
-
-#pg-curtain.is-done {
-  display: none;
-}
-
-/* ── Exit: curtains slam closed ──────────────────────────── */
-#pg-curtain.is-exiting .pg-panel-a {
-  transform: scaleY(1);
-  transition: transform 0.5s cubic-bezier(0.77, 0, 0.18, 1);
-  transform-origin: bottom;
-}
-
-#pg-curtain.is-exiting .pg-panel-b {
-  transform: scaleY(1);
-  transition: transform 0.5s cubic-bezier(0.77, 0, 0.18, 1) 0.04s;
-  transform-origin: top;
-}
-
-/* ── Morph layer ─────────────────────────────────────────── */
+/* ── Morph layer (used by the project-card click transition) ── */
 #pg-morph {
   border-radius: 0 !important;
-}
-
-/* ── Page body: start invisible, fade in after curtain ────── */
-body {
-  opacity: 0;
-  transition: opacity 0.01s;
-}
-
-body.pg-ready {
-  opacity: 1;
-  transition: opacity 0.35s ease 0.15s;
-}
-
-/* ── Hero name lines: start hidden for scramble ──────────── */
-.hero-name .name-line {
-  display: inline-block;
-  overflow: hidden;
 }
 
 /* ── Card hover: scale + shadow lift ────────────────────── */
@@ -117,7 +44,7 @@ body.pg-ready {
   position: absolute;
   left: 0; top: 0; bottom: 0;
   width: 3px;
-  background: var(--magenta, #e8006e);
+  background: var(--orange, #f05e1c);
   transform: scaleY(0);
   transform-origin: bottom;
   transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
@@ -145,7 +72,6 @@ body.pg-ready {
   opacity: 1;
 }
 
-/* Stagger via existing rd1/rd2 delay pattern */
 .nijam-card.rd1 { transition-delay: 0.12s; }
 .nijam-card.rd2 { transition-delay: 0.24s; }
 
@@ -225,15 +151,13 @@ body.pg-ready {
   100% { transform: translateY(0px); }
 }
 
-/* ── Cursor bloom (if not already in tokens.css) ─────────── */
+/* ── Cursor bloom ─────────────────────────────────────────── */
 #cursor {
   transition: transform 0.15s ease, opacity 0.2s ease, background 0.2s ease;
 }
 
 /* ── Reduced motion: strip everything ───────────────────── */
 @media (prefers-reduced-motion: reduce) {
-  #pg-curtain,
-  #pg-morph,
   .reveal,
   .card,
   .card img,
@@ -246,6 +170,4 @@ body.pg-ready {
     transform: none !important;
     opacity: 1 !important;
   }
-
-  body { opacity: 1 !important; }
 }
