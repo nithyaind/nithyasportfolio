@@ -56,45 +56,46 @@
 <section class="landing-hero" id="landing-hero">
   <div class="landing-hero-sticky">
 
-    <div class="scatter-grid">
+    <div class="scatter-grid" id="scatter-grid">
 
-      <div class="scatter-item" style="--sx:12%; --sy:20%; --srot:-6deg;" data-cursor="Tony's Kitchen Lab →" data-href="https://food-for-thought-six.vercel.app/">
+      <div class="scatter-item" style="--sx:12%; --sy:20%;" data-cursor="Tony's Kitchen Lab →" data-href="https://food-for-thought-six.vercel.app/">
         <!-- REPLACE with a real still from this project -->
         <img src="assets/images/tonys-lab.gif" alt="Tony's Kitchen Lab" loading="lazy" />
         <span class="scatter-cap">Tony's Kitchen Lab</span>
       </div>
 
-      <div class="scatter-item" style="--sx:82%; --sy:16%; --srot:5deg;" data-cursor="Since 20/20 →" data-href="https://light-drab-psi.vercel.app/">
+      <div class="scatter-item" style="--sx:82%; --sy:16%;" data-cursor="Since 20/20 →" data-href="https://light-drab-psi.vercel.app/">
         <img src="assets/images/since-2020.JPG" alt="Since 20/20" loading="lazy" />
         <span class="scatter-cap">Since 20/20</span>
       </div>
 
-      <div class="scatter-item" style="--sx:88%; --sy:62%; --srot:-4deg;" data-cursor="Air Guitar →" data-href="archive/air-guitar/index.html">
+      <div class="scatter-item" style="--sx:88%; --sy:62%;" data-cursor="Air Guitar →" data-href="archive/air-guitar/index.html">
         <img src="assets/images/proj-blue.jpg" alt="Air Guitar" loading="lazy" />
         <span class="scatter-cap">Air Guitar</span>
       </div>
 
-      <div class="scatter-item" style="--sx:10%; --sy:70%; --srot:4deg;" data-cursor="Algorithmic Journalism →" data-href="nijam-posts/algo-journalism.html">
+      <div class="scatter-item" style="--sx:10%; --sy:70%;" data-cursor="Algorithmic Journalism →" data-href="nijam-posts/algo-journalism.html">
         <img src="assets/images/proj-algo.jpg" alt="Algorithmic Journalism Ethics" loading="lazy" />
         <span class="scatter-cap">Algorithmic Journalism</span>
       </div>
 
-      <div class="scatter-item" style="--sx:62%; --sy:86%; --srot:-3deg;" data-cursor="Responsible Fintech →" data-href="archive.html">
+      <div class="scatter-item" style="--sx:62%; --sy:86%;" data-cursor="Responsible Fintech →" data-href="archive.html">
         <img src="assets/images/proj-fidelity.jpg" alt="Responsible Fintech at Fidelity" loading="lazy" />
         <span class="scatter-cap">Responsible Fintech</span>
       </div>
 
-      <!-- the one that zooms — centered -->
-      <div class="scatter-item scatter-hero" id="scatter-hero" style="--sx:50%; --sy:52%; --srot:-2deg;">
+      <!-- the one that zooms — centered, never spirals, just scales -->
+      <div class="scatter-item scatter-hero" id="scatter-hero" style="--sx:50%; --sy:52%;">
         <img src="assets/images/nijam-hero.jpg" alt="Featured work" loading="lazy" />
         <div class="scatter-hero-overlay"></div>
       </div>
 
     </div>
 
+    <!-- Hidden at rest — only appears once you start scrolling, word by word -->
     <div class="landing-headline" id="landing-headline">
-      <p class="landing-eyebrow">Multimedia Journalist · Filmmaker · Engineer</p>
-      <h1>Stories built to be <em>stepped inside</em>.</h1>
+      <p class="landing-eyebrow" id="landing-eyebrow">Multimedia Journalist · Filmmaker · Engineer</p>
+      <h1 id="landing-headline-text"></h1>
     </div>
 
     <div class="landing-name" id="landing-name">
