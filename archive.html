@@ -143,7 +143,11 @@ const TECH_PROJECTS = [
     status:  "In Progress",
     link:    "",
     image:   "assets/images/proj-fidelity.jpg",
-    desc:    "Internship project exploring how financial technology tools can be designed ethically — surfacing insights about algorithmic bias in investment recommendations.",
+    role:    "SWE Intern",
+    context: "Fidelity Investments · Summer internship",
+    why:     "Financial tools quietly encode bias into who gets flagged, recommended, or overlooked — I wanted to catch that before it shipped, not after.",
+    what:    "An internal auditing layer that surfaces where investment-recommendation logic disproportionately affects specific account types, before it reaches a customer.",
+    how:     "Built in React and Python, with a data-viz layer that lets the compliance team spot outliers without reading raw model output line by line.",
     extLink: "",
     extHref: ""
   },
@@ -155,7 +159,11 @@ const TECH_PROJECTS = [
     status:  "Live",
     link:    "nijam-posts/algo-journalism.html",
     image:   "assets/images/proj-algo.jpg",
-    desc:    "An investigative essay examining how AI-driven editorial tools shape which communities get covered — and which don't.",
+    role:    "Reporter & researcher",
+    context: "Independent investigative essay",
+    why:     "Newsrooms are quietly outsourcing 'what's newsworthy' to algorithms trained on past coverage — which means the communities that were never covered stay uncovered.",
+    what:    "A reported essay tracing how AI-assisted editorial tools reproduce existing coverage gaps, grounded in concrete newsroom examples.",
+    how:     "Interviews with local editors, a review of public editorial-tool documentation, and a before/after comparison of coverage patterns once AI-assisted triage was adopted.",
     extLink: "Read →",
     extHref: "nijam-posts/algo-journalism.html"
   },
@@ -167,7 +175,11 @@ const TECH_PROJECTS = [
     status:  "Live",
     link:    "archive/air-guitar/index.html",
     image:   "assets/images/proj-blue.jpg",
-    desc:    "A webcam hand-tracking instrument — pinch your left hand to hold a chord, close your right fist to strum it, all synthesized live with the Web Audio API.",
+    role:    "Solo builder",
+    context: "Personal project",
+    why:     "I wanted to know if a browser tab and a webcam could give someone the feeling of playing an instrument, with zero hardware and zero cost.",
+    what:    "A webcam-based instrument — pinch your left hand to hold a chord, close your right fist to strum it, no download required.",
+    how:     "MediaPipe Hands for landmark tracking, the Web Audio API for a plucked-string synth (staggered oscillators per string), pure vanilla JS end to end.",
     extLink: "Play →",
     extHref: "archive/air-guitar/index.html"
   },
@@ -179,7 +191,11 @@ const TECH_PROJECTS = [
     status:  "Live",
     link:    "nijam.html",
     image:   "",
-    desc:    "A data-driven newspaper page with broadsheet layout, filter system, and animated scroll reveals. Posts are added by editing a single JavaScript array.",
+    role:    "Solo builder & writer",
+    context: "Personal publishing platform",
+    why:     "I wanted somewhere to publish that felt like mine, not a template — and honest enough to hold unfinished thinking, not just polished takes.",
+    what:    "A newspaper-style personal blog with a broadsheet layout, live tag filtering, and a publishing workflow that's just editing one JavaScript array.",
+    how:     "Vanilla HTML/CSS/JS, IntersectionObserver-driven scroll reveals, and a deliberately no-CMS setup so nothing sits between me and hitting publish.",
     extLink: "Open →",
     extHref: "nijam.html"
   },
@@ -191,7 +207,11 @@ const TECH_PROJECTS = [
     status:  "Live",
     link:    "#",
     image:   "assets/images/proj-unc.jpg",
-    desc:    "REPLACE: Describe your first major journalism piece here — beat, scope, and what you discovered.",
+    role:    "REPLACE: your role (reporter / producer / etc.)",
+    context: "REPLACE: publication or course this was for",
+    why:     "REPLACE: the question or problem that sent you after this story in the first place.",
+    what:    "REPLACE: what the finished piece actually is, in one sentence.",
+    how:     "REPLACE: your process — who you talked to, what records or data you used, how long it took.",
     extLink: "Read →",
     extHref: "#"
   }
@@ -247,7 +267,27 @@ function buildTechProjects() {
           ${expandImg}
           <div>
             <div class="expand-title">${p.name}</div>
-            <p class="expand-desc">${p.desc}</p>
+
+            <div class="expand-meta">
+              <span class="expand-meta-item"><span class="expand-meta-label">Who</span>${p.role}</span>
+              <span class="expand-meta-item"><span class="expand-meta-label">When</span>${p.year}</span>
+              <span class="expand-meta-item"><span class="expand-meta-label">Where</span>${p.context}</span>
+            </div>
+
+            <div class="expand-block expand-why">
+              <p class="expand-block-label">Why</p>
+              <p>${p.why}</p>
+            </div>
+            <div class="expand-block">
+              <p class="expand-block-label">What</p>
+              <p>${p.what}</p>
+            </div>
+            <div class="expand-block">
+              <p class="expand-block-label">How</p>
+              <p>${p.how}</p>
+            </div>
+
+            <div class="project-row-tools" style="margin-bottom:16px;">${toolChips}</div>
             <div class="expand-links">${expandLinks.join('')}</div>
           </div>
         </div>
