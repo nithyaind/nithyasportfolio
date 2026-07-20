@@ -171,28 +171,7 @@ document.addEventListener('DOMContentLoaded', () => {
     t.addEventListener('mouseleave', ()=>t.style.animationPlayState='running');
   });
 
-  /* ── "RIGHT NOW" FOOTER WIDGET ──
-     Auto-injects into every .site-footer, right above the
-     copyright line. Nothing to add to the HTML — just keep the
-     NOW_STATUS object at the top of this file up to date. */
-  const footer = document.querySelector('.site-footer');
-  if (footer) {
-    const bottomBar = footer.querySelector('.footer-bottom');
-    const strip = document.createElement('div');
-    strip.className = 'now-strip';
-    strip.innerHTML = `
-      <span class="now-label"><span class="now-dot"></span>Right now</span>
-      <span class="now-item">📷 Shooting <em>${NOW_STATUS.shooting}</em></span>
-      <span class="now-item">📖 Reading <em>${NOW_STATUS.reading}</em></span>
-      <span class="now-item">💻 Building <em>${NOW_STATUS.building}</em></span>
-    `;
-    if (bottomBar) {
-      footer.querySelector('.footer-grid')?.insertAdjacentElement('afterend', strip);
-    } else {
-      footer.appendChild(strip);
-    }
-  }
-
+  
   /* ── GRACEFUL FALLBACK FOR MISSING/PLACEHOLDER IMAGES ──
      Several image paths in this project are still content
      placeholders (see README "Content You Still Need to Write").
