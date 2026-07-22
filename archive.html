@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Archive — Nithya Sunkara Indlamuri</title>
-  <meta name="description" content="Archival projects — innovation, tech, journalism, film, and photography by Nithya Sunkara Indlamuri." />
+  <title>Projects — Nithya Sunkara Indlamuri</title>
+  <meta name="description" content="Projects — software, journalism, and interactive builds by Nithya Sunkara Indlamuri." />
   <link rel="stylesheet" href="css/tokens.css" />
   <link rel="stylesheet" href="css/archive.css" />
   <link rel="stylesheet" href="css/transitions.css" />
@@ -33,11 +33,10 @@
       <div class="nav-link has-drop">
         Work
         <div class="nav-dropdown">
-          <a href="archive.html">Innovation / Tech</a>
+          <a href="archive.html" class="nav-dropdown-featured">PROJECTS</a>
           <a href="gallery.html">Film / Photo</a>
         </div>
       </div>
-      <a href="archive.html" class="nav-link">Archive</a>
       <a href="nijam.html" class="nav-link nijam-link">నిజము [Nijam]</a>
       <a href="about.html" class="nav-link">About</a>
       <a href="mailto:nithya.indla8@gmail.com" class="nav-link">Contact</a>
@@ -49,58 +48,24 @@
 <!-- ════ HERO ════ -->
 <header class="page-hero">
   <div class="page-hero-inner">
-    <p class="page-hero-eyebrow">Every project · Every experiment · Every story</p>
+    <p class="page-hero-eyebrow">Every build · Every internship · Every story</p>
     <h1 class="page-hero-title">
-      <div class="line"><span>ARCHI</span></div>
-      <div class="line"><span><em>VE</em></span></div>
+      <div class="line"><span>PROJ</span></div>
+      <div class="line"><span><em>ECTS</em></span></div>
     </h1>
     <p class="page-hero-sub">
-      Innovation and tech work, journalism projects, documentary film,
-      photography, and creative experiments — all of it lives here.
+      Software, journalism, and interactive builds — plus the
+      internships and roles that shaped them. All of it lives here.
+      Looking for film and photography? That lives on its own
+      <a href="gallery.html" style="color:var(--orange); text-decoration:underline; text-underline-offset:3px;">Film / Photo</a> page.
     </p>
   </div>
 </header>
 
-<!-- ════ TABS ════ -->
-<div style="border-bottom:1.5px solid var(--ink);">
-  <div class="tab-bar" id="tab-bar">
-    <button class="tab-btn active" data-tab="tech">Innovation &amp; Tech</button>
-    <button class="tab-btn" data-tab="gallery" id="gallery-tab-btn">Film &amp; Photo</button>
-  </div>
-</div>
-
-<!-- TAB 1: TECH / INNOVATECH ARCHIVE -->
+<!-- ════ PROJECTS LIST ════ -->
 <section class="archive-section active" id="tab-tech">
   <div id="tech-projects"></div>
 </section>
-
-<!-- TAB 2: FILM & PHOTO GALLERY PREVIEW -->
-<section class="gallery-section" id="gallery">
-  <div style="max-width:var(--max-w);margin:0 auto;padding:40px var(--gutter) 0;">
-    <div class="sec-header">
-      <div>
-        <p class="sec-eyebrow">Visual work</p>
-        <h2 class="sec-title" style="font-size:clamp(24px,3.5vw,40px);">Film &amp; <em>Photography</em></h2>
-      </div>
-      <a href="gallery.html" class="see-all">Full gallery →</a>
-    </div>
-  </div>
-  <div style="max-width:var(--max-w);margin:0 auto;padding:0 var(--gutter);">
-    <div class="gallery-grid" id="gallery-grid"></div>
-  </div>
-</section>
-
-<!-- ════ LIGHTBOX ════ -->
-<div class="lightbox" id="lightbox" role="dialog" aria-modal="true">
-  <button class="lightbox-close" id="lb-close">Close ✕</button>
-  <button class="lightbox-prev" id="lb-prev">← Prev</button>
-  <div id="lb-media"></div>
-  <button class="lightbox-next" id="lb-next">Next →</button>
-  <div class="lightbox-caption">
-    <div class="lightbox-title" id="lb-title"></div>
-    <div class="lightbox-desc"  id="lb-desc"></div>
-  </div>
-</div>
 
 <!-- ════ FOOTER ════ -->
 <footer class="site-footer">
@@ -134,10 +99,23 @@
 <script src="js/global.js"></script>
 <script src="js/transitions.js"></script>
 <script>
+/* ════════════════════════════════════════════════════════════════
+   ✏️  HOW TO ADD AN INTERNSHIP
+   ════════════════════════════════════════════════════════════════
+   Same shape as a regular project object, plus one extra field:
+
+     internship: true
+
+   That flag alone gives the row its light-orange highlight and an
+   "Internship" tag next to the role — no other markup or CSS to
+   touch. Reuse this for every internship you add; they'll all get
+   the same treatment automatically, grouped under their own year.
+   ════════════════════════════════════════════════════════════════ */
+
 const TECH_PROJECTS = [
   {
-    name:    "Responsible Fintech at Fidelity",
-    type:    "SWE / Journalism",
+    name:    "SWE Intern — Fidelity Investments",
+    type:    "Software Engineering Internship",
     tools:   ["React", "Python", "Data Viz"],
     year:    "2025",
     status:  "In Progress",
@@ -145,6 +123,7 @@ const TECH_PROJECTS = [
     image:   "assets/images/proj-fidelity.jpg",
     role:    "SWE Intern",
     context: "Fidelity Investments · Summer internship",
+    internship: true,
     why:     "Financial tools quietly encode bias into who gets flagged, recommended, or overlooked — I wanted to catch that before it shipped, not after.",
     what:    "An internal auditing layer that surfaces where investment-recommendation logic disproportionately affects specific account types, before it reaches a customer.",
     how:     "Built in React and Python, with a data-viz layer that lets the compliance team spot outliers without reading raw model output line by line.",
@@ -173,7 +152,7 @@ const TECH_PROJECTS = [
     tools:   ["MediaPipe", "Web Audio API", "JS"],
     year:    "2025",
     status:  "Live",
-    link:    "https://nithyasportfolio.vercel.app/archive/air-guitar/index.html",
+    link:    "archive/air-guitar/index.html",
     image:   "assets/images/proj-blue.jpg",
     role:    "Solo builder",
     context: "Personal project",
@@ -181,7 +160,7 @@ const TECH_PROJECTS = [
     what:    "A webcam-based instrument — pinch your left hand to hold a chord, close your right fist to strum it, no download required.",
     how:     "MediaPipe Hands for landmark tracking, the Web Audio API for a plucked-string synth (staggered oscillators per string), pure vanilla JS end to end.",
     extLink: "Play →",
-    extHref: "https://nithyasportfolio.vercel.app/archive/air-guitar/index.html"
+    extHref: "archive/air-guitar/index.html"
   },
   {
     name:    "నిజము [Nijam] Newspaper",
@@ -215,17 +194,27 @@ const TECH_PROJECTS = [
     extLink: "Read →",
     extHref: "#"
   }
-];
 
-const GALLERY_ITEMS = [
-  { title: "Chapel Hill, 6am", desc: "Early morning light on Franklin Street. Canon R50.", type: "photo", src: "assets/images/gallery-1.jpg", thumb: "assets/images/gallery-1.jpg", year: "2025" },
-  { title: "On the court", desc: "State tournament. My brother serves.", type: "photo", src: "assets/images/gallery-2.jpg", thumb: "assets/images/gallery-2.jpg", year: "2024" },
-  { title: "Cabbage Beach", desc: "Nassau, Bahamas. The cruise that surprised everyone.", type: "photo", src: "assets/images/gallery-3.jpg", thumb: "assets/images/gallery-3.jpg", year: "2023" },
-  { title: "Short Film — [TITLE]", desc: "REPLACE: your film description here.", type: "video", src: "assets/vid/film-1.mp4", thumb: "assets/images/gallery-4.jpg", year: "2025" },
-  { title: "Thathamma", desc: "Fields outside Hyderabad. Everyone says I look like her.", type: "photo", src: "assets/images/gallery-5.jpg", thumb: "assets/images/gallery-5.jpg", year: "2023" },
-  { title: "Blue Walls", desc: "Our living room. Still bare, always brimming.", type: "photo", src: "assets/images/gallery-6.jpg", thumb: "assets/images/gallery-6.jpg", year: "2024" },
-  { title: "Documentary — [TITLE]", desc: "REPLACE: your documentary description.", type: "video", src: "assets/vid/doc-1.mp4", thumb: "assets/images/gallery-7.jpg", year: "2024" },
-  { title: "UNC Campus", desc: "Carolina Blue. My new world.", type: "photo", src: "assets/images/gallery-8.jpg", thumb: "assets/images/gallery-8.jpg", year: "2025" }
+  /* REPLACE / ADD your other internships here, same shape as the
+     Fidelity entry above, each with internship: true. Example:
+  {
+    name:    "REPLACE — Company Name",
+    type:    "Internship Title",
+    tools:   ["Tool 1", "Tool 2"],
+    year:    "2024",
+    status:  "Live",
+    link:    "",
+    image:   "assets/images/REPLACE.jpg",
+    role:    "REPLACE: your title",
+    context: "REPLACE: Company · season/duration",
+    internship: true,
+    why:     "REPLACE",
+    what:    "REPLACE",
+    how:     "REPLACE",
+    extLink: "",
+    extHref: ""
+  },
+  */
 ];
 
 function buildTechProjects() {
@@ -244,11 +233,15 @@ function buildTechProjects() {
       const linkCell  = p.link
         ? `<span class="project-row-link" data-href="${p.link}" onclick="event.stopPropagation();window.open('${p.link}','_blank')">View ↗</span>`
         : `<span style="color:var(--muted);font-family:var(--font-mono);font-size:10px;text-align:right;">${p.status}</span>`;
+      const rowClass = p.internship ? 'project-row is-internship reveal' : 'project-row reveal';
+      const nameCell = p.internship
+        ? `<span class="project-row-name">${p.name}<span class="internship-tag">Internship</span></span>`
+        : `<span class="project-row-name">${p.name}</span>`;
 
       html += `
-      <div class="project-row reveal" data-idx="${globalIdx}" data-preview="${p.image}" onclick="toggleExpand(this)">
+      <div class="${rowClass}" data-idx="${globalIdx}" data-preview="${p.image}" onclick="toggleExpand(this)">
         <span class="project-row-num">${String(globalIdx).padStart(2,'0')}</span>
-        <span class="project-row-name">${p.name}</span>
+        ${nameCell}
         <span class="project-row-type">${p.type}</span>
         <div class="project-row-tools">${toolChips}</div>
         ${linkCell}
@@ -262,7 +255,7 @@ function buildTechProjects() {
       if (p.extLink && p.extHref) expandLinks.push(`<a href="${p.extHref}" target="_blank" rel="noopener" class="btn btn-outline" style="font-size:10px;padding:9px 18px;">${p.extLink}</a>`);
 
       html += `
-      <div class="project-expand" id="expand-${globalIdx}">
+      <div class="project-expand${p.internship ? ' is-internship' : ''}" id="expand-${globalIdx}">
         <div class="project-expand-inner">
           ${expandImg}
           <div>
@@ -307,65 +300,6 @@ function toggleExpand(row) {
   if (!isOpen) panel.classList.add('open');
 }
 
-let currentLBIdx = 0;
-function buildGallery() {
-  const grid = document.getElementById('gallery-grid');
-  grid.innerHTML = GALLERY_ITEMS.map((item, i) => `
-    <div class="gallery-item ${item.type==='video'?'is-video':''}" style="transition-delay:${(i%4)*0.07}s" onclick="openLightbox(${i})">
-      <img src="${item.thumb}" alt="${item.title}" loading="lazy" />
-      <div class="gallery-item-overlay">
-        <div class="gallery-item-title">${item.title}</div>
-        <div class="gallery-item-meta">${item.type.toUpperCase()} · ${item.year}</div>
-      </div>
-    </div>`).join('');
-}
-function openLightbox(idx) {
-  currentLBIdx = idx; renderLB();
-  document.getElementById('lightbox').classList.add('open');
-  document.body.style.overflow = 'hidden';
-}
-function closeLightbox() {
-  document.getElementById('lightbox').classList.remove('open');
-  document.body.style.overflow = '';
-  document.getElementById('lb-media').innerHTML = '';
-}
-function renderLB() {
-  const item = GALLERY_ITEMS[currentLBIdx];
-  const med = document.getElementById('lb-media');
-  med.innerHTML = item.type === 'video'
-    ? `<video class="lightbox-media" src="${item.src}" controls autoplay></video>`
-    : `<img class="lightbox-media" src="${item.src}" alt="${item.title}" />`;
-  document.getElementById('lb-title').textContent = item.title;
-  document.getElementById('lb-desc').textContent = item.desc;
-}
-document.getElementById('lb-close').onclick = closeLightbox;
-document.getElementById('lb-prev').onclick = () => { currentLBIdx=(currentLBIdx-1+GALLERY_ITEMS.length)%GALLERY_ITEMS.length; renderLB(); };
-document.getElementById('lb-next').onclick = () => { currentLBIdx=(currentLBIdx+1)%GALLERY_ITEMS.length; renderLB(); };
-document.getElementById('lightbox').addEventListener('click', e => { if (e.target === document.getElementById('lightbox')) closeLightbox(); });
-document.addEventListener('keydown', e => {
-  if (!document.getElementById('lightbox').classList.contains('open')) return;
-  if (e.key === 'Escape') closeLightbox();
-  if (e.key === 'ArrowLeft')  { currentLBIdx=(currentLBIdx-1+GALLERY_ITEMS.length)%GALLERY_ITEMS.length; renderLB(); }
-  if (e.key === 'ArrowRight') { currentLBIdx=(currentLBIdx+1)%GALLERY_ITEMS.length; renderLB(); }
-});
-
-function activateTab(tab) {
-  document.querySelectorAll('.tab-btn').forEach(b => b.classList.toggle('active', b.dataset.tab === tab));
-  document.querySelectorAll('.archive-section,.gallery-section').forEach(s => s.classList.remove('active'));
-  if (tab === 'gallery') {
-    document.getElementById('gallery').classList.add('active');
-    setTimeout(() => {
-      const ro3 = new IntersectionObserver(entries => {
-        entries.forEach(e => { if(e.isIntersecting){e.target.classList.add('visible');ro3.unobserve(e.target);} });
-      }, {threshold:.05});
-      document.querySelectorAll('.gallery-item').forEach(el => ro3.observe(el));
-    }, 60);
-  } else {
-    document.getElementById('tab-tech').classList.add('active');
-  }
-}
-document.querySelectorAll('.tab-btn').forEach(btn => btn.addEventListener('click', () => activateTab(btn.dataset.tab)));
-
 const ghost = document.getElementById('preview-ghost');
 const ghostImg = ghost.querySelector('img');
 document.addEventListener('mousemove', e => { ghost.style.left = e.clientX + 'px'; ghost.style.top = e.clientY + 'px'; });
@@ -376,8 +310,6 @@ document.addEventListener('mouseover', e => {
 document.addEventListener('mouseout', e => { if (e.target.closest('.project-row[data-preview]')) ghost.classList.remove('visible'); });
 
 buildTechProjects();
-buildGallery();
-if (window.location.hash === '#gallery') activateTab('gallery');
 
 setTimeout(() => {
   const ro4 = new IntersectionObserver(entries => {

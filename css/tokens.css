@@ -254,6 +254,7 @@ body.hero-nav-hidden .site-nav { opacity: 0; transform: translateY(-14px); point
 }
 .nav-dropdown a:last-child { border-bottom: none; }
 .nav-dropdown a:hover { background: var(--orange); color: var(--paper); }
+.nav-dropdown a.nav-dropdown-featured { font-weight: 700; letter-spacing: .14em; }
 
 .nav-dateline-wrap { display: flex; align-items: center; border-left: 1px solid var(--rule-bold); }
 .site-nav.dark .nav-dateline-wrap { border-left-color: rgba(242,237,227,.12); }
