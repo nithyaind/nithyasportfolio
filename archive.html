@@ -113,22 +113,107 @@
    ════════════════════════════════════════════════════════════════ */
 
 const TECH_PROJECTS = [
+
+  /* ── 2026 ── */
   {
-    name:    "SWE Intern — Fidelity Investments",
+    name:    "Software Engineer Intern — Fidelity Investments",
     type:    "Software Engineering Internship",
-    tools:   ["React", "Python", "Data Viz"],
-    year:    "2025",
+    tools:   ["Enterprise Systems", "SSO", "AI Policy Research"],
+    year:    "2026",
     status:  "In Progress",
     link:    "",
     image:   "assets/images/proj-fidelity.jpg",
-    role:    "SWE Intern",
-    context: "Fidelity Investments · Summer internship",
+    role:    "Software Engineer Intern",
+    context: "Fidelity Investments · Durham, NC · June 2026 – Present",
     internship: true,
-    why:     "Financial tools quietly encode bias into who gets flagged, recommended, or overlooked — I wanted to catch that before it shipped, not after.",
-    what:    "An internal auditing layer that surfaces where investment-recommendation logic disproportionately affects specific account types, before it reaches a customer.",
-    how:     "Built in React and Python, with a data-viz layer that lets the compliance team spot outliers without reading raw model output line by line.",
+    why:     "Client SSO setup had turned into a cross-team bottleneck that slowed every analyst hand-off behind it — I wanted to remove the dependency, not just patch around it.",
+    what:    "A feature that streamlines how clients configure SSO connections, removing a manual cross-team hand-off and shortening analyst turnaround time.",
+    how:     "Partnered directly with business analysts and developers to scope the feature, then owned delivery end-to-end across a large-scale enterprise codebase — coordinating testing across multiple environments to validate edge cases before reaching production readiness. Alongside the build, delivered weekly internal briefings on frontier AI model launches and policy shifts, researched independently and reviewed with security leaders, to help harden the product ahead of emerging threats.",
     extLink: "",
     extHref: ""
+  },
+  {
+    name:    "Veya",
+    type:    "Startup / Creative Studio",
+    tools:   ["Brand Strategy", "Web Development", "Studio Ops"],
+    year:    "2026",
+    status:  "In Progress",
+    link:    "",
+    image:   "assets/images/proj-veya.jpg",
+    role:    "Founder & Creative Director",
+    context: "Veya · Chapel Hill, NC · In development, 2026 – Present",
+    why:     "Film, interactive media, and emerging tech kept living in separate silos in every studio I worked with or built for — I wanted one that treated them as the same craft.",
+    what:    "A multimedia studio bridging film, interactive media, and emerging tech-driven storytelling — currently in development.",
+    how:     "Building the creative slate, brand, and technical infrastructure — site, tooling, and automated publishing — in parallel, rather than sequencing brand after product.",
+    extLink: "",
+    extHref: ""
+  },
+
+  /* ── 2025 ── */
+  {
+    name:    "Software Engineer Intern — Fidelity Investments",
+    type:    "Software Engineering Internship",
+    tools:   ["GenAI Tooling", "QA Automation", "Agile"],
+    year:    "2025",
+    status:  "Live",
+    link:    "",
+    image:   "assets/images/proj-fidelity-2025.jpg",
+    role:    "Software Engineer Intern",
+    context: "Fidelity Investments · Durham, NC · June 2025 – Present",
+    internship: true,
+    why:     "Fidelity's Center for Applied Technologies was fielding a wave of new GenAI tools with no clear read on which were actually useful for marketing and creative work — someone needed to actually test them, not just read about them.",
+    what:    "A working evaluation of GenAI tools (Runway, SORA, Flow, Krea, and Marie) for FCAT's marketing and creative workflows, including an orientation video, plus a 20+ test regression suite for a separate product line.",
+    how:     "Worked inside an Agile team with PMs and designers to refine feature requirements, closing 7+ Jira tickets, while independently building and running the regression suite — which cut manual QA effort by roughly 30% and surfaced 3 security vulnerabilities before they reached production.",
+    extLink: "",
+    extHref: ""
+  },
+  {
+    name:    "Since 20/20",
+    type:    "Interactive Journalism / Film",
+    tools:   ["Film", "AR", "Game Design"],
+    year:    "2025",
+    status:  "Live",
+    link:    "https://light-drab-psi.vercel.app/",
+    image:   "assets/images/since-2020.JPG",
+    role:    "Creative Director & Developer",
+    context: "National Hearst Multimedia Journalism Championships · 3rd place nationally",
+    why:     "A blind photographer's story doesn't fully land as text on a page — I wanted the audience to feel the same disorientation and adaptation he does, not just read about it.",
+    what:    "A short film, AR simulation, and game telling the story of a blind photographer, produced together as one interactive package.",
+    how:     "Led a 3-day sprint coordinating a small cross-functional team under a tight deadline — the collegiate equivalent of the Pulitzer Prize — which placed 3rd nationally at the Hearst Multimedia Journalism Championships.",
+    extLink: "Experience it →",
+    extHref: "https://light-drab-psi.vercel.app/"
+  },
+  {
+    name:    "ID8",
+    type:    "Product / Hackathon",
+    tools:   ["Figma", "Product Strategy", "Market Research"],
+    year:    "2025",
+    status:  "Live",
+    link:    "https://bynithya.com/ID8TG/home.html",
+    image:   "assets/images/proj-id8.jpg",
+    role:    "Product Manager & Developer",
+    context: "2025 Pearson Lifelong Learner Award · Pearl Hacks",
+    why:     "Case research showed that minorities and people without existing connections struggle to get in front of investors at all — and investors miss out on ideas because of who's pitching them, not what's being pitched.",
+    what:    "A platform that lets entrepreneurs pitch their idea to investors first, stripped of name, face, race, ethnicity, and other identity markers, before any in-person meeting happens.",
+    how:     "Drove the market research that surfaced the gap, then led concept, strategy, and prototype as product manager and developer on the team — work that won the 2025 Pearson Lifelong Learner award at Pearl Hacks.",
+    extLink: "Devpost →",
+    extHref: "https://devpost.com/software/id8"
+  },
+  {
+    name:    "[cs]eek",
+    type:    "AI / Web App",
+    tools:   ["FastAPI", "Docker", "Angular", "SQL", "Kubernetes", "OpenAI"],
+    year:    "2025",
+    status:  "Live",
+    link:    "",
+    image:   "assets/images/proj-cseek.jpg",
+    role:    "Developer",
+    context: "UNC CSXL",
+    why:     "Booking a study room at UNC's CS building meant digging through a clunky interface — I wanted booking one to be as easy as asking for it in plain English.",
+    what:    "An AI chatbot that helps UNC Chapel Hill CS students find and book study rooms using natural language.",
+    how:     "Built and deployed with FastAPI, Docker, Angular, SQL, Kubernetes, and the OpenAI API as part of the CSXL team.",
+    extLink: "Watch presentation →",
+    extHref: "https://youtu.be/UEuhzhqySO0"
   },
   {
     name:    "Algorithmic Journalism Ethics",
@@ -162,6 +247,72 @@ const TECH_PROJECTS = [
     extLink: "Play →",
     extHref: "archive/air-guitar/index.html"
   },
+
+  /* ── 2024 ── */
+  {
+    name:    "Innovation Fellow — Blue Sky Innovations/Robotics",
+    type:    "Innovation Fellowship",
+    tools:   ["Python", "Computer Vision", "VR (Meta, Pico, 3D Vista)"],
+    year:    "2024",
+    status:  "Live",
+    link:    "",
+    image:   "assets/images/proj-bluesky.jpg",
+    role:    "Innovation Fellow",
+    context: "Blue Sky Innovations/Robotics · Chapel Hill, NC · Aug 2024 – Dec 2025",
+    why:     "Robotic-arm control systems and VR training tools both fail the same way when they're built without the people who'll actually use them — I wanted the R&D roadmap and the outreach to be shaped by real testing and real students, not assumptions.",
+    what:    "A robotics product initiative taken from concept through 100+ tested iterations, a computer-vision data collection technique that cut estimated time-to-completion by 40%, and a VR training experience that reached 3,000+ underserved students.",
+    how:     "Defined the roadmap and led R&D on the robotics initiative myself; directed a cross-disciplinary team building and testing the computer-vision model; and scaled the VR programming across Meta, Pico, and 3D Vista, iterating the experience based on structured user feedback with accessibility as a first-class constraint, not an afterthought.",
+    extLink: "Blue Sky Innovations →",
+    extHref: "https://www.uncbluesky.com/"
+  },
+  {
+    name:    "VR Training for Labor & Delivery Wards",
+    type:    "VR / Emerging Tech",
+    tools:   ["Meta Quest", "Pico", "3D Vista"],
+    year:    "2024",
+    status:  "In Progress",
+    link:    "",
+    image:   "assets/images/proj-vr.jpg",
+    role:    "VR Developer",
+    context: "On behalf of UNC Blue Sky Innovations Lab",
+    why:     "Behavioral-skills training in labor and delivery wards is high-stakes and hard to practice safely — I wanted to see if VR could give hospital staff a low-risk way to rehearse it before it counts.",
+    what:    "A VR training experience for hospital staff in labor and delivery wards, built to practice behavioral skills before they're needed in the room.",
+    how:     "Building the experience across Meta Quest, Pico, and 3D Vista, developed on behalf of the UNC Blue Sky Innovations lab.",
+    extLink: "",
+    extHref: ""
+  },
+  {
+    name:    "Mild Mannered & Timid — Website & Production",
+    type:    "Creative Production / Web Design",
+    tools:   ["Web Design", "Notion", "Analytics"],
+    year:    "2024",
+    status:  "Live",
+    link:    "https://www.mmtproductions.com/",
+    image:   "assets/images/proj-mmt.jpg",
+    role:    "Jr. Creative Production Manager",
+    context: "Mild Mannered and Timid · Los Angeles, CA · July 2024 – Present",
+    why:     "A production company's website is often the first and only impression a potential client gets — theirs didn't exist yet, and the story the company told needed a site that matched it.",
+    what:    "The Mild Mannered and Timid company website, taken from concept to launch, plus the ongoing production-management workflows and PR/marketing behind it.",
+    how:     "Designed and built the site to reflect the company's story and positioning — a move that directly generated 2 new client relationships and supported an acquisition deal. Since launch, I've used engagement analytics (view duration, click-through, play rate) alongside market research to redirect content strategy, driving 10,000+ views in two weeks.",
+    extLink: "MMT Productions →",
+    extHref: "https://www.mmtproductions.com/"
+  },
+  {
+    name:    "Couturevolution",
+    type:    "UI/UX Design",
+    tools:   ["Figma", "CapCut", "Adobe"],
+    year:    "2024",
+    status:  "Live",
+    link:    "",
+    image:   "assets/images/proj-couture.jpg",
+    role:    "UI/UX Designer",
+    context: "Personal design project",
+    why:     "Influential women at the intersection of tech and fashion rarely get a dedicated spotlight — most coverage treats the two as separate beats entirely.",
+    what:    "A UI/UX design for a website spotlighting influential women at the intersection of tech and fashion.",
+    how:     "Designed the full experience in Figma, with CapCut and Adobe for supporting motion and visual assets.",
+    extLink: "",
+    extHref: ""
+  },
   {
     name:    "నిజము [Nijam] Newspaper",
     type:    "Web / Publishing",
@@ -178,42 +329,28 @@ const TECH_PROJECTS = [
     extLink: "Open →",
     extHref: "nijam.html"
   },
+
+  /* ── 2023 ── */
   {
-    name:    "UNC Journalism Story",
-    type:    "Multimedia Journalism",
-    tools:   ["Reporting", "Video", "Audio"],
+    name:    "Carpool.school",
+    type:    "Startup Consulting / UI-UX",
+    tools:   ["UX Design", "Rapid Prototyping"],
     year:    "2023",
     status:  "Live",
-    link:    "#",
-    image:   "assets/images/proj-unc.jpg",
-    role:    "REPLACE: your role (reporter / producer / etc.)",
-    context: "REPLACE: publication or course this was for",
-    why:     "REPLACE: the question or problem that sent you after this story in the first place.",
-    what:    "REPLACE: what the finished piece actually is, in one sentence.",
-    how:     "REPLACE: your process — who you talked to, what records or data you used, how long it took.",
-    extLink: "Read →",
-    extHref: "#"
-  }
-
-  /* REPLACE / ADD your other internships here, same shape as the
-     Fidelity entry above, each with internship: true. Example:
-  {
-    name:    "REPLACE — Company Name",
-    type:    "Internship Title",
-    tools:   ["Tool 1", "Tool 2"],
-    year:    "2024",
-    status:  "Live",
     link:    "",
-    image:   "assets/images/REPLACE.jpg",
-    role:    "REPLACE: your title",
-    context: "REPLACE: Company · season/duration",
-    internship: true,
-    why:     "REPLACE",
-    what:    "REPLACE",
-    how:     "REPLACE",
+    image:   "assets/images/proj-carpool.jpg",
+    role:    "Design Consultant",
+    context: "Carpool.school · Early-stage startup · 2023",
+    why:     "REPLACE: the specific problem Carpool.school was trying to solve when you came on as a design consultant.",
+    what:    "REPLACE: what you actually designed or prototyped for them, in one sentence.",
+    how:     "REPLACE: your process — what you delivered, over what timeframe, working with whom.",
     extLink: "",
     extHref: ""
-  },
+  }
+
+  /* HOW TO ADD MORE:
+     Copy any object above, keep the same fields, add internship:true
+     if it's an internship (light-orange highlight + badge, automatic).
   */
 ];
 
