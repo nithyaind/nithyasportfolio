@@ -31,8 +31,8 @@
        italic/orange word(s) stay styled the same way. Edit this
        array (not the HTML) to change the headline copy. */
     const HEADLINE_WORDS = [
-      { t: 'Stories' }, { t: 'built' }, { t: 'to' }, { t: 'be' },
-      { t: 'stepped', em: true }, { t: 'inside.', em: true },
+      { t: 'Two' }, { t: 'truths' }, { t: 'and' }, { t: 'a' },
+      { t: 'lie' },
     ];
 
     function staticFallback() {
