@@ -216,21 +216,21 @@ const TECH_PROJECTS = [
     extHref: "https://youtu.be/UEuhzhqySO0"
   },
   {
-    name:    "Algorithmic Journalism Ethics",
-    type:    "Journalism / Research",
-    tools:   ["Reporting", "Data", "Writing"],
-    year:    "2025",
-    status:  "Live",
-    link:    "nijam-posts/algo-journalism.html",
-    image:   "assets/images/proj-algo.jpg",
-    role:    "Reporter & researcher",
-    context: "Independent investigative essay",
-    why:     "Newsrooms are quietly outsourcing 'what's newsworthy' to algorithms trained on past coverage — which means the communities that were never covered stay uncovered.",
-    what:    "A reported essay tracing how AI-assisted editorial tools reproduce existing coverage gaps, grounded in concrete newsroom examples.",
-    how:     "Interviews with local editors, a review of public editorial-tool documentation, and a before/after comparison of coverage patterns once AI-assisted triage was adopted.",
-    extLink: "Read →",
-    extHref: "nijam-posts/algo-journalism.html"
-  },
+  //   name:    "Algorithmic Journalism Ethics",
+  //   type:    "Journalism / Research",
+  //   tools:   ["Reporting", "Data", "Writing"],
+  //   year:    "2025",
+  //   status:  "Live",
+  //   link:    "nijam-posts/algo-journalism.html",
+  //   image:   "assets/images/proj-algo.jpg",
+  //   role:    "Reporter & researcher",
+  //   context: "Independent investigative essay",
+  //   why:     "Newsrooms are quietly outsourcing 'what's newsworthy' to algorithms trained on past coverage — which means the communities that were never covered stay uncovered.",
+  //   what:    "A reported essay tracing how AI-assisted editorial tools reproduce existing coverage gaps, grounded in concrete newsroom examples.",
+  //   how:     "Interviews with local editors, a review of public editorial-tool documentation, and a before/after comparison of coverage patterns once AI-assisted triage was adopted.",
+  //   extLink: "Read →",
+  //   extHref: "nijam-posts/algo-journalism.html"
+  // },
   {
     name:    "Air Guitar",
     type:    "Interactive / WebGL",
@@ -238,11 +238,11 @@ const TECH_PROJECTS = [
     year:    "2025",
     status:  "Live",
     link:    "https://nithyasportfolio.vercel.app/archive/air-guitar/index.html",
-    image:   "assets/images/proj-blue.jpg",
+    image:   "assets/vid/air-guitar.mp4",
     role:    "Solo builder",
     context: "Personal project",
-    why:     "I wanted to know if a browser tab and a webcam could give someone the feeling of playing an instrument, with zero hardware and zero cost.",
-    what:    "A webcam-based instrument — pinch your left hand to hold a chord, close your right fist to strum it, no download required.",
+    why:     "I have grown up singing and wanting to be able to play the guitar to accomplish the complete Taylor Swift dream. This is a personal project to make that dream come true, and to explore the intersection of computer vision and music.",
+    what:    "A webcam-based instrument. Pinch your left hand to hold a chord, close your right fist to strum it, no download required.",
     how:     "MediaPipe Hands for landmark tracking, the Web Audio API for a plucked-string synth (staggered oscillators per string), pure vanilla JS end to end.",
     extLink: "Play →",
     extHref: "https://nithyasportfolio.vercel.app/archive/air-guitar/index.html"
@@ -259,6 +259,7 @@ const TECH_PROJECTS = [
     image:   "assets/images/proj-bluesky.jpg",
     role:    "Innovation Fellow",
     context: "Blue Sky Innovations/Robotics · Chapel Hill, NC · Aug 2024 – Dec 2025",
+    internship: true,
     why:     "Robotic-arm control systems and VR training tools both fail the same way when they're built without the people who'll actually use them — I wanted the R&D roadmap and the outreach to be shaped by real testing and real students, not assumptions.",
     what:    "A robotics product initiative taken from concept through 100+ tested iterations, a computer-vision data collection technique that cut estimated time-to-completion by 40%, and a VR training experience that reached 3,000+ underserved students.",
     how:     "Defined the roadmap and led R&D on the robotics initiative myself; directed a cross-disciplinary team building and testing the computer-vision model; and scaled the VR programming across Meta, Pico, and 3D Vista, iterating the experience based on structured user feedback with accessibility as a first-class constraint, not an afterthought.",
@@ -291,6 +292,7 @@ const TECH_PROJECTS = [
     image:   "assets/images/proj-mmt.jpg",
     role:    "Jr. Creative Production Manager",
     context: "Mild Mannered and Timid · Los Angeles, CA · July 2024 – Present",
+    internship: true,
     why:     "A production company's website is often the first and only impression a potential client gets — theirs didn't exist yet, and the story the company told needed a site that matched it.",
     what:    "The Mild Mannered and Timid company website, taken from concept to launch, plus the ongoing production-management workflows and PR/marketing behind it.",
     how:     "Designed and built the site to reflect the company's story and positioning — a move that directly generated 2 new client relationships and supported an acquisition deal. Since launch, I've used engagement analytics (view duration, click-through, play rate) alongside market research to redirect content strategy, driving 10,000+ views in two weeks.",
@@ -372,7 +374,7 @@ function buildTechProjects() {
         : `<span style="color:var(--muted);font-family:var(--font-mono);font-size:10px;text-align:right;">${p.status}</span>`;
       const rowClass = p.internship ? 'project-row is-internship reveal' : 'project-row reveal';
       const nameCell = p.internship
-        ? `<span class="project-row-name">${p.name}<span class="internship-tag">Internship</span></span>`
+        ? `<span class="project-row-name">${p.name}<span class="internship-tag">Internship/Role</span></span>`
         : `<span class="project-row-name">${p.name}</span>`;
 
       html += `
