@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!--
+    ✏️  TEMPLATE — copy this file for every new Nijam post.
+    Rename it: nijam-posts/your-post-title.html
+    Update: title, description, kicker, headline, byline date, read-time, body
+  -->
+  <title>REPLACE POST TITLE — నిజము [Nijam]</title>
+  <meta name="description" content="REPLACE DESCRIPTION" />
+  <link rel="stylesheet" href="../css/tokens.css" />
+  <link rel="stylesheet" href="../css/nijam.css" />
+</head>
+<body>
+
+<div id="cursor"></div>
+<div id="cursor-trail"></div>
+<div class="progress-bar"></div>
+
+<!-- ════ FIXED HEADER — breaking strip + nav ════ -->
+<nav class="site-nav" id="site-nav">
+  <div class="breaking-strip">
+    <span class="breaking-tag"><span class="breaking-dot"></span>Right now</span>
+    <div class="breaking-track-wrap"><div class="breaking-track" id="breaking-track"></div></div>
+  </div>
+  <div class="nav-top">
+    <a href="../index.html" class="nav-logo-wrap">
+      <span class="nav-logo-text">BY <strong>NITHYA</strong></span>
+    </a>
+    <button class="nav-hamburger" id="nav-hamburger" aria-label="Menu">☰</button>
+    <div class="nav-links-wrap" id="nav-links-wrap">
+      <div class="nav-link has-drop">
+        Work
+        <div class="nav-dropdown">
+          <a href="../archive.html" class="nav-dropdown-featured">PROJECTS</a>
+          <a href="../gallery.html">Film / Photo</a>
+        </div>
+      </div>
+      <a href="../nijam.html"   class="nav-link nijam-link active">నిజము [Nijam]</a>
+      <a href="../about.html"   class="nav-link">About</a>
+      <a href="mailto:nithya.indla8@gmail.com" class="nav-link">Contact</a>
+    </div>
+    <div class="nav-dateline-wrap"><div class="nav-dateline"></div></div>
+  </div>
+</nav>
+
+<article class="post-single">
+
+  <!-- KICKER — change class: kicker-writing / kicker-project / kicker-dispatch / kicker-art / kicker-update -->
+  <span class="story-kicker kicker-writing">Essay</span>
+
+  <!-- HEADLINE -->
+  <h1 class="story-hed">
+    REPLACE: Your post headline goes here — make it a good one
+  </h1>
+
+  <!-- BYLINE -->
+  <div class="story-byline">
+    <span>By <strong>Nithya Sunkara Indlamuri</strong></span>
+    <span>REPLACE: Month Year</span>
+    <span>REPLACE: X min read</span>
+  </div>
+
+  <!-- OPTIONAL HERO IMAGE — delete this block if no image -->
+  <div style="aspect-ratio:16/9;overflow:hidden;margin-bottom:40px;background:var(--paper-dark);">
+    <img src="../assets/images/REPLACE.jpg" alt="REPLACE description"
+         style="width:100%;height:100%;object-fit:cover;" />
+  </div>
+
+  <!-- BODY — write your post here -->
+  <div class="post-body">
+
+    <p>
+        My second summer at Fidelity Investments as a Software Engineer intern began with the illusion of familiarity: the same badge with the awkward headshot, the same parking habits, the same lunch orders and anticipation for curly fries, the same complimentary sun chips. However, my experience and learnings this summer were immensely different from last year.
+        This summer I was a Software Engineer intern for Fidelity's Workplace Investing's Single-Sign-On team. Uniquely, our team consists of half developers and half analysts, giving me a first-hand insight into both the techonology and the user experiences, client conversations, and the business of the product. Moreover, this opportunity to work in the security space at a pivotal time in technology with Claude Mythos and other powerful LLMs and the security vulnerabilities they present, gave me a seat in conversations that helped me understand the company's priorities and the thought processes in each and every decision made regaridng these emrging technolgoies. 
+
+    </p>
+
+    <h2>My Summer Fidtern Project</h2>
+    <p>
+      Alongside my co-intern Nicholas Houghton, I built a feature in a product called SSO Admin, the interface in which our analysts and other business users manage the Single-Sign-On experience for Fidelity's clients. Our feature, called "SSO Admin User Management," allows analysts to manage the users of SSO Admin, including adding and removing users, assigning roles, and managing permissions. This feature was built with security in mind, as it allows analysts to manage access to sensitive information and functionality within SSO Admin. will add, edit, and maintain SSO connections. For example, if Company XYZ wanted to add Health Insurance ABC as a new SSO connection, the analyst would use this application to add the connection and assign the appropriate permissions to the users who need access to it. This feature was built with security in mind, as it allows analysts to manage access to sensitive information and functionality within SSO Admin. While analysts primarily work with Client IDs to configure these connections, the dashboards on this app do no show client names at all. After review and due to plans of expanding this tool's access to other teams and new members, we realized the criticality of adding names alongside the ids for quick verification. Moreover, we added a search functionality when an analysts wants to search a preexisting connection to add a client. This search feature also provides clear error handling and provides feedback to the users when ids that already exist or are invalid are entered. Using Angular and TypeScript for the frontend, REST clients, JAva, and Spring Boot for the backend, we built this feature from scratch and deployed it to production. Additional tools we used included Bruno to test the API, Jira for project management and story-tracking, GitHub copilot for both secure development and testing increasing our efficiency, and Git/Github for PRs and CI/CD.
+    </p>
+
+    
+
+    <p>
+      More content here. Keep going.
+    </p>
+
+    <blockquote>
+      A pull quote or important line goes in a blockquote — it renders as
+      a large italicised callout with an orange left border.
+    </blockquote>
+
+    <p>
+      Keep writing. There's no word limit.
+    </p>
+
+  </div>
+
+</article>
+
+<!-- Back link -->
+<div style="max-width:740px;margin:0 auto;padding:0 var(--gutter) 80px;">
+  <a href="../nijam.html" style="font-family:var(--font-mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);display:inline-flex;align-items:center;gap:8px;transition:color .18s;">
+    ← Back to నిజము [Nijam]
+  </a>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div>
+      <div class="footer-masthead">NITHYA<br><em>నిజము</em></div>
+      <p class="footer-tagline">Nithya Truth · Writing, Projects &amp; Life</p>
+    </div>
+    <div>
+      <div class="footer-col-title">Navigate</div>
+      <ul class="footer-links-list">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../archive.html">Work</a></li>
+        <li><a href="../nijam.html">All Posts</a></li>
+        <li><a href="../about.html">About</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Connect</div>
+      <ul class="footer-links-list">
+        <li><a href="mailto:nithya.indla8@gmail.com">Email</a></li>
+        <li><a href="https://www.linkedin.com/in/nithya-ind/" target="_blank" rel="noopener">LinkedIn</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>Nithya Sunkara Indlamuri © 2026</span>
+    <a href="#" class="back-to-top">↑ Back to top</a>
+  </div>
+</footer>
+
+<script src="../js/global.js"></script>
+<script src="../js/transitions.js"></script>
+</body>
+</html>
