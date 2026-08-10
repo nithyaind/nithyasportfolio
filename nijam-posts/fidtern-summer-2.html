@@ -3,13 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <!--
-    ✏️  TEMPLATE — copy this file for every new Nijam post.
-    Rename it: nijam-posts/your-post-title.html
-    Update: title, description, kicker, headline, byline date, read-time, body
-  -->
-  <title>REPLACE POST TITLE — నిజము [Nijam]</title>
-  <meta name="description" content="REPLACE DESCRIPTION" />
+  <title>The Story of SSO — నిజము [Nijam]</title>
+  <meta name="description" content="Notes on a second summer as a Fidelity SWE intern — a client-ID search feature, a lot of conversations about AI and security, and why understanding the 'why' behind a product matters more than the code itself." />
   <link rel="stylesheet" href="../css/tokens.css" />
   <link rel="stylesheet" href="../css/nijam.css" />
 </head>
@@ -48,54 +43,194 @@
 
 <article class="post-single">
 
-  <!-- KICKER — change class: kicker-writing / kicker-project / kicker-dispatch / kicker-art / kicker-update -->
-  <span class="story-kicker kicker-writing">Essay</span>
+  <span class="story-kicker kicker-dispatch">Dispatch</span>
 
-  <!-- HEADLINE -->
   <h1 class="story-hed">
-    REPLACE: Your post headline goes here — make it a good one
+    The Story of SSO
   </h1>
 
-  <!-- BYLINE -->
   <div class="story-byline">
     <span>By <strong>Nithya Sunkara Indlamuri</strong></span>
-    <span>REPLACE: Month Year</span>
-    <span>REPLACE: X min read</span>
+    <span>August 2026</span>
+    <span>6 min read</span>
   </div>
 
-  <!-- OPTIONAL HERO IMAGE — delete this block if no image -->
-  <div style="aspect-ratio:16/9;overflow:hidden;margin-bottom:40px;background:var(--paper-dark);">
-    <img src="../assets/images/REPLACE.jpg" alt="REPLACE description"
-         style="width:100%;height:100%;object-fit:cover;" />
-  </div>
-
-  <!-- BODY — write your post here -->
   <div class="post-body">
 
     <p>
-        My second summer at Fidelity Investments as a Software Engineer intern began with the illusion of familiarity: the same badge with the awkward headshot, the same parking habits, the same lunch orders and anticipation for curly fries, the same complimentary sun chips. However, my experience and learnings this summer were immensely different from last year.
-        This summer I was a Software Engineer intern for Fidelity's Workplace Investing's Single-Sign-On team. Uniquely, our team consists of half developers and half analysts, giving me a first-hand insight into both the techonology and the user experiences, client conversations, and the business of the product. Moreover, this opportunity to work in the security space at a pivotal time in technology with Claude Mythos and other powerful LLMs and the security vulnerabilities they present, gave me a seat in conversations that helped me understand the company's priorities and the thought processes in each and every decision made regaridng these emrging technolgoies. 
-
+      My second summer at Fidelity Investments began with the illusion of
+      familiarity: the same badge with the same awkward headshot, the
+      same parking habits, the same lunch orders, the same anticipation
+      for curly fries and complimentary Sun Chips. But what I actually
+      learned this summer looked nothing like last year.
     </p>
 
-    <h2>My Summer Fidtern Project</h2>
     <p>
-      Alongside my co-intern Nicholas Houghton, I built a feature in a product called SSO Admin, the interface in which our analysts and other business users manage the Single-Sign-On experience for Fidelity's clients. Our feature, called "SSO Admin User Management," allows analysts to manage the users of SSO Admin, including adding and removing users, assigning roles, and managing permissions. This feature was built with security in mind, as it allows analysts to manage access to sensitive information and functionality within SSO Admin. will add, edit, and maintain SSO connections. For example, if Company XYZ wanted to add Health Insurance ABC as a new SSO connection, the analyst would use this application to add the connection and assign the appropriate permissions to the users who need access to it. This feature was built with security in mind, as it allows analysts to manage access to sensitive information and functionality within SSO Admin. While analysts primarily work with Client IDs to configure these connections, the dashboards on this app do no show client names at all. After review and due to plans of expanding this tool's access to other teams and new members, we realized the criticality of adding names alongside the ids for quick verification. Moreover, we added a search functionality when an analysts wants to search a preexisting connection to add a client. This search feature also provides clear error handling and provides feedback to the users when ids that already exist or are invalid are entered. Using Angular and TypeScript for the frontend, REST clients, JAva, and Spring Boot for the backend, we built this feature from scratch and deployed it to production. Additional tools we used included Bruno to test the API, Jira for project management and story-tracking, GitHub copilot for both secure development and testing increasing our efficiency, and Git/Github for PRs and CI/CD.
-    </p>
-
-    
-
-    <p>
-      More content here. Keep going.
+      I'm a rising senior at UNC Chapel Hill studying Computer Science
+      and Media &amp; Journalism, and this summer I worked out of
+      Fidelity's Durham office as a Software Engineer intern on
+      Workplace Investing's Single Sign-On (SSO) team. Last summer, I
+      interned with Fidelity's Student Debt team on the Quality
+      Engineering side. During a coffee chat back then, a product leader,
+      Akhil Nigam, told me something that's stuck with me since:
     </p>
 
     <blockquote>
-      A pull quote or important line goes in a blockquote — it renders as
-      a large italicised callout with an orange left border.
+      "It's not about coming up with the perfect solution, but about
+      identifying a great problem."
     </blockquote>
 
     <p>
-      Keep writing. There's no word limit.
+      At the time, that felt relevant mostly to my work as a QE, and to
+      someone who's always chasing the perfect, world-changing idea. But
+      it's evolved into something bigger for me since.
+    </p>
+
+    <p>
+      As a journalist, I publish articles, produce films, and meet a lot
+      of people hoping to raise awareness about something. Usually,
+      taking action on it becomes someone else's responsibility. As a
+      journalist, I listen and report. I identify problems. With tech, I
+      get to design and build some form of the solution. That's why I
+      love what I get to do.
+    </p>
+
+    <h2>My Fidtern Project</h2>
+
+    <p>
+      This summer, I had the chance to work with Workplace Investing's
+      Customer Protection and SSO team on the developer side, under my
+      manager, Alex Leach. Our team sits at a unique intersection: on one
+      side are the developers building and improving the technology, and
+      on the other are the analysts working directly with clients to
+      configure, onboard, and support SSO connections. That combination
+      gives the team a rare perspective — understanding both how the
+      product works and how people actually use it.
+    </p>
+
+    <p>
+      Alongside my co-intern, Nicholas Houghton (pronounced "Ho-tin,"
+      like "waitin'"), I worked on SSO Admin — the application our
+      analysts use to onboard and manage clients and their SSO and
+      password-based connections. As the platform grows, the goal is to
+      make more of these processes accessible to teams who aren't
+      already experts in the system, which means the product needs to be
+      intuitive, discoverable, and resistant to human error.
+    </p>
+
+    <p>
+      Our project focused on a challenge that was simple to describe and
+      surprisingly impactful to fix. SSO currently serves 900+ clients
+      across inbound and outbound connections, and each client has a
+      unique ID — a long string of numbers that doesn't tell much of a
+      story on its own. Most of the search and dashboard views in SSO
+      Admin were client-ID-only. Our feature lets analysts see the
+      corresponding client name right alongside the ID, making it much
+      faster to verify configurations and validate their work — and we
+      paired it with a search function with clear error handling, so
+      analysts get real feedback when an ID is invalid or already exists.
+      We shipped this across four pages. In other words: we helped turn
+      a collection of numbers into meaningful context. What started as
+      an API that had never actually been used evolved into a fully
+      integrated, production-ready feature.
+    </p>
+
+    <p>
+      Building it gave me exposure to the full development lifecycle. I
+      built the frontend in Angular and TypeScript, worked with REST
+      clients and Java/Spring Boot on the backend, tested APIs in Bruno,
+      tracked the work in Jira, and managed pull requests through
+      GitHub — all inside a large, genuinely enterprise-scale codebase.
+      I also got to shadow how a feature like this actually gets
+      deployed to production, which is a very different thing than
+      reading about it.
+    </p>
+
+    <p>
+      I also came away with a much better sense of what security-minded
+      development actually looks like, thanks to Secure Code Warrior
+      training and to what I'd already picked up last summer as a QE
+      reviewing PRs. That foundation mattered even more this summer,
+      since I got to experiment with GitHub Copilot throughout the
+      development process. I used it to help explain the large codebase
+      early on, which cut my onboarding time significantly and let me
+      start contributing faster. Once I moved into actual development, I
+      leaned on it at every stage — from writing to debugging — mostly
+      so I could figure out what it was actually good at and where it
+      fell short. That was, at the same time, a test of my own ability
+      to review code. With enough practice, I'm hoping bad code will
+      eventually start to stick out to me the way an em dash does.
+    </p>
+
+    <h2>The Conversations</h2>
+
+    <p>
+      As valuable as the technical skills were, they weren't the biggest
+      takeaway. What I learned most this summer came from the
+      conversations.
+    </p>
+
+    <p>
+      It's a genuine privilege to work in the security space at a moment
+      like this one in tech. Between increasingly capable AI systems
+      like Claude Mythos, shifting policy, powerful open-source models,
+      and threats that evolve faster than most teams can plan for, every
+      organization is being pushed to move quickly — and Fidelity
+      carries the added weight of maintaining client trust on top of
+      that. Between the people around me, programs like TechX, questions
+      like "Fast but How Far," coffee chats, and LEAP panels, I sometimes
+      felt like I had a seat in the mission control room of a rocket
+      launch.
+    </p>
+
+    <p>
+      Watching the SSO team respond to real security threats — migrating
+      to better systems like Compass, and asking hard questions about
+      their own existing processes and standards — was genuinely
+      insightful. And just because we're technically gearing up to
+      defend against what AI can do doesn't mean we're against it: the
+      inventive ways my colleagues were already using it to work better
+      and faster kept sparking new ideas about where else it could be
+      applied.
+    </p>
+
+    <p>
+      Beyond getting to ship a production-ready feature for my team, I
+      came away actually understanding the "hows" and "whys" behind the
+      company's products, its operating model, and the decisions behind
+      both — which, it turns out, was the real lesson underneath all of
+      it:
+    </p>
+
+    <blockquote>
+      Understand the "why" behind the product. The story.
+    </blockquote>
+
+    <p>
+      If it isn't obvious by now, I love stories. So this felt like the
+      right way to tell this one.
+    </p>
+
+    <p>
+      Thank you to Alex, for being an incredibly thoughtful and
+      intentional manager and mentor. To Nick — I loved getting to work
+      with you this summer. To Govinda, Mansi, Hari, Jithender, and Adam,
+      thank you for your patience, your guidance, and for answering what
+      felt like 562,940 questions from me. Your command of the product —
+      both the business side and the technology — and your initiative
+      were genuinely inspiring, and I'm grateful to the whole SSO team.
+      To my mentor, David Schneir, who shares my love of stories (his
+      are definitely the cooler ones) — thank you for going above and
+      beyond, and for all the conversations, past and still to come.
+    </p>
+
+    <p>
+      Shoutout to my intern buddies for the snack alerts and the laughs,
+      the University Talent team and Kent for the support and the fun
+      events, and everyone else I got to talk to this summer. I'll miss
+      Hari's positivity — even when his Zoom thumbs-ups were accidental —
+      Anika's word games at stand-up, and Cam's "okay byeee" at the end
+      of every meeting. Thank you for another awesome summer.
     </p>
 
   </div>
