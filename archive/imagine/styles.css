@@ -1,0 +1,198 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap');
+
+:root {
+  --dusk: #1c1a2b;
+  --dusk-panel: #241f38;
+  --linen: #f1ead9;
+  --linen-dim: #cfc6b3;
+  --brass: #c99b4a;
+  --brass-bright: #d9ac5c;
+  --ink: #e9e3f2;
+  --ink-dim: #a9a2c2;
+  --line: rgba(233, 227, 242, 0.14);
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  height: 100%;
+  background: var(--dusk);
+  color: var(--ink);
+  font-family: 'Inter', system-ui, sans-serif;
+  overflow: hidden;
+}
+
+#scene {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  touch-action: none;
+}
+
+#ui {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: clamp(16px, 4vw, 40px);
+  pointer-events: none;
+  font-variant-numeric: tabular-nums;
+}
+
+#ui > * {
+  pointer-events: auto;
+}
+
+#masthead {
+  max-width: 420px;
+}
+
+.eyebrow {
+  display: block;
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--brass);
+  margin-bottom: 6px;
+}
+
+#masthead h1 {
+  font-family: 'Fraunces', serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: italic;
+  font-size: clamp(28px, 5vw, 44px);
+  margin: 0;
+  color: var(--linen);
+  text-shadow: 0 2px 24px rgba(0,0,0,0.4);
+}
+
+#composer {
+  align-self: flex-end;
+  width: min(420px, 100%);
+  background: rgba(36, 31, 56, 0.72);
+  backdrop-filter: blur(14px);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 14px 14px 10px;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.35);
+}
+
+#input {
+  width: 100%;
+  resize: none;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--linen);
+  font-family: 'Fraunces', serif;
+  font-size: 17px;
+  line-height: 1.4;
+  padding: 4px 2px 10px;
+  border-bottom: 1px solid var(--line);
+}
+
+#input::placeholder { color: var(--ink-dim); }
+
+#composer-controls {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+button {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 13.5px;
+  border: none;
+  cursor: pointer;
+  border-radius: 999px;
+  transition: transform 0.15s ease, background 0.15s ease, opacity 0.15s ease;
+}
+
+button:active { transform: scale(0.96); }
+
+.primary-btn {
+  background: var(--brass);
+  color: #241a08;
+  padding: 10px 20px;
+}
+
+.primary-btn:hover { background: #d9ac5c; }
+.primary-btn:disabled { opacity: 0.5; cursor: progress; }
+
+.ghost-btn {
+  background: rgba(233, 227, 242, 0.08);
+  color: var(--ink);
+  width: 38px;
+  height: 38px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.ghost-btn:hover { background: rgba(233, 227, 242, 0.16); }
+.ghost-btn.recording {
+  background: var(--brass);
+  color: #241a08;
+  animation: pulse 1.1s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(201, 155, 74, 0.5); }
+  50% { box-shadow: 0 0 0 8px rgba(201, 155, 74, 0); }
+}
+
+#status {
+  margin: 8px 2px 0;
+  font-size: 12px;
+  color: var(--ink-dim);
+  min-height: 14px;
+}
+
+#history-rail {
+  align-self: flex-start;
+  display: flex;
+  gap: 8px;
+  max-width: 100%;
+  overflow-x: auto;
+  padding-bottom: 4px;
+}
+
+.history-chip {
+  flex: none;
+  width: 56px;
+  height: 56px;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  background-size: cover;
+  background-position: center;
+  background-color: var(--dusk-panel);
+  cursor: pointer;
+  position: relative;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.3);
+}
+
+.history-chip:hover { outline: 1px solid var(--brass); }
+
+#vr-button {
+  align-self: flex-start;
+  margin-top: 12px;
+}
+
+@media (max-width: 560px) {
+  #ui { padding: 14px; }
+  #composer { align-self: stretch; width: 100%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ghost-btn.recording { animation: none; }
+}

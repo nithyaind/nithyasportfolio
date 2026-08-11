@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>What If Easel</title>
+<link rel="stylesheet" href="styles.css">
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+    "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+  }
+}
+</script>
+</head>
+<body>
+
+  <canvas id="scene"></canvas>
+
+  <div id="ui">
+    <header id="masthead">
+      <span class="eyebrow">an evolving easel</span>
+      <h1>What if&hellip;</h1>
+    </header>
+
+    <div id="composer">
+      <textarea id="input" placeholder="…dinosaurs could ride bikes?" rows="2"></textarea>
+      <div id="composer-controls">
+        <button id="speak" class="ghost-btn" title="Speak your what-if" aria-label="Speak">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8">
+            <rect x="9" y="2" width="6" height="12" rx="3"/>
+            <path d="M5 10v1a7 7 0 0 0 14 0v-1M12 18v3"/>
+          </svg>
+        </button>
+        <button id="generate" class="primary-btn">Paint it</button>
+      </div>
+      <p id="status" aria-live="polite"></p>
+    </div>
+
+    <div id="history-rail" aria-label="Past visions"></div>
+
+    <button id="vr-button" class="ghost-btn" hidden>Enter VR</button>
+  </div>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
