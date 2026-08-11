@@ -121,7 +121,7 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.nav-link[href]').forEach(a => {
     if (a.getAttribute('href') === page) a.classList.add('active');
     if (a.classList.contains('nijam-link') && page === 'nijam.html')
-      a.classList.add('orange-active');
+      a.classList.add('sage-active');
   });
 
   /* ── DATELINE ── */

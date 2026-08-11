@@ -25,7 +25,7 @@
   line-height: .88; letter-spacing: -.03em; text-align: center;
 }
 .masthead-hed .en { display: block; }
-.masthead-hed .te { display: block; color: var(--orange); font-style: italic; font-size: .68em; }
+.masthead-hed .te { display: block; color: var(--sage); font-style: italic; font-size: .68em; }
 .masthead-kicker {
   text-align: center; margin-top: 10px;
   font-family: var(--font-mono); font-size: 9px;
@@ -47,7 +47,7 @@
   transition: background .18s, color .18s;
 }
 .filter-btn:hover { background: var(--paper-dark); color: var(--ink); }
-.filter-btn.active { background: var(--orange); color: var(--paper); }
+.filter-btn.active { background: var(--sage); color: var(--paper); }
 
 /* ── BODY ── */
 .nijam-body {
@@ -80,10 +80,10 @@
   display: inline-block; padding: 3px 10px; margin-bottom: 10px;
 }
 .k-writing  { background: var(--ink); color: var(--paper); }
-.k-project  { background: var(--orange); color: var(--paper); }
+.k-project  { background: var(--sage); color: var(--paper); }
 .k-dispatch { border: 1px solid var(--ink); color: var(--ink); }
 .k-art      { background: var(--charcoal); color: var(--paper); }
-.k-update   { border: 1px solid var(--orange); color: var(--orange); }
+.k-update   { border: 1px solid var(--sage); color: var(--sage); }
 
 .story-hed {
   font-family: var(--font-display);
@@ -91,7 +91,7 @@
   line-height: 1.1; letter-spacing: -.02em; margin-bottom: 10px;
 }
 .story-hed a { transition: color .18s; }
-.story-hed a:hover { color: var(--orange); }
+.story-hed a:hover { color: var(--sage); }
 
 .story-dek { font-size: 15px; color: var(--charcoal); line-height: 1.7; margin-bottom: 12px; }
 .story-byline {
@@ -99,7 +99,7 @@
   letter-spacing: .14em; text-transform: uppercase; color: var(--muted);
   display: flex; gap: 14px; flex-wrap: wrap;
 }
-.story-byline strong { color: var(--orange); }
+.story-byline strong { color: var(--sage); }
 
 /* ── THREE COLUMNS ── */
 .cols-3 {
@@ -143,7 +143,7 @@
   font-size: clamp(15px, 1.6vw, 20px);
   line-height: 1.2; letter-spacing: -.01em; margin-bottom: 6px;
 }
-.story-card-hed a:hover { color: var(--orange); }
+.story-card-hed a:hover { color: var(--sage); }
 .story-card-dek { font-size: 13px; color: var(--charcoal); line-height: 1.65; }
 
 .read-more {
@@ -152,7 +152,7 @@
   letter-spacing: .14em; text-transform: uppercase; color: var(--muted);
   transition: color .18s, gap .18s;
 }
-.read-more:hover { color: var(--orange); gap: 12px; }
+.read-more:hover { color: var(--sage); gap: 12px; }
 .read-more::after { content: '→'; }
 
 /* ── SECTION DIVIDER (decorative newspaper rule) ── */
@@ -173,10 +173,10 @@
 .post-body p { margin-bottom: 1.5em; }
 .post-body h2 { font-family: var(--font-display); font-size: 26px; margin: 2em 0 .5em; letter-spacing: -.01em; color: var(--ink); }
 .post-body blockquote {
-  border-left: 3px solid var(--orange); padding: 8px 0 8px 20px;
+  border-left: 3px solid var(--sage); padding: 8px 0 8px 20px;
   margin: 1.5em 0; font-style: italic; font-size: 19px; line-height: 1.65; color: var(--charcoal);
 }
-.post-body a { color: var(--orange); text-decoration: underline; text-underline-offset: 3px; }
+.post-body a { color: var(--sage); text-decoration: underline; text-underline-offset: 3px; }
 
 /* ── RESPONSIVE ── */
 @media (max-width: 900px) {

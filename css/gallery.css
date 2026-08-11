@@ -16,7 +16,7 @@
   font-size: clamp(18px,2.8vw,36px); line-height: 1.4; letter-spacing: -.01em; color: var(--ink);
   opacity: 0; animation: fadeUp .8s var(--ease) .15s forwards;
 }
-.gallery-quote em { color: var(--orange); font-style: normal; }
+.gallery-quote em { color: var(--sage); font-style: normal; }
 
 .gallery-credits {
   margin-top: 28px; opacity: 0; animation: fadeUp .7s var(--ease) .4s forwards;
@@ -36,7 +36,7 @@
   cursor: pointer; transition: background .18s, color .18s;
 }
 .gfilter-btn:hover { background: var(--paper-dark); color: var(--ink); }
-.gfilter-btn.active { background: var(--orange); color: var(--paper); }
+.gfilter-btn.active { background: var(--sage); color: var(--paper); }
 
 /* ── MASONRY GALLERY ── */
 .gallery-body { max-width: var(--max-w); margin: 0 auto; padding: 0 var(--gutter) 100px; }
@@ -86,7 +86,7 @@
 }
 .gallery-item-caption .cap-tag {
   font-family: var(--font-mono); font-size: 9px; letter-spacing: .14em; text-transform: uppercase;
-  color: var(--orange); margin-bottom: 4px; display: block;
+  color: var(--sage); margin-bottom: 4px; display: block;
 }
 
 /* GIF / video badge */
@@ -96,7 +96,7 @@
   background: rgba(17,16,16,.7); color: var(--paper);
   padding: 3px 8px; backdrop-filter: blur(4px);
 }
-.media-badge.video { color: var(--orange); }
+.media-badge.video { color: var(--sage); }
 
 /* ── LIGHTBOX ── */
 .lightbox {
@@ -126,7 +126,7 @@
 }
 .lightbox-caption .lb-tag {
   font-family: var(--font-mono); font-size: 9px; letter-spacing: .14em; text-transform: uppercase;
-  color: var(--orange); display: block; margin-bottom: 4px;
+  color: var(--sage); display: block; margin-bottom: 4px;
 }
 
 .lightbox-close {
@@ -135,7 +135,7 @@
   color: rgba(242,237,227,.5); cursor: pointer;
   display: flex; align-items: center; gap: 6px; transition: color .18s;
 }
-.lightbox-close:hover { color: var(--orange); }
+.lightbox-close:hover { color: var(--sage); }
 .lightbox-close::after { content: '✕'; font-size: 14px; }
 
 .lightbox-nav {
@@ -146,7 +146,7 @@
   transition: background .18s; border: 1px solid rgba(242,237,227,.15);
   backdrop-filter: blur(4px);
 }
-.lightbox-nav:hover { background: var(--orange); border-color: var(--orange); }
+.lightbox-nav:hover { background: var(--sage); border-color: var(--sage); }
 .lightbox-prev { left: -60px; }
 .lightbox-next { right: -60px; }
 
@@ -161,7 +161,7 @@
   display: flex; align-items: center; gap: 6px;
   transition: background .18s, color .18s, border-color .18s;
 }
-.gallery-ext-link:hover { background: var(--orange); border-color: var(--orange); color: var(--paper); }
+.gallery-ext-link:hover { background: var(--sage); border-color: var(--sage); color: var(--paper); }
 .gallery-ext-link::after { content: '↗'; }
 
 @keyframes fadeUp { from { opacity:0; transform:translateY(14px); } to { opacity:1; transform:none; } }

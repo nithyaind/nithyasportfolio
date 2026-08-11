@@ -28,7 +28,7 @@
     const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     /* Words revealed one at a time as you scroll — {t, em} so the
-       italic/orange word(s) stay styled the same way. Edit this
+       italic/sage word(s) stay styled the same way. Edit this
        array (not the HTML) to change the headline copy. */
     const HEADLINE_WORDS = [
       { t: 'Two' }, { t: 'truths' }, { t: 'and' }, { t: 'a' },
