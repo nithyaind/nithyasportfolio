@@ -4,10 +4,20 @@
    ════════════════════════════════════════════ */
 
 /* ---- header ---- */
-/* .page-hero-title is left as a direct child of .page-hero-inner,
-   same as on the other pages, so it isn't excluded from whatever
-   reveal/animation selector pages.css uses on load. Badge is
-   positioned next to it instead of wrapping it. */
+/* Force the hero title visible no matter what state pages.css / about.js
+   leaves it in — this page had several elements (equal-parts toggle,
+   about-values, portrait sticker) removed that about.js may still be
+   trying to bind to, which can throw a JS error and skip whatever
+   normally reveals the animated title. */
+.page-hero.about-hero .page-hero-title,
+.page-hero.about-hero .page-hero-title .line,
+.page-hero.about-hero .page-hero-title .line span {
+  opacity: 1 !important;
+  transform: none !important;
+  visibility: visible !important;
+  animation: none !important;
+}
+
 .page-hero.about-hero {
   position: relative;
 }
