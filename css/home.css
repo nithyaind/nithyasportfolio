@@ -359,15 +359,20 @@
   position: relative;
 }
 
+.about-preview .identity-portrait-images {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+
 .about-preview .identity-portrait img {
   width: 100%;
-  max-width: 200px;
+  max-width: 160px;
   height: auto;
   border-radius: 4px !important;
   clip-path: none !important;
   border: 1px solid var(--ink);
   display: block;
-  margin: 0 auto;
 }
 
 .about-preview .identity-portrait-cap {
@@ -423,7 +428,6 @@
     gap: 32px;
   }
   .about-preview .identity-portrait img {
-    max-width: 160px;
-    margin: 0 auto;
+    max-width: 130px;
   }
 }

@@ -4,11 +4,12 @@
    ════════════════════════════════════════════ */
 
 /* ---- header ---- */
-.about-hero-title-row {
-  display: flex;
-  align-items: flex-start;
-  gap: 16px;
-  flex-wrap: wrap;
+/* .page-hero-title is left as a direct child of .page-hero-inner,
+   same as on the other pages, so it isn't excluded from whatever
+   reveal/animation selector pages.css uses on load. Badge is
+   positioned next to it instead of wrapping it. */
+.page-hero.about-hero {
+  position: relative;
 }
 
 .about-hero-badge {
@@ -21,7 +22,8 @@
   padding: 6px 10px;
   transform: rotate(-4deg);
   display: inline-block;
-  margin-top: 8px;
+  margin-top: 12px;
+  margin-left: 4px;
   transition: transform 0.25s ease;
 }
 
