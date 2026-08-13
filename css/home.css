@@ -295,27 +295,25 @@
 /* ════════════════════════════════════════════
    ABOUT PREVIEW (append to home.css)
    ════════════════════════════════════════════ */
-
+ 
 .about-preview {
   background: var(--paper);
   padding: 80px 24px;
 }
-
+ 
 .about-preview-inner {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
   align-items: center;
-  justify-content: center;
   gap: 40px;
-  flex-wrap: wrap;
   max-width: 1100px;
   margin: 0 auto;
 }
-
+ 
 .about-preview-text {
-  flex: 1 1 320px;
-  max-width: 440px;
+  max-width: none;
 }
-
+ 
 .about-preview-label {
   color: var(--magenta);
   letter-spacing: 0.08em;
@@ -323,7 +321,7 @@
   font-size: 0.75rem;
   margin-bottom: 12px;
 }
-
+ 
 .about-preview .identity-hed {
   font-family: 'Playfair Display', serif;
   font-size: clamp(2rem, 4vw, 3.2rem);
@@ -331,12 +329,12 @@
   line-height: 1.1;
   margin-bottom: 20px;
 }
-
+ 
 .about-preview .identity-hed em {
   font-style: italic;
   color: var(--magenta);
 }
-
+ 
 .about-preview .identity-body {
   font-family: 'Space Grotesk', sans-serif;
   color: var(--charcoal);
@@ -344,7 +342,7 @@
   line-height: 1.6;
   margin-bottom: 24px;
 }
-
+ 
 .about-preview .identity-link {
   font-family: 'Space Mono', monospace;
   color: var(--ink);
@@ -353,29 +351,40 @@
   padding-bottom: 2px;
   transition: color 0.2s ease, border-color 0.2s ease;
 }
-
+ 
 .about-preview .identity-link:hover {
   color: var(--magenta);
   border-color: var(--magenta);
 }
-
-/* no circle — square-ish framed photos, side by side */
+ 
+/* no circle — square-ish framed photos, one per column */
 .about-preview-gif {
-  width: 180px;
+  width: 100%;
   height: auto;
   border-radius: 4px !important;
   clip-path: none !important;
   border: 1px solid var(--ink);
   display: block;
-  flex: 0 0 auto;
 }
-
-@media (max-width: 768px) {
+ 
+/* below desktop: drop to a centered stack of full-width rows */
+@media (max-width: 900px) {
   .about-preview-inner {
+    display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 24px;
   }
+  .about-preview-text {
+    max-width: 440px;
+  }
   .about-preview-gif {
-    width: 140px;
+    width: 220px;
+  }
+}
+ 
+@media (max-width: 480px) {
+  .about-preview-gif {
+    width: 160px;
   }
 }
