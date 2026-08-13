@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const CURSOR_TEXTS = [
       { sel: '.nav-dropdown a',                                       text: 'peek →' },
       { sel: '.nav-link.has-drop',                                    text: 'browse ↓' },
-      { sel: '.nav-link.nijam-link',                                  text: 'read the paper →' },
+      { sel: '.nav-link.nijam-link',                                  text: 'COMING SOON!' },
       { sel: '.nav-link',                                             text: 'go →' },
       { sel: '.lightbox-nav, .lightbox-prev, .lightbox-next',         text: 'next shot' },
       { sel: '.gallery-item',                                         text: 'zoom in ↗' },
