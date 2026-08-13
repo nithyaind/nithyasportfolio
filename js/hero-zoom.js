@@ -31,8 +31,9 @@
        italic/sage word(s) stay styled the same way. Edit this
        array (not the HTML) to change the headline copy. */
     const HEADLINE_WORDS = [
-      { t: 'Two' }, { t: 'truths' }, { t: 'and' }, { t: 'a' },
-      { t: 'lie' },
+      { t: 'Hello, ' }, { t: 'there' },
+      // { t: 'Hello' }, { t: 'there' }, { t: 'and' }, { t: 'a' },
+      // { t: 'lie' },
     ];
 
     function staticFallback() {
