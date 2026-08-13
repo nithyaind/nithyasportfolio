@@ -1,18 +1,156 @@
-.about-preview {
-  background: var(--paper);
-  padding: 80px 24px;
+/* ════════════════════════════════════════════
+   about-custom.css
+   Extends tokens.css / pages.css for about.html
+   ════════════════════════════════════════════ */
+
+/* ---- header ---- */
+.about-hero-title-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  flex-wrap: wrap;
 }
 
-.about-preview-inner {
-  display: grid;
-  grid-template-columns: 1.2fr 1fr;
-  gap: 60px;
-  align-items: center;
-  max-width: 1100px;
-  margin: 0 auto;
+.about-hero-badge {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+  color: var(--paper);
+  background: var(--magenta);
+  border-radius: 4px;
+  padding: 6px 10px;
+  transform: rotate(-4deg);
+  display: inline-block;
+  margin-top: 8px;
+  transition: transform 0.25s ease;
 }
 
-.about-preview-label {
+.about-hero-badge:hover {
+  transform: rotate(2deg) scale(1.06);
+}
+
+.about-hero-ctas {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 28px;
+}
+
+.about-resume-btn {
+  position: relative;
+  overflow: hidden;
+}
+
+.about-resume-btn::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--ink);
+  transform: translateX(-101%);
+  transition: transform 0.25s ease;
+  z-index: -1;
+}
+
+.about-resume-btn:hover::after {
+  transform: translateX(0);
+}
+
+/* ---- portrait: square-framed, not circular ---- */
+.about-portrait-frame {
+  border-radius: 4px !important;
+  clip-path: none !important;
+  overflow: hidden;
+  border: 1px solid var(--ink);
+}
+
+.about-portrait-frame img {
+  border-radius: 0 !important;
+  clip-path: none !important;
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.about-portrait-caption {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.75rem;
+  color: var(--muted);
+  margin-top: 10px;
+}
+
+/* ---- intro + body copy ---- */
+.about-intro {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--charcoal);
+  max-width: 48ch;
+  margin-bottom: 28px;
+}
+
+.about-body p {
+  font-family: 'Space Grotesk', sans-serif;
+  color: var(--charcoal);
+  line-height: 1.6;
+  margin-bottom: 12px;
+}
+
+.about-body strong {
+  font-family: 'Playfair Display', serif;
+  color: var(--ink);
+  font-style: italic;
+}
+
+/* ---- fun facts: interactive list ---- */
+.fun-facts-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.fun-facts-list li {
+  font-family: 'Space Grotesk', sans-serif;
+  color: var(--charcoal);
+  line-height: 1.6;
+  padding: 16px 0 16px 24px;
+  border-bottom: 1px solid var(--muted);
+  position: relative;
+  transition: transform 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.fun-facts-list li::before {
+  content: '✦';
+  position: absolute;
+  left: 0;
+  top: 16px;
+  color: var(--magenta);
+  font-size: 0.85rem;
+  transition: transform 0.2s ease;
+}
+
+.fun-facts-list li:hover {
+  transform: translateX(6px);
+  color: var(--ink);
+  border-color: var(--magenta);
+}
+
+.fun-facts-list li:hover::before {
+  transform: rotate(90deg) scale(1.2);
+}
+
+.fun-facts-list li:last-child {
+  border-bottom: none;
+}
+
+/* ---- youtube section ---- */
+.about-youtube {
+  max-width: 900px;
+  margin: 64px auto 0;
+  padding: 48px 24px 0;
+  border-top: 1px solid var(--muted);
+}
+
+.about-youtube-label {
   color: var(--magenta);
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -20,80 +158,14 @@
   margin-bottom: 12px;
 }
 
-.about-preview .identity-hed {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(2rem, 4vw, 3.2rem);
-  color: var(--ink);
-  line-height: 1.1;
-  margin-bottom: 20px;
-}
-
-.about-preview .identity-hed em {
-  font-style: italic;
-  color: var(--magenta);
-}
-
-.about-preview .identity-body {
-  font-family: 'Space Grotesk', sans-serif;
-  color: var(--charcoal);
-  font-size: 1.05rem;
-  line-height: 1.6;
-  max-width: 42ch;
-  margin-bottom: 24px;
-}
-
-.about-preview .identity-link {
-  font-family: 'Space Mono', monospace;
-  color: var(--ink);
-  text-decoration: none;
-  border-bottom: 1px solid var(--ink);
-  padding-bottom: 2px;
-  transition: color 0.2s ease, border-color 0.2s ease;
-}
-
-.about-preview .identity-link:hover {
-  color: var(--magenta);
-  border-color: var(--magenta);
-}
-
-/* no circle — square-ish framed photo instead */
-.about-preview .identity-portrait {
-  position: relative;
-}
-
-.about-preview .identity-portrait img {
-  width: 100%;
-  max-width: 340px;
-  height: auto;
-  border-radius: 4px !important;
-  clip-path: none !important;
-  border: 1px solid var(--ink);
-  display: block;
-}
-
-.about-preview .identity-portrait-cap {
-  display: block;
-  margin-top: 10px;
-  font-family: 'Space Mono', monospace;
-  font-size: 0.75rem;
-  color: var(--muted);
-}
-
-.about-preview-youtube {
-  max-width: 1100px;
-  margin: 64px auto 0;
-  border-top: 1px solid var(--muted);
-  padding-top: 48px;
-}
-
-.about-preview-yt-title {
+.about-youtube-title {
   font-family: 'Playfair Display', serif;
   font-size: 1.8rem;
   color: var(--ink);
   margin-bottom: 24px;
 }
 
-.about-preview-yt-title em {
+.about-youtube-title em {
   font-style: italic;
   color: var(--magenta);
 }
@@ -106,6 +178,11 @@
   overflow: hidden;
   border: 1px solid var(--ink);
   background: var(--charcoal);
+  transition: border-color 0.2s ease;
+}
+
+.yt-embed-frame:hover {
+  border-color: var(--magenta);
 }
 
 .yt-embed-frame iframe {
@@ -117,13 +194,40 @@
   border: 0;
 }
 
+/* ---- closing graphic + CTAs — forced centered ---- */
+.about-closing {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center;
+  max-width: 900px;
+  margin: 56px auto 60px !important;
+  padding: 0 24px;
+}
+
+.about-closing-gif {
+  max-width: 320px;
+  width: 100%;
+  height: auto;
+  margin: 0 auto 32px !important;
+  display: block;
+}
+
+.about-closing-ctas {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
 @media (max-width: 768px) {
-  .about-preview-inner {
-    grid-template-columns: 1fr;
-    gap: 32px;
+  .about-youtube {
+    padding: 40px 16px 0;
   }
-  .about-preview .identity-portrait img {
-    max-width: 240px;
-    margin: 0 auto;
+  .about-hero-ctas {
+    justify-content: center;
   }
 }
