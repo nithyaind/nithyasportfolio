@@ -71,9 +71,7 @@
 .about-portrait-frame {
   border-radius: 4px !important;
   clip-path: none !important;
-  overflow: hidden;
-  border: 1px solid var(--ink);
-}
+  overflow: hidden;}
 
 .about-portrait-frame img {
   border-radius: 0 !important;
