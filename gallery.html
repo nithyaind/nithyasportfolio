@@ -68,73 +68,293 @@
 <!-- HERO -->
 <header class="gallery-hero">
   <div class="gallery-hero-inner">
-    <p class="archive-hero-eyebrow" style="margin-top:40px;">Film · Photography · Documentary</p>
+    <p class="film-eyebrow">Film · Photography · Documentary</p>
     <blockquote class="gallery-quote">
       "capturing moments has taught me to notice and appreciate the smallest details. here are some of the details i hope to share with you."
     </blockquote>
-    <div class="gallery-credits">
-      <div class="credit-pill">Jr. Creative Production Manager · MMT Productions 2024–present</div>
-      <div class="credit-pill">Founder, Creative Director· Sunroom Table Multimedia Storytelling Studio 2026</div>
-      <div class="credit-pill">2026 3rd Place at National Hearst Multimedia Journalism Awards for Multimedia Storytelling</div>
-      <div class="credit-pill">2026 2nd Place Innovative Journalism by Hearst Foundations</div>
-      <div class="credit-pill">Production Assistant · Portrait 2025</div>
-      <div class="credit-pill">Photo Contest Nominee · UNC Asian American Center 2025</div>
+
+    <p class="t-mono accolades-label">Selected recognition</p>
+    <div class="accolades">
+      <div class="acc-cell">
+        <div class="acc-big">3rd</div>
+        <div class="acc-unit">Place &middot; Nationally</div>
+        <p class="acc-text">Multimedia Storytelling, National Hearst Multimedia Journalism Awards 2026, for <em>Since 20/20</em>.</p>
+      </div>
+      <div class="acc-cell">
+        <div class="acc-big">2nd</div>
+        <div class="acc-unit">Place &middot; 2026</div>
+        <p class="acc-text">Innovative Journalism, Hearst Foundations.</p>
+      </div>
+      <div class="acc-cell">
+        <div class="acc-big">Founder</div>
+        <div class="acc-unit">Creative Director &middot; 2026</div>
+        <p class="acc-text">Sunroom Table, a multimedia storytelling studio.</p>
+      </div>
+      <div class="acc-cell">
+        <div class="acc-big">Nominee</div>
+        <div class="acc-unit">Photo contest &middot; 2025</div>
+        <p class="acc-text">UNC Asian American Center photo competition, for a portrait of a man praying at the Sri Venkateswara Temple.</p>
+      </div>
     </div>
   </div>
 </header>
 
-<!-- FILTER -->
-<div class="gallery-filter" id="gallery-filter">
-  <div class="gallery-filter-inner" id="gallery-filter-inner">
-    <button class="gfilter-btn active" data-filter="all">All</button>
-    <button class="gfilter-btn" data-filter="portrait">Photo</button>
-    <button class="gfilter-btn" data-filter="documentary">Doc Video</button>
-    <button class="gfilter-btn" data-filter="event">Event</button>
-    <button class="gfilter-btn" data-filter="film">Fiction Film</button>
-    <button class="gfilter-btn" data-filter="travel">Experimental</button>
+<!-- SECTION NAV -->
+<nav class="film-nav" id="film-nav" aria-label="Sections">
+  <div class="film-nav-inner">
+    <a href="#photo-story" data-sec="photo-story"><span>01</span>Photo Story</a>
+    <a href="#video" data-sec="video"><span>02</span>Video</a>
+    <a href="#experimental" data-sec="experimental"><span>03</span>Experimental</a>
+    <a href="#contact-sheet" data-sec="contact-sheet"><span>04</span>Contact Sheet</a>
   </div>
-</div>
+</nav>
 
 <!-- LIGHTBOX -->
 <div class="lightbox" id="lightbox" role="dialog" aria-modal="true">
   <div class="lightbox-inner">
     <button class="lightbox-close" id="lb-close">Close</button>
-    <button class="lightbox-nav lightbox-prev" id="lb-prev">‹</button>
-    <button class="lightbox-nav lightbox-next" id="lb-next">›</button>
+    <button class="lightbox-nav lightbox-prev" id="lb-prev">&lsaquo;</button>
+    <button class="lightbox-nav lightbox-next" id="lb-next">&rsaquo;</button>
     <div class="lightbox-media" id="lb-media"></div>
     <div class="lightbox-caption" id="lb-caption"></div>
   </div>
 </div>
 
-<!-- GALLERY BODY -->
-<main class="gallery-body">
+<!-- ════ 01 · PHOTO STORY ════ -->
+<section class="film-sec" id="photo-story" data-lb-group>
+  <div class="film-sec-head reveal">
+    <span class="film-sec-num">01</span>
+    <h2 class="film-sec-title">Photo <em>Story</em></h2>
+    <span class="film-sec-meta">Sports &middot; Portrait<br>Five frames</span>
+  </div>
 
-  <div class="gallery-series-head reveal" data-series-tag="photo">
-    <h2 class="gallery-series-title">Photo</h2>
+  <div class="story-lede reveal">
+    <div>
+      <span class="film-kicker">Photo Story &middot; UNC Women&rsquo;s Tennis</span>
+      <h3 class="story-title">Carson, <em>last weeks.</em></h3>
+      <p class="story-deck">Following Carson Tanguilig through her final weeks as a student-athlete &mdash; before the pro tennis journey begins.</p>
+    </div>
+    <dl class="story-ledger">
+      <div><dt>Subject</dt><dd>Carson Tanguilig, senior, D1 women&rsquo;s tennis, UNC Chapel Hill</dd></div>
+      <div><dt>Context</dt><dd>Two consecutive ACC titles, senior day, the run-up to the NCAAs</dd></div>
+      <div><dt>Role</dt><dd>Photographer</dd></div>
+      <div><dt>Format</dt><dd>Documentary photo story</dd></div>
+    </dl>
+  </div>
+
+  <div class="story-grid">
+    <figure class="story-frame sf-a reveal">
+      <div class="gallery-item" data-tag="story" data-type="photo" data-src="https://bynithya.com/portfolio/img/carson1.jpg" data-label="Photo Story &middot; 01" data-caption="Carson Tanguilig, senior D1 UNC Chapel Hill women's tennis player, reflecting on her last weeks as a student-athlete before embarking on her pro tennis journey.">
+        <img src="https://bynithya.com/portfolio/img/carson1.jpg" alt="Carson Tanguilig reflecting on her last weeks as a student-athlete" loading="lazy" />
+      </div>
+      <figcaption><b>01</b><span>Reflecting on her last weeks as a student-athlete, before embarking on her pro tennis journey.</span></figcaption>
+    </figure>
+    <figure class="story-frame sf-b reveal rd1">
+      <div class="gallery-item" data-tag="story" data-type="photo" data-src="https://bynithya.com/portfolio/img/carson7.jpg" data-label="Photo Story &middot; 02" data-caption="Carson Tanguilig stretching and recovering after a long week of practice leading up to the NCAAs.">
+        <img src="https://bynithya.com/portfolio/img/carson7.jpg" alt="Carson stretching and recovering ahead of the NCAAs" loading="lazy" />
+      </div>
+      <figcaption><b>02</b><span>Stretching and recovering after a long week of practice leading up to the NCAAs.</span></figcaption>
+    </figure>
+    <figure class="story-frame sf-c reveal">
+      <div class="gallery-item" data-tag="story" data-type="photo" data-src="https://bynithya.com/portfolio/img/carson3.jpg" data-label="Photo Story &middot; 03" data-caption="Carson Tanguilig playing her senior day match while family, friends, teammates, and everyone who has been on this journey with her watches and cheers.">
+        <img src="https://bynithya.com/portfolio/img/carson3.jpg" alt="Carson playing her senior day match" loading="lazy" />
+      </div>
+      <figcaption><b>03</b><span>Senior day: family, friends, teammates, and everyone who has been on this journey watching and cheering.</span></figcaption>
+    </figure>
+    <figure class="story-frame sf-d reveal rd1">
+      <div class="gallery-item" data-tag="story" data-type="photo" data-src="https://bynithya.com/portfolio/img/carson2.jpg" data-label="Photo Story &middot; 04" data-caption="UNC Chapel Hill women's tennis team taking their iconic .5 selfie after winning the ACC title for their second consecutive year.">
+        <img src="https://bynithya.com/portfolio/img/carson2.jpg" alt="UNC women's tennis team .5 selfie after the ACC title" loading="lazy" />
+      </div>
+      <figcaption><b>04</b><span>The team&rsquo;s iconic .5 selfie after winning the ACC title for a second consecutive year.</span></figcaption>
+    </figure>
+    <figure class="story-frame sf-e reveal">
+      <div class="gallery-item" data-tag="story" data-type="photo" data-src="https://bynithya.com/portfolio/img/carson9.jpg" data-label="Photo Story &middot; 05" data-caption="Carson Tanguilig preparing her Trader Joe's chipotle bowl while her cat lays on her shoulder.">
+        <img src="https://bynithya.com/portfolio/img/carson9.jpg" alt="Carson making a chipotle bowl with her cat on her shoulder" loading="lazy" />
+      </div>
+      <figcaption><b>05</b><span>Preparing a Trader Joe&rsquo;s chipotle bowl while her cat lies on her shoulder.</span></figcaption>
+    </figure>
+  </div>
+  <p class="story-end">End of story</p>
+</section>
+
+<!-- ════ 02 · VIDEO ════ -->
+<section class="film-sec" id="video">
+  <div class="film-sec-head reveal">
+    <span class="film-sec-num">02</span>
+    <h2 class="film-sec-title">Video</h2>
+    <span class="film-sec-meta">Documentary &middot; Interactive<br>Credits &middot; Vlogs</span>
+  </div>
+
+  <article class="vid-feature reveal">
+    <a class="vid-poster" href="https://light-drab-psi.vercel.app/" target="_blank" rel="noopener" data-cursor="experience it &#8599;">
+      <img src="assets/img/since2020.png" alt="Since 20/20, a multimedia story about a blind photographer" loading="lazy" />
+      <span class="vid-award">3rd Place &middot; Hearst Nationals</span>
+      <span class="vid-play">&#9654;</span>
+    </a>
+    <div>
+      <span class="film-kicker">Short Film &middot; AR &middot; Game &middot; 2026</span>
+      <h3 class="vid-title">Since 20/20</h3>
+      <p class="vid-desc">A short film, an AR simulation, and a game: one story told three ways. Dropped into San Francisco with a camera and three and a half days, I followed Amanda, who lost her vision in 2020, and built the experience around how she moves through the city.</p>
+      <dl class="vid-meta">
+        <div><dt>Recognition</dt><dd>3rd place, Multimedia Storytelling &middot; National Hearst Multimedia Journalism Awards 2026</dd></div>
+        <div><dt>Role</dt><dd>Creative Director &amp; Developer</dd></div>
+        <div><dt>Made in</dt><dd>3 days, San Francisco</dd></div>
+      </dl>
+      <a class="btn btn-solid" href="https://light-drab-psi.vercel.app/" target="_blank" rel="noopener">Experience it &#8599;</a>
+    </div>
+  </article>
+
+  <div class="vid-grid">
+    <article class="vid-card wide reveal ">
+      <a class="vid-poster " href="https://vimeo.com/1132358106" target="_blank" rel="noopener" data-cursor="watch ↗"><img src="assets/img/tonys-lab.gif" alt="Food for Thought, Tony&rsquo;s Kitchen Lab" loading="lazy" /><span class="vid-play">&#9654;</span></a>
+      <span class="film-kicker" style="margin-top:18px;">Short Film &middot; Interactive Story</span>
+      <h3 class="vid-title">Food for Thought <small>/ Tony&rsquo;s Lab</small></h3>
+      <p>A visual exploration of culinary creativity, told as a film and as an interactive, responsive storytelling experience that combines text, film, and play.</p>
+      <div class="vid-actions"><a class="btn btn-solid" href="https://vimeo.com/1132358106" target="_blank" rel="noopener">Watch film &#8599;</a><a class="btn btn-outline" href="https://food-for-thought-six.vercel.app/" target="_blank" rel="noopener">Step inside the lab &#8599;</a></div>
+    </article>
+    <article class="vid-card wide reveal rd1">
+      <a class="vid-poster poster-type" href="https://www.youtube.com/@nithyaaa" target="_blank" rel="noopener" data-cursor="watch ↗"><span class="pt-tag">Video</span><span class="pt-title">All we need<br>is <em>love</em></span><span class="vid-play">&#9654;</span></a>
+      <span class="film-kicker" style="margin-top:18px;">Film</span>
+      <h3 class="vid-title">All We Need Is Love</h3>
+      <!-- REPLACE: add a one-line description -->
+      
+    </article>
+    <article class="vid-card reveal ">
+      <a class="vid-poster " href="https://youtu.be/XPKHHu0CnSY" target="_blank" rel="noopener" data-cursor="watch ↗"><img src="assets/img/thadyamu-sumati.jpg" alt="Thadyamu Sumati" loading="lazy" /><span class="vid-play">&#9654;</span></a>
+      <span class="film-kicker" style="margin-top:18px;">Short Film</span>
+      <h3 class="vid-title">Thadyamu Sumati</h3>
+      <p>A visual poem narrated by my grandfather.</p>
+      
+    </article>
+    <article class="vid-card reveal rd1">
+      <a class="vid-poster " href="https://youtu.be/0BvKvO712Z0" target="_blank" rel="noopener" data-cursor="watch ↗"><img src="https://bynithya.com/portfolio/vid/sparks-to-flames.gif" alt="Sparks to Flames" loading="lazy" /><span class="vid-play">&#9654;</span></a>
+      <span class="film-kicker" style="margin-top:18px;">Short Film</span>
+      <h3 class="vid-title">Sparks to Flames</h3>
+      <p>It started as a conversation. I hope that when it ends, you&rsquo;re left with a question or a thought &mdash; a spark.</p>
+      
+    </article>
+    <article class="vid-card reveal rd2">
+      <div class="vid-poster "><img src="https://bynithya.com/portfolio/vid/samaa_gif.gif" alt="SAMAA intro video" loading="lazy" /></div>
+      <span class="film-kicker" style="margin-top:18px;">Intro Video</span>
+      <h3 class="vid-title">SAMAA Intro</h3>
+      <p>Intro video for UNC&rsquo;s premier South Asian competitive a cappella team.</p>
+      
+    </article>
+  </div>
+
+  <div class="vid-lower">
+    <div class="reveal">
+      <p class="sub-label">On set &amp; behind the scenes</p>
+      <h3 class="sub-title">Credits</h3>
+      <ul class="credits-roll">
+        <li><span class="cr-role">Founder &amp; Creative Director</span><span class="cr-proj">Sunroom Table <small>multimedia storytelling studio</small></span><span class="cr-yr">2026 &ndash;</span></li>
+        <li><span class="cr-role">Creative Director &amp; Developer</span><span class="cr-proj">Since 20/20</span><span class="cr-yr">2026</span></li>
+        <li><span class="cr-role">Art PA &middot; Production Assistant</span><span class="cr-proj"><a href="https://www.instagram.com/portrait_the_film/" target="_blank" rel="noopener">Portrait</a> <small>short film &middot; dir. Ishq Pradhan</small></span><span class="cr-yr">2025</span></li>
+        <li><span class="cr-role">Feature Film</span><span class="cr-proj"><a href="https://www.incarnationsofidoc.com/" target="_blank" rel="noopener">Incarnations of I</a> <small>dir. Sharbari Bose</small></span><span class="cr-yr"></span></li>
+        <li><span class="cr-role">Jr. Creative Production Manager</span><span class="cr-proj"><a href="https://www.mmtproductions.com/" target="_blank" rel="noopener">MMT Productions</a></span><span class="cr-yr">2024 &ndash;</span></li>
+        <li><span class="cr-role">Assistant Event Planner</span><span class="cr-proj">Harmony Weddings</span><span class="cr-yr">2019 &ndash;</span></li>
+      </ul>
+      <p class="cr-note">At MMT: built the company site, which led to 2 new client relationships, and drove 10,000+ views in two weeks through engagement-led content strategy.</p>
+      <details class="full-credits">
+        <summary>Full credits &middot; Portrait</summary>
+        <p>Written &amp; Directed by Ishq Pradhan &middot; Starring Thomas Sadoski, Jasmine Cephas Jones, Saman Hasan &middot; <b>Exec. Producers</b> Prince Bhojwani, Thomas Sadoski, Suroosh Alvi, Omar Mullick &middot; <b>Producers</b> Rianjali Bhowmick, Saman Hasan, Ishq Pradhan, Jamie Buckner, Sophie Fazio &middot; <b>DP</b> Andrew Wonder &middot; <b>Editor</b> Lucas Moesch &middot; <b>Production Designer</b> Kelsey Hannah Walsh &middot; <b>Music</b> Rianjali &middot; <b>Costume</b> Sweta Vakani &middot; <b>Assoc. Producer</b> Todd C. Baxley &middot; <b>Consulting Producer</b> Kunal M. Patel &middot; <b>1st AD</b> Natalie Marie &middot; <b>Camera Operators</b> Meagan Wachtel, Ruben Frischeisen &middot; <b>1st AC</b> Vince Filippini &middot; <b>2nd AC</b> Molly Scotti &middot; <b>Gaffer</b> Nico Tepper &middot; <b>Key Grip</b> Dylan Rizzo &middot; <b>Art PAs</b> Angbeen Saleem, <mark>Nithya Sunkara Indlamuri</mark> &middot; <b>Wardrobe Assistants</b> Allison Affenita, Carley Lovito &middot; <b>Hair &amp; Makeup</b> Lani Barry &middot; <b>Sound Mixer</b> Jack Sound &middot; <b>Script Supervisor</b> Zahra Vera &middot; <b>Location Manager</b> Ruby Bowles &middot; <b>Location PA</b> Migdalia Mimi Alvarado &middot; <b>Key PA</b> Ritika Agrawal &middot; <b>Production Assistant</b> <mark>Nithya Sunkara Indlamuri</mark> &middot; <b>BTS Stills &amp; Video</b> Nimmi Malaickal Thomas &middot; <b>Sound Designer / Re-recording Mixer</b> Craig Polding &middot; <b>Assistant Composer</b> Elizabeth Becker &middot; <b>Assistant Editor</b> Tunay Canepari &middot; <b>Colorist</b> Martin Melnick &middot; <b>Sponsors</b> Bukhara Grill, Kaafi NYC, Kolkata Chai Co, Bollygood Seekers Coffee</p>
+      </details>
+    </div>
+
+    <div class="reveal rd1">
+      <p class="sub-label">YouTube</p>
+      <h3 class="sub-title">Vlogs &amp; <em>covers</em></h3>
+      <div class="yt-frame">
+        <iframe src="https://www.youtube.com/embed/OlmHO2J6MPY?si=z0LWv6Jhi0L49PCN" title="Nithya vlog" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+      <div class="yt-links"><a class="btn btn-outline" href="https://www.youtube.com/@nithyaaa" target="_blank" rel="noopener">More on YouTube &#8599;</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ 03 · EXPERIMENTAL ════ -->
+<div class="film-dark">
+  <section class="film-sec" id="experimental">
+    <div class="film-sec-head reveal">
+      <span class="film-sec-num">03</span>
+      <h2 class="film-sec-title">Experimental</h2>
+      <span class="film-sec-meta">Generative &middot; Mixed media<br>Sound &middot; Motion</span>
+    </div>
+    <p class="xp-intro reveal">Where the format is the question. Testing what new tools and materials can do for a story.</p>
+
+    <div class="xp-grid">
+      <!-- REPLACE: wrap in <a href="..."> once there's a link; to show a still or clip, add <img src=""> or <video src="" muted loop autoplay playsinline> inside .xp-screen -->
+      <div class="xp-card no-link reveal">
+        <div class="xp-screen">
+          <span class="xp-rec">Gen AI &middot; Advertisement</span>
+          <span class="xp-screen-title">Glenn Square <em>(AI)</em></span>
+        </div>
+        <div class="xp-info">
+          <p>Marketing video for Glenn Square using Gen AI for drone shots and mock-ups built from architectural drawings.</p>
+        </div>
+      </div>
+      <div class="xp-card no-link reveal rd1">
+        <div class="xp-screen">
+          <span class="xp-rec">Music video &middot; Mixed media</span>
+          <span class="xp-screen-title">Story <em>by Heema Izzati</em></span>
+        </div>
+        <div class="xp-info">
+          <p>A music video made with mixed media: physical materials, digital graphics, and animation.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ════ 04 · CONTACT SHEET (everything else) ════ -->
+<section class="film-sec" id="contact-sheet" style="padding-bottom:0;">
+  <div class="film-sec-head reveal">
+    <span class="film-sec-num">04</span>
+    <h2 class="film-sec-title">Contact <em>Sheet</em></h2>
+    <span class="film-sec-meta">Photo &middot; Portrait<br>Documentary &middot; Event</span>
+  </div>
+</section>
+
+<div class="film-sec" style="padding-top:0;padding-bottom:0;">
+  <div class="cs-filter">
+    <div class="gallery-filter-inner" id="gallery-filter-inner">
+      <button class="gfilter-btn active" data-filter="all">All</button>
+      <button class="gfilter-btn" data-filter="portrait">Portrait</button>
+      <button class="gfilter-btn" data-filter="documentary">Documentary</button>
+      <button class="gfilter-btn" data-filter="event">Event</button>
+          </div>
+  </div>
+</div>
+
+<main class="contact-sheet-body" id="contact-sheet-body" data-lb-group>
+
+
+  <div class="gallery-series-head reveal" data-series-tag="portrait">
+    <h2 class="gallery-series-title">Portraits</h2>
     <span class="gallery-series-meta">People · Moments · Light</span>
   </div>
 
-  <div class="gallery-masonry" data-series="photo">
-    <div class="gallery-item" data-tag="photo" data-type="photo" data-src="https://bynithya.com/portfolio/img/carson1.jpg" data-caption="Carson Tanguilig, senior D1 UNC Chapel Hill women's tennis player, reflecting on her last weeks as a student-athlete before embarking on her pro tennis journey." data-label="Portrait">
-      <img src="https://bynithya.com/portfolio/img/carson1.jpg" alt="Carson Tanguilig portrait" loading="lazy" />
-      <div class="gallery-item-caption"><span class="cap-tag">Photo</span><p>Carson Tanguilig — senior D1 women's tennis, UNC Chapel Hill</p></div>
-    </div>
-    <div class="gallery-item" data-tag="photo" data-type="photo" data-src="https://bynithya.com/portfolio/img/arame.jpg" data-caption="A portrait with eye-catching light in Davis Library." data-label="Portrait">
+  <div class="gallery-masonry" data-series="portrait">
+    <div class="gallery-item" data-tag="portrait" data-type="photo" data-src="https://bynithya.com/portfolio/img/arame.jpg" data-caption="A portrait with eye-catching light in Davis Library." data-label="Portrait">
       <img src="https://bynithya.com/portfolio/img/arame.jpg" alt="Portrait in Davis Library" loading="lazy" />
       <div class="gallery-item-caption"><span class="cap-tag">Portrait</span><p>Eye-catching light in Davis Library</p></div>
     </div>
-    <div class="gallery-item" data-tag="photo" data-type="photo" data-src="https://bynithya.com/portfolio/img/carson9.jpg" data-caption="Carson Tanguilig preparing her Trader Joe's chipotle bowl while her cat lays on her shoulder." data-label="Portrait">
-      <img src="https://bynithya.com/portfolio/img/carson9.jpg" alt="Carson at home" loading="lazy" />
-      <div class="gallery-item-caption"><span class="cap-tag">Portrait</span><p>Carson — Trader Joe's chipotle bowl, cat on shoulder</p></div>
-    </div>
-    <div class="gallery-item" data-tag="photo" data-type="photo" data-src="https://bynithya.com/portfolio/img/vivek1.jpg" data-caption="Vivek doom scrolling in West Virginia." data-label="Portrait">
+    <div class="gallery-item" data-tag="portrait" data-type="photo" data-src="https://bynithya.com/portfolio/img/vivek1.jpg" data-caption="Vivek doom scrolling in West Virginia." data-label="Portrait">
       <img src="https://bynithya.com/portfolio/img/vivek1.jpg" alt="Vivek in West Virginia" loading="lazy" />
       <div class="gallery-item-caption"><span class="cap-tag">Portrait</span><p>Vivek doom scrolling in West Virginia</p></div>
     </div>
-    <div class="gallery-item" data-tag="photo" data-type="photo" data-src="https://bynithya.com/portfolio/img/jules.jpg" data-caption="Jules enjoying her free drink from Stone and Leaf in Davis Library at UNC Chapel Hill." data-label="Portrait">
+    <div class="gallery-item" data-tag="portrait" data-type="photo" data-src="https://bynithya.com/portfolio/img/jules.jpg" data-caption="Jules enjoying her free drink from Stone and Leaf in Davis Library at UNC Chapel Hill." data-label="Portrait">
       <img src="https://bynithya.com/portfolio/img/jules.jpg" alt="Jules at Davis Library" loading="lazy" />
       <div class="gallery-item-caption"><span class="cap-tag">Portrait</span><p>Jules — free drink from Stone and Leaf, Davis Library</p></div>
     </div>
+  </div>
+
+  <div class="gallery-series-head reveal" data-series-tag="documentary">
+    <h2 class="gallery-series-title">Documentary</h2>
+    <span class="gallery-series-meta">Stories · Truth · Witness</span>
+  </div>
+
+  <div class="gallery-masonry" data-series="documentary">
     <div class="gallery-item" data-tag="documentary" data-type="photo" data-src="https://bynithya.com/portfolio/img/amma1.jpg" data-caption="My mom making pulihora while on vacation in West Virginia." data-label="Documentary">
       <img src="https://bynithya.com/portfolio/img/amma1.jpg" alt="Amma making pulihora" loading="lazy" />
       <div class="gallery-item-caption"><span class="cap-tag">Documentary</span><p>My mom making pulihora on vacation in West Virginia</p></div>
@@ -155,6 +375,14 @@
       <img src="https://bynithya.com/portfolio/img/bond.jpg" alt="Bond Park on handicam" loading="lazy" />
       <div class="gallery-item-caption"><span class="cap-tag">Documentary</span><p>Bond Park, Cary NC — handicam</p></div>
     </div>
+  </div>
+
+  <div class="gallery-series-head reveal" data-series-tag="event">
+    <h2 class="gallery-series-title">Events &amp; Community</h2>
+    <span class="gallery-series-meta">Celebration · Culture · People</span>
+  </div>
+
+  <div class="gallery-masonry" data-series="event">
     <div class="gallery-item" data-tag="event" data-type="photo" data-src="https://bynithya.com/portfolio/img/samaa_seniors.jpg" data-caption="Graduation photos of the Class of 2025 at UNC Chapel Hill." data-label="Event">
       <img src="https://bynithya.com/portfolio/img/samaa_seniors.jpg" alt="SAMAA seniors" loading="lazy" />
       <div class="gallery-item-caption"><span class="cap-tag">Event</span><p>Class of 2025 — UNC Chapel Hill</p></div>
@@ -179,19 +407,14 @@
       <img src="https://bynithya.com/portfolio/img/futbol3.jpg" alt="Ball Hogs FC soccer" loading="lazy" />
       <div class="gallery-item-caption"><span class="cap-tag">Event</span><p>Ball Hogs FC — Saturday morning halftime</p></div>
     </div>
-    <div class="gallery-item" data-tag="event" data-type="photo" data-src="https://bynithya.com/portfolio/img/carson2.jpg" data-caption="UNC Chapel Hill women's tennis team taking their iconic .5 selfie after winning the ACC title for their second consecutive year." data-label="Event">
-      <img src="https://bynithya.com/portfolio/img/carson2.jpg" alt="UNC tennis ACC champions" loading="lazy" />
-      <div class="gallery-item-caption"><span class="cap-tag">Event · Sports</span><p>UNC women's tennis — 2× consecutive ACC champions</p></div>
-    </div>
-    <div class="gallery-item" data-tag="event" data-type="photo" data-src="https://bynithya.com/portfolio/img/carson3.jpg" data-caption="Carson Tanguilig playing her senior day match while family, friends, teammates, and everyone who has been on this journey with her watches and cheers." data-label="Event · Sports">
-      <img src="https://bynithya.com/portfolio/img/carson3.jpg" alt="Carson senior day" loading="lazy" />
-      <div class="gallery-item-caption"><span class="cap-tag">Event · Sports</span><p>Carson Tanguilig — senior day match</p></div>
-    </div>
-    <div class="gallery-item" data-tag="event" data-type="photo" data-src="https://bynithya.com/portfolio/img/carson7.jpg" data-caption="Carson Tanguilig stretching and recovering after a long week of practice leading up to the NCAAs." data-label="Event · Sports">
-      <img src="https://bynithya.com/portfolio/img/carson7.jpg" alt="Carson stretching" loading="lazy" />
-      <div class="gallery-item-caption"><span class="cap-tag">Sports</span><p>Carson — recovering ahead of the NCAAs</p></div>
-    </div>
-    <div class="gallery-masonry" data-series="seniors">
+  </div>
+
+  <div class="gallery-series-head reveal" data-series-tag="event">
+    <h2 class="gallery-series-title">Class of 2025 — UNC</h2>
+    <span class="gallery-series-meta">Seniors · Portraits · Celebration</span>
+  </div>
+
+  <div class="gallery-masonry" data-series="seniors">
     <div class="gallery-item" data-tag="event" data-type="photo" data-src="https://bynithya.com/portfolio/img/samaa_seniors5.jpg" data-caption="Class of 2025 at UNC Chapel Hill." data-label="Event">
       <img src="https://bynithya.com/portfolio/img/samaa_seniors5.jpg" alt="Class of 2025" loading="lazy" />
       <div class="gallery-item-caption"><span class="cap-tag">Event</span><p>Class of 2025 — UNC Chapel Hill</p></div>
@@ -217,109 +440,6 @@
       <div class="gallery-item-caption"><span class="cap-tag">Event</span><p>Class of 2025 — UNC Chapel Hill</p></div>
     </div>
   </div>
-  </div>
-
-  <div class="gallery-series-head reveal" data-series-tag="documentary">
-    <h2 class="gallery-series-title">Doc Video</h2>
-    <span class="gallery-series-meta">Stories · Truth · Witness</span>
-  </div>
-
-  <div class="gallery-masonry" data-series="documentary">
-    <!-- Sparks to Flames -->
-    <div href = "https://youtu.be/0BvKvO712Z0?si=VkbyEnhikpxUF1RR"class="gallery-item" data-tag="film" data-type="gif" data-src="https://bynithya.com/portfolio/vid/sparks-to-flames.gif" data-caption="Sparks to Flames: it started as a conversation and I hope when this short video ends, you are left with a question or a thought — a spark." data-label="Short Film">
-      <img src="https://bynithya.com/portfolio/vid/sparks-to-flames.gif" alt="Sparks to Flames" loading="lazy" />
-      <span class="media-badge video">GIF · Film</span>
-      <div class="gallery-item-caption"><span class="cap-tag">Short Film</span><p>Sparks to Flames: a spark of a question</p></div>
-    </div>
-    <!-- Food For Thought -->
-    <div href = "https://vimeo.com/1132358106?fl=ip&fe=ec"class="gallery-item" data-tag="film" data-type="image" data-src="assets/img/food-for-thought.jpg" data-caption="Food For Thought: a visual exploration of culinary creativity." data-label="Short Film">
-      <img src="assets/img/food-for-thought.jpg" alt="Food For Thought" loading="lazy" />
-      <span class="media-badge video">GIF · Film</span>
-      <div class="gallery-item-caption"><span class="cap-tag">Short Film</span><p>Food For Thought: a visual exploration of culinary creativity</p></div>
-    </div>
-     <!-- Since 20/20 -->
-    <div href = "https://light-drab-psi.vercel.app/" class="gallery-item" data-tag="film" data-type="image" data-src="assets/img/since-20-20.jpg" data-caption="Since 20/20: a visual journey through time." data-label="Short Film">
-      <img src="assets/img/since-20-20.jpg" alt="Since 20/20" loading="lazy" />
-      <span class="media-badge video">GIF · Film</span>
-      <div class="gallery-item-caption"><span class="cap-tag">Short Film</span><p>Since 20/20: a multimedia story</p></div>
-    </div>
-    <!-- Thadyamu Sumati -->
-    <div href = "https://youtu.be/XPKHHu0CnSY?si=SCiQYtLVi9AqdR7j" class="gallery-item" data-tag="film" data-type="image" data-src="assets/img/thasu" data-caption="Since 20/20: a visual journey through time." data-label="Short Film">
-      <img src="assets/vid/thasu.mp4" alt="Thadyamu Sumati" loading="lazy" />
-      <span class="media-badge video">GIF · Film</span>
-      <div class="gallery-item-caption"><span class="cap-tag">Short Film</span><p>Thadyamu Sumati: a visual poem narrated by my grandfather</p></div>
-    </div>
-    <!-- Samaa Intro Video -->
-    <div class="gallery-item" data-tag="film" data-type="gif" data-src="https://bynithya.com/portfolio/vid/samaa_gif.gif" data-caption="Intro video for UNC's premier South Asian competitive a cappella team." data-label="Film · Production">
-      <img src="https://bynithya.com/portfolio/vid/samaa_gif.gif" alt="SAMAA intro video" loading="lazy" />
-      <span class="media-badge video">GIF · Video</span>
-      <div class="gallery-item-caption"><span class="cap-tag">Film · Production</span><p>Intro video — UNC South Asian competitive a cappella</p></div>
-    </div>
-  </div>
-  <!-- EVENTS -->
-  <div class="gallery-series-head reveal" data-series-tag="event">
-    <h2 class="gallery-series-title">Events &amp; Community</h2>
-    <span class="gallery-series-meta">Celebration · Culture · People</span>
-  </div>
-
-  <div class="gallery-masonry" data-series="event">
-    <div class="gallery-item" data-tag="event" data-type="gif" 
-      <p>ConvergeCon</p>
-    </div>
-    <div class="gallery-item" data-tag="event" data-type="gif" 
-      <p>Harmony Weddings Assistant Event Planner 2019-Current</p>
-    </div>
-  </div>
-  <!-- FILM & VIDEO -->
-  <div class="gallery-series-head reveal" data-series-tag="film">
-    <h2 class="gallery-series-title">Film &amp; Video</h2>
-    <span class="gallery-series-meta">Motion · Story · Time</span>
-  </div>
-  
-  <div class="gallery-masonry" data-series="film">
-    <!-- Portrait -->
-    <div href = "https://www.instagram.com/portrait_the_film/" class="gallery-item" data-tag="film" data-type="image" data-label="Short Film">
-      <img src="assets/img/portrait.png" alt="Portrait Poster" loading="lazy" />
-      <span class="media-badge video">GIF · Film</span>
-      <div class="gallery-item-caption"><span class="cap-tag">Short Film</span><p>Portrait</p>
-        <p>Written & Directed by Ishq Pradhan | Starring Thomas Sadoski, Jasmine Cephas Jones, and Saman Hasan | Executive Producer: Prince Bhojwani, Thomas Sadoski, Suroosh Alvi, Omar Mullick | Producers: Rianjali Bhowmick, Saman Hasan, Ishq Pradhan, Jamie Buckner, Sophie Fazio | Director of Photography: Andrew Wonder | Editor: Lucas Moesch | Production Designer: Kelsey Hannah Walsh | Music: Rianjali | Costume Designer: Sweta Vakani | Associate Producer: Todd C. Baxley | Consulting Producer: Kunal M. Patel | 1st Assistant Director: Natalie Marie | Camera Operators: Meagan Wachtel, Ruben Frischeisen | 1st AC: Vince Filippini | 2nd AC: Molly Scotti | Gaffer: Nico Tepper | Key Grip: Dylan Rizzo | Art PAs: Angbeen Saleem, Nithya Sunkara Indlamuri | Wardrobe Assistants: Allison Affenita, Carley Lovito | Hair and Make up: Lani Barry | Production Sound Mixer: Jack Sound | Script Supervisor: Zahra Vera | Location Manager: Ruby Bowles | Location PA: Migdalia Mimi Alvarado | Key Production Assistant: Ritika Agrawal | Production Assistant: Nithya Sunkara Indlamuri | BTS Stills Photographer and Videographer: Nimmi Malaickal Thomas | Sound Designer: Craig Polding | Re-recording Mixer: Craig Polding | Assistant Composer: Elizabeth Becker | Assistant Editor: Tunay Canepari | Colorist: Martin Melnick | Food and beverage sponsors: Bukhara Grill, Kaafi NYC, Kolkata Chai Co, Bollygood Seekers Coffee
-        </p>
-      </div>
-    </div>
-    <!-- Incarnations Of I -->
-    <div href = "https://www.incarnationsofidoc.com/" class="gallery-item" data-tag="film" data-type="image" data-label="Feature Film">
-      <img src="assets/img/iofi.png" alt="Incarnations Of I" loading="lazy" />
-      <span class="media-badge video">GIF · Film</span>
-      <div class="gallery-item-caption"><span class="cap-tag">Feature Film</span><p>Incarnations Of I</p>
-        <p>Directed by Sharbari Bose, Exective Producer: Vanessa Roth, Producers: Rianjali, Sharbari Bose</p>       
-      </div>
-    </div>
-    
-
-  </div>
-
-  <div class="gallery-series-head reveal" data-series-tag="experimental">
-    <h2 class="gallery-series-title">Experimental</h2>
-    <span class="gallery-series-meta">Seniors · Portraits · Celebration</span>
-  </div>
-
-  <div class="gallery-masonry" data-series="experimental">
-    <!-- Story Music Video -->
-    <div href = "" class="gallery-item" data-tag="experimental" data-type="image" data-label="Music Video">
-      <img src="assets/img/story.JPG" alt="Portrait Poster" loading="lazy" />
-      <span class="media-badge video">GIF · Film</span>
-      <div class="gallery-item-caption"><span class="cap-tag">Short Film</span><p>Portrait</p>
-        <p> "Story" By Heema Izzati. Using Mixed Media, physical materials, digital graphics, and animation to create a music video.
-        </p>
-      </div>
-
-      <div href = "" class="gallery-item" data-tag="experimental" data-type="image" data-label="Ad">
-      <img src="assets/img/" alt="COMING SOON" loading="lazy" />
-      <span class="media-badge video">GIF · Film</span>
-      <div class="gallery-item-caption"><span class="cap-tag">Advertisement for Glenn Square using Gen AI for drone shots and mock-ups based on architectual drawings.</span><p>Glenn Square Marketing Video using AI.</p>
-        <p>Advertisement for Glenn Square using Gen AI for drone shots and mock-ups based on architectual drawings.</p>
-      </div>
-    </div>
 
 
 </main>
@@ -379,12 +499,14 @@
   let currentItems = [];
   let currentIndex = 0;
 
-  function getVisibleItems() {
-    return Array.from(document.querySelectorAll('.gallery-item')).filter(el => el.style.display !== 'none');
+  // Lightbox browses within the section you clicked from (story, or contact sheet)
+  function getGroupItems(item) {
+    const group = item.closest('[data-lb-group]') || document;
+    return Array.from(group.querySelectorAll('.gallery-item')).filter(el => el.style.display !== 'none');
   }
-  function openLightbox(item, items) {
-    currentItems = items;
-    currentIndex = items.indexOf(item);
+  function openLightbox(item) {
+    currentItems = getGroupItems(item);
+    currentIndex = currentItems.indexOf(item);
     showItem(currentIndex);
     lb.classList.add('open');
     document.body.style.overflow = 'hidden';
@@ -409,41 +531,53 @@
     }
     lbCap.innerHTML = `<span class="lb-tag">${label}</span>${cap}`;
   }
+  const step = d => { currentIndex = (currentIndex + d + currentItems.length) % currentItems.length; showItem(currentIndex); };
 
   document.querySelectorAll('.gallery-item').forEach(item => {
-    item.addEventListener('click', () => openLightbox(item, getVisibleItems()));
+    item.addEventListener('click', () => openLightbox(item));
   });
   lbClose.addEventListener('click', closeLightbox);
   lb.addEventListener('click', e => { if (e.target === lb) closeLightbox(); });
-  lbPrev.addEventListener('click', e => { e.stopPropagation(); currentIndex=(currentIndex-1+currentItems.length)%currentItems.length; showItem(currentIndex); });
-  lbNext.addEventListener('click', e => { e.stopPropagation(); currentIndex=(currentIndex+1)%currentItems.length; showItem(currentIndex); });
+  lbPrev.addEventListener('click', e => { e.stopPropagation(); step(-1); });
+  lbNext.addEventListener('click', e => { e.stopPropagation(); step(1); });
   document.addEventListener('keydown', e => {
     if (!lb.classList.contains('open')) return;
     if (e.key === 'Escape') closeLightbox();
-    if (e.key === 'ArrowLeft')  { currentIndex=(currentIndex-1+currentItems.length)%currentItems.length; showItem(currentIndex); }
-    if (e.key === 'ArrowRight') { currentIndex=(currentIndex+1)%currentItems.length; showItem(currentIndex); }
+    if (e.key === 'ArrowLeft') step(-1);
+    if (e.key === 'ArrowRight') step(1);
   });
 
+  // Contact-sheet filters (scoped to that section only)
+  const sheet = document.getElementById('contact-sheet-body');
   const filterBtns = document.querySelectorAll('.gfilter-btn');
   filterBtns.forEach(btn => {
     btn.addEventListener('click', () => {
       filterBtns.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
       const tag = btn.dataset.filter;
-      document.querySelectorAll('.gallery-item').forEach(item => {
+      sheet.querySelectorAll('.gallery-item').forEach(item => {
         item.style.display = (tag === 'all' || item.dataset.tag === tag) ? '' : 'none';
       });
-      document.querySelectorAll('.gallery-series-head').forEach(h => {
-        const seriesTag = h.dataset.seriesTag;
-        h.style.display = (tag === 'all' || seriesTag === tag) ? '' : 'none';
+      sheet.querySelectorAll('.gallery-series-head').forEach(h => {
+        h.style.display = (tag === 'all' || h.dataset.seriesTag === tag) ? '' : 'none';
+      });
+      sheet.querySelectorAll('.gallery-masonry').forEach(m => {
+        m.style.display = (tag === 'all' || m.querySelector('.gallery-item[data-tag="' + tag + '"]')) ? '' : 'none';
       });
     });
   });
 
-  document.querySelectorAll('.gallery-item video').forEach(v => {
-    v.parentElement.addEventListener('mouseenter', () => v.play());
-    v.parentElement.addEventListener('mouseleave', () => { v.pause(); v.currentTime = 0; });
-  });
+  // Section nav: highlight the section in view
+  const navLinks = document.querySelectorAll('.film-nav a');
+  const secs = ['photo-story', 'video', 'experimental', 'contact-sheet'].map(id => document.getElementById(id));
+  const spy = new IntersectionObserver(entries => {
+    entries.forEach(en => {
+      if (en.isIntersecting) {
+        navLinks.forEach(a => a.classList.toggle('active', a.dataset.sec === en.target.id));
+      }
+    });
+  }, { rootMargin: '-35% 0px -55% 0px' });
+  secs.forEach(s => s && spy.observe(s));
 })();
 </script>
 </body>
